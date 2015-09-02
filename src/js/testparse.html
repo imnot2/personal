@@ -10,6 +10,9 @@
 </body>
 <script src="http://lolita.englishtown.com/axis/_static/scripts/lib/jquery.js"></script>
 <script>
+
+    //map   sourceMap
+
     function Parse(str){
         this.str = str;
         this.xmlDoc = $.parseXML('<wrap>'+this.str+'</wrap>');
@@ -20,9 +23,15 @@
             var me = this;
             var $temp = $(me.xmlDoc).children().first();
             var wrap = $('<div id="wrap"></div>');
+            wrap.data('toSourceNode',this.xmlDoc);
+            $(this.xmlDoc).data('toHtmlNode',wrap);
             while($temp){
                 if($temp[0] === xmlDoc) break;
                 if($temp.children().length){
+                    var htmlNode = me.build($temp);
+                    htmlNode.data('toSourceNode',$temp);
+                    $temp.data('toHtmlNode',htmlNode);
+                    $temp.parent().data('toHtmlNode').parent().append(htmlNode);
                     $temp = $temp.children().first();
                 }else{
                     var dd = me.build($temp);
@@ -55,7 +64,7 @@
                     wrap = $('');
             }
             
-            return wrap.append($node.html());
+            return wrap;
         },
         getCont:function(){
             return this.xmlDoc.documentElement.innerHTML;

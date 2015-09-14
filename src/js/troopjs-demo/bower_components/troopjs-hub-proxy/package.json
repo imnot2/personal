@@ -1,0 +1,14 @@
+{
+	"description": "TroopJS hub proxy package",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/troopjs/troopjs-hub-proxy.git"
+	},
+	"devDependencies": {
+		"grunt": "~0.4",
+		"grunt-contrib-requirejs": "~0.4",
+		"grunt-contrib-uglify": "~0.6",
+		"grunt-contrib-clean": "~0.6",
+		"load-grunt-tasks": "~1"
+	}
+}

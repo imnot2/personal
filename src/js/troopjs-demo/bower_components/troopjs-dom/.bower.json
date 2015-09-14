@@ -1,0 +1,32 @@
+{
+  "name": "troopjs-dom",
+  "ignore": [
+    "**/.*",
+    "node_modules"
+  ],
+  "dependencies": {
+    "troopjs-compose": "^4.0.2",
+    "troopjs-core": "^8",
+    "jquery": ">=1.8.1 <4",
+    "when": "^3.4",
+    "mu-error": "^0",
+    "mu-getargs": "^0",
+    "mu-merge": "^0.0.2",
+    "mu-jquery-destroy": "^0",
+    "mu-selector-set": "^1.1"
+  },
+  "devDependencies": {
+    "requirejs": "^2.1"
+  },
+  "homepage": "https://github.com/troopjs/troopjs-dom",
+  "version": "8.1.2",
+  "_release": "8.1.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "8.1.2",
+    "commit": "58c663d9a62981574b3c54e30ab5df560b786df5"
+  },
+  "_source": "git://github.com/troopjs/troopjs-dom.git",
+  "_target": "8.1.2",
+  "_originalSource": "troopjs-dom"
+}

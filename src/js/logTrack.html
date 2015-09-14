@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+<script>
+// "TrackTypeId" : 22,
+// "ItemId" : 4444,
+// "SessionId" : "9999",
+// "PageUrl" : "http://fasd",
+// "ReferUrl" : "http://referurl",
+// "BrowerPageId" : 5555,
+// "BrowerTabId" : 666,
+// "Data" : "{fffff}"
+var log = {
+    opts: {
+        trackHash: {
+            'Login failed': 1,
+            'Login succeeded': 2,
+            'Page loading succeeded': 3,
+            'Click forget password link': 4,
+            'Load calendar class succeeded': 5,
+            'Load calendar class failed': 6,
+            'Change the calendar': 7,
+            'Click SetTimeZone Link': 8,
+            'Click UpComingClass link': 9,
+            'Click SyncCalendar link': 10,
+            'Click UnsyncCalendar link': 11,
+            'Click Logout link': 12,
+            'Save availability failed': 13,
+            'Save availability succeeded': 14,
+            'Clone availability succeeded': 15,
+            'Clone availability failed': 16,
+            'Book additional PL succeeded': 17,
+            'Book additional PL  failed': 18,
+            'Load student info failed': 19,
+            'Load student info succeeded': 20,
+            'Load PL topic failed': 21,
+            'Load PL topic succeeded': 22,
+            'Load booking context failed': 23,
+            'Load booking context succeeded': 24,
+            'Click StudentPLHistory link': 25,
+            'Click EnterClass link': 26,
+            'Save grade failed': 27,
+            'Save grade succeeded': 28,
+            'Load grade failed': 29,
+            'Load grade succeeded': 30,
+            'Save grade draft failed': 31,
+            'Save grade draft succeeded': 32,
+            'Click TeacherSurvey link': 33,
+            'Book allocated PL failed': 34,
+            'Book allocated PL succeeded': 35,
+            'Load GL topic failed': 36,
+            'Load GL topic succeeded': 37,
+            'Load subout reason failed': 38,
+            'Load subout reason succeeded': 39,
+            'Subout class failed': 40,
+            'Subout class succeeded': 41,
+            'Finish class failed': 42,
+            'Finish class succeeded': 43,
+            'Load assignable class failed': 44,
+            'Load assignable class succeeded': 45,
+            'Assign class failed': 46,
+            'Assign class succeeded': 47
+        },
+        pageId: -1,
+        sessionId: undefined,
+        KEY_BROWSER_TAB: 'key_browser_tab'
+    },
+    getCookie: function(name, cookie) {
+        try {
+            var regEx = new RegExp("(^|;) ?" + name + "=([^;]*)(;|$)", "i");
+            var results = cookie.match(regEx);
+
+            if (results) {
+                return unescape(results[2]);
+            } else {
+                return "";
+            }
+        } catch (e) {
+            return "";
+        }
+    },
+    getGenerateId: function() {
+        return Math.floor(Math.random() * (7 << 24));
+    },
+    init: function() {
+        var param = this.param || (this.param = {});
+        param.SessionId = this.getCookie("VMsi", document.cookie);
+        param.PageUrl = this.getPageUrl();
+        param.ReferUrl = this.getReferUrl();
+        param.BrowerPageId = this.getBrowerPageId();
+        param.BrowerTabId = this.getBrowerTabId();
+    },
+    send: function(TrackName) {
+        if (!this.param) this.init();
+        this.param.itemId = this.getItemId();
+        this.param.TrackTypeId = trackHash[TrackName];
+        $.post('http://local.englishtown.com/services/api/axis/command/behaviorcommand/LogTrack', this.param);
+    },
+    getPageUrl: function() {
+        return window.location.href.replace('#', '~');
+    },
+    getReferUrl: function() {
+        return document.referrer;
+    },
+    getBrowerPageId: function() {
+        var pageId = this.opts.pageId;
+        if (pageId <= 0) {
+            pageId = this.generateId();
+        }
+        return pageId;
+    },
+    getBrowerTabId: function() {
+        var tabId = -1;
+        if (sessionStorage && sessionStorage.getItem) {
+            tabId = sessionStorage.getItem(this.KEY_BROWSER_TAB);
+            if (!tabId) {
+                tabId = this.getGenerateId();
+                sessionStorage.setItem(this.KEY_BROWSER_TAB, tabId);
+            }
+        }
+        return tabId;
+    },
+    getItemId: function() {
+        //return 
+    }
+}
+</script>
+
+</html>

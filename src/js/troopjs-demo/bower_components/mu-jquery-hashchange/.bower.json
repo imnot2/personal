@@ -1,0 +1,36 @@
+{
+  "name": "mu-jquery-hashchange",
+  "homepage": "https://github.com/mu-lib/mu-jquery-hashchange",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mu-lib/mu-jquery-hashchange.git"
+  },
+  "authors": [
+    "Mikael Karon"
+  ],
+  "description": "Micro jQuery HashChange",
+  "main": "jquery.hashchange.js",
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test"
+  ],
+  "devDependencies": {
+    "requirejs": "~2"
+  },
+  "version": "0.0.1",
+  "_release": "0.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.1",
+    "commit": "e27291c5a852066a352979d1f215bfb062f76c1b"
+  },
+  "_source": "git://github.com/mu-lib/mu-jquery-hashchange.git",
+  "_target": "^0",
+  "_originalSource": "mu-jquery-hashchange"
+}

@@ -1,0 +1,27 @@
+{
+  "name": "mu-error",
+  "description": "Micro Error",
+  "moduleType": [
+    "amd"
+  ],
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "node_modules",
+    "test"
+  ],
+  "devDependencies": {
+    "requirejs": "^2.1"
+  },
+  "homepage": "https://github.com/mu-lib/mu-error",
+  "version": "0.0.2",
+  "_release": "0.0.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.2",
+    "commit": "22b2ee4a9ba980ec7158fe072a6116194fb96b30"
+  },
+  "_source": "git://github.com/mu-lib/mu-error.git",
+  "_target": "^0",
+  "_originalSource": "mu-error"
+}

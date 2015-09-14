@@ -1,0 +1,255 @@
+
+<!doctype html>
+<html class="ets-dark">
+<head>
+    <!-- Latest IE, Enable Chrome frame, and require ActiveX(flash) in Windows UI mode IE10 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, requiresActiveX=true, chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta charset="utf-8"/>
+    <title>Axis 2.0</title>
+    
+    <link type="text/css" rel="stylesheet" href="/_shared/axis-ui-shared/2015.09.09/dist/css/gudstrap-ui/main.min.css">
+    <link type="text/css" rel="stylesheet" href="/_shared/axis-ui-class/2015.09.09/dist/css/teacherSchedule/main.min.css">
+</head>
+<body class="gud axis-ui-body">
+    <!-- <div data-weave="axis-ui-class/widget/test/main">
+        
+    </div> -->
+    <div id="noticeStatusWrap" class="notice-status-wrap">
+        <div class="notice-static-area" data-weave="axis-ui-shared/widget/noticeMessage/main"></div>
+    </div>
+    <div id="axisContentWrap" class="axis-content-wrap" data-delay-stop="200">
+        <div class="axis-ui-mask" style="opacity: 0.4;">
+            <div class="loading">
+                <div class="text">Axis 2.0</div>
+                <span class="typing-loader"></span>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript">
+    var require = (function () {
+
+        return {
+            "callback": function () {
+
+                var deps = ["require", "jquery", "troopjs-bundle", "troopjs-ef"];
+                var localDeps = [];
+                var eviDebug = false;
+                var minDebug = false;
+
+                var packages = [
+                    {
+                        "name": "jquery",
+                        "location": "_shared/jquery/1.9.1",
+                        "main": minDebug ? "jquery-1.9.1" : "jquery-1.9.1.min"
+                    },
+                    /*{
+                        "name": "axis-ui-shared",
+                        "location": "_shared/axis-ui-shared/2015.09.09/dist/js/shared",
+                        "main": minDebug ? "app-built" : "app-built.min"
+                    },*/
+                    {
+                        "name": "troopjs-bundle",
+                        "location": "_shared/troopjs-bundle/2.0.2-8-ef.2",
+                        "main": minDebug ? "maxi" : "maxi.min"
+                    },
+                    {
+                        "name": "troopjs-ef",
+                        "location": "_shared/troopjs-ef/2.0.1-0",
+                        "main": minDebug ? "nodeps" : "nodeps.min"
+                    },
+                    {
+                        "name": "gudstrap",
+                        "location": "_shared/axis-ui-shared/2015.09.09/dist/js/gudstrap/1.1.1/js",
+                        "main": minDebug ? "gudstrap" : "gudstrap.min"
+                    },
+                    {
+                        "name": "axispopover",
+                        "location": "_shared/axis-ui-shared/2015.09.09/dist/js/plugin",
+                        "main": minDebug ? "axispopover" : "axispopover.min"
+                    },
+                    {
+                        "name": 'axismask',
+                        "location": "_shared/axis-ui-shared/2015.09.09/dist/js/plugin",
+                        "main": minDebug ? "axismask" : "axismask.min"
+                    },
+                    {
+                        "name": 'axistextarea',
+                        "location": "_shared/axis-ui-shared/2015.09.09/dist/js/plugin",
+                        "main": minDebug ? "axistextarea" : "axistextarea.min"
+                    },
+                    {
+                        "name": "jquery.mousewheel",
+                        "location": "_shared/jquery-mousewheel/3.0.6",
+                        "main": minDebug ? "jquery.mousewheel" : "jquery.mousewheel.min"
+                    },
+                    {
+                        "name": "jquery.validation",
+                        "location": "_shared/jquery-validation/1.13.1",
+                        "main": minDebug ? "jquery.validate" : "jquery.validate.min"
+                    },
+                    {
+                        "name": "datepicker",
+                        "location": "_shared/axis-ui-shared/2015.09.09/dist/js/bootstrap/plugin/datepicker/1.3.1",
+                        "main": minDebug ? "datepicker" : "datepicker.min"
+                    },
+                    {
+                        "name": "timepicker",
+                        "location": "_shared/axis-ui-shared/2015.09.09/dist/js/bootstrap/plugin/timepicker/3.1.3",
+                        "main": minDebug ? "timepicker" : "timepicker.min"
+                    },
+                    {
+                        "name": "moment",
+                        "location": "_shared/axis-ui-shared/2015.09.09/dist/js/tools/moment",
+                        "main": minDebug ? "moment" : "moment.min"
+                    },
+                    {
+                        "name": "moment-timezone",
+                        "location": "_shared/axis-ui-shared/2015.09.09/dist/js/tools/moment",
+                        "main": minDebug ? "moment-timezone" : "moment-timezone.min"
+                    },
+                    {
+                        "name": "track",
+                        "location": "_shared/axis-ui-shared/2015.09.09/dist/js/track",
+                        "main": minDebug ? "main" : "main.min"
+                    },
+                    {
+                        "name": "poly",
+                        "location": "_shared/poly/0.5.1-43",
+                        "main": minDebug ? "es5" : "es5.min"
+                    },
+                    {
+                        "name": "when",
+                        "location": "_shared/when/2.1.1",
+                        "main": "debug"
+                    }
+                ];
+
+                if(eviDebug){
+                    packages.push({
+                        "name": "axis-ui-class",
+                        "location": "_shared/axis-ui-class/2015.09.09/dist/js",
+                        "main": ""
+                    });
+
+
+                    packages.push({
+                        "name": "axis-ui-shared",
+                        "location": "_shared/axis-ui-shared/2015.09.09/dist/js",
+                        "main": ""
+                    });
+
+                    localDeps = ["jquery"];
+
+                }else{
+                    packages.push({
+                        "name": "axis-ui-teacher",
+                        "location": "_shared/axis-ui-class/2015.09.09/dist/js/teacherSchedule",
+                        "main": minDebug ? "app-built" : "app-built.min"
+                    });
+
+                    packages.push({
+                        "name": "axis-ui-shared",
+                        "location": "_shared/axis-ui-shared/2015.09.09/dist/js/shared",
+                        "main": minDebug ? "app-built" : "app-built.min"
+                    });
+
+                    localDeps = ["jquery", "axis-ui-teacher", "axis-ui-shared"];
+                }
+
+                require.config({
+                    "waitSeconds": 0,
+
+                    "baseUrl": "/",
+
+                    "packages": packages,
+
+                    "shim": {
+                        "jquery.mousewheel": {
+                            deps: ["jquery"],
+                            exports: function ($) {
+                                return $;
+                            }
+                        },
+                        "jquery.validation": {
+                            deps: ["jquery"],
+                            init: function ($) {
+                                return $;
+                            }
+                        },
+                        "timepicker": {
+                            deps: ["jquery", "gudstrap", "moment"],
+                            exports: function ($) {
+                                return $;
+                            }
+                        },
+                        "moment-timezone": {
+                            deps: ["moment"],
+                            exports: function ($) {
+                                return moment;
+                            }
+                        },
+                        "gudstrap": {
+                            deps: ["jquery"],
+                            init: function($) {
+                                return $;
+                            }
+                        }
+                    },
+
+                    "deps": deps,
+
+                    "config": {
+                        "troopjs-data/query/service": {
+                            "url": "/services/shared/queryproxy",
+                            "type": "post"
+                        }
+                    },
+
+                    "map": {
+                        "*": {
+                            "template": "troopjs-requirejs/template",
+                            "logger": "troopjs-core/logger/console"
+                        }
+                    },
+
+                    "callback": function (localRequire) {
+                        console.log(localRequire);
+                        console.log(localDeps);
+                        localRequire( localDeps, function (jQuery){
+                            localRequire([
+                                "troopjs-browser/application/widget",
+                                "troopjs-browser/ajax/service",
+                                "troopjs-data/query/service",
+                                "troopjs-data/cache/component",
+                                "troopjs-browser/route/widget",
+                                "troopjs-ef/service/config",
+                                "troopjs-jquery/loom",
+                                "axis-ui-class/widget/teacherSchedule/app/controller/class"
+                            ], function (Application, AjaxService, QueryService, Cache, RouteWidget, ConfigService, Loom, Controller) {
+                                jQuery(function ($) {
+                                    var cache = Cache();
+
+                                    Application($("html"),
+                                            "bootstrap",
+                                            AjaxService(),
+                                            RouteWidget($(window), "route"),
+                                            QueryService(cache),
+                                            ConfigService(cache))
+                                            .start().then(function () {
+                                                Controller().start('#axisContentWrap');
+                                            });
+                                });
+                            });
+                        });
+                    }
+                });
+            }
+        };
+    })();
+
+</script>
+<script type="text/javascript" src="/_shared/require.js/2.1.5/require.min.js"></script>
+</body>
+</html>

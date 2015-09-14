@@ -1,0 +1,16 @@
+{
+  "name": "mu-error",
+  "description": "Micro Error",
+  "moduleType": [
+    "amd"
+  ],
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "node_modules",
+    "test"
+  ],
+  "devDependencies": {
+    "requirejs": "^2.1"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "troopjs-widget",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "troopjs-core": "^8",
+    "troopjs-dom": "^8.1",
+    "troopjs-hub": "^1",
+    "when": "3.4 - 3.6.0 || >3.6.1",
+    "jquery": ">=1.8.1 <4",
+    "mu-merge": "^0.0.2",
+    "mu-getargs": "^0"
+  },
+  "devDependencies": {
+    "requirejs": "^2.1"
+  },
+  "homepage": "https://github.com/troopjs/troopjs-widget",
+  "_release": "9f648b7476",
+  "_resolution": {
+    "type": "commit",
+    "commit": "9f648b7476acdd9885e16a6a2e0fcb0e21f546cd"
+  },
+  "_source": "git://github.com/troopjs/troopjs-widget.git",
+  "_target": "9f648b7476acdd9885e16a6a2e0fcb0e21f546cd",
+  "_originalSource": "troopjs-widget"
+}

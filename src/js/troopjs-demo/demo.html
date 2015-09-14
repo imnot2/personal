@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>TroopJS App</title>
+    <meta charset="UTF-8">
+    <meta>
+    <script src="bower_components/requirejs/require.js"></script>
+    <script>
+    require.config({
+        baseUrl: 'bower_components',
+        // define package layout for all dependencies.
+        packages: [{
+            name: 'jquery',
+            main: 'dist/jquery.js'
+        }, {
+            name: 'poly',
+            main: 'poly.js'
+        }, {
+            name: 'requirejs',
+            main: 'require.js'
+        }, {
+            name: 'when',
+            main: 'when.js'
+        }],
+        deps: ['../main'],
+      callback: function () {
+        require(['troopjs-dom/application/widget', 'jquery'], function (app, $) {
+          app($('html')).start();
+        });
+      }
+    });
+    //require('troopjs/version');
+    define('app/kickoff', ['troopjs-dom/component/widget'], function(Widget) {
+        return Widget.extend({
+            "sig/start": function() {
+                this.html('Hello TroopJS!');
+            }
+        });
+    });
+    </script>
+</head>
+
+<body data-weave="app/kickoff">
+</body>
+
+</html>

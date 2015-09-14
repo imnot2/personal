@@ -1,0 +1,26 @@
+{
+  "name": "troopjs-compose",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "mu-getargs": "^0",
+    "mu-merge": "^0.0.2"
+  },
+  "devDependencies": {
+    "requirejs": "^2.1"
+  },
+  "homepage": "https://github.com/troopjs/troopjs-compose",
+  "version": "4.0.4",
+  "_release": "4.0.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "4.0.4",
+    "commit": "4ed50c9862c8ed4b191649ce6eb6c2959e36241d"
+  },
+  "_source": "git://github.com/troopjs/troopjs-compose.git",
+  "_target": "4.0.4",
+  "_originalSource": "troopjs-compose"
+}

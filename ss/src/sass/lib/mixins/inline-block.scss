@@ -1,7 +1,0 @@
-﻿@mixin inline-block($isblock:false) {
-	display:inline-block;
-	@if($isblock){
-		*display:inline;
-		*zoom:1;
-	}
-}

@@ -156,24 +156,24 @@ module.exports = function (grunt) {
                 }
             }
         },
-        replace: {
-            //给背景图添加版本号
-            build: {
-                src: ['<%= dirs.dest.css %>/page/*.css'],
-                overwrite: true,
-                replacements: [{
-                    from: /(url\((\'|\"|\s?)[^\'\"\)]+)/ig,
-                    to: '$1?v=' + new Date().getTime()
-                }]
-            }
-        },
+        // replace: {
+        //     //给背景图添加版本号
+        //     build: {
+        //         src: ['<%= dirs.dest.css %>/page/*.css'],
+        //         overwrite: true,
+        //         replacements: [{
+        //             from: /(url\((\'|\"|\s?)[^\'\"\)]+)/ig,
+        //             to: '$1?v=' + new Date().getTime()
+        //         }]
+        //     }
+        // },
         watch: {
             options: {
                 livereload: true
             },
             compass: {
                 files: ['<%= dirs.src.sass %>/**/*.sass', '<%= dirs.src.sass %>/**/*.scss'],
-                tasks: ['compass', 'replace:path']
+                tasks: ['compass']
             },
             js: {
                 files: ['<%= dirs.src.js %>/**/*.js'],

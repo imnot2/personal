@@ -6,7 +6,7 @@
  */
 
 'use strict';
-module.exports = function(grunt) {
+module.exports = function (grunt) {
     grunt.initConfig({
 
         pkg: grunt.file.readJSON('package.json'),
@@ -18,44 +18,57 @@ module.exports = function(grunt) {
                 sass: '<%= dirs.src.root %>/sass',
                 js: '<%= dirs.src.root %>/js',
                 imgs: '<%= dirs.src.root %>/images',
-                font: '<%= dirs.src.root %>/fonts'
+                font: '<%= dirs.src.root %>/fonts',
+                html: '<%= dirs.src.root %>/html'
             },
             build: {
                 root: 'build',
                 css: '<%= dirs.build.root %>/css',
                 imgs: '<%= dirs.build.root %>/images',
                 js: '<%= dirs.build.root %>/js',
-                font: '<%= dirs.build.root %>/fonts'
+                font: '<%= dirs.build.root %>/fonts',
+                html: '<%= dirs.build.root %>/html'
             },
             dest: {
                 root: 'dist',
                 css: '<%= dirs.dest.root %>/css',
                 imgs: '<%= dirs.dest.root %>/images',
                 js: '<%= dirs.dest.root %>/js',
-                font: '<%= dirs.dest.root %>/fonts'
+                font: '<%= dirs.dest.root %>/fonts',
+                html: '<%= dirs.dest.root %>/html'
             }
         },
 
         compass: {
-            app: {
+            build: {
                 options: {
                     sassDir: '<%= dirs.src.sass %>',
-                    specify: ['<%= dirs.src.sass %>/lib/app.scss'],
+                    specify: ['<%= dirs.src.sass %>/pages/*.scss'],
                     cssDir: '<%= dirs.build.css %>',
                     imagesDir: "<%= dirs.src.imgs %>",
                     httpPath: "<%= dirs.CDNurl %>",
                     assetCacheBuster: false
+                }
+            }
+        },
+        cssmin: {
+            options: {
+                shorthandCompacting: false,
+                roundingPrecision: -1
+            },
+            //合并css
+            build: {
+                files: {
+                    '<%= dirs.build.css %>/app.css': ['<%= dirs.build.css %>/pages/*.css']
                 }
             },
-            sprite: {
-                options: {
-                    sassDir: '<%= dirs.src.sass %>',
-                    specify: ['<%= dirs.src.sass %>/page/*.scss'],
-                    cssDir: '<%= dirs.build.css %>',
-                    imagesDir: "<%= dirs.src.imgs %>",
-                    httpPath: "<%= dirs.CDNurl %>",
-                    assetCacheBuster: false
-                }
+            //压缩css
+            dest: {
+                expand: true,
+                cwd: '<%= dirs.build.css %>',
+                src: ['**/*.css', '!**/*-min.css'],
+                dest: '<%= dirs.dest.css %>',
+                ext: '.min.css'
             }
         },
         imagemin: {
@@ -71,11 +84,8 @@ module.exports = function(grunt) {
                 }]
             }
         },
-        clean: {
-            build: ['<%= dirs.build.root %>', '<%= dirs.dest.root %>']
-        },
         copy: {
-            imgs: {
+            toDestImgs: {
                 files: [{
                     expand: true,
                     cwd: '<%= dirs.build.imgs %>',
@@ -83,15 +93,7 @@ module.exports = function(grunt) {
                     dest: '<%= dirs.dest.imgs %>'
                 }]
             },
-            js: {
-                files: [{
-                    expand: true,
-                    cwd: '<%= dirs.src.js %>',
-                    src: ['lib/**/*.js', 'module/**/*.js', 'page/**/*.js'],
-                    dest: '<%= dirs.build.js %>'
-                }]
-            },
-            font: {
+            toBuildfont: {
                 files: [{
                     expand: true,
                     cwd: '<%= dirs.src.font %>',
@@ -99,56 +101,59 @@ module.exports = function(grunt) {
                     dest: '<%= dirs.build.font %>'
                 }]
             },
-            data : {
+            toDestfont: {
                 files: [{
                     expand: true,
-                    cwd: '<%= dirs.src.root %>',
-                    src: ['data/**/*.js'],
-                    dest: '<%= dirs.build.js %>'
+                    cwd: '<%= dirs.src.font %>',
+                    src: ['*.{eot,svg,ttf,woff}'],
+                    dest: '<%= dirs.dest.font %>'
+                }]
+            },
+            toBuildHtml: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= dirs.src.html %>',
+                    src: ['*.html','**/*.html'],
+                    dest: '<%= dirs.build.html %>'
+                }]
+            },
+            toDestHtml: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= dirs.src.html %>',
+                    src: ['*.html','**/*.html'],
+                    dest: '<%= dirs.dest.html %>'
                 }]
             }
         },
-
-        cssmin: {
-            //合并css
-            // combine: {
-            //     src: '<%= dirs.src.css %>*.css',
-            //     dest: '<%= dirs.build.css %>app.css'
-            // },
-            //压缩css
-            build: {
-                expand: true,
-                cwd: '<%= dirs.build.css %>',
-                src: ['**/*.css', '!**/*-min.css'],
-                dest: '<%= dirs.dest.css %>',
-                ext: '.css'
-            }
-        },
-
         concat: {
             options: {
                 //separator: ';',
                 stripBanners: true
             },
-
             //合并js
-            combine: {
-                files: {
-                    '<%= dirs.build.js %>/ymt.js': ['<%= dirs.src.js %>/core/*.js']
-                }
+            build: {
+                // files: {
+                //     '<%= dirs.build.js %>/ymt.js': ['<%= dirs.src.js %>/core/*.js']
+                // }
+                src: ['<%= dirs.src.js %>/app.js', '<%= dirs.src.js %>/**/*.js'],
+                dest: '<%= dirs.build.js %>/app.js',
             }
         },
-
-
         //压缩js
         uglify: {
-            build: {
-                files: [{
-                    expand: true,
-                    cwd: '<%= dirs.build.js %>',
-                    src: '**/*.js',
-                    dest: '<%= dirs.dest.js %>'
-                }]
+            // build: {
+            //     files: [{
+            //         expand: true,
+            //         cwd: '<%= dirs.build.js %>',
+            //         src: '**/*.js',
+            //         dest: '<%= dirs.dest.js %>'
+            //     }]
+            // },
+            dest: {
+                files: {
+                    '<%= dirs.dest.js %>/app.min.js': ['<%= dirs.build.js %>/app.js']
+                }
             }
         },
         replace: {
@@ -159,30 +164,6 @@ module.exports = function(grunt) {
                 replacements: [{
                     from: /(url\((\'|\"|\s?)[^\'\"\)]+)/ig,
                     to: '$1?v=' + new Date().getTime()
-                }]
-            },
-            path: {
-                src: ['<%= dirs.build.css %>/page/*.css', '<%= dirs.build.css %>/lib/*.css'],
-                overwrite: true,
-                replacements: [{
-                    from: /url\((\'|\"|\s?)\/src/ig,
-                    to: 'url($1'
-                }]
-            },
-            path1: {
-                src: ['<%= dirs.dest.css %>/page/*.css', '<%= dirs.dest.css %>/lib/*.css'],
-                overwrite: true,
-                replacements: [{
-                    from: /url\((\'|\"|\s?)\/(build|src)?/ig,
-                    to: 'url(/'
-                }]
-            },
-            apicdn: {
-                src: ['<%= dirs.dest.js %>/module/config/apiCDN.js'],
-                overwrite: true,
-                replacements: [{
-                    from: /(exports=\w+\.)dev/ig,
-                    to: '$1dest'
                 }]
             }
         },
@@ -195,19 +176,14 @@ module.exports = function(grunt) {
                 tasks: ['compass', 'replace:path']
             },
             js: {
-                files: ['<%= dirs.src.js %>/core/*.js'],
+                files: ['<%= dirs.src.js %>/**/*.js'],
                 tasks: ['concat']
-            },
-            copyjs: {
-                files: ['<%= dirs.src.js %>/lib/**/*.js', '<%= dirs.src.js %>/module/**/*.js', '<%= dirs.src.js %>/page/**/*.js'],
-                tasks: ['copy:js']
-            },
-            copydata:{
-                files: ['<%= dirs.src.root %>/data/**/*.js'],
-                tasks: ['copy:data']
             }
+        },
+        clean: {
+            build: ['<%= dirs.build.root %>'],
+            dest: ['<%= dirs.dest.root %>']
         }
-
     });
     /**
      * 载入使用到的通过NPM安装的模块
@@ -223,17 +199,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-string-replace');
     grunt.loadNpmTasks('grunt-contrib-concat');
 
-    grunt.registerTask('default', [
-        //'clean',
-        'compass',
-        'imagemin',
-        'concat:combine',
-        'copy:font',
-        'copy:js',
-        'cssmin:build',
-        'copy:imgs',
-        'copy:data',
-        'uglify',
-        'replace'
-    ]);
+    grunt.registerTask('dev', ['clean', 'compass', 'cssmin:build', 'imagemin', 'concat:build', 'copy:toBuildfont', 'copy:toBuildHtml', 'watch']);
+    grunt.registerTask('dest', ['dev', 'cssmin:dest', 'uglify:dest', 'copy:toDestImgs', 'copy:toDestfont', 'copy:toDestHtml']);
+    grunt.registerTask('default', ['dest']);
 }

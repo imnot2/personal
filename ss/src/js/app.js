@@ -1,4 +1,4 @@
-var routerModule = angular.module('ssApp', ['ui.router']);
+var routerModule = angular.module('ssApp', ['ui.router','controllers']);
 
 routerModule.run(function($rootScope, $state, $stateParams) {
     $rootScope.$state = $state;
@@ -14,24 +14,16 @@ routerModule.config(function($stateProvider, $urlRouterProvider) {
                 '': {
                     //template: '这里是第一列的内容',
                     //controller: 'Controller',
-                    templateUrl: 'tpls/index.tpl.html'
+                    templateUrl: 'tpls/index.tpl.html',
+                    controller:'indexCtrl'
                 },
-                'nav@index': {
-                    templateUrl: 'tpls/ui-wiget/nav.tpl.html'
+                // 'nav@index': {
+                //     templateUrl: 'tpls/ui-wiget/nav.tpl.html'
+                // },
+                'sideMenu@index':{
+                    templateUrl: 'tpls/ui-wiget/sideMenu.tpl.html',
+                    controller:'sideMenuCtrl'
                 }
             }
         })
 });
-// routerModule.controller('Controller', function($scope) {
-//     $scope.message = 'test';
-//     $scope.topics = [{
-//         name: 'Butterscotch',
-//         price: 50
-//     }, {
-//         name: 'Black Current',
-//         price: 100
-//     }, {
-//         name: 'Mango',
-//         price: 20
-//     }];
-// });

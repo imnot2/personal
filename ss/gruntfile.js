@@ -3,6 +3,7 @@
  * 2. npm install -g grunt-cli
  * 3. 进入项目根目录执行npm install命令安装依赖包(npm install grunt --save-dev / npm init)
  * 4. 运行grunt命令打包SDK
+ * 5. srccss目录是原来的css文件，src目录下的sass目录是整理后的目录（整理完毕后srccss可以删掉）
  */
 
 'use strict';
@@ -43,7 +44,7 @@ module.exports = function (grunt) {
             build: {
                 options: {
                     sassDir: '<%= dirs.src.sass %>',
-                    specify: ['<%= dirs.src.sass %>/pages/*.scss'],
+                    specify: ['<%= dirs.src.sass %>/pages/*.scss','<%= dirs.src.sass %>/srccss/*.scss'],
                     cssDir: '<%= dirs.build.css %>',
                     imagesDir: "<%= dirs.src.imgs %>",
                     httpPath: "<%= dirs.CDNurl %>",
@@ -133,11 +134,14 @@ module.exports = function (grunt) {
             },
             //合并js
             build: {
-                // files: {
-                //     '<%= dirs.build.js %>/ymt.js': ['<%= dirs.src.js %>/core/*.js']
-                // }
-                src: ['<%= dirs.src.js %>/app.js', '<%= dirs.src.js %>/**/*.js'],
-                dest: '<%= dirs.build.js %>/app.js',
+                files: {
+                    '<%= dirs.build.js %>/app.js': ['<%= dirs.src.js %>/app.js'],
+                    '<%= dirs.build.js %>/controllers.js': ['<%= dirs.src.js %>/controllers/*.js']
+                }                
+            },
+            dest:{
+                src: ['<%= dirs.build.js %>/app.js', '<%= dirs.src.js %>/*.js'],
+                dest: '<%= dirs.dest.js %>/app.js',
             }
         },
         //压缩js
@@ -199,7 +203,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-string-replace');
     grunt.loadNpmTasks('grunt-contrib-concat');
 
-    grunt.registerTask('dev', ['clean', 'compass', 'cssmin:build', 'imagemin', 'concat:build', 'copy:toBuildfont', 'copy:toBuildHtml', 'watch']);
+    grunt.registerTask('dev', ['clean', 'compass', 'cssmin:build', 'imagemin', 'concat:build', 'copy:toBuildfont', 'copy:toBuildHtml']);
     grunt.registerTask('dest', ['dev', 'cssmin:dest', 'uglify:dest', 'copy:toDestImgs', 'copy:toDestfont', 'copy:toDestHtml']);
     grunt.registerTask('default', ['dest']);
 }

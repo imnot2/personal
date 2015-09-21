@@ -1,8 +1,11 @@
-controllers.controller('indexCtrl', ['$scope',
-	function ($scope) {
-		$scope.wrapClass = 'page-home';
-	}
-]).controller('indexProductsCtrl', ['$scope', '$http', '$state', '$stateParams',
+ctrlsModule.controller('indexCtrl', indexCtrl);
+
+indexCtrl.$inject = ['$scope'];
+
+function indexCtrl($scope) {
+	$scope.wrapClass = 'page-home';
+}
+indexModule.controller('indexProductsCtrl', ['$scope', '$http', '$state', '$stateParams',
 	function ($scope, $http, $state, $stateParams) {
 		alert($scope.wrapClass);
 		$http.get('http://www.ipinfo.io').success(function (res) {

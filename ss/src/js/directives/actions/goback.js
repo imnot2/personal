@@ -1,4 +1,4 @@
-angular.module('directives.actions.goback', goBack);
+directiveActionModule.directive('goback',goBack);
 
 goBack.$inject = ['$scope'];
 

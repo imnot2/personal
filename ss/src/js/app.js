@@ -11,15 +11,15 @@ var ssApp = angular.module('ssApp', [
 angular.module('routers',[]);
 
 angular.module('directives',[
-    'directives.actions.goback',
-    'directives.actions.goUserCenter'
-]);
-angular.module('controllers',[
-    'controllers.indexProductsCtrl',
+    'directive.actions',
+    'directive.wigets'
 ]);
 
-angular.module('filters',[]);
-angular.module('services',[]);
+var ctrlsModule = angular.module('controllers',[]);
+var filtersModule = angular.module('filters',[]);
+var serversModule = angular.module('services',[]);
+var directiveActionModule = angular.module('directive.actions',[]);
+var directiveWigetModule = angular.module('directive.wigets',[]);
 
 ssApp.run(function ($rootScope, $state, $stateParams) {
     $rootScope.$state = $state;

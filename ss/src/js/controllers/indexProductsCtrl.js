@@ -1,4 +1,4 @@
-angular.module('controllers', []).controller('indexCtrl', ['$scope',
+controllers.controller('indexCtrl', ['$scope',
 	function ($scope) {
 		$scope.wrapClass = 'page-home';
 	}

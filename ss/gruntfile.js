@@ -135,14 +135,14 @@ module.exports = function (grunt) {
             //合并js
             build: {
                 files: {
-                    '<%= dirs.build.js %>/app.js': ['<%= dirs.src.js %>/app.js'],
-                    '<%= dirs.build.js %>/controllers.js': ['<%= dirs.src.js %>/controllers/*.js']
+                    '<%= dirs.build.js %>/app.js': ['<%= dirs.src.js %>/module.prefix','<%= dirs.src.js %>/app.js','<%= dirs.src.js %>/routers/*.js','<%= dirs.src.js %>/controllers/**/*.js','<%= dirs.src.js %>/directives/**/*.js','<%= dirs.src.js %>/filters/**/*.js','<%= dirs.src.js %>/services/**/*.js','<%= dirs.src.js %>/module.suffix'],
+                    //'<%= dirs.build.js %>/controllers.js': ['<%= dirs.src.js %>/controllers/*.js']
                 }                
             },
-            dest:{
-                src: ['<%= dirs.build.js %>/app.js', '<%= dirs.src.js %>/*.js'],
-                dest: '<%= dirs.dest.js %>/app.js',
-            }
+            // dest:{
+            //     src: ['<%= dirs.build.js %>/app.js', '<%= dirs.src.js %>/*.js'],
+            //     dest: '<%= dirs.dest.js %>/app.js',
+            // }
         },
         //压缩js
         uglify: {

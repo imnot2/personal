@@ -1,13 +1,14 @@
-directives.directive('wigets.topBar',['$scope',function($scope){
+dirAction.directive('topbar',function(){
     return {
         scope:{},
         restrict:'AE',
-        templeteUrl:'../../html/tpls/ui-wiget/topBar.tpl.html',
+        templateUrl:'../../html/tpls/ui-wiget/topBar.tpl.html',
+        replace:true,
         controllor:function($scope){
-        	$scope.addSideMenu = function(){}
+        	//$scope.addSideMenu = function(){}
         },
         link:function(scope,elment,attrs){
             
         }
     }
-}]);
+});

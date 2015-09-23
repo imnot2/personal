@@ -1,7 +1,3 @@
-ctrlsModule.controller('indexCtrl', indexCtrl);
-
-indexCtrl.$inject = ['$scope'];
-
-function indexCtrl($scope) {
+ctrlsModule.controller('indexCtrl', ['$scope',function ($scope) {
 	$scope.wrapClass = 'page-home';
-}
+}]);

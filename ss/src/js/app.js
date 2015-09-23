@@ -18,8 +18,8 @@ angular.module('directives',[
 var ctrlsModule = angular.module('controllers',[]);
 var filtersModule = angular.module('filters',[]);
 var serversModule = angular.module('services',[]);
-var directiveActionModule = angular.module('directive.actions',[]);
-var directiveWigetModule = angular.module('directive.wigets',[]);
+var dirAction = angular.module('directive.actions',[]);
+var dirWiget = angular.module('directive.wigets',[]);
 
 ssApp.run(function ($rootScope, $state, $stateParams) {
     $rootScope.$state = $state;

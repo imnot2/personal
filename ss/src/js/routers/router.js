@@ -13,10 +13,10 @@ ssApp.config(function ($stateProvider, $urlRouterProvider) {
                 // 'nav@index': {
                 //     templateUrl: 'tpls/ui-wiget/nav.tpl.html'
                 // },
-                'sideMenu@index': {
-                    templateUrl: 'tpls/ui-wiget/sideMenu.tpl.html',
-                    controller: 'sideMenuCtrl'
-                }
+                // 'sideMenu@index': {
+                //     templateUrl: 'tpls/ui-wiget/sideMenu.tpl.html',
+                //     controller: 'sideMenuCtrl'
+                // }
             }
         })
 });

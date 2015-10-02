@@ -12,56 +12,7 @@
     <script src="../../js/app.js"></script>
 </head>
 
-<body class="page-home">
-    <header class="ui-header" ng-controller="headerCtrl">
-        <h2>赏视</h2>
-        <span class="hd-left" ng-click="showMenu()" ng-show etap='ui_sidemenu_show'>
-		<a href="javascript:;" class="icons-menu"><i class="fa">&#xe600;</i></a>        
-	</span>
-        <span class="hd-right">
-		<a href="#" class="icons-user"><span class="badge">9</span><i class="fa">&#xe61f;</i></a>
-        </span>
-    </header>
+<body>
     <div class="{{wrapClass}}" ui-view></div>
-    <div class="ui-loding">
-        <div class="ui-loding-info">
-            <img src="static/img/loading.gif">
-            <h5>加载中...</h5>
-            <p>最后更新时间：今天10:17</p>
-        </div>
-    </div>
-    <div class="ui-loding ui-loding-white">
-        <div class="ui-loding-info">
-            <img src="static/img/loading.gif">
-            <h5>加载更多...</h5>
-        </div>
-    </div>
-    <div class="ui-login">
-        <p><span>哎呀，你还没登录呢！</span>
-        </p>
-        <a href="#" class="btn btn-primary btn-lgs btn-block">登录后更精彩</a>
-        <p>登录后可以查看您所关注的商品哦。</p>
-        <p>没有账号 快来<a href="#">申请一个</a>吧</p>
-    </div>
-    <div class="ui-share">
-        <a href="#"><i class="fa">&#xe615;</i><p>微信</p></a>
-        <a href="#"><i class="fa">&#xe617;</i><p>朋友圈</p></a>
-        <a href="#"><i class="fa">&#xe616;</i><p>新浪微博</p></a>
-    </div>
-    <div class="ui-dialog">
-        <div class="ui-dialog-mask" etap="ui_dialog_close"></div>
-        <div class="ui-dialog-cent">
-            <header class="ui-dialog-hd">
-                <h3></h3>
-                <i class="ui-dialog-close" etap="ui_dialog_close"></i>
-            </header>
-            <div class="ui-dialog-bd"></div>
-            <div class="ui-dialog-ft ui-btn-group">
-                <button type="button" etap="ui_dialog_close">取消</button>
-                <button type="button" etap="ui_dialog_confirm">确认</button>
-            </div>
-        </div>
-    </div>
 </body>
-
 </html>

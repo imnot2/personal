@@ -15,9 +15,11 @@ angular.module('directives',[
     'directive.wigets'
 ]);
 
-var ctrlsModule = angular.module('controllers',[]);
-var filtersModule = angular.module('filters',[]);
-var serversModule = angular.module('services',[]);
+var ctrls = angular.module('controllers',[]);
+var indexCtrls = angular.module('controllers.index',[]);
+
+var filters = angular.module('filters',[]);
+var services = angular.module('services',[]);
 var dirAction = angular.module('directive.actions',[]);
 var dirWiget = angular.module('directive.wigets',[]);
 

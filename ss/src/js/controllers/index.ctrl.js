@@ -8,6 +8,10 @@ ctrls.controller('indexCtrl', [
         // $http.get('http://www.ipinfo.io').success(function (res) {
 
         // })
+        //console.log($state);
+        console.log($stateParams);
+        console.log($state);
+        $scope.type = parseInt($stateParams.type);
         $scope.products = [{
             'name': '石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件',
             'price': '150',

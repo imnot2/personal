@@ -9,9 +9,9 @@
         </span>
     </header>
     <ul class="ui-tabs ui-navbar-nav">
-        <li ng-click="type = 1" ng-class="{active:type!=2&&type!=3}">进行中</li>
-        <li ng-click="type = 2" ng-class="{active:type==2}">即将开始</li>
-        <li ng-click="type = 3" ng-class="{active:type==3}">关注中</li>
+        <li ui-sref='index({type:1})' ng-class="{active:type!=2&&type!=3}">进行中</li>
+        <li ui-sref='index({type:2})' ng-class="{active:type==2}">即将开始</li>
+        <li ui-sref='index({type:3})' ng-class="{active:type==3}">关注中</li>
     </ul>
     <section class="ui-container">
         <div class="ui-tabs-content">

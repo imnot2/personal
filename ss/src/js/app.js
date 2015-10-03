@@ -12,10 +12,10 @@ ssApp.run(function ($rootScope, $state, $stateParams) {
     $rootScope.$stateParams = $stateParams;
 });
 ssApp.config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/index');
+    $urlRouterProvider.otherwise('/index/1');
     $stateProvider
         .state('index', {
-            url: '/index',
+            url: '/index/{type:[1-3]{1}}',
             views: {
                 '': {
                     //template: '这里是第一列的内容',

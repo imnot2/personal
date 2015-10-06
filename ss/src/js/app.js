@@ -6,6 +6,7 @@ var ssApp = angular.module('ssApp', [
 
 var ctrls = angular.module('controllers', []);
 var services = angular.module('services', []);
+var directives = angular.module('directives', []);
 
 ssApp.run(function ($rootScope, $state, $stateParams) {
     $rootScope.$state = $state;
@@ -31,12 +32,20 @@ ssApp.config(function ($stateProvider, $urlRouterProvider) {
                 //     controller: 'sideMenuCtrl'
                 // }
             }
-        }).state('userCenter', {
-            url: '/userCenter',
+        }).state('userBuyer', {
+            url: '/user/buyer/{page:[1-2]{1}}',
             views: {
                 '': {
-                    templateUrl: 'tpls/userCenter.tpl.html',
-                    controller: 'userCenter'
+                    templateUrl: 'tpls/userBuyer.tpl.html',
+                    controller: 'userBuyer'
+                }
+            }
+        }).state('userSeller', {
+            url: '/user/seller/{page:[1-3]{1}}',
+            views: {
+                '': {
+                    templateUrl: 'tpls/userSeller.tpl.html',
+                    controller: 'userSeller'
                 }
             }
         })

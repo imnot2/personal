@@ -1,193 +1,191 @@
-<body class="page-home">
-    <header class="ui-header">
-        <h2>赏视</h2>
-        <span class="hd-left" ng-click="toggleMenuShow()" etap='ui_sidemenu_show'>
+<header class="ui-header">
+    <h2>赏视</h2>
+    <span class="hd-left" ng-click="toggleMenuShow()" etap='ui_sidemenu_show'>
         <a href="javascript:;" class="icons-menu"><i class="fa">&#xe600;</i></a>        
     </span>
-        <span class="hd-right">
-        <a ui-sref="userCenter()" class="icons-user"><span class="badge">9</span><i class="fa">&#xe61f;</i></a>
-        </span>
-    </header>
-    <ul class="ui-tabs ui-navbar-nav">
-        <li ui-sref='index({type:1})' ng-class="{active:type!=2&&type!=3}">进行中</li>
-        <li ui-sref='index({type:2})' ng-class="{active:type==2}">即将开始</li>
-        <li ui-sref='index({type:3})' ng-class="{active:type==3}">关注中</li>
-    </ul>
-    <section class="ui-container">
-        <div class="ui-tabs-content">
-            <div class="ui-tabs-pane" ng-class="{active:type!=2&&type!=3}">
-                <article ng-repeat="product in products">
-                    <div class="ui-item-image">
-                        <a href="javascript:;"><img src="{{product.url}}">
-                        </a>
-                        <div class="item-title">
-                            <h3>{{product.name}}</h3>
-                        </div>
-                        <span class="item-price"><i>&yen;</i>{{product.price}}</span>
-                        <span class="item-count">距离结束<i>2</i><i>1</i>:<i>2</i><i>2</i></span>
+    <span class="hd-right">
+        <a ng-click="toUser()" class="icons-user"><span class="badge" ng-bind="dynamicCount"></span><i class="fa">&#xe61f;</i></a>
+    </span>
+</header>
+<ul class="ui-tabs ui-navbar-nav">
+    <li ui-sref='index({type:1})' ng-class="{active:type!=2&&type!=3}">进行中</li>
+    <li ui-sref='index({type:2})' ng-class="{active:type==2}">即将开始</li>
+    <li ui-sref='index({type:3})' ng-class="{active:type==3}">关注中</li>
+</ul>
+<section class="ui-container">
+    <div class="ui-tabs-content">
+        <div class="ui-tabs-pane" ng-class="{active:type!=2&&type!=3}">
+            <article ng-repeat="product in products">
+                <div class="ui-item-image">
+                    <a href="javascript:;"><img src="{{product.url}}">
+                    </a>
+                    <div class="item-title">
+                        <h3>{{product.name}}</h3>
                     </div>
-                    <div class="item-hd">
-                        <p class="item-head"><img src="{{product.url}}">admin<i class="fa">&#xe607;</i>
-                        </p>
-                        <p class="item-info">
-                            <span class="item-hammer"><i class="fa">&#xe609;</i>15</span>
-                            <span class="item-comments"><i class="fa">&#xe604;</i>20</span>
-                            <span class="item-heart"><i class="fa">&#xe606;</i>15</span>
-                        </p>
-                    </div>
-                </article>
-                <p class="ui-line-tips"><span>到底啦</span>
-                </p>
-            </div>
-            <div class="ui-tabs-pane" ng-class="{active:type==2}">
-                <p class="hide ui-line-tips"><span>以下商品尚未开售，你可以先收藏</span></p>
-                <article>
-                    <div class="ui-item-image">
-                        <a href="javascript:;"><img src="static/temp/1.jpg">
-                        </a>
-                        <div class="item-title item-none">
-                            <h3>石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件</h3>
-                        </div>
-                        <span class="item-heart"><i class="fa">&#xe606;</i></span>
-                        <span class="item-count default">距离结束<i>2</i><i>1</i>:<i>2</i><i>2</i></span>
-                    </div>
-                </article>
-                <article>
-                    <div class="ui-item-image">
-                        <a href="javascript:;"><img src="static/temp/2.jpg">
-                        </a>
-                        <div class="item-title item-none">
-                            <h3>石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件</h3>
-                        </div>
-                        <span class="item-heart"><i class="fa active">&#xe607;</i></span>
-                        <span class="item-count default">距离结束<i>2</i><i>1</i>:<i>2</i><i>2</i></span>
-                    </div>
-                </article>
-                <p class="ui-line-tips"><span>到底啦</span>
-                </p>
-            </div>
-            <div class="ui-tabs-pane" ng-class="{active:type==3}">
-                <div class="ui-login-tips">
-                    <p class="ui-line-tips"><span>哎呀，你还没登录呢！</span>
-                    </p>
-                    <a href="#" class="btn btn-default btn-lgs btn-block">快来登录</a>
-                    <p class="t">登录后可以查看您所关注的商品哦。</p>
-                    <p class="t">没有账号 快来<a href="#">申请一个</a>吧</p>
+                    <span class="item-price"><i>&yen;</i>{{product.price}}</span>
+                    <span class="item-count">距离结束<i>2</i><i>1</i>:<i>2</i><i>2</i></span>
                 </div>
-                <article>
-                    <div class="ui-item-image">
-                        <a href="javascript:;"><img src="static/temp/1.jpg">
-                        </a>
-                        <div class="item-title">
-                            <h3>石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件</h3>
-                        </div>
-                        <span class="item-price"><i>&yen;</i>124.00</span>
-                        <span class="item-count">距离结束<i>2</i><i>1</i>:<i>2</i><i>2</i></span>
+                <div class="item-hd">
+                    <p class="item-head"><img src="{{product.url}}">admin<i class="fa">&#xe607;</i>
+                    </p>
+                    <p class="item-info">
+                        <span class="item-hammer"><i class="fa">&#xe609;</i>15</span>
+                        <span class="item-comments"><i class="fa">&#xe604;</i>20</span>
+                        <span class="item-heart"><i class="fa">&#xe606;</i>15</span>
+                    </p>
+                </div>
+            </article>
+            <p class="ui-line-tips"><span>到底啦</span>
+            </p>
+        </div>
+        <div class="ui-tabs-pane" ng-class="{active:type==2}">
+            <p class="hide ui-line-tips"><span>以下商品尚未开售，你可以先收藏</span></p>
+            <article>
+                <div class="ui-item-image">
+                    <a href="javascript:;"><img src="static/temp/1.jpg">
+                    </a>
+                    <div class="item-title item-none">
+                        <h3>石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件</h3>
                     </div>
-                    <div class="item-hd">
-                        <p class="item-head"><img src="static/temp/1.jpg">admin<i class="fa">&#xe635;</i>
-                        </p>
-                        <p class="item-info">
-                            <span class="item-hammer"><i class="fa">&#xe609;</i>15</span>
-                            <span class="item-comments"><i class="fa">&#xe604;</i>20</span>
-                            <span class="item-heart"><i class="fa">&#xe606;</i>15</span>
-                        </p>
+                    <span class="item-heart"><i class="fa">&#xe606;</i></span>
+                    <span class="item-count default">距离结束<i>2</i><i>1</i>:<i>2</i><i>2</i></span>
+                </div>
+            </article>
+            <article>
+                <div class="ui-item-image">
+                    <a href="javascript:;"><img src="static/temp/2.jpg">
+                    </a>
+                    <div class="item-title item-none">
+                        <h3>石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件</h3>
                     </div>
-                </article>
-                <article>
-                    <div class="ui-item-image">
-                        <a href="javascript:;"><img src="static/temp/2.jpg">
-                        </a>
-                        <div class="item-title">
-                            <h3>石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件</h3>
-                        </div>
-                        <span class="item-price my-price"><i>&yen;</i>124.00</span>
-                        <span class="item-count">距离结束<i>2</i><i>1</i>:<i>2</i><i>2</i></span>
-                    </div>
-                    <div class="item-hd">
-                        <p class="item-head"><img src="static/temp/1.jpg">admin<i class="fa">&#xe635;</i>
-                        </p>
-                        <p class="item-info">
-                            <span class="item-hammer"><i class="fa active">&#xe608;</i>15</span>
-                            <span class="item-comments"><i class="fa active">&#xe603;</i>20</span>
-                            <span class="item-heart"><i class="fa active">&#xe607;</i>15</span>
-                        </p>
-                    </div>
-                </article>
-                <article>
-                    <div class="ui-panel ui-item-panel">
-                        <h3>“翡翠，纯天然的色彩艺术品”</h3>
-                        <ul>
-                            <li>
-                                <a href="#"><img src="static/temp/1.jpg"></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="static/temp/2.jpg"></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="static/temp/3.jpg"></a>
-                            </li>
-                        </ul>
-                    </div>
-                </article>
-                <p class="ui-line-tips"><span>到底啦</span>
+                    <span class="item-heart"><i class="fa active">&#xe607;</i></span>
+                    <span class="item-count default">距离结束<i>2</i><i>1</i>:<i>2</i><i>2</i></span>
+                </div>
+            </article>
+            <p class="ui-line-tips"><span>到底啦</span>
+            </p>
+        </div>
+        <div class="ui-tabs-pane" ng-class="{active:type==3}">
+            <div class="ui-login-tips">
+                <p class="ui-line-tips"><span>哎呀，你还没登录呢！</span>
                 </p>
+                <a href="#" class="btn btn-default btn-lgs btn-block">快来登录</a>
+                <p class="t">登录后可以查看您所关注的商品哦。</p>
+                <p class="t">没有账号 快来<a href="#">申请一个</a>吧</p>
             </div>
+            <article>
+                <div class="ui-item-image">
+                    <a href="javascript:;"><img src="static/temp/1.jpg">
+                    </a>
+                    <div class="item-title">
+                        <h3>石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件</h3>
+                    </div>
+                    <span class="item-price"><i>&yen;</i>124.00</span>
+                    <span class="item-count">距离结束<i>2</i><i>1</i>:<i>2</i><i>2</i></span>
+                </div>
+                <div class="item-hd">
+                    <p class="item-head"><img src="static/temp/1.jpg">admin<i class="fa">&#xe635;</i>
+                    </p>
+                    <p class="item-info">
+                        <span class="item-hammer"><i class="fa">&#xe609;</i>15</span>
+                        <span class="item-comments"><i class="fa">&#xe604;</i>20</span>
+                        <span class="item-heart"><i class="fa">&#xe606;</i>15</span>
+                    </p>
+                </div>
+            </article>
+            <article>
+                <div class="ui-item-image">
+                    <a href="javascript:;"><img src="static/temp/2.jpg">
+                    </a>
+                    <div class="item-title">
+                        <h3>石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件</h3>
+                    </div>
+                    <span class="item-price my-price"><i>&yen;</i>124.00</span>
+                    <span class="item-count">距离结束<i>2</i><i>1</i>:<i>2</i><i>2</i></span>
+                </div>
+                <div class="item-hd">
+                    <p class="item-head"><img src="static/temp/1.jpg">admin<i class="fa">&#xe635;</i>
+                    </p>
+                    <p class="item-info">
+                        <span class="item-hammer"><i class="fa active">&#xe608;</i>15</span>
+                        <span class="item-comments"><i class="fa active">&#xe603;</i>20</span>
+                        <span class="item-heart"><i class="fa active">&#xe607;</i>15</span>
+                    </p>
+                </div>
+            </article>
+            <article>
+                <div class="ui-panel ui-item-panel">
+                    <h3>“翡翠，纯天然的色彩艺术品”</h3>
+                    <ul>
+                        <li>
+                            <a href="#"><img src="static/temp/1.jpg"></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="static/temp/2.jpg"></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="static/temp/3.jpg"></a>
+                        </li>
+                    </ul>
+                </div>
+            </article>
+            <p class="ui-line-tips"><span>到底啦</span>
+            </p>
         </div>
-    </section>
-    <div class="ui-sidemenu" ng-class="{menushow:menuShow}">
-        <div class="ui-sidemenu-mask" etap='ui_sidemenu_hide'></div>
-        <div class="ui-sidemenu-main">
-            <div class="ui-sidemenu-user">
-                <div><i class="fa">&#xe60d;</i>
-                    <a href="javascript:;"><img class="hide" src="static/img/thumbnail.png"><img src="static/temp/2.jpg"></a><i class="fa">&#xe60c;</i></div>
-                <p><a href="#">登录</a><a href="#">注册</a><span>xianzhiding</span></p>
-            </div>
-            <ul class="ui-sidemenu-nav">
-                <li class="ui-arrows"><a href="#"><i class="fa">&#xe601;</i> 藏品心得</a></li>
-                <li class="ui-arrows"><a href="#"><i class="fa">&#xe605;</i> 我要投稿</a></li>
-                <li class="ui-arrows"><a href="#"><i class="fa">&#xe60a;</i> 联系常时</a></li>
-                <li class="ui-arrows"><a href="#"><i class="fa">&#xe62d;</i> 清除缓存</a></li>
-            </ul>
+    </div>
+</section>
+<div class="ui-sidemenu" ng-class="{menushow:menuShow}">
+    <div class="ui-sidemenu-mask" etap='ui_sidemenu_hide'></div>
+    <div class="ui-sidemenu-main">
+        <div class="ui-sidemenu-user">
+            <div><i class="fa">&#xe60d;</i>
+                <a href="javascript:;"><img class="hide" src="static/img/thumbnail.png"><img src="static/temp/2.jpg"></a><i class="fa">&#xe60c;</i></div>
+            <p><a href="#">登录</a><a href="#">注册</a><span>xianzhiding</span></p>
+        </div>
+        <ul class="ui-sidemenu-nav">
+            <li class="ui-arrows"><a href="#"><i class="fa">&#xe601;</i> 藏品心得</a></li>
+            <li class="ui-arrows"><a href="#"><i class="fa">&#xe605;</i> 我要投稿</a></li>
+            <li class="ui-arrows"><a href="#"><i class="fa">&#xe60a;</i> 联系常时</a></li>
+            <li class="ui-arrows"><a href="#"><i class="fa">&#xe62d;</i> 清除缓存</a></li>
+        </ul>
+    </div>
+</div>
+<div class="ui-loding">
+    <div class="ui-loding-info">
+        <img src="static/img/loading.gif">
+        <h5>加载中...</h5>
+        <p>最后更新时间：今天10:17</p>
+    </div>
+</div>
+<div class="ui-loding ui-loding-white">
+    <div class="ui-loding-info">
+        <img src="static/img/loading.gif">
+        <h5>加载更多...</h5>
+    </div>
+</div>
+<div class="ui-login">
+    <p><span>哎呀，你还没登录呢！</span>
+    </p>
+    <a href="#" class="btn btn-primary btn-lgs btn-block">登录后更精彩</a>
+    <p>登录后可以查看您所关注的商品哦。</p>
+    <p>没有账号 快来<a href="#">申请一个</a>吧</p>
+</div>
+<div class="ui-share">
+    <a href="#"><i class="fa">&#xe615;</i><p>微信</p></a>
+    <a href="#"><i class="fa">&#xe617;</i><p>朋友圈</p></a>
+    <a href="#"><i class="fa">&#xe616;</i><p>新浪微博</p></a>
+</div>
+<div class="ui-dialog">
+    <div class="ui-dialog-mask" etap="ui_dialog_close"></div>
+    <div class="ui-dialog-cent">
+        <header class="ui-dialog-hd">
+            <h3></h3>
+            <i class="ui-dialog-close" etap="ui_dialog_close"></i>
+        </header>
+        <div class="ui-dialog-bd"></div>
+        <div class="ui-dialog-ft ui-btn-group">
+            <button type="button" etap="ui_dialog_close">取消</button>
+            <button type="button" etap="ui_dialog_confirm">确认</button>
         </div>
     </div>
-    <div class="ui-loding">
-        <div class="ui-loding-info">
-            <img src="static/img/loading.gif">
-            <h5>加载中...</h5>
-            <p>最后更新时间：今天10:17</p>
-        </div>
-    </div>
-    <div class="ui-loding ui-loding-white">
-        <div class="ui-loding-info">
-            <img src="static/img/loading.gif">
-            <h5>加载更多...</h5>
-        </div>
-    </div>
-    <div class="ui-login">
-        <p><span>哎呀，你还没登录呢！</span>
-        </p>
-        <a href="#" class="btn btn-primary btn-lgs btn-block">登录后更精彩</a>
-        <p>登录后可以查看您所关注的商品哦。</p>
-        <p>没有账号 快来<a href="#">申请一个</a>吧</p>
-    </div>
-    <div class="ui-share">
-        <a href="#"><i class="fa">&#xe615;</i><p>微信</p></a>
-        <a href="#"><i class="fa">&#xe617;</i><p>朋友圈</p></a>
-        <a href="#"><i class="fa">&#xe616;</i><p>新浪微博</p></a>
-    </div>
-    <div class="ui-dialog">
-        <div class="ui-dialog-mask" etap="ui_dialog_close"></div>
-        <div class="ui-dialog-cent">
-            <header class="ui-dialog-hd">
-                <h3></h3>
-                <i class="ui-dialog-close" etap="ui_dialog_close"></i>
-            </header>
-            <div class="ui-dialog-bd"></div>
-            <div class="ui-dialog-ft ui-btn-group">
-                <button type="button" etap="ui_dialog_close">取消</button>
-                <button type="button" etap="ui_dialog_confirm">确认</button>
-            </div>
-        </div>
-    </div>
-</body>
+</div>

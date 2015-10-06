@@ -1569,7 +1569,6 @@ a,a:hover,a:active{text-decoration: none;}
 
 
 
-
 .ui-container{position: absolute;top: 47px;bottom: 0;left: 0;width: 100%;overflow-x: hidden;overflow-y: auto;}
 
 
@@ -1605,7 +1604,7 @@ a,a:hover,a:active{text-decoration: none;}
 
 
 /*ui-line-tips*/
-.ui-line-tips{text-align: center;color: #999999;margin: 10px 5% 25px;position: relative;}
+.ui-line-tips{text-align: center;color: #999999;margin: 10px 5% 25px;position: relative; display: none;}
 .ui-line-tips:before{display: inline-table;content: '';height: 1px;background-color: #DDD;position: absolute;top: 50%;width: 100%;left: 0;z-index: 5;margin-top: -2px;}
 .ui-line-tips span{position: relative;background: #EEEEEE;padding: 0 3%;z-index: 10;color: #999;}
 .ui-line-tips-down span{color: #CCCCCC;}
@@ -2027,8 +2026,8 @@ a,a:hover,a:active{text-decoration: none;}
  */
 .page-home{background-color: #EEEEEE;}
 
-.page-home .ui-container{top: 83px;overflow: hidden;}
-
+.page-home .ui-container{top: 83px;overflow: hidden; display: none}
+.page-home .ui-container.show{display: block;}
 .ui-tabs{display: -webkit-box;}
 .ui-tabs li{-webkit-box-flex:1;text-align: center;cursor: pointer;}
 .ui-tabs li:first-child{margin-left: 0;}
@@ -2077,6 +2076,7 @@ a,a:hover,a:active{text-decoration: none;}
 /*user-tabs
 * =========================================================================================================
 */
+.page-seller .ui-container,.page-buyer .ui-container{position:static; display: block; overflow: auto}
 .user-tabs{display: -webkit-box;}
 .user-tabs li{-webkit-box-flex:1;text-align: center;cursor: pointer;}
 .user-tabs li:first-child{margin-left: 0;}

@@ -1,6 +1,6 @@
 <header class="ui-header">
     <h2>赏视</h2>
-    <span class="hd-left" ng-click="toggleMenuShow()" etap='ui_sidemenu_show'>
+    <span class="hd-left" ng-click="slideMenuShow = !slideMenuShow">
         <a href="javascript:;" class="icons-menu"><i class="fa">&#xe600;</i></a>        
     </span>
     <span class="hd-right">
@@ -8,16 +8,16 @@
     </span>
 </header>
 <ul class="ui-tabs ui-navbar-nav">
-    <li ui-sref='index({type:1})' ng-class="{active:type!=2&&type!=3}">进行中</li>
-    <li ui-sref='index({type:2})' ng-class="{active:type==2}">即将开始</li>
-    <li ui-sref='index({type:3})' ng-class="{active:type==3}">关注中</li>
+    <li ui-sref="index({type:1})" ng-class="{active:type!=2&&type!=3}">进行中</li>
+    <li ui-sref="index({type:2})" ng-class="{active:type==2}">即将开始</li>
+    <li ui-sref="index({type:3})" ng-class="{active:type==3}">关注中</li>
 </ul>
 <section class="ui-container">
     <div class="ui-tabs-content">
         <div class="ui-tabs-pane" ng-class="{active:type!=2&&type!=3}">
             <article ng-repeat="product in products">
                 <div class="ui-item-image">
-                    <a href="javascript:;"><img src="{{product.url}}">
+                    <a href="javascript:;"><img ng-src="{{product.url}}">
                     </a>
                     <div class="item-title">
                         <h3>{{product.name}}</h3>
@@ -26,7 +26,7 @@
                     <span class="item-count">距离结束<i>2</i><i>1</i>:<i>2</i><i>2</i></span>
                 </div>
                 <div class="item-hd">
-                    <p class="item-head"><img src="{{product.url}}">admin<i class="fa">&#xe607;</i>
+                    <p class="item-head"><img ng-src="{{product.url}}">admin<i class="fa">&#xe607;</i>
                     </p>
                     <p class="item-info">
                         <span class="item-hammer"><i class="fa">&#xe609;</i>15</span>
@@ -42,7 +42,7 @@
             <p class="hide ui-line-tips"><span>以下商品尚未开售，你可以先收藏</span></p>
             <article>
                 <div class="ui-item-image">
-                    <a href="javascript:;"><img src="static/temp/1.jpg">
+                    <a href="javascript:;"><img ng-src="/images/temp/1.jpg">
                     </a>
                     <div class="item-title item-none">
                         <h3>石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件</h3>
@@ -53,7 +53,7 @@
             </article>
             <article>
                 <div class="ui-item-image">
-                    <a href="javascript:;"><img src="static/temp/2.jpg">
+                    <a href="javascript:;"><img ng-src="/images/temp/2.jpg">
                     </a>
                     <div class="item-title item-none">
                         <h3>石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件</h3>
@@ -75,7 +75,7 @@
             </div>
             <article>
                 <div class="ui-item-image">
-                    <a href="javascript:;"><img src="static/temp/1.jpg">
+                    <a href="javascript:;"><img ng-src="/images/temp/1.jpg">
                     </a>
                     <div class="item-title">
                         <h3>石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件</h3>
@@ -84,7 +84,7 @@
                     <span class="item-count">距离结束<i>2</i><i>1</i>:<i>2</i><i>2</i></span>
                 </div>
                 <div class="item-hd">
-                    <p class="item-head"><img src="static/temp/1.jpg">admin<i class="fa">&#xe635;</i>
+                    <p class="item-head"><img ng-src="/images/temp/1.jpg">admin<i class="fa">&#xe635;</i>
                     </p>
                     <p class="item-info">
                         <span class="item-hammer"><i class="fa">&#xe609;</i>15</span>
@@ -95,7 +95,7 @@
             </article>
             <article>
                 <div class="ui-item-image">
-                    <a href="javascript:;"><img src="static/temp/2.jpg">
+                    <a href="javascript:;"><img ng-src="/images/temp/2.jpg">
                     </a>
                     <div class="item-title">
                         <h3>石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件</h3>
@@ -104,7 +104,7 @@
                     <span class="item-count">距离结束<i>2</i><i>1</i>:<i>2</i><i>2</i></span>
                 </div>
                 <div class="item-hd">
-                    <p class="item-head"><img src="static/temp/1.jpg">admin<i class="fa">&#xe635;</i>
+                    <p class="item-head"><img ng-src="/images/temp/1.jpg">admin<i class="fa">&#xe635;</i>
                     </p>
                     <p class="item-info">
                         <span class="item-hammer"><i class="fa active">&#xe608;</i>15</span>
@@ -118,13 +118,13 @@
                     <h3>“翡翠，纯天然的色彩艺术品”</h3>
                     <ul>
                         <li>
-                            <a href="#"><img src="static/temp/1.jpg"></a>
+                            <a href="#"><img ng-src="/images/temp/1.jpg"></a>
                         </li>
                         <li>
-                            <a href="#"><img src="static/temp/2.jpg"></a>
+                            <a href="#"><img ng-src="/images/temp/2.jpg"></a>
                         </li>
                         <li>
-                            <a href="#"><img src="static/temp/3.jpg"></a>
+                            <a href="#"><img ng-src="/images/temp/3.jpg"></a>
                         </li>
                     </ul>
                 </div>
@@ -134,14 +134,10 @@
         </div>
     </div>
 </section>
-<div class="ui-sidemenu" ng-class="{menushow:menuShow}">
+<div class="ui-sidemenu animated slideInLeft" ng-show="slideMenuShow" ng-click="slideMenuShow = !slideMenuShow">
     <div class="ui-sidemenu-mask" etap='ui_sidemenu_hide'></div>
     <div class="ui-sidemenu-main">
-        <div class="ui-sidemenu-user">
-            <div><i class="fa">&#xe60d;</i>
-                <a href="javascript:;"><img class="hide" src="static/img/thumbnail.png"><img src="static/temp/2.jpg"></a><i class="fa">&#xe60c;</i></div>
-            <p><a href="#">登录</a><a href="#">注册</a><span>xianzhiding</span></p>
-        </div>
+        <slideMenuUser></slideMenuUser>        
         <ul class="ui-sidemenu-nav">
             <li class="ui-arrows"><a href="#"><i class="fa">&#xe601;</i> 藏品心得</a></li>
             <li class="ui-arrows"><a href="#"><i class="fa">&#xe605;</i> 我要投稿</a></li>
@@ -152,18 +148,18 @@
 </div>
 <div class="ui-loding">
     <div class="ui-loding-info">
-        <img src="static/img/loading.gif">
+        <img ng-src="static/img/loading.gif">
         <h5>加载中...</h5>
         <p>最后更新时间：今天10:17</p>
     </div>
 </div>
 <div class="ui-loding ui-loding-white">
     <div class="ui-loding-info">
-        <img src="static/img/loading.gif">
+        <img ng-src="static/img/loading.gif">
         <h5>加载更多...</h5>
     </div>
 </div>
-<div class="ui-login">
+<div class="ui-login" ng-show="showLogin">
     <p><span>哎呀，你还没登录呢！</span>
     </p>
     <a href="#" class="btn btn-primary btn-lgs btn-block">登录后更精彩</a>

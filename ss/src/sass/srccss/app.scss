@@ -1632,7 +1632,7 @@ a,a:hover,a:active{text-decoration: none;}
 
 
 /*.ui-item-login{padding: 0 10px;}*/
-.ui-login{position: absolute;top: 46px;left: 0;right: 0;background-color: rgba(0,0,0,.7);z-index: 50;padding: 30px 10px 30px;display: none;}
+.ui-login{position: absolute;top: 46px;left: 0;right: 0;background-color: rgba(0,0,0,.7);z-index: 50; padding: 24px 10px 30px;}
 .ui-login:after{display: block;content: '';height: 5px;width: 30px;border-radius: 3px;background-color: #888888;position: absolute;bottom: 5px;left: 50%;margin-left: -15px;}
 
 .ui-login .btn{margin-bottom: 20px;}
@@ -1712,8 +1712,8 @@ a,a:hover,a:active{text-decoration: none;}
 
 
 /* .ui-sidemenu-active .ui-sidemenu{left: 0} */
-.ui-sidemenu{position: fixed;left: -100%;top: 0;bottom: 0;right: 0;width: 100%;z-index: 99999;-webkit-transition: left .2s linear;-o-transition: left .2s linear;transition: left .2s linear;}
-.ui-sidemenu-main{background-color: rgba(255,255,255,.95); position: absolute;left: 0;top: 0;bottom: 0;z-index: 2;padding: 10px;width: 80%;padding-top: 15%;}
+.ui-sidemenu{position: fixed;top: 0;bottom: 0;right: 0;width: 100%;z-index: 99999;}
+.ui-sidemenu-main{background-color: rgba(255,255,255,.9); position: absolute;left: 0;top: 0;bottom: 0;z-index: 2;padding: 10px;width: 80%;padding-top: 15%;}
 .ui-sidemenu-mask{position: absolute;top: 0;right: 0;left: 0;bottom: 0;}
 
 .ui-sidemenu-user{text-align: center;margin-bottom: 25%;}
@@ -2026,7 +2026,7 @@ a,a:hover,a:active{text-decoration: none;}
  */
 .page-home{background-color: #EEEEEE;}
 
-.page-home .ui-container{top: 83px;overflow: hidden; display: none}
+.page-home .ui-container{top: 83px;overflow: hidden;}
 .page-home .ui-container.show{display: block;}
 .ui-tabs{display: -webkit-box;}
 .ui-tabs li{-webkit-box-flex:1;text-align: center;cursor: pointer;}
@@ -2082,7 +2082,7 @@ a,a:hover,a:active{text-decoration: none;}
 .user-tabs li:first-child{margin-left: 0;}
 .user-tabs li.active{color: #1D9180;}
 .user-tabs-pane{padding-top: 15px;display: none;}
-.user-tabs-pane.active{display: block;} 
+.user-tabs-pane.active{display: block; } 
 .user-tabs-content.active{}
 
 .ui-toe{overflow : hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;}

@@ -1,7 +1,8 @@
 var ssApp = angular.module('ssApp', [
     'ui.router',
     'controllers',
-    'services'
+    'services',
+    'directives'
 ]);
 
 var ctrls = angular.module('controllers', []);

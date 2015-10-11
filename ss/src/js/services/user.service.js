@@ -1,9 +1,13 @@
-services.service('user', ['$http',
+services.factory('user', ['$http',
 	function ($http) {
-		this.login = function(){};
-		this.register = function(){};
-		this.saveUserInfo = function(token){};
-		this.getUserInfo = function(){};
-		this.getToken = function(){};
+		return {
+			userName:'xiaoding',
+			login: function () {},
+			register: function () {},
+			saveUserInfo: function (token) {},
+			getUserInfo: function () {},
+			getToken: function () {}
+		}
+
 	}
 ])

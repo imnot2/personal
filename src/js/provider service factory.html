@@ -12,6 +12,7 @@
 <script>
 	var m = angular.module('ngApp',[]);
 	m.service('AA',function(){
+		console.log(1);
 		this.name = 'dingding';
 	})
 	m.factory('BB',['AA',function(AA){
@@ -22,15 +23,16 @@
 		}
 	}])
 	m.directive('abc',['BB',function(BB){
+		BB.years = '24';
 		return {
 			restrict:'AE',
 			template:'<span>'+BB.name+'</span>'
 		}
 	}])
-	m.directive('abcd',['AA',function(AA){
+	m.directive('abcd',['AA','BB',function(AA,BB){
 		return {
 			restrict:'AE',
-			template:'<span>'+AA.years+'</span>'
+			template:'<span>'+AA.years+'</span>/<span>'+BB.years+'</span>'
 		}
 	}])
 </script>

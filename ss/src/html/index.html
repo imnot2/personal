@@ -8,6 +8,42 @@
     <link href="/css/srccss/app.css" rel="stylesheet">
     <link href="//cdn.bootcss.com/animate.css/3.4.0/animate.css" rel="stylesheet">
     <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.js"></script>
+    <script src="//cdn.bootcss.com/hammer.js/2.0.4/hammer.js"></script>
+    <script>
+    (function(factory) {
+        if (typeof define === 'function' && define.amd) {
+            define(['jquery', 'hammerjs'], factory);
+        } else if (typeof exports === 'object') {
+            factory(require('jquery'), require('hammerjs'));
+        } else {
+            factory(jQuery, Hammer);
+        }
+    }(function($, Hammer) {
+        function hammerify(el, options) {
+            var $el = $(el);
+            if (!$el.data("hammer")) {
+                $el.data("hammer", new Hammer($el[0], options));
+            }
+        }
+
+        $.fn.hammer = function(options) {
+            return this.each(function() {
+                hammerify(this, options);
+            });
+        };
+
+        // extend the emit method to also trigger jQuery events
+        Hammer.Manager.prototype.emit = (function(originalEmit) {
+            return function(type, data) {
+                originalEmit.call(this, type, data);
+                $(this.element).trigger({
+                    type: type,
+                    gesture: data
+                });
+            };
+        })(Hammer.Manager.prototype.emit);
+    }));
+    </script>
     <script src="//cdn.bootcss.com/angular.js/1.4.7/angular.js"></script>
     <script src="//cdn.bootcss.com/angular-ui-router/0.2.15/angular-ui-router.js"></script>
     <script src="../../js/app.js"></script>
@@ -16,4 +52,5 @@
 <body>
     <div class="{{wrapClass}}" ui-view></div>
 </body>
+
 </html>

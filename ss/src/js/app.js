@@ -49,5 +49,26 @@ ssApp.config(function ($stateProvider, $urlRouterProvider) {
                     controller: 'userSeller'
                 }
             }
+        }).state('login', {
+            url: '/user/login',
+            views: {
+                '': {
+                    templateUrl: 'tpls/login.tpl.html',
+                    controller: 'login'
+                }
+            }
+        }).state('register', {
+            url: '/user/register/{page:[1-2]{1}}',
+            views: {
+                '': {
+                    templateUrl: 'tpls/register.tpl.html',
+                    //controller: 'register'
+                },
+                'content@register': {
+                    templateUrl: function ($stateParams) {                        
+                        return 'tpls/ui-wiget/registerContent'+$stateParams.page+'.tpl.html'
+                    }
+                }
+            }
         })
 });

@@ -18,13 +18,10 @@ directives.directive('productinfo', ['user', '$rootScope', '$state', '$statePara
                 var token = user.getToken();
                 $(element).find('.item-hammer,.item-comments,.item-heart').hammer().bind('tap', function (ev) {
                     if (!token) {
-                        console.log(scope);
                         scope.showLogin = true;
-                        //$('.ui-login').show();
                     } else {
                         $state.go();
                     }
-                    console.log(ev);
                 })
             }
         }

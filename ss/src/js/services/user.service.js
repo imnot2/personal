@@ -6,7 +6,12 @@ services.factory('user', ['$http',
 			register: function () {},
 			saveUserInfo: function (token) {},
 			getUserInfo: function () {},
-			getToken: function () {}
+			getToken: function () {
+				//return 'asdfa3rewtq';
+			},
+			getIdentity:function(){
+				return 'Buyer';
+			}
 		}
 
 	}

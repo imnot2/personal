@@ -12,33 +12,84 @@ ctrls.controller('indexCtrl', [
 
         $scope.type = parseInt($stateParams.type);
         $scope.products = [{
-            'name': '石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件',
-            'price': '150',
-            'url': '/images/temp/1.jpg'
+            'endtime': 1444657093125,
+            'owner': {
+                'avatar': '/images/temp/1.jpg',
+                'name': 'sosochen',
+                'level': 3
+            },
+            'auctions': 15,
+            'comments': 25,
+            'likes': 55,
+            'curPrice': 1290,
+            'src': '/images/temp/1.jpg',
+            'title': '石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉2212'
         }, {
-            'name': '石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222',
-            'price': '150',
-            'url': '/images/temp/1.jpg'
+            'endtime': 1444657093125,
+            'owner': {
+                'avatar': '/images/temp/1.jpg',
+                'name': 'sosochen',
+                'level': 3
+            },
+            'auctions': 15,
+            'comments': 45,
+            'likes': 55,
+            'curPrice': 1290,
+            'src': '/images/temp/1.jpg',
+            'title': '石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂22422'
         }, {
-            'name': '石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件333',
-            'price': '150',
-            'url': '/images/temp/1.jpg'
+            'endtime': 1444657093125,
+            'owner': {
+                'avatar': '/images/temp/1.jpg',
+                'name': 'sosochen',
+                'level': 3
+            },
+            'auctions': 15,
+            'comments': 75,
+            'likes': 55,
+            'curPrice': 1290,
+            'src': '/images/temp/1.jpg',
+            'title': '石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂543'
+        }, {
+            'endtime': 1444657093125,
+            'owner': {
+                'avatar': '/images/temp/1.jpg',
+                'name': 'sosochen',
+                'level': 3
+            },
+            'auctions': 15,
+            'comments': 445,
+            'likes': 55,
+            'curPrice': 1290,
+            'src': '/images/temp/1.jpg',
+            'title': '石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂745'
+        }, {
+            'endtime': 1444657093125,
+            'owner': {
+                'avatar': '/images/temp/1.jpg',
+                'name': 'sosochen',
+                'level': 3
+            },
+            'auctions': 15,
+            'comments': 15,
+            'likes': 55,
+            'curPrice': 1290,
+            'src': '/images/temp/1.jpg',
+            'title': '石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222'
         }]
         $scope.dynamicCount = 9;
 
         var token = user.getToken();
-        //var token = 'asdfa23gdf44dfa7';
-        //var shenfen = user.getShenfen();
-        var shenfen = 'Buyer';
+        var identity = user.getIdentity();
 
-        $scope.showLogin = $scope.type == 3 && !token;
+        $rootScope.showLogin = $scope.type == 3 && !token;
 
         $scope.toUser = function () {
             if (!token) {
                 $state.go('login')
             }
             else {
-                $state.go('user' + shenfen, {
+                $state.go('user' + identity, {
                     page: 1
                 })
             }

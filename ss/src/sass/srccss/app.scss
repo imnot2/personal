@@ -2323,3 +2323,10 @@ end message
 
 .page-item .ui-container{margin-bottom: 80px;}
 .page-contribute .ui-container .ui-store-panel{margin-top: 0;}
+
+.slideAnimated {
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}

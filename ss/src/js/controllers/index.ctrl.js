@@ -82,7 +82,7 @@ ctrls.controller('indexCtrl', [
         var token = user.getToken();
         var identity = user.getIdentity();
 
-        $rootScope.showLogin = $scope.type == 3 && !token;
+        $scope.showLogin = !token;
 
         $scope.toUser = function () {
             if (!token) {

@@ -2,6 +2,10 @@ directives.directive('productinfo', ['user', '$rootScope', '$state', '$statePara
     function (user, $rootScope, $state, $stateParams) {
         return {
             restrict: 'AE',
+            scope: {
+                showLogin: '=',
+                product: '='
+            },
             template: [
                 '<p class="item-info">',
                 '    <span class="item-hammer"><i class="fa">&#xe609;</i>{{product.auctions}}</span>',
@@ -15,10 +19,9 @@ directives.directive('productinfo', ['user', '$rootScope', '$state', '$statePara
                 $(element).find('.item-hammer,.item-comments,.item-heart').hammer().bind('tap', function (ev) {
                     if (!token) {
                         console.log(scope);
-                        //$rootScope.showLogin = true;
-                        $('.ui-login').show();
-                    }
-                    else {
+                        scope.showLogin = true;
+                        //$('.ui-login').show();
+                    } else {
                         $state.go();
                     }
                     console.log(ev);

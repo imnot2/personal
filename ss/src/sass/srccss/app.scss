@@ -2032,10 +2032,10 @@ a,a:hover,a:active{text-decoration: none;}
 .ui-tabs li{-webkit-box-flex:1;text-align: center;cursor: pointer;}
 .ui-tabs li:first-child{margin-left: 0;}
 .ui-tabs li.active{color: #1D9180;}
-.ui-tabs-pane{left:0;position: absolute;top: 0;bottom: 0;left: 0;width: 100%;padding-top: 15px;overflow-x: hidden;overflow-y: auto;}
-.ui-tabs-content .ui-tabs-pane:nth-child(2){left:100%;}
-.ui-tabs-content .ui-tabs-pane:nth-child(3){left:200%;}
-.ui-tabs-pane.active{}
+.ui-tabs-pane{left:100%;position: absolute;top: 0;bottom: 0;width: 100%;padding-top: 15px;overflow-x: hidden;overflow-y: auto;}
+/*.ui-tabs-content .ui-tabs-pane:nth-child(2){left:100%;}
+.ui-tabs-content .ui-tabs-pane:nth-child(3){left:200%;}*/
+.ui-tabs-pane.active{ left:0;}
 
 .ui-tabs-content{position: absolute;top:0;left:0;bottom:0;width:100%;-webkit-transition-duration:500ms;}
 .ui-tabs-content.active{}

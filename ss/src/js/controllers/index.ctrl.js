@@ -11,7 +11,8 @@ ctrls.controller('indexCtrl', [
         $scope.wrapClass = 'page-home';
 
         $scope.type = parseInt($stateParams.type);
-
+        $scope.showLogin = false;
+        
         if ($scope.type == 3) {
             if (!user.getToken()) {
                 $scope.noLogin = true;
@@ -182,7 +183,7 @@ ctrls.controller('indexCtrl', [
         var identity = user.getIdentity();
         var noLogin = !token;
 
-        $scope.showLogin = noLogin;
+        
 
         $scope.toUser = function () {
             if (noLogin) {

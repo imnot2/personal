@@ -27,8 +27,8 @@
                 </div>
                 <div class="item-hd">
                     <p class="item-head"><img ng-src="{{product.owner.avatar}}">{{product.owner.name}}<i class="fa">&#xe607;</i>
-                    </p>
-                    <productInfo product="product" showLogin="showLogin"></productInfo>
+                    </p>                    
+                    <productInfo product="product" showlogin="$parent.showLogin"></productInfo>
                 </div>
             </article>
             <p class="ui-line-tips"><span>到底啦</span>
@@ -71,7 +71,7 @@
                 <div class="item-hd">
                     <p class="item-head"><img ng-src="{{product.owner.avatar}}">{{product.owner.name}}<i class="fa">&#xe607;</i>
                     </p>
-                    <productInfo product="product" showLogin="showLogin"></productInfo>
+                    <productInfo product="product" showlogin="$parent.showLogin"></productInfo>
                 </div>
             </article>
             <p class="ui-line-tips"><span>到底啦</span>
@@ -86,7 +86,7 @@
         <ul class="ui-sidemenu-nav">
             <li class="ui-arrows"><a href="#"><i class="fa">&#xe601;</i> 藏品心得</a></li>
             <li class="ui-arrows"><a href="#"><i class="fa">&#xe605;</i> 我要投稿</a></li>
-            <li class="ui-arrows"><a href="#"><i class="fa">&#xe60a;</i> 联系常时</a></li>
+            <li class="ui-arrows"><a href="#"><i class="fa">&#xe60a;</i> 联系赏视</a></li>
             <li class="ui-arrows"><a href="#"><i class="fa">&#xe62d;</i> 清除缓存</a></li>
         </ul>
     </div>
@@ -104,12 +104,12 @@
         <h5>加载更多...</h5>
     </div>
 </div>
-<div class="ui-login slideAnimated slideInDown" ng-show="showLogin">
+<div class="ui-login slideDownAnimated slideInDown" ng-show="showLogin">
     <p><span>哎呀，你还没登录呢！</span>
     </p>
-    <a href="javascript:;" class="btn btn-primary btn-lgs btn-block" login>登录后更精彩</a>
+    <a href="javascript:;" class="btn btn-primary btn-lgs btn-block">登录后更精彩</a>
     <p>登录后可以查看您所关注的商品哦。</p>
-    <p>没有账号 快来<a href="javascript:;" register>申请一个</a>吧</p>
+    <p>没有账号 快来<a href="javascript:;">申请一个</a>吧</p>
 </div>
 <div class="ui-share">
     <a href="#"><i class="fa">&#xe615;</i><p>微信</p></a>

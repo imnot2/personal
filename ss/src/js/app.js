@@ -62,11 +62,27 @@ ssApp.config(function ($stateProvider, $urlRouterProvider) {
             views: {
                 '': {
                     templateUrl: 'tpls/register.tpl.html',
-                    //controller: 'register'
+                    controller: 'register'
                 },
                 'content@register': {
                     templateUrl: function ($stateParams) {                        
                         return 'tpls/ui-wiget/registerContent'+$stateParams.page+'.tpl.html'
+                    },
+                    controllerProvider: function($stateParams){
+                        return 'register'+$stateParams.page
+                    }
+                }
+            }
+        }).state('forgetpassword', {
+            url: '/user/forgetpassword/{page:[1-2]{1}}',
+            views: {
+                '': {
+                    templateUrl: 'tpls/forgetPassword.tpl.html',
+                    //controller: 'register'
+                },
+                'content@forgetpassword': {
+                    templateUrl: function ($stateParams) {                        
+                        return 'tpls/ui-wiget/forgetPasswordContent'+$stateParams.page+'.tpl.html'
                     }
                 }
             }

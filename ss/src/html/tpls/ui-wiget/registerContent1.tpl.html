@@ -4,24 +4,15 @@
     </div>
     <div class="ui-form-action">
         <div class="ui-form ui-form-icon">
-            <form action="" id="form-action">
-                <div class="ui-form-item">
-                    <input type="number" placeholder="输入手机号">
-                    <span class="icons-info"><i class="fa">&#xe60a;</i></span>
-                </div>
-                <div class="ui-form-item">
-                    <input type="password" placeholder="输入密码">
-                    <span class="icons-info"><i class="fa">&#xe619;</i></span>
-                </div>
-                <div class="ui-form-item">
-                    <input type="password" placeholder="再次输入密码">
-                    <span class="icons-info"><i class="fa">&#xe619;</i></span>
-                </div>
+            <form name="userForm" id="form-action">
+                <mobile placeholder="输入手机号"></mobile>
+                <password placeholder="输入密码"></password>
+                <password placeholder="再次输入密码"></password>
             </form>
         </div>
         <p class="ui-pasw-deal">我同意<a href="#">用户协议</a></p>
         <div class="ui-btn">
-            <button type="submit" form="form-action" class="btn btn-primary btn-lgs btn-block">下一步验证手机</button>
+            <button ng-disabled="userForm.$invalid" ng-click="nextStep()" form="form-action" class="btn btn-primary btn-lgs btn-block">下一步验证手机</button>
         </div>
     </div>
 </section>

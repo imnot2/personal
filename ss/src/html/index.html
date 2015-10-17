@@ -51,6 +51,29 @@
 
 <body>
     <div class="{{wrapClass}}" ui-view></div>
+    <div class="ui-dialog" ng-if="dialogConfirm.show" ng-click="dialogConfirm.show = false">
+        <div class="ui-dialog-mask"></div>
+        <div class="ui-dialog-cent">
+            <header class="ui-dialog-hd">
+                <h3>{{dialogConfirm.title}}</h3>
+                <i class="ui-dialog-close" data-role="button"></i>
+            </header>
+            <div class="ui-dialog-bd">
+                <div>{{dialogConfirm.content}}</div>
+            </div>
+            <div class="ui-dialog-ft ui-btn-group">
+                <button type="button" ng-click="dialogConfirm.confirmFn(false)" data-role="button">取消</button>
+                <button type="button" ng-click="dialogConfirm.confirmFn(true)" data-role="button">确认</button>
+            </div>
+        </div>
+    </div>
+    <div class="ui-dialog" ng-if="dialog.show" ng-click="dialog.show = false">
+        <div class="ui-dialog-cent">
+            <div class="ui-dialog-bd">
+                <div>{{dialog.content}}</div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

@@ -4,7 +4,8 @@ directives.directive('productinfo', ['user', '$rootScope', '$state', '$statePara
             restrict: 'AE',
             scope: {
                 showlogin: '=',
-                product: '='
+                product: '=',
+                loginslidein: '='
             },
             template: [
                 '<p class="item-info">',
@@ -18,12 +19,12 @@ directives.directive('productinfo', ['user', '$rootScope', '$state', '$statePara
                 var token = user.getToken();
                 $(element).find('.item-hammer,.item-comments,.item-heart').hammer().bind('tap', function (ev) {
                     if (!token) {
-                        //scope.showlogin = true;
+                        scope.loginslidein = true;
                         scope.showlogin = true;
                         scope.$apply();
                         //$('.ui-login').show();
                     } else {
-                        $state.go();
+                        //$state.go();
                     }
                     console.log(ev);
                 })

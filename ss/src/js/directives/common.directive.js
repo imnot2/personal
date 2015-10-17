@@ -1,27 +1,44 @@
-directives.directive('login', ['$scope', function () {
+directives.directive('login', ['$state', function($state) {
     return {
         restrict: 'AE',
-        link: function (scope, element, attrs) {
-            $(element).on('click',function(){
-
+        link: function(scope, element, attrs) {
+            $(element).hammer().bind('tap', function() {
+                $state.go('login');
             })
         }
     }
-}]).directive('register', ['$scope', function () {
+}]).directive('register', ['$state', function($state) {
     return {
         restrict: 'AE',
-        link: function (scope, element, attrs) {
-
+        link: function(scope, element, attrs) {
+            $(element).hammer().bind('tap', function() {
+                $state.go('register', {
+                    page: 1
+                })
+            })
         }
     }
-}]).directive('goback', ['$scope', function () {
+}]).directive('back', function() {
     return {
         restrict: 'AE',
-        link: function (scope, element, attrs) {
-
+        link: function(scope, element, attrs) {
+            $(element).hammer().bind('tap', function() {
+                window.history.back()
+            })
         }
     }
-}]).directive('countdown', function() {    
+}).directive('forgetpassword',['$state', function($state) {
+    return {
+        restrict: 'AE',
+        link: function(scope, element, attrs) {
+            $(element).hammer().bind('tap', function() {
+                $state.go('forgetpassword', {
+                    page: 1
+                })
+            })
+        }
+    }
+}]).directive('countdown', function() {
     var s = 1000;
     var m = s * 60;
     var h = m * 60;

@@ -8,10 +8,12 @@ ctrls.controller('indexCtrl', [
     function ($scope, $http, $state, $stateParams, $rootScope, user) {
 
         $scope.slideMenuShow = false;
+        $scope.showLogin = false;
+        $scope.loginSlideIn = true;//下拉登录框接下来是否为下拉显示(true)、上拉隐藏(false
         $scope.wrapClass = 'page-home';
 
         $scope.type = parseInt($stateParams.type);
-        $scope.showLogin = false;
+        
         
         if ($scope.type == 3) {
             if (!user.getToken()) {

@@ -57,6 +57,8 @@ directives.directive('mobile', function() {
             var timer;
             var countdown = m.curCountDown;
             $(element).find('input[type]').attr('placeholder', attrs.placeholder);
+            scope.tips = '60秒';
+            scope.disable = true;
             timer = setInterval(function() {
                 if (countdown <= 1) {
                     clearInterval(timer);

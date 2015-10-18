@@ -8,6 +8,10 @@ services.factory('utils', [
                 $stateParams.ret = params.ret;
                 $state.go(url);
                 console.log($stateParams);
+            },
+            redirect: function(url) {
+                //$state.go('')
+                location.href = url;
             }
         }
     }

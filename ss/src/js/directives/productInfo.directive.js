@@ -17,17 +17,17 @@ directives.directive('productinfo', ['user', '$rootScope', '$state', '$statePara
             replace: true,
             link: function (scope, element, attrs) {
                 var token = user.getToken();
-                $(element).find('.item-hammer,.item-comments,.item-heart').hammer().bind('tap', function (ev) {
-                    if (!token) {
-                        scope.loginslidein = true;
-                        scope.showlogin = true;
-                        scope.$apply();
-                        //$('.ui-login').show();
-                    } else {
-                        //$state.go();
-                    }
-                    console.log(ev);
-                })
+                // $(element).find('.item-hammer,.item-comments,.item-heart').hammer().bind('tap', function (ev) {
+                //     if (!token) {
+                //         scope.loginslidein = true;
+                //         scope.showlogin = true;
+                //         scope.$apply();
+                //         //$('.ui-login').show();
+                //     } else {
+                //         //$state.go();
+                //     }
+                //     console.log(ev);
+                // })
             }
         }
     }

@@ -7,7 +7,7 @@
  */
 
 'use strict';
-module.exports = function (grunt) {
+module.exports = function(grunt) {
     grunt.initConfig({
 
         pkg: grunt.file.readJSON('package.json'),
@@ -20,7 +20,8 @@ module.exports = function (grunt) {
                 js: '<%= dirs.src.root %>/js',
                 imgs: '<%= dirs.src.root %>/images',
                 font: '<%= dirs.src.root %>/fonts',
-                html: '<%= dirs.src.root %>/html'
+                html: '<%= dirs.src.root %>/html',
+                products:'<%= dirs.src.root %>/products'
             },
             build: {
                 root: 'build',
@@ -28,7 +29,8 @@ module.exports = function (grunt) {
                 imgs: '<%= dirs.build.root %>/images',
                 js: '<%= dirs.build.root %>/js',
                 font: '<%= dirs.build.root %>/fonts',
-                html: '<%= dirs.build.root %>/html'
+                html: '<%= dirs.build.root %>/html',
+                products:'<%= dirs.build.root %>/products'
             },
             dest: {
                 root: 'dist',
@@ -44,7 +46,7 @@ module.exports = function (grunt) {
             build: {
                 options: {
                     sassDir: '<%= dirs.src.sass %>',
-                    specify: ['<%= dirs.src.sass %>/pages/*.scss','<%= dirs.src.sass %>/srccss/*.scss'],
+                    specify: ['<%= dirs.src.sass %>/pages/*.scss', '<%= dirs.src.sass %>/srccss/*.scss'],
                     cssDir: '<%= dirs.build.css %>',
                     imagesDir: "<%= dirs.src.imgs %>",
                     httpPath: "<%= dirs.CDNurl %>",
@@ -114,7 +116,7 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     cwd: '<%= dirs.src.html %>',
-                    src: ['*.html','**/*.html'],
+                    src: ['*.html', '**/*.html'],
                     dest: '<%= dirs.build.html %>'
                 }]
             },
@@ -122,8 +124,16 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     cwd: '<%= dirs.src.html %>',
-                    src: ['*.html','**/*.html'],
+                    src: ['*.html', '**/*.html'],
                     dest: '<%= dirs.dest.html %>'
+                }]
+            },
+            toBuildProduts: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= dirs.src.products %>',
+                    src: ['*.json'],
+                    dest: '<%= dirs.build.products %>'
                 }]
             }
         },
@@ -135,9 +145,9 @@ module.exports = function (grunt) {
             //合并js
             build: {
                 files: {
-                    '<%= dirs.build.js %>/app.js': ['<%= dirs.src.js %>/module.prefix','<%= dirs.src.js %>/app.js','<%= dirs.src.js %>/routers/*.js','<%= dirs.src.js %>/controllers/**/*.js','<%= dirs.src.js %>/directives/**/*.js','<%= dirs.src.js %>/filters/**/*.js','<%= dirs.src.js %>/services/**/*.js','<%= dirs.src.js %>/module.suffix'],
+                    '<%= dirs.build.js %>/app.js': ['<%= dirs.src.js %>/module.prefix', '<%= dirs.src.js %>/app.js', '<%= dirs.src.js %>/routers/*.js', '<%= dirs.src.js %>/controllers/**/*.js', '<%= dirs.src.js %>/directives/**/*.js', '<%= dirs.src.js %>/filters/**/*.js', '<%= dirs.src.js %>/services/**/*.js', '<%= dirs.src.js %>/module.suffix'],
                     //'<%= dirs.build.js %>/controllers.js': ['<%= dirs.src.js %>/controllers/*.js']
-                }                
+                }
             },
             // dest:{
             //     src: ['<%= dirs.build.js %>/app.js', '<%= dirs.src.js %>/*.js'],
@@ -203,7 +213,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-string-replace');
     grunt.loadNpmTasks('grunt-contrib-concat');
 
-    grunt.registerTask('dev', ['clean', 'compass', 'cssmin:build', 'imagemin', 'concat:build', 'copy:toBuildfont', 'copy:toBuildHtml']);
+    grunt.registerTask('dev', ['clean', 'compass', 'cssmin:build', 'imagemin', 'concat:build', 'copy:toBuildfont', 'copy:toBuildHtml', 'copy:toBuildProduts']);
     grunt.registerTask('dest', ['dev', 'cssmin:dest', 'uglify:dest', 'copy:toDestImgs', 'copy:toDestfont', 'copy:toDestHtml']);
     grunt.registerTask('default', ['dest']);
 }

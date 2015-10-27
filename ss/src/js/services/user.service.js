@@ -1,4 +1,4 @@
-services.factory('user', ['$http', 'utils'function($http, utilsService) {
+services.factory('user', ['$http', 'utils', function($http, utilsService) {
     var res = {
         userInfo: {
             id: '',
@@ -16,7 +16,7 @@ services.factory('user', ['$http', 'utils'function($http, utilsService) {
         //     name: name,
         //     password: password
         // }).success(function(res) {
-        if (res.status === 0) {
+        if(res.status === 0) {
             this.isLogin = true;
             //this.userInfo = res.userInfo;
             this.saveUserInfo(res.userInfo);
@@ -35,18 +35,18 @@ services.factory('user', ['$http', 'utils'function($http, utilsService) {
             identity: userInfo.identity
         }, true);
     };
-    this.getToken = function(){
+    this.getToken = function() {
         return $.getCookie('t', true);
     };
-    this.getIdentity = function(){
+    this.getIdentity = function() {
         return this.getUState('identity');
     };
     this.getUState = function(key) {
         var ustate = $.getCookie('UState', true);
-        if (ustate && (typeof ustate == 'object')) {
+        if(ustate && (typeof ustate == 'object')) {
             try {
                 return ustate[key];
-            } catch (error) {
+            } catch(error) {
                 return false;
             }
         } else {
@@ -60,20 +60,20 @@ services.factory('user', ['$http', 'utils'function($http, utilsService) {
         $.removeCookie('token', {
             path: '/'
         });
-        if (typeof callback == 'function') {
+        if(typeof callback == 'function') {
             callback();
-            if (isRedir) {
+            if(isRedir) {
                 setTimeout(function() {
                     user.redirect('/');
                 }, 800);
             }
-        } else if (isRedir) {
+        } else if(isRedir) {
             this.redirect('/');
         }
     };
     this.checkLogin = function(isValid, callback) {
-        if (this.getUState('t')) {
-            if (isValid) {
+        if(this.getUState('t')) {
+            if(isValid) {
                 this.getUserInfo(callback);
             }
             return true;

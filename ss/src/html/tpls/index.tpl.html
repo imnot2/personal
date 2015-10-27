@@ -15,7 +15,7 @@
 <section class="ui-container">
     <div class="ui-tabs-content">
         <div class="ui-tabs-pane" ng-class="{active:type!=2&&type!=3}">
-            <article ng-repeat="product in processingProducts">
+            <article ng-repeat="product in products.processing">
                 <div class="ui-item-image">
                     <a href="javascript:;"><img ng-src="{{product.src}}">
                     </a>
@@ -36,7 +36,7 @@
         </div>
         <div class="ui-tabs-pane" ng-class="{active:type==2}">
             <p class="hide ui-line-tips"><span>以下商品尚未开售，你可以先收藏</span></p>
-            <article ng-repeat="product in willBeginProducts">
+            <article ng-repeat="product in products.willBegin">
                 <div class="ui-item-image">
                     <a href="javascript:;"><img ng-src="{{product.src}}">
                     </a>
@@ -58,7 +58,7 @@
                 <p class="t">登录后可以查看您所关注的商品哦。</p>
                 <p class="t">没有账号 快来<a regitser>申请一个</a>吧</p>
             </div>
-            <article ng-repeat="product in interestPruducts">
+            <article ng-repeat="product in products.interest">
                 <div class="ui-item-image">
                     <a href="javascript:;"><img ng-src="{{product.src}}">
                     </a>

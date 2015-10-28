@@ -12,8 +12,8 @@ services.service('productsService', ['$http', '$rootScope', function($http, $roo
             method: 'GET'
         }).success(function(res) {
             angular.forEach(res.data, function(value, key) {
-                console.log(value);
-                console.log(key);
+                // console.log(value);
+                // console.log(key);
                 me.products[productsType][value.id] = value;
             });
             $rootScope.$broadcast('products.update');

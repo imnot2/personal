@@ -18,10 +18,11 @@ module.exports = function(grunt) {
                 root: 'src',
                 sass: '<%= dirs.src.root %>/sass',
                 js: '<%= dirs.src.root %>/js',
+                lib: '<%= dirs.src.root %>/js/vendor/bower_components',
                 imgs: '<%= dirs.src.root %>/images',
                 font: '<%= dirs.src.root %>/fonts',
                 html: '<%= dirs.src.root %>/html',
-                products:'<%= dirs.src.root %>/products'
+                products: '<%= dirs.src.root %>/products'
             },
             build: {
                 root: 'build',
@@ -30,7 +31,7 @@ module.exports = function(grunt) {
                 js: '<%= dirs.build.root %>/js',
                 font: '<%= dirs.build.root %>/fonts',
                 html: '<%= dirs.build.root %>/html',
-                products:'<%= dirs.build.root %>/products'
+                products: '<%= dirs.build.root %>/products'
             },
             dest: {
                 root: 'dist',
@@ -146,7 +147,7 @@ module.exports = function(grunt) {
             build: {
                 files: {
                     '<%= dirs.build.js %>/app.js': ['<%= dirs.src.js %>/module.prefix', '<%= dirs.src.js %>/app.js', '<%= dirs.src.js %>/routers/*.js', '<%= dirs.src.js %>/controllers/**/*.js', '<%= dirs.src.js %>/directives/**/*.js', '<%= dirs.src.js %>/filters/**/*.js', '<%= dirs.src.js %>/services/**/*.js', '<%= dirs.src.js %>/module.suffix'],
-                    //'<%= dirs.build.js %>/controllers.js': ['<%= dirs.src.js %>/controllers/*.js']
+                    '<%= dirs.build.js %>/vendor/lib.js': ['<%= dirs.src.lib %>/angular/angular.js', '<%= dirs.src.lib %>/angular-ui-router/release/angular-ui-router.js', '<%= dirs.src.lib %>/jquery/jquery.js', '<%= dirs.src.lib %>/touchjs/dist/touch-0.2.14.js']
                 }
             },
             // dest:{

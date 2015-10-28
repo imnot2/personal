@@ -1,5 +1,5 @@
 directives.directive('productinfo', ['user', '$rootScope', '$state', '$stateParams',
-    function (user, $rootScope, $state, $stateParams) {
+    function(user, $rootScope, $state, $stateParams) {
         return {
             restrict: 'AE',
             scope: {
@@ -15,19 +15,20 @@ directives.directive('productinfo', ['user', '$rootScope', '$state', '$statePara
                 '</p>'
             ].join(''),
             replace: true,
-            link: function (scope, element, attrs) {
+            link: function(scope, element, attrs) {
                 var token = user.getToken();
-                // $(element).find('.item-hammer,.item-comments,.item-heart').hammer().bind('tap', function (ev) {
-                //     if (!token) {
-                //         scope.loginslidein = true;
-                //         scope.showlogin = true;
-                //         scope.$apply();
-                //         //$('.ui-login').show();
-                //     } else {
-                //         //$state.go();
-                //     }
-                //     console.log(ev);
-                // })
+                touch.on($(element).find('.item-hammer,.item-comments,.item-heart'), 'tap', function(ev) {
+                    if(!token) {
+                        scope.loginslidein = true;
+                        scope.showlogin = true;
+                        scope.$apply();
+                        //$('.ui-login').show();
+                    } else {
+                        //$state.go();
+                    }
+                    console.log(ev);
+                })
+
             }
         }
     }

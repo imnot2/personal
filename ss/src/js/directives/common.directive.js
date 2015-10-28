@@ -2,7 +2,7 @@ directives.directive('login', ['$state', function($state) {
     return {
         restrict: 'AE',
         link: function(scope, element, attrs) {
-            $(element).hammer().bind('tap', function() {
+            touch.on(element,'tap', function() {
                 $state.go('login');
             })
         }
@@ -10,8 +10,8 @@ directives.directive('login', ['$state', function($state) {
 }]).directive('register', ['$state', function($state) {
     return {
         restrict: 'AE',
-        link: function(scope, element, attrs) {
-            $(element).hammer().bind('tap', function() {
+        link: function(scope, element, attrs) {            
+            touch.on(element,'tap', function() {
                 $state.go('register', {
                     page: 1
                 })
@@ -22,16 +22,16 @@ directives.directive('login', ['$state', function($state) {
     return {
         restrict: 'AE',
         link: function(scope, element, attrs) {
-            $(element).hammer().bind('tap', function() {
+            touch.on(element,'tap', function() {
                 window.history.back()
             })
         }
     }
-}).directive('forgetpassword',['$state', function($state) {
+}).directive('forgetpassword', ['$state', function($state) {
     return {
         restrict: 'AE',
         link: function(scope, element, attrs) {
-            $(element).hammer().bind('tap', function() {
+            touch.on(element,'tap', function() {
                 $state.go('forgetpassword', {
                     page: 1
                 })
@@ -57,7 +57,7 @@ directives.directive('login', ['$state', function($state) {
         var html = [],
             i, str;
 
-        for (i = 0; i < timeStr.length; i++) {
+        for(i = 0; i < timeStr.length; i++) {
             str = timeStr[i];
             str !== ':' ? html.push('<i>' + str + '</i>') : html.push(str);
         }

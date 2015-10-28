@@ -1,0 +1,197 @@
+<header class="ui-header">
+    <h2>我的</h2>
+    <span class="hd-left">
+    <a href="javascript:;" class="icons-back" back><i class="fa">&#xe632;</i></a>
+  </span>
+    <span class="hd-right">
+    <a href="javascript:;" class="icons-set"><i class="fa">&#xe60d;</i></a>
+  </span>
+</header>
+<div class="ui-user-head">
+    <h3><span class="ui-uesr-img"><img src="static/temp/1s.jpg"><span class="icons-haed"><i class="fa">&#xe635;</i></span></span></h3>
+    <p class="ui-user-name">{{name}}<span class="icons-comments"><i class="fa">&#xe62e;</i><span class="badge">{{msgCounts}}</span></span>
+    </p>
+</div>
+<section class="ui-container">
+    <ul class="user-tabs ui-user-navbar-nav">
+        <li ng-class="{active:page == 1}" ui-sref="userBuyer({page:1})"><i class="fa">&#xe60c;</i>我的订单</li>
+        <li ng-class="{active:page == 2}" ui-sref="userBuyer({page:2})"><i class="fa">&#xe622;</i>拍卖中</li>
+    </ul>
+    <div class="user-tabs-content">
+        <p class="ui-line-tips" ng-show="{{showorderTips}}"><span>目前您还未下单，赶紧去下单吧</span></p>
+        <p class="ui-line-tips" ng-show="{{showpaimaiTips}}"><span>目前没有您参与的拍卖，赶紧去参拍</span></p>
+        <div class="user-tabs-pane" ng-class="{active:page == 1}">
+            <article class="ui-order-panel">
+                <div class="ui-order-hd">
+                    <span class="ui-c-gray">已取消</span>
+                    <p class="ui-order-number">订单号<strong>123456</strong></p>
+                </div>
+                <div class="ui-order-bd">
+                    <a href="#">
+                        <span class="ui-img"><img src="static/temp/4.jpg"></span>
+                        <h3 class="ui-order-title ui-toe">亿珍阁翡翠 玉石缅甸翡翠手镯 A货玉器 玉镯子 飘花玉手镯</h3>
+                        <p class="ui-price"><i>&yen;</i>124.00</p>
+                    </a>
+                </div>
+            </article>
+            <article class="ui-order-panel">
+                <div class="ui-order-hd">
+                    <span class="ui-c-red">已取消</span>
+                    <p class="ui-order-number">订单号<strong>123456</strong></p>
+                </div>
+                <div class="ui-order-bd">
+                    <a href="#">
+                        <span class="ui-img"><img src="static/temp/4.jpg"></span>
+                        <h3 class="ui-order-title ui-toe">亿珍阁翡翠 玉石缅甸翡翠手镯 A货玉器 玉镯子 飘花玉手镯亿珍阁翡翠 玉石缅甸翡翠手镯 A货玉器 玉镯子 飘花玉手镯</h3>
+                        <p class="ui-price"><i>&yen;</i>124.00</p>
+                    </a>
+                    <span class="ui-count"><i>2</i><i>1</i>:<i>2</i><i>2</i></span>
+                </div>
+                <div class="ui-order-ft">
+                    <a href="#" class="btn btn-default btn-lg">查看详情</a>
+                    <a href="#" class="btn btn-default btn-lg">确认收货</a>
+                </div>
+            </article>
+            <article class="ui-order-panel">
+                <div class="ui-order-hd">
+                    <span class="ui-c-red">已取消</span>
+                    <p class="ui-order-number">订单号<strong>123456</strong></p>
+                </div>
+                <div class="ui-order-bd">
+                    <a href="#">
+                        <span class="ui-img"><img src="static/temp/4.jpg"></span>
+                        <h3 class="ui-order-title ui-toe">亿珍阁翡翠 玉石缅甸翡翠手镯 A货玉器 玉镯子 飘花玉手镯亿珍阁翡翠 玉石缅甸翡翠手镯 A货玉器 玉镯子 飘花玉手镯</h3>
+                        <p class="ui-price"><i>&yen;</i>124.00</p>
+                    </a>
+                    <span class="ui-count"><i>2</i><i>1</i>:<i>2</i><i>2</i></span>
+                </div>
+                <div class="ui-order-ft">
+                    <a href="#" class="btn btn-default btn-lg">查看详情</a>
+                    <a href="#" class="btn btn-default btn-lg">去评价</a>
+                </div>
+            </article>
+            <article class="ui-order-panel">
+                <div class="ui-order-hd">
+                    <span class="ui-c-green">已取消</span>
+                    <p class="ui-order-number">订单号<strong>123456</strong></p>
+                </div>
+                <div class="ui-order-bd">
+                    <a href="#">
+                        <span class="ui-img"><img src="static/temp/4.jpg"></span>
+                        <h3 class="ui-order-title ui-toe">亿珍阁翡翠 玉石缅甸翡翠手镯 A货玉器 玉镯子 飘花玉手镯亿珍阁翡翠 玉石缅甸翡翠手镯 A货玉器 玉镯子 飘花玉手镯</h3>
+                        <p class="ui-price"><i>&yen;</i>124.00</p>
+                    </a>
+                    <span class="ui-count"><i>2</i><i>1</i>:<i>2</i><i>2</i></span>
+                </div>
+                <div class="ui-order-ft">
+                    <a href="#" class="btn btn-default btn-lg">查看详情</a>
+                    <a href="#" class="btn btn-warning btn-lg">去付款</a>
+                </div>
+            </article>
+            <article class="ui-order-panel">
+                <div class="ui-order-hd">
+                    <span class="ui-c-green">已取消</span>
+                    <p class="ui-order-number">订单号<strong>123456</strong></p>
+                </div>
+                <div class="ui-order-bd">
+                    <a href="#">
+                        <span class="ui-img"><img src="static/temp/4.jpg"></span>
+                        <h3 class="ui-order-title ui-toe">亿珍阁翡翠 玉石缅甸翡翠手镯 A货玉器 玉镯子 飘花玉手镯亿珍阁翡翠 玉石缅甸翡翠手镯 A货玉器 玉镯子 飘花玉手镯</h3>
+                        <p class="ui-price"><i>&yen;</i>124.00</p>
+                    </a>
+                    <span class="ui-count"><i>2</i><i>1</i>:<i>2</i><i>2</i></span>
+                </div>
+            </article>
+            <article class="ui-order-panel">
+                <div class="ui-order-bd">
+                    <a href="#">
+                        <span class="ui-img"><img src="static/temp/4.jpg"></span>
+                        <h3 class="ui-order-title ui-toe">亿珍阁翡翠 玉石缅甸翡翠手镯 A货玉器 玉镯子 飘花玉手镯亿珍阁翡翠 玉石缅甸翡翠手镯 A货玉器 玉镯子 飘花玉手镯</h3>
+                        <p class="ui-price"><i>&yen;</i>124.00</p>
+                    </a>
+                    <span class="ui-count"><i>2</i><i>1</i>:<i>2</i><i>2</i></span>
+                </div>
+                <div class="ui-order-ft">
+                    <a href="#" class="btn btn-default btn-lg disabled">查看详情</a>
+                    <a href="#" class="btn btn-warning btn-lg disabled">去付款</a>
+                </div>
+            </article>
+        </div>
+        <div class="user-tabs-pane" ng-class="{active:page == 2}">
+            <article class="ui-order-panel">
+                <div class="ui-order-hd">
+                    <span class="ui-c-gray">已取消</span>
+                    <span class="ui-count">距离结束 <i>2</i><i>1</i>:<i>2</i><i>2</i></span>
+                </div>
+                <div class="ui-order-bd">
+                    <a href="#">
+                        <span class="ui-img"><img src="static/temp/4.jpg"></span>
+                        <h3 class="ui-order-title ui-toe">亿珍阁翡翠 玉石缅甸翡翠手镯 A货玉器 玉镯子 飘花玉手镯</h3>
+                        <p class="ui-price"><i>&yen;</i>124.00</p>
+                    </a>
+                </div>
+                <div class="ui-order-ft">
+                    <a href="#" class="btn btn-default btn-lg">立即出价</a>
+                    <a href="#" class="btn btn-default btn-lg">代理出价</a>
+                </div>
+            </article>
+            <article class="ui-order-panel">
+                <div class="ui-order-hd">
+                    <span class="ui-c-red">已取消</span>
+                    <p class="ui-order-number">订单号<strong>123456</strong></p>
+                </div>
+                <div class="ui-order-bd">
+                    <a href="#">
+                        <span class="ui-img"><img src="static/temp/4.jpg"></span>
+                        <h3 class="ui-order-title ui-toe">亿珍阁翡翠 玉石缅甸翡翠手镯 A货玉器 玉镯子 飘花玉手镯亿珍阁翡翠 玉石缅甸翡翠手镯 A货玉器 玉镯子 飘花玉手镯</h3>
+                        <p class="ui-price"><i>&yen;</i>124.00</p>
+                    </a>
+                </div>
+                <div class="ui-order-ft">
+                    <a href="#" class="btn btn-default btn-lg">代理出价</a>
+                </div>
+            </article>
+            <article class="ui-order-panel">
+                <div class="ui-order-hd">
+                    <span class="ui-c-green">已取消</span>
+                    <p class="ui-order-number">订单号<strong>123456</strong></p>
+                </div>
+                <div class="ui-order-bd">
+                    <a href="#">
+                        <span class="ui-img"><img src="static/temp/4.jpg"></span>
+                        <h3 class="ui-order-title ui-toe">亿珍阁翡翠 玉石缅甸翡翠手镯 A货玉器 玉镯子 飘花玉手镯亿珍阁翡翠 玉石缅甸翡翠手镯 A货玉器 玉镯子 飘花玉手镯</h3>
+                        <p class="ui-price"><i>&yen;</i>124.00</p>
+                    </a>
+                </div>
+                <div class="ui-order-ft">
+                    <a href="#" class="btn btn-default btn-lg">代理出价</a>
+                </div>
+            </article>
+            <article class="ui-order-panel">
+                <div class="ui-order-hd">
+                    <span class="ui-c-green">已取消</span>
+                    <p class="ui-order-number">订单号<strong>123456</strong></p>
+                </div>
+                <div class="ui-order-bd">
+                    <a href="#">
+                        <span class="ui-img"><img src="static/temp/4.jpg"></span>
+                        <h3 class="ui-order-title ui-toe">亿珍阁翡翠 玉石缅甸翡翠手镯 A货玉器 玉镯子 飘花玉手镯亿珍阁翡翠 玉石缅甸翡翠手镯 A货玉器 玉镯子 飘花玉手镯</h3>
+                        <p class="ui-price"><i>&yen;</i>124.00</p>
+                    </a>
+                </div>
+            </article>
+            <article class="ui-order-panel">
+                <div class="ui-order-bd">
+                    <a href="#">
+                        <span class="ui-img"><img src="static/temp/4.jpg"></span>
+                        <h3 class="ui-order-title ui-toe">亿珍阁翡翠 玉石缅甸翡翠手镯 A货玉器 玉镯子 飘花玉手镯亿珍阁翡翠 玉石缅甸翡翠手镯 A货玉器 玉镯子 飘花玉手镯</h3>
+                        <p class="ui-price"><i>&yen;</i>124.00</p>
+                    </a>
+                </div>
+                <div class="ui-order-ft">
+                    <a href="#" class="btn btn-default btn-lg">代理出价</a>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>

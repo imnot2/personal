@@ -1,0 +1,29 @@
+{
+  "name": "troopjs-core",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "troopjs-compose": "^4.0.2",
+    "when": "^3.4",
+    "mu-merge": "^0.0.2",
+    "mu-emitter": "^1"
+  },
+  "devDependencies": {
+    "requirejs": "^2.1",
+    "jquery": ">=1.8.1 <4"
+  },
+  "homepage": "https://github.com/troopjs/troopjs-core",
+  "version": "8.0.0",
+  "_release": "8.0.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "8.0.0",
+    "commit": "19e8b22b055572115194443432d0323ca81fb659"
+  },
+  "_source": "git://github.com/troopjs/troopjs-core.git",
+  "_target": "8.0.0",
+  "_originalSource": "troopjs-core"
+}

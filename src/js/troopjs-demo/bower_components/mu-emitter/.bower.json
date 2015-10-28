@@ -1,0 +1,31 @@
+{
+  "name": "mu-emitter",
+  "main": "main.js",
+  "description": "Micro Emitter",
+  "moduleType": [
+    "amd"
+  ],
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "node_modules",
+    "test"
+  ],
+  "dependencies": {
+    "mu-error": "^0"
+  },
+  "devDependencies": {
+    "requirejs": "^2.1"
+  },
+  "homepage": "https://github.com/mu-lib/mu-emitter",
+  "version": "1.0.0",
+  "_release": "1.0.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.0.0",
+    "commit": "cce88c869fa12ad454ac7c736194ffc4171b5f2d"
+  },
+  "_source": "git://github.com/mu-lib/mu-emitter.git",
+  "_target": "^1",
+  "_originalSource": "mu-emitter"
+}

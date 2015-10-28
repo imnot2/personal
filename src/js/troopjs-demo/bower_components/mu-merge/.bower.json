@@ -1,0 +1,36 @@
+{
+  "name": "mu-merge",
+  "homepage": "https://github.com/mu-lib/mu-merge",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mu-lib/mu-merge.git"
+  },
+  "authors": [
+    "Mikael Karon"
+  ],
+  "description": "Micro Merge",
+  "main": "main.js",
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test"
+  ],
+  "devDependencies": {
+    "requirejs": "~2"
+  },
+  "version": "0.0.2",
+  "_release": "0.0.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.2",
+    "commit": "68a277996dc67fce8e6b3aed08a3eddbfe6e0984"
+  },
+  "_source": "git://github.com/mu-lib/mu-merge.git",
+  "_target": "^0.0.2",
+  "_originalSource": "mu-merge"
+}

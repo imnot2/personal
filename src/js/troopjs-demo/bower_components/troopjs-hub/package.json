@@ -1,0 +1,10 @@
+{
+  "description": "TroopJS hub package",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/troopjs/troopjs-hub.git"
+  },
+  "devDependencies": {
+    "buster-amd": "~0.3"
+  }
+}

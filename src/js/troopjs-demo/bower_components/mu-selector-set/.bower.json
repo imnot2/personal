@@ -1,0 +1,40 @@
+{
+  "name": "mu-selector-set",
+  "version": "1.1.0",
+  "homepage": "https://github.com/mu-lib/mu-selector-set",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mu-lib/mu-selector-set.git"
+  },
+  "authors": [
+    "µLib Team (https://github.com/mu-lib)"
+  ],
+  "description": "A CSS selector set with fast DOM element matching.",
+  "main": "main.js",
+  "moduleType": [
+    "amd",
+    "node"
+  ],
+  "keywords": [
+    "css",
+    "selector",
+    "set",
+    "match"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test"
+  ],
+  "_release": "1.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.1.0",
+    "commit": "b1d36a5137063d0d4267b7e56775ee10ca1fdb57"
+  },
+  "_source": "git://github.com/mu-lib/mu-selector-set.git",
+  "_target": "^1.1",
+  "_originalSource": "mu-selector-set"
+}

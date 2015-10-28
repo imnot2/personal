@@ -1,0 +1,27 @@
+{
+  "name": "mu-jquery-destroy",
+  "homepage": "https://github.com/mu-lib/mu-jquery-destroy",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mu-lib/mu-jquery-destroy.git"
+  },
+  "authors": [
+    "Mikael Karon"
+  ],
+  "description": "Micro jQuery Destroy",
+  "main": "main.js",
+  "moduleType": [
+    "amd",
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test"
+  ],
+  "dependencies": {
+    "jquery": ">=1.4 <4"
+  }
+}

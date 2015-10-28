@@ -1,0 +1,6 @@
+{
+  "description": "Micro Error",
+  "devDependencies": {
+    "buster-amd": "~0.3"
+  }
+}

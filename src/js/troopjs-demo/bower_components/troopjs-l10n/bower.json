@@ -1,0 +1,17 @@
+{
+  "name": "troopjs-l10n",
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "troopjs-hub": "^1.0.2"
+  }
+}

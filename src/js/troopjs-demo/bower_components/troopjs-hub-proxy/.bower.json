@@ -1,0 +1,23 @@
+{
+  "name": "troopjs-hub-proxy",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "bower_components"
+  ],
+  "dependencies": {
+    "troopjs-core": "^8",
+    "troopjs-hub": "^1.1",
+    "when": "^3.4",
+    "mu-merge": "^0"
+  },
+  "homepage": "https://github.com/troopjs/troopjs-hub-proxy",
+  "_release": "be31ff5fa5",
+  "_resolution": {
+    "type": "commit",
+    "commit": "be31ff5fa53aaf02cc2231c4ba3f87c9ac5398c8"
+  },
+  "_source": "git://github.com/troopjs/troopjs-hub-proxy.git",
+  "_target": "be31ff5fa53aaf02cc2231c4ba3f87c9ac5398c8",
+  "_originalSource": "troopjs-hub-proxy"
+}

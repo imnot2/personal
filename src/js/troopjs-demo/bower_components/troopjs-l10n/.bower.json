@@ -1,0 +1,26 @@
+{
+  "name": "troopjs-l10n",
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "troopjs-hub": "^1.0.2"
+  },
+  "homepage": "https://github.com/troopjs/troopjs-l10n",
+  "_release": "123eae77bf",
+  "_resolution": {
+    "type": "commit",
+    "commit": "123eae77bf2de1b9e860201bdcdc13690c393c97"
+  },
+  "_source": "git://github.com/troopjs/troopjs-l10n.git",
+  "_target": "123eae77bf2de1b9e860201bdcdc13690c393c97",
+  "_originalSource": "troopjs-l10n"
+}

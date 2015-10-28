@@ -1,0 +1,20 @@
+{
+  "name": "mu-emitter",
+  "main": "main.js",
+  "description": "Micro Emitter",
+  "moduleType": [
+    "amd"
+  ],
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "node_modules",
+    "test"
+  ],
+  "dependencies": {
+    "mu-error": "^0"
+  },
+  "devDependencies": {
+    "requirejs": "^2.1"
+  }
+}

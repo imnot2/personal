@@ -1,0 +1,25 @@
+{
+  "name": "troopjs-route-hash",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "troopjs-dom": "^8.0.1",
+    "troopjs-hub": "^1.0.2",
+    "mu-jquery-hashchange": "^0"
+  },
+  "devDependencies": {
+    "requirejs": "^2.1"
+  },
+  "homepage": "https://github.com/troopjs/troopjs-route-hash",
+  "_release": "5dbb36ba00",
+  "_resolution": {
+    "type": "commit",
+    "commit": "5dbb36ba0006612b6222655517079b403142b0f7"
+  },
+  "_source": "git://github.com/troopjs/troopjs-route-hash.git",
+  "_target": "5dbb36ba0006612b6222655517079b403142b0f7",
+  "_originalSource": "troopjs-route-hash"
+}

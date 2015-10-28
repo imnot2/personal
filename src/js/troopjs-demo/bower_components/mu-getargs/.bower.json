@@ -1,0 +1,39 @@
+{
+  "name": "mu-getargs",
+  "version": "0.0.3",
+  "homepage": "https://github.com/mu-lib/mu-getargs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mu-lib/mu-getargs.git"
+  },
+  "authors": [
+    "µLib Team (https://github.com/mu-lib)"
+  ],
+  "description": "Parse a string as function arguments",
+  "main": "main.js",
+  "moduleType": [
+    "amd",
+    "node"
+  ],
+  "keywords": [
+    "parse",
+    "function",
+    "arguments"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test"
+  ],
+  "_release": "0.0.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.3",
+    "commit": "bf377991ac305ce0fcf6c691b6bc92a1861d8319"
+  },
+  "_source": "git://github.com/mu-lib/mu-getargs.git",
+  "_target": "^0",
+  "_originalSource": "mu-getargs"
+}

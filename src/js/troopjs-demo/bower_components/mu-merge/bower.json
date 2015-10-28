@@ -1,0 +1,26 @@
+{
+  "name": "mu-merge",
+  "homepage": "https://github.com/mu-lib/mu-merge",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mu-lib/mu-merge.git"
+  },
+  "authors": [
+    "Mikael Karon"
+  ],
+  "description": "Micro Merge",
+  "main": "main.js",
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test"
+  ],
+  "devDependencies": {
+    "requirejs": "~2"
+  }
+}

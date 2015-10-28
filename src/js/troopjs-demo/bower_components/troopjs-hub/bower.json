@@ -1,0 +1,16 @@
+{
+  "name": "troopjs-hub",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "bower_components"
+  ],
+  "dependencies": {
+    "troopjs-core": "^8",
+    "when": "^3.4",
+    "mu-merge": "^0.0.2"
+  },
+  "devDependencies": {
+    "requirejs": "^2.1"
+  }
+}

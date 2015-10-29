@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="./touch-0.2.14.js"></script>
+</head>
+
+<body>
+    <div id="touch" style="width:100px; height:100px; background:red"></div>
+    <script>
+    touch.on(document.querySelector('#touch'), 'swipeleft swiperight swipeup swipedown', function(ev) {
+        console.log(ev);
+    })
+    </script>
+</body>
+
+</html>

@@ -15,14 +15,18 @@ ctrls.controller('indexCtrl', [
 
         $scope.type = parseInt($stateParams.type);
         $scope.products = productsService.products;
-        // {
-        //     interest:{
-        //         'xxxx':{
 
-        //         }
-        //     }
-        // }
+        //进行中
+        productsService.getProducts('processing', function(err) {
+            console.log(err);
+        });
 
+        //即将开始
+        productsService.getProducts('willBegin', function(err) {
+            console.log(err);
+        });
+
+        //关注中
         if($scope.type == 3) {
             if(!user.getToken()) {
                 $scope.noLogin = true;
@@ -32,19 +36,20 @@ ctrls.controller('indexCtrl', [
                 });
             }
         };
-        productsService.getProducts('processing', function(err) {
-            console.log(err);
-        });
-
-        productsService.getProducts('willBegin', function(err) {
-            console.log(err);
-        });
-
-        $scope.$on('products.update', function() {
-            $scope.products = productsService.products;
-            $scope.$$phase || $scope.$apply();
-        })
-
+        
+        // $scope.$on('processingshowproducts.update', function() {
+        //     $scope.processing = productsService.products.processing.showData;
+        //     $scope.$$phase || $scope.$apply();
+        // })
+        // $scope.$on('willBeginshowproducts.update', function() {
+        //     $scope.willBegin = productsService.products.willBegin.showData;
+        //     $scope.$$phase || $scope.$apply();
+        // })
+        // $scope.$on('interestshowproducts.update', function() {
+        //     $scope.interest = productsService.products.interest.showData;
+        //     $scope.$$phase || $scope.$apply();
+        // })
+        
         $scope.dynamicCount = 9;
 
         var token = user.getToken();

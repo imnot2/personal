@@ -36,28 +36,13 @@ ctrls.controller('indexCtrl', [
                 });
             }
         };
-        
-        // $scope.$on('processingshowproducts.update', function() {
-        //     $scope.processing = productsService.products.processing.showData;
-        //     $scope.$$phase || $scope.$apply();
-        // })
-        // $scope.$on('willBeginshowproducts.update', function() {
-        //     $scope.willBegin = productsService.products.willBegin.showData;
-        //     $scope.$$phase || $scope.$apply();
-        // })
-        // $scope.$on('interestshowproducts.update', function() {
-        //     $scope.interest = productsService.products.interest.showData;
-        //     $scope.$$phase || $scope.$apply();
-        // })
-        
+
         $scope.dynamicCount = 9;
 
         var token = user.getToken();
         var identity = user.getIdentity();
         var noLogin = !token;
-
-
-
+        
         $scope.toUser = function() {
             if(noLogin) {
                 $state.go('login')

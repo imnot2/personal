@@ -7,6 +7,7 @@ ctrls.controller('indexCtrl', [
     'productsService',
     'user',
     function($scope, $http, $state, $stateParams, $rootScope, productsService, user) {
+        console.log("BB");
 
         $scope.slideMenuShow = false;
         $scope.showLogin = false;
@@ -27,8 +28,8 @@ ctrls.controller('indexCtrl', [
         });
 
         //关注中
-        if($scope.type == 3) {
-            if(!user.getToken()) {
+        if ($scope.type == 3) {
+            if (!user.getToken()) {
                 $scope.noLogin = true;
             } else {
                 productsService.getProducts('interest', function(err) {
@@ -42,9 +43,9 @@ ctrls.controller('indexCtrl', [
         var token = user.getToken();
         var identity = user.getIdentity();
         var noLogin = !token;
-        
+
         $scope.toUser = function() {
-            if(noLogin) {
+            if (noLogin) {
                 $state.go('login')
             } else {
                 $state.go('user' + identity, {
@@ -52,5 +53,8 @@ ctrls.controller('indexCtrl', [
                 })
             }
         }
+
+
+        console.log("BBed");
     }
 ])

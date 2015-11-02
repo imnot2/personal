@@ -18,7 +18,6 @@ directives.directive('productsscroll', [
                     products = productsService.products[page],
                     point = 0,
                     showSize = 8,
-                    isCustomer = false,
                     oldTop = 0, // 滚动时不停刷新这个值，用来判断滚动条是否停下来;
                     referTop = 0, //每次滚动停下来才刷新这个值，用来判断滚动的放心。
                     paneWrap,
@@ -28,25 +27,19 @@ directives.directive('productsscroll', [
                 function bindScroll(node) {
                     unbindScroll(node);
                     node.on('scroll', scrollEvt);
-                    //console.log('scrollon: ');
                 }
 
                 function unbindScroll(node) {
                     node.off('scroll', scrollEvt);
                     referTop = node.scrollTop();
-                    //console.log('scrolloff: ');
                 }
 
                 function scrollEvt() {
                     var node = paneNode,
                         direction = 'up'; //向上滑动。
 
-                    //console.log('scrollEvt');
-                    // 未发起时，启动定时器 
                     if (interval == null) {
                         interval = setInterval(function() {
-                            //console.log('oldTop: ' + oldTop);
-                            //console.log('nodeTop: ' + node.scrollTop());
 
                             //跟上一次滚动的距离做比较得出方向。
                             if (node.scrollTop() < referTop) {
@@ -62,7 +55,7 @@ directives.directive('productsscroll', [
                                 console.log('whenStop___________')
                             };
                             oldTop = node.scrollTop();
-                        }, 1000);
+                        }, 300);
                     }
 
                 };
@@ -71,21 +64,11 @@ directives.directive('productsscroll', [
                 function updateShowData() {
                     if (point < 0) {
                         point = 0;
-                        isCustomer = true;
                     }
                     if (point + showSize > products.srcData.length) {
                         point = products.srcData.length - showSize;
-                        isCustomer = true;
                     }
                     products.showData = products.srcData.slice(point, point + showSize);
-                    // if(products.showData.length < showSize) {
-                    //     //isCustomer(是否自定义了point值)赋值true；
-                    //     isCustomer = true;
-
-                    //     //如果将要显示的源数据不足6条，把point往回拨，让最后6条显示。
-                    //     point = point - (showSize - products.showData.length);
-                    //     products.showData = products.srcData.slice(point, point + showSize);
-                    // }
                 }
 
                 function whenStop(node, direction) {
@@ -117,25 +100,23 @@ directives.directive('productsscroll', [
                     updateShowData();
 
                     if (direction === 'down') {
-                        //console.log('scrolldown: ' + scale);
                         needScrollTop = scrollTop + scale * itemHeight;
                     } else {
-                        //console.log('scrollTop: ' + scale);
                         needScrollTop = scrollTop - scale * itemHeight;
                     }
 
                     unbindScroll(node);
 
-                    referTop = needScrollTop;
-                    node.scrollTop(needScrollTop);
+                    if (point !== 0) {
+                        referTop = needScrollTop;
+                        node.scrollTop(needScrollTop);
+                    }
 
-                    if (!isCustomer) {
-                        bindScroll(node, whenStop);
+                    if (point !== products.srcData.length - showSize) {
+                        bindScroll(node);
                     } else {
-                        if (point === products.srcData.length - showSize) {
-                            //并通知productsService 需要向后端拉数据了。
-                            productsService.getProducts(page, 'true');
-                        }
+                        //并通知productsService 需要向后端拉数据了。
+                        productsService.getProducts(page, 'true');
                     }
                 }
 
@@ -143,12 +124,11 @@ directives.directive('productsscroll', [
                     paneWrap = $(element).find('.ui-tabs-content');
                     paneNode = paneWrap.find('.ui-tabs-pane.active');
 
-                    //如果服务端有数据过来，isCustomer(是否自定义了point值)为false；
-                    //isCustomer = false;
-
                     products = productsService.products[page];
+
                     updateShowData();
-                    bindScroll(paneNode, whenStop);
+
+                    bindScroll(paneNode);
                 });
             }
         }

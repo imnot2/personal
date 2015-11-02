@@ -22,7 +22,8 @@ directives.directive('productsscroll', [
                     oldTop = 0, // 滚动时不停刷新这个值，用来判断滚动条是否停下来;
                     referTop = 0, //每次滚动停下来才刷新这个值，用来判断滚动的放心。
                     paneWrap,
-                    paneNode;
+                    paneNode,
+                    interval = null; // 定时器  
 
                 function bindScroll(node) {
                     unbindScroll(node);
@@ -38,23 +39,22 @@ directives.directive('productsscroll', [
 
                 function scrollEvt() {
                     var node = paneNode,
-                        direction = 'up', //向上滑动。
-                        interval = null; // 定时器  
-                    
+                        direction = 'up'; //向上滑动。
+
                     //console.log('scrollEvt');
                     // 未发起时，启动定时器 
-                    if (interval == null) {
+                    if(interval == null) {
                         interval = setInterval(function() {
                             //console.log('oldTop: ' + oldTop);
                             //console.log('nodeTop: ' + node.scrollTop());
 
                             //跟上一次滚动的距离做比较得出方向。
-                            if (node.scrollTop() < referTop) {
+                            if(node.scrollTop() < referTop) {
                                 direction = 'down';
                             };
 
                             // 判断此刻到顶部的距离是否和上次滚动前的距离相等  
-                            if (node.scrollTop() == oldTop) {
+                            if(node.scrollTop() == oldTop) {
                                 console.log('whenStop')
                                 clearInterval(interval);
                                 interval = null;
@@ -72,7 +72,7 @@ directives.directive('productsscroll', [
                     //console.log('updateShowData');
                     products.showData = products.srcData.slice(point, point + showSize);
 
-                    if (products.showData.length < showSize) {
+                    if(products.showData.length < showSize) {
                         //isCustomer(是否自定义了point值)赋值true；
                         isCustomer = true;
 
@@ -89,10 +89,10 @@ directives.directive('productsscroll', [
                     var scale;
                     var needScrollTop;
 
-                    if (direction === 'down') {
+                    if(direction === 'down') {
                         scrollBottom = itemHeight * showSize - scrollTop - paneWrap.height();
                         scale = parseInt(scrollBottom / itemHeight);
-                        if (scale > 3) {
+                        if(scale > 3) {
                             scale -= 3;
                             point -= scale;
                         } else {
@@ -100,7 +100,7 @@ directives.directive('productsscroll', [
                         }
                     } else {
                         scale = parseInt(scrollTop / itemHeight);
-                        if (scale > 3) {
+                        if(scale > 3) {
                             scale -= 3;
                             point += scale;
                         } else {
@@ -110,7 +110,7 @@ directives.directive('productsscroll', [
 
                     updateShowData();
 
-                    if (direction === 'down') {
+                    if(direction === 'down') {
                         //console.log('scrolldown: ' + scale);
                         needScrollTop = scrollTop + scale * itemHeight;
                     } else {
@@ -123,7 +123,7 @@ directives.directive('productsscroll', [
                     referTop = needScrollTop;
                     node.scrollTop(needScrollTop);
 
-                    if (!isCustomer) {
+                    if(!isCustomer) {
                         bindScroll(node, whenStop);
                     } else {
                         //并通知productsService 需要向后端拉数据了。

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+    .switchWrap {
+        width: 46px;
+        height: 18px;
+        padding: 2px;
+        border-radius: 18px;
+        background-color: #8b8b8b;
+        color: #fff;
+        line-height: 18px;
+        font-size: 12px;
+        font-weight: bold;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards
+    }
+    
+    .switchMain {
+        width: 66px;
+        height: 18px;
+        overflow: hidden;
+        margin-left: -24px;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards
+    }
+    
+    .bgSwitchOn {
+        animation-name: bg_switchOn;
+    }
+    
+    .bgSwitchOn .switchMain {
+        animation-name: switchOn;
+    }
+    
+    .bgSwitchOff {
+        animation-name: bg_switchOff;
+    }
+    
+    .bgSwitchOff .switchMain {
+        animation-name: switchOff;
+    }
+    
+    .switchMain span {
+        display: inline-block;
+        margin: 0 2px;
+    }
+    
+    .switchOn,
+    .switchOff {
+        width: 18px;
+        text-align: center;
+    }
+    
+    .switchOn {
+        float: left;
+    }
+    
+    .switchOff {
+        float: right;
+    }
+    
+    .switchCircle {
+        width: 18px;
+        height: 18px;
+        border-radius: 100%;
+        background-color: #fff;
+    }
+    
+    @keyframes switchOn {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(28px);
+        }
+    }
+    
+    @keyframes switchOff {
+        from {
+            transform: translateX(28px);
+        }
+        to {
+            transform: translateX(0);
+        }
+    }
+    
+    @keyframes bg_switchOn {
+        from {
+            background-color: #8b8b8b;
+        }
+        to {
+            background-color: #74d180;
+        }
+    }
+    
+    @keyframes bg_switchOff {
+        from {
+            background-color: #74d180;
+        }
+        to {
+            background-color: #8b8b8b;
+        }
+    }
+    </style>
+</body>
+<div class="switchWrap">
+    <div class="switchMain">
+        <span class="switchOn">On</span>
+        <span class="switchCircle"></span>
+        <span class="switchOff">Off</span>
+    </div>
+</div>
+<script>
+window.onload = function() {
+    var wrap = document.querySelector('.switchWrap');
+    var bSwitch = false;
+    wrap.addEventListener('click', function(ev) {
+        bSwitch = !bSwitch;
+        wrap.classList.remove('bgSwitchOn');
+        wrap.classList.remove('bgSwitchOff');
+        wrap.classList.add(bSwitch ? 'bgSwitchOn' : 'bgSwitchOff');
+    })
+}
+</script>
+
+</html>

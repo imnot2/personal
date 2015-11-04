@@ -18,7 +18,6 @@ directives.directive('productsscroll', [
                     products = productsService.products[page],
                     point = 0,
                     showSize = 8,
-                    isCustomer = false,
                     oldTop = 0, // 滚动时不停刷新这个值，用来判断滚动条是否停下来;
                     referTop = 0, //每次滚动停下来才刷新这个值，用来判断滚动的放心。
                     paneWrap,
@@ -28,58 +27,48 @@ directives.directive('productsscroll', [
                 function bindScroll(node) {
                     unbindScroll(node);
                     node.on('scroll', scrollEvt);
-                    //console.log('scrollon: ');
                 }
 
                 function unbindScroll(node) {
                     node.off('scroll', scrollEvt);
                     referTop = node.scrollTop();
-                    //console.log('scrolloff: ');
                 }
 
                 function scrollEvt() {
                     var node = paneNode,
                         direction = 'up'; //向上滑动。
 
-                    //console.log('scrollEvt');
-                    // 未发起时，启动定时器 
-                    if(interval == null) {
+                    if (interval == null) {
                         interval = setInterval(function() {
-                            //console.log('oldTop: ' + oldTop);
-                            //console.log('nodeTop: ' + node.scrollTop());
 
                             //跟上一次滚动的距离做比较得出方向。
-                            if(node.scrollTop() < referTop) {
+                            if (node.scrollTop() < referTop) {
                                 direction = 'down';
                             };
 
                             // 判断此刻到顶部的距离是否和上次滚动前的距离相等  
-                            if(node.scrollTop() == oldTop) {
-                                console.log('whenStop')
+                            if (node.scrollTop() == oldTop) {
                                 clearInterval(interval);
                                 interval = null;
                                 whenStop(node, direction);
+                                console.log(point)
                                 console.log('whenStop___________')
                             };
                             oldTop = node.scrollTop();
-                        }, 1000);
+                        }, 300);
                     }
 
                 };
 
 
                 function updateShowData() {
-                    //console.log('updateShowData');
-                    products.showData = products.srcData.slice(point, point + showSize);
-
-                    if(products.showData.length < showSize) {
-                        //isCustomer(是否自定义了point值)赋值true；
-                        isCustomer = true;
-
-                        //如果将要显示的源数据不足6条，把point往回拨，让最后6条显示。
-                        point = point - (showSize - products.showData.length);
-                        products.showData = products.srcData.slice(point, point + showSize);
+                    if (point < 0) {
+                        point = 0;
                     }
+                    if (point + showSize > products.srcData.length) {
+                        point = products.srcData.length - showSize;
+                    }
+                    products.showData = products.srcData.slice(point, point + showSize);
                 }
 
                 function whenStop(node, direction) {
@@ -89,10 +78,10 @@ directives.directive('productsscroll', [
                     var scale;
                     var needScrollTop;
 
-                    if(direction === 'down') {
+                    if (direction === 'down') {
                         scrollBottom = itemHeight * showSize - scrollTop - paneWrap.height();
                         scale = parseInt(scrollBottom / itemHeight);
-                        if(scale > 3) {
+                        if (scale > 3) {
                             scale -= 3;
                             point -= scale;
                         } else {
@@ -100,7 +89,7 @@ directives.directive('productsscroll', [
                         }
                     } else {
                         scale = parseInt(scrollTop / itemHeight);
-                        if(scale > 3) {
+                        if (scale > 3) {
                             scale -= 3;
                             point += scale;
                         } else {
@@ -110,21 +99,21 @@ directives.directive('productsscroll', [
 
                     updateShowData();
 
-                    if(direction === 'down') {
-                        //console.log('scrolldown: ' + scale);
+                    if (direction === 'down') {
                         needScrollTop = scrollTop + scale * itemHeight;
                     } else {
-                        //console.log('scrollTop: ' + scale);
                         needScrollTop = scrollTop - scale * itemHeight;
                     }
 
                     unbindScroll(node);
 
-                    referTop = needScrollTop;
-                    node.scrollTop(needScrollTop);
+                    if (point !== 0) {
+                        referTop = needScrollTop;
+                        node.scrollTop(needScrollTop);
+                    }
 
-                    if(!isCustomer) {
-                        bindScroll(node, whenStop);
+                    if (point !== products.srcData.length - showSize) {
+                        bindScroll(node);
                     } else {
                         //并通知productsService 需要向后端拉数据了。
                         productsService.getProducts(page, 'true');
@@ -135,12 +124,11 @@ directives.directive('productsscroll', [
                     paneWrap = $(element).find('.ui-tabs-content');
                     paneNode = paneWrap.find('.ui-tabs-pane.active');
 
-                    //如果服务端有数据过来，isCustomer(是否自定义了point值)为false；
-                    //isCustomer = false;
-
                     products = productsService.products[page];
+
                     updateShowData();
-                    bindScroll(paneNode, whenStop);
+
+                    bindScroll(paneNode);
                 });
             }
         }

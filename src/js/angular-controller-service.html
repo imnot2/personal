@@ -10,13 +10,17 @@
 <body>
     <div ng-app="myApp">
         <div ng-controller="SelectController">
-            <input type="text" ng-model="service.id">
-            <h1>{{service.obj.id}}</h1>
+            <div ng-repeat="item in service">
+                <h1>{{item.id}}</h1>
+                <h1>{{item.name}}</h1>
+            </div>
             <button ng-click="generate()">Generate</button>
         </div>
         <div ng-controller="GraphController">
-            <input type="text" ng-model="service.id">
-            <h1>{{service.obj.id}}</h1>
+            <div ng-repeat="item in service">
+                <h1>{{item.id}}</h1>
+                <h1>{{item.name}}</h1>
+            </div>
         </div>
     </div>
 </body>

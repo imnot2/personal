@@ -26,7 +26,12 @@ ctrls.controller('indexCtrl', [
         productsService.getProducts('willBegin', function(err) {
             console.log(err);
         });
-
+        $scope.$on('showData.update', function() {
+            $scope.products = productsService.products;
+            if ($scope.$root.$$phase != '$apply' && $scope.$root.$$phase != '$digest') {
+                $scope.$digest();
+            }
+        });
         //关注中
         if ($scope.type == 3) {
             if (!user.getToken()) {

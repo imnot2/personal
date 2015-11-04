@@ -69,6 +69,7 @@ directives.directive('productsscroll', [
                         point = products.srcData.length - showSize;
                     }
                     products.showData = products.srcData.slice(point, point + showSize);
+                    $rootScope.$broadcast('showData.update');
                 }
 
                 function whenStop(node, direction) {

@@ -5,21 +5,19 @@ services.service('productsService', ['$http', '$rootScope', function($http, $roo
         processing: {
             srcData: [],
             showData: [],
-            manager: {},
             curPage: 0
         },
         willBegin: {
             srcData: [],
             showData: [],
-            manager: {},
             curPage: 0
         },
         interest: {
             srcData: [],
             showData: [],
-            manager: {},
             curPage: 0
         },
+        manager: {},
         showSize: 5
     };
     // this.products.processing = {};
@@ -44,7 +42,7 @@ services.service('productsService', ['$http', '$rootScope', function($http, $roo
             if (res.data.length) {
                 products.srcData = products.srcData.concat(res.data);
                 angular.forEach(res.data, function(value, key) {
-                    products.manager[value.id] = value;
+                    me.products.manager[value.id] = value;
                 });
                 $rootScope.$broadcast('products.update');
                 successFn();

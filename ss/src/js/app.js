@@ -85,5 +85,13 @@ ssApp.config(function($stateProvider, $urlRouterProvider) {
                 }
             }
         }
+    }).state('detail', {
+        url: '/detail/:id',
+        views: {
+            '': {
+                templateUrl: 'tpls/detail.tpl.html',
+                controller: 'detailCtrl'
+            }
+        }
     })
 });

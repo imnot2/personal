@@ -15,17 +15,14 @@ ctrls.controller('indexCtrl', [
         $scope.wrapClass = 'page-home';
 
         $scope.type = parseInt($stateParams.type);
-        $scope.products = productsService.products;
+        //$scope.products = productsService.products;
 
         //进行中
-        productsService.getProducts('processing', function(err) {
-            console.log(err);
-        });
+        productsService.getProducts('processing');
 
         //即将开始
-        productsService.getProducts('willBegin', function(err) {
-            console.log(err);
-        });
+        productsService.getProducts('willBegin');
+
         $scope.$on('showData.update', function() {
             $scope.products = productsService.products;
             if ($scope.$root.$$phase != '$apply' && $scope.$root.$$phase != '$digest') {
@@ -37,9 +34,7 @@ ctrls.controller('indexCtrl', [
             if (!user.getToken()) {
                 $scope.noLogin = true;
             } else {
-                productsService.getProducts('interest', function(err) {
-                    console.log(err);
-                });
+                productsService.getProducts('interest');
             }
         };
 

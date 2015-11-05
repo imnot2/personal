@@ -15,7 +15,7 @@
 <section class="ui-container" productsScroll>
     <div class="ui-tabs-content">
         <div class="ui-tabs-pane" ng-class="{active:type!=2&&type!=3}">
-            <article ng-repeat="product in products.processing.showData" data-id="{{product.id}}">
+            <article ng-repeat="product in products.processing.showData" data-id="{{product.id}}" ui-sref="detail({id:product.id})">
                 <div class="ui-item-image">
                     <a href="javascript:;"><img ng-src="{{product.src}}">
                     </a>
@@ -110,9 +110,4 @@
     <a href="javascript:;" class="btn btn-primary btn-lgs btn-block" login>登录后更精彩</a>
     <p>登录后可以查看您所关注的商品哦。</p>
     <p>没有账号 快来<a href="javascript:;" register>申请一个</a>吧</p>
-</div>
-<div class="ui-share">
-    <a href="#"><i class="fa">&#xe615;</i><p>微信</p></a>
-    <a href="#"><i class="fa">&#xe617;</i><p>朋友圈</p></a>
-    <a href="#"><i class="fa">&#xe616;</i><p>新浪微博</p></a>
 </div>

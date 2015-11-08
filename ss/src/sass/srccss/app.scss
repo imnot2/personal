@@ -1,10 +1,9 @@
 @charset "UTF-8";
 
 @import "base/variables";
+@import "base/functions";
 @import "base/normalize";
 @import "base/globalclasses";
-@import "base/functions";
-
 
 .ui-container {
     position: absolute;
@@ -21,7 +20,7 @@
 
 .ui-header {
     background-color: #F7F9F8;
-    border-bottom: pxtorem(1px) solid #CCCCCC;
+    border-bottom: 1px solid #CCCCCC;
     position: relative;
     z-index: 10;
 }
@@ -59,7 +58,7 @@
 }
 
 .ui-header .hd-left .icons-back {
-    text-indent: -pxtorem(4px);
+    text-indent: pxtorem(-4px);
 }
 
 .ui-header .hd-left .fa,
@@ -78,8 +77,8 @@
 .ui-header .hd-right .badge {
     background-color: #FFA64D;
     position: relative;
-    right: -pxtorem(10px);
-    bottom: -pxtorem(2px);
+    right: pxtorem(-10px);
+    bottom: pxtorem(-2px);
     z-index: 10;
     height: pxtorem(14px);
     min-width: pxtorem(14px);
@@ -104,7 +103,7 @@
 .ui-navbar-nav li {
     line-height: pxtorem(36px);
     background-color: #DDDDDD;
-    margin-left: pxtorem(1px);
+    margin-left: 1px;
 }
 
 .ui-navbar-nav li.active {
@@ -125,14 +124,14 @@
 .ui-line-tips:before {
     display: inline-table;
     content: '';
-    height: pxtorem(1px);
+    height: 1px;
     background-color: #DDD;
     position: absolute;
     top: 50%;
     width: 100%;
     left: 0;
     z-index: 5;
-    margin-top: -pxtorem(2px);
+    margin-top: pxtorem(-2px);
 }
 
 .ui-line-tips span {
@@ -173,7 +172,7 @@
     float: left;
     width: pxtorem(40px);
     height: pxtorem(40px);
-    margin-left: -pxtorem(40px);
+    margin-left: pxtorem(-40px);
     margin-right: pxtorem(10px);
 }
 
@@ -219,7 +218,7 @@
     color: #f00;
     border-radius: pxtorem(2px);
     padding: pxtorem(3px) pxtorem(5px);
-    margin-left: pxtorem(1px);
+    margin-left: 1px;
     font-weight: bold;
 }
 
@@ -228,7 +227,7 @@
 }
 
 .item-count i:nth-child(2) {
-    margin-right: pxtorem(1px);
+    margin-right: 1px;
 }
 
 .item-price {
@@ -260,7 +259,7 @@
     position: absolute;
     bottom: pxtorem(5px);
     left: 50%;
-    margin-left: -pxtorem(15px);
+    margin-left: pxtorem(-15px);
 }
 
 .ui-login .btn {
@@ -325,7 +324,7 @@
     position: absolute;
     bottom: pxtorem(5px);
     left: 50%;
-    margin-left: -pxtorem(15px);
+    margin-left: pxtorem(-15px);
 }
 
 .ui-pasw-tips {
@@ -357,7 +356,7 @@
 
 .ui-btn-bottom-panel {
     padding: pxtorem(10px);
-    border-top: pxtorem(1px) solid #DDDDDD;
+    border-top: 1px solid #DDDDDD;
     margin-top: pxtorem(20px);
 }
 
@@ -395,7 +394,7 @@
     position: absolute;
     bottom: pxtorem(5px);
     left: 50%;
-    margin-left: -pxtorem(15px);
+    margin-left: pxtorem(-15px);
 }
 
 .ui-share a {
@@ -426,15 +425,15 @@
 .ui-arrows:after {
     display: block;
     content: '';
-    border-right: pxtorem(1px) solid rgb(221, 221, 221);
-    border-bottom: pxtorem(1px) solid rgb(221, 221, 221);
+    border-right: 1px solid rgb(221, 221, 221);
+    border-bottom: 1px solid rgb(221, 221, 221);
     -webkit-transform: rotate(-45deg);
     width: pxtorem(16px);
     height: pxtorem(16px);
     position: absolute;
     right: pxtorem(17px);
     top: 50%;
-    margin-top: -pxtorem(6px);
+    margin-top: pxtorem(-6px);
 }
 
 
@@ -466,8 +465,8 @@
  */
 
 .ui-star {
-    border-top: pxtorem(1px) solid #DDDDDD;
-    border-bottom: pxtorem(1px) solid #DDDDDD;
+    border-top: 1px solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
 }
 
 .ui-star .fa {
@@ -536,7 +535,7 @@
     font-size: pxtorem(30px);
     padding: pxtorem(7px);
     border-radius: 100%;
-    border: pxtorem(1px) solid #DDDDDD;
+    border: 1px solid #DDDDDD;
     color: #999999;
 }
 
@@ -564,17 +563,17 @@
 }
 
 .ui-sidemenu-nav li {
-    border-bottom: pxtorem(1px) solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
     position: relative;
     z-index: 5;
 }
 
 .ui-sidemenu-nav li:first-child {
-    border-top: pxtorem(1px) solid #DDDDDD;
+    border-top: 1px solid #DDDDDD;
 }
 
 
-/*.ui-sidemenu-nav li:after,.ui-sidemenu-nav li:before{display: block;content: '';height: pxtorem(1px);width: pxtorem(15px);background-color: #DDDDDD;position: absolute;right: pxtorem(10px);}
+/*.ui-sidemenu-nav li:after,.ui-sidemenu-nav li:before{display: block;content: '';height: 1px;width: pxtorem(15px);background-color: #DDDDDD;position: absolute;right: pxtorem(10px);}
 .ui-sidemenu-nav li:before{-webkit-transform:rotate(45deg);top: pxtorem(15px);}
 .ui-sidemenu-nav li:after{-webkit-transform:rotate(-45deg);bottom: pxtorem(15px);}*/
 
@@ -650,7 +649,7 @@
     display: -webkit-box;
     width: 100%;
     -webkit-box-align: center;
-    border-top: pxtorem(1px) solid #999999;
+    border-top: 1px solid #999999;
     height: pxtorem(42px);
     line-height: pxtorem(42px);
     display: none;
@@ -660,7 +659,7 @@
     color: #fff;
     text-align: center;
     border: none;
-    border-right: pxtorem(1px) #999999 solid;
+    border-right: 1px #999999 solid;
     width: 100%;
     line-height: pxtorem(39px);
     background: transparent;
@@ -703,15 +702,15 @@
 .ui-form {
     background-color: #ffffff;
     padding: 0 pxtorem(5px);
-    border-top: pxtorem(1px) solid #DDDDDD;
-    border-bottom: pxtorem(1px) solid #DDDDDD;
-    margin-top: -pxtorem(1px);
+    border-top: 1px solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
+    margin-top: -1px;
 }
 
 .ui-form-item {
     position: relative;
     padding: pxtorem(5px);
-    border-bottom: pxtorem(1px) solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
 }
 
 .ui-form-item:last-child {
@@ -735,7 +734,7 @@
     position: absolute;
     right: 0;
     top: 50%;
-    margin-top: -pxtorem(17px);
+    margin-top: pxtorem(-17px);
     max-width: pxtorem(82px);
 }
 
@@ -744,7 +743,7 @@
     top: 50%;
     left: pxtorem(5px);
     font-size: pxtorem(24px);
-    margin-top: -pxtorem(17px);
+    margin-top: pxtorem(-17px);
     color: #999999;
 }
 
@@ -794,7 +793,7 @@
 .ui-form-party {
     margin-bottom: pxtorem(40px);
     text-align: center;
-    border-top: pxtorem(1px) dotted #CCCCCC;
+    border-top: 1px dotted #CCCCCC;
     padding-top: pxtorem(30px);
     margin-top: pxtorem(40px);
 }
@@ -859,12 +858,12 @@
 
 .ui-radio input[type="radio"] + span:before {
     background: none repeat scroll 0 0 #CCCCCC;
-    border: pxtorem(1px) solid #ccc;
+    border: 1px solid #ccc;
     border-radius: 50%;
     content: "";
     display: inline-block;
     height: pxtorem(24px);
-    left: -pxtorem(20px);
+    left: pxtorem(-20px);
     position: absolute;
     top: 0;
     /*transition: all 0.15s ease-in-out 0s;*/
@@ -873,7 +872,7 @@
 }
 
 .ui-radio input[type="radio"]:disabled + span:before {
-    border: pxtorem(1px) solid #ccc;
+    border: 1px solid #ccc;
     cursor: no-drop;
     opacity: 0.65;
 }
@@ -888,7 +887,7 @@
     content: "✓";
     display: block;
     height: pxtorem(24px);
-    left: -pxtorem(20px);
+    left: pxtorem(-20px);
     position: absolute;
     top: pxtorem(0px);
     width: pxtorem(24px);
@@ -911,7 +910,7 @@
     color: #CCCCCC;
     font-size: pxtorem(32px);
     float: left;
-    margin-left: -pxtorem(20px);
+    margin-left: pxtorem(-20px);
 }
 
 .ui-radio input[type="radio"]:checked + .fa {
@@ -953,12 +952,12 @@
 
 .ui-checkbox input[type="checkbox"] + span:before {
     background-color: transparent;
-    border: pxtorem(1px) solid #ccc;
+    border: 1px solid #ccc;
     border-radius: pxtorem(2px);
     content: "";
     display: inline-block;
     height: pxtorem(18px);
-    margin-left: -pxtorem(20px);
+    margin-left: pxtorem(-20px);
     margin-right: pxtorem(10px);
     transition: all 0.15s ease-in-out 0s;
     vertical-align: middle;
@@ -966,13 +965,13 @@
 }
 
 .ui-checkbox input[type="checkbox"]:disabled + span:before {
-    border: pxtorem(1px) solid #ccc;
+    border: 1px solid #ccc;
     cursor: no-drop;
     opacity: 0.65;
 }
 
 .ui-checkbox input[type="checkbox"]:checked + span:before {
-    border: pxtorem(1px) solid #209281;
+    border: 1px solid #209281;
 }
 
 .ui-checkbox input[type="checkbox"]:checked + span:after {
@@ -980,14 +979,14 @@
     content: "";
     display: block;
     height: pxtorem(8px);
-    left: -pxtorem(15px);
+    left: pxtorem(-15px);
     position: absolute;
     top: pxtorem(7px);
     width: pxtorem(8px);
 }
 
 .ui-checkbox input[type="checkbox"]:disabled:checked + span:before {
-    border: pxtorem(1px) solid #ccc;
+    border: 1px solid #ccc;
     opacity: 0.65;
 }
 
@@ -1003,7 +1002,7 @@
     position: absolute;
     top: 50%;
     right: pxtorem(10px);
-    margin-top: -pxtorem(12px);
+    margin-top: pxtorem(-12px);
 }
 
 .ui-icon-close .fa {
@@ -1017,11 +1016,11 @@
 
 .ui-form-item-level .ui-form-item {
     -webkit-box-flex: 1;
-    border-bottom: pxtorem(1px) solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
 }
 
 .ui-form-item-level .ui-form-item:last-child {
-    border-left: pxtorem(1px) solid #DDDDDD;
+    border-left: 1px solid #DDDDDD;
 }
 
 .ui-form-item-level .ui-form-item span {
@@ -1053,7 +1052,7 @@
     height: 3.8125em;
     border-radius: 4em;
     border: .125em solid #FFF;
-    box-shadow: inset 0 pxtorem(1px) pxtorem(8px) rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px pxtorem(8px) rgba(0, 0, 0, 0.2);
     display: inline-block;
     position: relative;
     background-color: #209281;
@@ -1080,12 +1079,12 @@
 .ui-uesr-img .icons-haed {
     position: absolute;
     top: 0;
-    right: -pxtorem(5px);
+    right: pxtorem(-5px);
 }
 
 .ui-uesr-img .icons-haed .fa {
     color: #FFA64D;
-    text-shadow: 0 pxtorem(2px) 0 rgb(255, 255, 255), 0 -pxtorem(2px) 0 rgb(255, 255, 255), pxtorem(2px) 0 0 rgb(255, 255, 255), -pxtorem(2px) 0 0 rgb(255, 255, 255);
+    text-shadow: 0 pxtorem(2px) 0 rgb(255, 255, 255), 0 pxtorem(-2px) 0 rgb(255, 255, 255), pxtorem(2px) 0 0 rgb(255, 255, 255), pxtorem(-2px) 0 0 rgb(255, 255, 255);
 }
 
 .ui-user-name {
@@ -1096,19 +1095,19 @@
 
 .ui-user-name .icons-comments {
     background-color: #fff;
-    border: pxtorem(1px) solid #CCCCCC;
+    border: 1px solid #CCCCCC;
     color: #999;
     border-radius: pxtorem(3px);
     padding: pxtorem(5px);
     position: relative;
-    vertical-align: -pxtorem(2px);
+    vertical-align: pxtorem(-2px);
 }
 
 .ui-user-name .icons-comments .badge {
     background-color: #FFA64D;
     position: absolute;
-    top: -pxtorem(5px);
-    right: -pxtorem(7px);
+    top: pxtorem(-5px);
+    right: pxtorem(-7px);
 }
 
 .ui-user-name .icons-comments .fa {
@@ -1180,9 +1179,9 @@
 }
 
 .ui-info-panel {
-    border-top: pxtorem(1px) solid #DDD;
-    border-bottom: pxtorem(1px) solid #DDD;
-    margin-top: -pxtorem(1px);
+    border-top: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
+    margin-top: -1px;
 }
 
 .ui-info-panel .ui-info-cent {
@@ -1230,7 +1229,7 @@
     position: absolute;
     top: 50%;
     right: pxtorem(13px);
-    margin-top: -pxtorem(10px);
+    margin-top: pxtorem(-10px);
 }
 
 .ui-info-panel .ui-info-handle {
@@ -1241,7 +1240,7 @@
     position: absolute;
     top: 50%;
     right: pxtorem(15px);
-    margin-top: -pxtorem(14px);
+    margin-top: pxtorem(-14px);
 }
 
 .ui-info-panel .ui-info-cent .ui-handle a {
@@ -1369,8 +1368,8 @@
 .ui-tab-lg li.active .fa {
     display: block;
     position: absolute;
-    bottom: -pxtorem(3px);
-    right: -pxtorem(2px);
+    bottom: pxtorem(-3px);
+    right: pxtorem(-2px);
     z-index: 2;
     color: #fff;
 }
@@ -1386,8 +1385,8 @@
     width: pxtorem(24px);
     height: pxtorem(24px);
     position: absolute;
-    right: -pxtorem(1px);
-    bottom: -pxtorem(1px);
+    right: -1px;
+    bottom: -1px;
 }
 
 
@@ -1425,7 +1424,7 @@
 }
 
 .ui-my-shop .ui-user-head {
-    margin-top: -pxtorem(55px);
+    margin-top: pxtorem(-55px);
     position: relative;
     z-index: 2;
 }
@@ -1456,7 +1455,7 @@
     margin-top: pxtorem(35px);
     margin-left: pxtorem(15px);
     border: pxtorem(2px) solid #fff;
-    box-shadow: -pxtorem(3px) -pxtorem(3px) 0 #CCCCCC, -pxtorem(5px) -pxtorem(5px) 0 #fff, -pxtorem(8px) -pxtorem(8px) 0 #CCCCCC, -pxtorem(10px) -pxtorem(10px) 0 #fff, -pxtorem(13px) -pxtorem(13px) 0 #CCCCCC, -pxtorem(15px) -pxtorem(15px) 0 #fff
+    box-shadow: pxtorem(-3px) pxtorem(-3px) 0 #CCCCCC, pxtorem(-5px) pxtorem(-5px) 0 #fff, pxtorem(-8px) pxtorem(-8px) 0 #CCCCCC, pxtorem(-10px) pxtorem(-10px) 0 #fff, pxtorem(-13px) pxtorem(-13px) 0 #CCCCCC, pxtorem(-15px) pxtorem(-15px) 0 #fff
 }
 
 
@@ -1468,7 +1467,7 @@
 .ui-footer .ui-footer-btn {
     background-color: #EEEEEE;
     padding: pxtorem(10px);
-    border-top: pxtorem(1px) solid #CCCCCC;
+    border-top: 1px solid #CCCCCC;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -1519,7 +1518,7 @@
 
 .ui-footer-btn .ui-number {
     position: absolute;
-    top: -pxtorem(8px);
+    top: pxtorem(-8px);
     left: pxtorem(5px);
     color: #ffffff;
 }
@@ -1546,7 +1545,7 @@
 .ui-cont-main h4 p {
     padding: pxtorem(5px) pxtorem(20px);
     display: inline-block;
-    border-bottom: pxtorem(1px) solid #CCCCCC;
+    border-bottom: 1px solid #CCCCCC;
 }
 
 .ui-cont-main p {
@@ -1572,8 +1571,8 @@
 
 .ui-panel {
     background-color: #fff;
-    border-top: pxtorem(1px) solid #CCCCCC;
-    border-bottom: pxtorem(1px) solid #CCCCCC;
+    border-top: 1px solid #CCCCCC;
+    border-bottom: 1px solid #CCCCCC;
 }
 
 .ui-item-panel {
@@ -1581,7 +1580,7 @@
 }
 
 .ui-item-panel h3 {
-    border-bottom: pxtorem(1px) solid #CCCCCC;
+    border-bottom: 1px solid #CCCCCC;
     padding-bottom: pxtorem(15px);
     margin-bottom: pxtorem(15px);
     margin-top: 0;
@@ -1775,7 +1774,7 @@
 
 .ui-tabs-pane .item-hd {
     background-color: #fff;
-    border-bottom: pxtorem(1px) solid #CCCCCC;
+    border-bottom: 1px solid #CCCCCC;
     padding: pxtorem(10px);
 }
 
@@ -1799,6 +1798,7 @@
     height: pxtorem(30px);
     border-radius: 100%;
     margin-right: pxtorem(5px);
+    vertical-align: middle;
 }
 
 .ui-tabs-pane .item-head .fa {
@@ -1809,7 +1809,7 @@
 
 .ui-tabs-pane .item-info {
     float: right;
-    margin-top: pxtorem(5px);
+    margin-top: pxtorem(3px);
 }
 
 .ui-tabs-pane .item-info [class^="item-"],
@@ -1910,8 +1910,8 @@
     background: -webkit-linear-gradient(top, #c1c1c1 0%, #999999 100%);
     color: #ffffff;
     border-radius: pxtorem(2px);
-    padding: pxtorem(1px) pxtorem(4px);
-    margin-left: pxtorem(1px);
+    padding: 1px pxtorem(4px);
+    margin-left: 1px;
     font-weight: bold;
 }
 
@@ -1920,7 +1920,7 @@
 }
 
 .ui-count i:nth-child(2) {
-    margin-right: pxtorem(1px);
+    margin-right: 1px;
 }
 
 .ui-order-number {
@@ -1938,7 +1938,7 @@
     font-size: pxtorem(16px);
     position: relative;
     padding-bottom: pxtorem(8px);
-    border-bottom: pxtorem(1px) solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
     color: #999999;
 }
 
@@ -1949,9 +1949,9 @@
     width: pxtorem(40px);
     background-color: #1F927F;
     position: absolute;
-    bottom: -pxtorem(1px);
+    bottom: -1px;
     left: 50%;
-    margin-left: -pxtorem(20px);
+    margin-left: pxtorem(-20px);
 }
 
 
@@ -1966,7 +1966,7 @@
 }
 
 .ui-order-hd {
-    border-bottom: pxtorem(1px) solid #EEEEEE;
+    border-bottom: 1px solid #EEEEEE;
     padding: pxtorem(15px) 0 pxtorem(10px);
     position: relative;
     z-index: 10;
@@ -2031,7 +2031,7 @@
 }
 
 .ui-order-ft {
-    border-top: pxtorem(1px) solid #EEEEEE;
+    border-top: 1px solid #EEEEEE;
     padding: pxtorem(10px) 0;
     text-align: right;
 }
@@ -2054,7 +2054,7 @@
 */
 
 .ui-store-panel {
-    margin-top: -pxtorem(15px);
+    margin-top: pxtorem(-15px);
 }
 
 .ui-store-panel {
@@ -2063,7 +2063,7 @@
 }
 
 .ui-store-panel li {
-    border-bottom: pxtorem(1px) solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
 }
 
 .ui-store-panel input,
@@ -2089,7 +2089,7 @@
 .ui-store-panel .ui-store-rich:before {
     display: block;
     content: '';
-    height: pxtorem(1px);
+    height: 1px;
     width: pxtorem(15px);
     background-color: #DDDDDD;
     position: absolute;
@@ -2127,7 +2127,7 @@
 
 .ui-file-img li {
     margin-left: 2%;
-    border: pxtorem(1px) solid #DDDDDD;
+    border: 1px solid #DDDDDD;
     background: #ffffff;
     position: relative;
     width: 18.39%;
@@ -2162,7 +2162,7 @@
 .ui-mini-tabs {
     text-align: right;
     background-color: #DDDDDD;
-    margin-top: -pxtorem(15px);
+    margin-top: pxtorem(-15px);
     padding: pxtorem(10px) pxtorem(10px) 0;
 }
 
@@ -2174,7 +2174,7 @@
 
 .ui-mini-tabs li.active {
     background-color: #EEEEEE;
-    border: pxtorem(1px) solid #CCCCCC;
+    border: 1px solid #CCCCCC;
     border-bottom-width: 0;
     border-radius: pxtorem(3px) pxtorem(3px) 0 0;
     font-weight: bold;
@@ -2209,7 +2209,7 @@ end user-tabs
 }
 
 .page-set .ui-user-head {
-    border-bottom: pxtorem(1px) solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
 }
 
 .page-set .ui-btn {
@@ -2306,7 +2306,7 @@ end set
 .ui-message-info li .fa {
     font-size: pxtorem(50px);
     float: left;
-    margin-left: -pxtorem(65px);
+    margin-left: pxtorem(-65px);
     color: #999;
     margin-top: pxtorem(26px);
 }
@@ -2333,7 +2333,7 @@ end set
 }
 
 .ui-message-meta .ui-post-content {
-    border: pxtorem(1px) solid #98D8D0;
+    border: 1px solid #98D8D0;
     border-radius: pxtorem(16px);
     padding: pxtorem(9px) pxtorem(15px);
     min-height: pxtorem(40px);
@@ -2353,8 +2353,8 @@ end set
 
 .ui-message-meta .ui-advocate .ui-post-content:before {
     background-color: #fff;
-    border: pxtorem(1px) solid #98D8D0;
-    left: -pxtorem(8px);
+    border: 1px solid #98D8D0;
+    left: pxtorem(-8px);
     border-radius: pxtorem(0px) pxtorem(15px) pxtorem(0px) pxtorem(50px)
 }
 
@@ -2374,7 +2374,7 @@ end set
 
 .ui-message-meta .ui-assistant .ui-post-content:before {
     background-color: #98D8D0;
-    right: -pxtorem(8px);
+    right: pxtorem(-8px);
     border-radius: pxtorem(15px) pxtorem(0px) pxtorem(50px) pxtorem(0px);
 }
 
@@ -2439,11 +2439,11 @@ end message
 .ui-data-meta {
     background-color: #ffffff;
     padding: pxtorem(10px) 0;
-    border-top: pxtorem(1px) solid #EEEEEE
+    border-top: 1px solid #EEEEEE
 }
 
 .ui-data-meta li {
-    border-left: pxtorem(1px) solid #EEEEEE;
+    border-left: 1px solid #EEEEEE;
     color: #999999;
 }
 
@@ -2477,7 +2477,7 @@ end message
     background-color: #ffffff;
     border-radius: pxtorem(2px);
     padding: pxtorem(3px) pxtorem(5px);
-    margin-left: pxtorem(1px);
+    margin-left: 1px;
     font-weight: bold;
 }
 
@@ -2561,7 +2561,7 @@ end message
 }
 
 .ui-eval-detail li {
-    border-bottom: pxtorem(1px) solid #EEEEEE;
+    border-bottom: 1px solid #EEEEEE;
     position: relative;
     padding: pxtorem(10px) 0;
 }
@@ -2597,7 +2597,7 @@ end message
     top: 50%;
     right: 0;
     color: #999999;
-    margin-top: -pxtorem(10px);
+    margin-top: pxtorem(-10px);
 }
 
 .ui-eval .ui-more-down {
@@ -2684,7 +2684,7 @@ end message
 }
 
 .ui-text-area {
-    border-top: pxtorem(1px) solid #DDDDDD;
+    border-top: 1px solid #DDDDDD;
     padding: pxtorem(10px) 0 0 0;
     margin-top: pxtorem(15px);
 }
@@ -2727,7 +2727,7 @@ end message
 }
 
 .ui-advocate img {
-    margin-left: -pxtorem(60px);
+    margin-left: pxtorem(-60px);
     float: left;
 }
 
@@ -2738,7 +2738,7 @@ end message
 
 .ui-assistant img {
     float: right;
-    margin-right: -pxtorem(60px);
+    margin-right: pxtorem(-60px);
 }
 
 .item-title h3 {
@@ -2766,32 +2766,4 @@ end message
     animation-duration: 0.75s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
-}
-
-
-/* 设置滚动条的样式 */
-
-::-webkit-scrollbar {
-    width: pxtorem(12px);
-}
-
-
-/* 滚动槽 */
-
-::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 pxtorem(6px) rgba(0, 0, 0, 1);
-    border-radius: pxtorem(10px);
-}
-
-
-/* 滚动条滑块 */
-
-::-webkit-scrollbar-thumb {
-    border-radius: pxtorem(10px);
-    background: rgba(255, 255, 255, 1);
-    -webkit-box-shadow: inset 0 0 pxtorem(6px) rgba(0, 0, 0, 1);
-}
-
-::-webkit-scrollbar-thumb:window-inactive {
-    background: rgba(0, 0, 0, 1);
 }

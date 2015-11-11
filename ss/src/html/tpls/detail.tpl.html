@@ -91,7 +91,7 @@
         <a class="icons-home" href="#"><i class="fa">&#xe618;</i></a>
         <a class="icons-coms active" href="#"><span class="ui-number-meta"><i class="fa">&#xe603;</i><span class="ui-number">100+</span></span></a>
         <a class="icons-heart" href="#"><i class="fa">&#xe607;</i></a>
-        <a class="btn btn-warning btn-sm" href="#"><i class="fa">&#xe622;</i>立即出价</a>
+        <a class="btn btn-warning btn-sm" href="#" ng-if="product.type === 1 && product.serviceCode != 2"><i class="fa">&#xe622;</i>立即出价</a>
     </div>
     <div class="ui-blank"></div>
 </footer>

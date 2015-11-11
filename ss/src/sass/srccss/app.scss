@@ -1,10 +1,8 @@
 @charset "UTF-8";
-
 @import "base/variables";
 @import "base/functions";
 @import "base/normalize";
 @import "base/globalclasses";
-
 .ui-container {
     position: absolute;
     top: pxtorem(47px);
@@ -1464,63 +1462,60 @@
  *===========================================================================
  */
 
-.ui-footer .ui-footer-btn {
-    background-color: #EEEEEE;
-    padding: pxtorem(10px);
-    border-top: 1px solid #CCCCCC;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-
-.ui-footer .ui-blank {
-    height: pxtorem(80px);
-}
-
-.ui-footer-btn:after {
-    display: block;
-    content: '';
-    clear: both;
-}
-
-.ui-footer-btn [class^="icons-"] {
-    display: inline-block;
-    width: 17%;
-}
-
-.ui-footer-btn [class^="icons-"] .fa {
-    font-size: pxtorem(40px);
-    vertical-align: sub;
-}
-
-.ui-footer-btn a {
-    float: left;
-}
-
-.ui-footer-btn .btn {
-    width: 49%;
-    font-size: pxtorem(16px);
-}
-
-.ui-footer-btn .btn .fa {
-    font-size: pxtorem(32px);
-    vertical-align: sub;
-}
-
-.ui-footer-btn .active {
-    color: #FFA64D;
-}
-
-.ui-footer-btn .ui-number-meta {
-    position: relative;
-}
-
-.ui-footer-btn .ui-number {
-    position: absolute;
-    top: pxtorem(-8px);
-    left: pxtorem(5px);
-    color: #ffffff;
+.ui-footer {
+    .ui-footer-btn {
+        background-color: #EEEEEE;
+        padding: pxtorem(10px);
+        border-top: 1px solid #CCCCCC;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        a {
+            flex: 1;
+            float: left;
+        }
+        [class^="icons-"] {
+            display: inline-block;
+            width: 17%;
+            .fa {
+                font-size: pxtorem(40px);
+                vertical-align: sub;
+            }
+        }
+        .btn {
+            width: 49%;
+            font-size: pxtorem(16px);
+            .fa {
+                font-size: pxtorem(32px);
+                vertical-align: sub;
+            }
+            &.btn-sm {
+                flex: 4;
+            }
+        }
+        &.active {
+            color: #FFA64D;
+        }
+        &:after {
+            display: block;
+            content: '';
+            clear: both;
+        }
+        .ui-number-meta {
+            position: relative;
+        }
+        .ui-number {
+            position: absolute;
+            top: pxtorem(-8px);
+            left: pxtorem(5px);
+            color: #ffffff;
+        }
+    }
+    .ui-blank {
+        height: pxtorem(80px);
+    }
 }
 
 

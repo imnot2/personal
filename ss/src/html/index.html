@@ -9,6 +9,14 @@
     <link href="/css/srccss/app.css" rel="stylesheet">
     <script src="/js/vendor/lib.js"></script>
     <script src="/js/app.js"></script>
+    <script>
+    window.onresize = function() {
+        document.documentElement.style.fontSize = parseInt(document.querySelector('body').offsetWidth) / 20 + 'px';
+    }
+    window.onload = function() {
+        window.onresize();
+    }
+    </script>
 </head>
 
 <body>

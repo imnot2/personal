@@ -214,7 +214,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-string-replace');
     grunt.loadNpmTasks('grunt-contrib-concat');
 
-    grunt.registerTask('dev', ['clean', 'compass', 'cssmin:build', 'imagemin', 'concat:build', 'copy:toBuildfont', 'copy:toBuildHtml', 'copy:toBuildProduts']);
-    grunt.registerTask('dest', ['dev', 'cssmin:dest', 'uglify:dest', 'copy:toDestImgs', 'copy:toDestfont', 'copy:toDestHtml']);
+    grunt.registerTask('dev', ['clean', 'compass',  'imagemin', 'concat:build', 'copy:toBuildfont', 'copy:toBuildHtml', 'copy:toBuildProduts']);
+    grunt.registerTask('dest', ['dev',  'uglify:dest', 'copy:toDestImgs', 'copy:toDestfont', 'copy:toDestHtml']);
     grunt.registerTask('default', ['dest']);
 }

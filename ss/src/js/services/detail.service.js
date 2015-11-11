@@ -5,14 +5,14 @@ services.service('detail', ['$http', '$rootScope', 'productsService', function($
             $rootScope.$broadcast('product.get');
         } else {
             $http({
-                url: '/detail/' + id + '.json',
+                //url: '/detail/' + id + '.json',
+                url: '/products/detail.json',
                 method: 'GET'
             }).success(function(res) {
-                products[id] = res.detail;
+                products[id] = res.data;
                 $rootScope.$broadcast('product.get');
             }).error(function(err) {
                 console.log(err);
-                failFn(err);
             })
         }
     }

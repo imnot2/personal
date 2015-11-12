@@ -1,20 +1,54 @@
 {
-    "status": 200,
+    "status": 200, //服务状态码
     "data": {
-        "id": 88384629,
-        "endtime": 1444657093125,
-        "owner": {
-            "avatar": "/images/temp/1.jpg",
-            "name": "sosochen",
-            "level": 3
+        "id": 88384629, //商品ID
+        "endtime": 1444657093125, //商品结束拍卖时间
+        "owner": { //商品拥有者信息
+            "avatar": "/images/temp/1.jpg", //头像
+            "name": "sosochen", //姓名
+            "level": 3 //等级
         },
-        "auctions": 15,
-        "comments": 25,
-        "likes": 55,
-        "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉2212",
-        "type":"1",
-        "status":"1"
+        //拍卖信息
+        "auctions": [{
+            "avatar": "/images/temp/1.jpg",
+            "name": "guigui",
+            "price": "444"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "name": "dingding",
+            "price": "555"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "name": "biggie",
+            "price": "666"
+        }],
+        //评论信息
+        "comments": [{
+            "avatar": "/images/temp/1.jpg",
+            "conts": "这是假货吗？",
+            "reply": "你说的是废话吗？"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "好像很漂亮的样子",
+            "reply": "废话"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "包邮吗？亲",
+            "reply": "废话"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "买一送一么？",
+            "reply": "你SB么？"
+        }],
+        "likes": 55, //点赞数
+        "curPrice": 1290, //当前价格
+        "src": "/images/temp/1.jpg", //商品图片，这里看要不要弄一个数组
+        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉2212", //商品标题
+        "description": "翡翠（jadeite）， 也称翡翠玉、翠玉、硬玉、缅甸玉，是玉的一种。翡翠是在地质作用下形成的达到玉级的石质多晶集合体，主要由硬玉或硬玉及钠质（钠铬辉石）、钠钙质辉石（绿辉石）组成，可含有角闪石、长石、铬铁矿、褐铁矿等。[1] 在古代翡翠是一种生活在南方的鸟，毛色十分美丽，通常有蓝、绿、红、棕等颜色。一般这种鸟雄性的为红色，谓之“翡”，雌性的为绿色，谓之“翠”。", //商品描述
+        "type": "1", //0表示拍卖商品  1表示一口价商品
+        "status": "1", //一口价2种状态  拍卖商品4种状态
+        "margin": "0", //保证金
+        "startPrice": 44, //起拍价
+        "range": 10 //加价幅度
     }
 }

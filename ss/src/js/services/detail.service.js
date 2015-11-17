@@ -1,4 +1,4 @@
-services.service('detail', ['$http', '$rootScope', 'productsService', function($http, $rootScope, productsService) {
+services.service('detailService', ['$http', '$rootScope', 'productsService', function($http, $rootScope, productsService) {
     var products = productsService.products.manager;
     this.getDetail = function(id) {
         if (products[id]) {
@@ -6,7 +6,7 @@ services.service('detail', ['$http', '$rootScope', 'productsService', function($
         } else {
             $http({
                 //url: '/detail/' + id + '.json',
-                url: '/products/detail.json',
+                url: '/products/detail.json?v='+new Date().getTime(),
                 method: 'GET'
             }).success(function(res) {
                 products[id] = res.data;

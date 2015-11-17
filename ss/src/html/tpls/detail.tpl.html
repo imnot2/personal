@@ -11,7 +11,7 @@
     <div class="ui-goods">
         <article>
             <div class="ui-item-image">
-                <a href="javascript:;"><img ng-src="{{product.src}}"></a>
+                <a href="javascript:;"><img ng-src="{{product.srcs[0]}}"></a>
                 <span class="item-price"><i>&yen;</i>{{product.curPrice}}</span>
                 <p class="item-count-mask"><span class="item-time">距离结束<i>2</i><i>1</i>:<i>2</i><i>2</i></span></p>
                 <p class="item-count-mask"><span class="item-time">开始时间<span>01月20日 22:00</span></span>
@@ -34,30 +34,29 @@
     <h3 class="ui-title">出价记录<span>{{product.auctions.length}}条</span></h3>
     <div class="ui-roll-meta">
         <ul>
-            <li ng-repeat="auction in product.auctions"><img ng-src="auction.avator">
+            <li ng-repeat="auction in product.auctions"><img ng-src="{{auction.avator}}">
                 <h3 ng-bind="{{auction.name}}"></h3>
                 <p>&yen;{{auction.price}}</p>
             </li>
         </ul>
-        <div class="ui-alert">暂无记录</div>
+        <div ng-if="!product.auctions.length" class="ui-alert">暂无记录</div>
     </div>
     <h3 class="ui-title">商品详情</h3>
-    <div class="ui-detail-panel">{{product.description}}
-        <img ng-repeat="src in product.src" ng-src="{{src}}">
-        <div class="ui-alert">暂无详情</div>
+    <div class="ui-detail-panel">
+        <p class="ui-decription" ng-bind="{{product.description}}"></p>
+        <img ng-repeat="src in product.srcs" ng-src="{{src}}">
+        <div ng-if="{{!product.description && !product.srcs.length}}" class="ui-alert">暂无详情</div>
     </div>
-    <h3 class="ui-title">评论<span>{{product.comments}}条</span></h3>
+    <h3 class="ui-title">评论<span>{{product.comments.length}}条</span></h3>
     <div class="ui-eval">
         <ul class="ui-eval-detail">
-            <li ng-repeat="comment in comments"><img ng-src="{{comment.avator}}">
+            <li ng-repeat="comment in product.comments"><img ng-src="{{comment.avator}}">
                 <h3><a href="#">回复</a>d*B</h3>
-                <p>这是水货吗？</p><span class="ui-time">刚刚</span></li>
-            <li><img src="/images/temp/1s.jpg">
-                <h3>d*B</h3>
-                <p>这是水货吗？</p><span class="ui-time">5分钟前</span></li>
+                <p>{{comment.conts}}</p><span class="ui-time">刚刚</span></li>
+            <li>
         </ul>
         <p class="ui-more-down">点击加载更多评论</p>
-        <div class="ui-alert">暂无评论</div>
+        <div class="ui-alert" ng-if="{{!product.comments.length}}">暂无评论</div>
     </div>
     <h3 class="ui-title">商家介绍</h3>
     <div class="ui-brand">
@@ -75,9 +74,13 @@
 <footer class="ui-footer">
     <div class="ui-footer-btn">
         <a class="icons-home" href="#"><i class="fa">&#xe618;</i></a>
-        <a class="icons-coms active" href="#"><span class="ui-number-meta"><i class="fa">&#xe603;</i><span class="ui-number">100+</span></span></a>
+        <a class="icons-coms active" href="#"><span class="ui-number-meta"><i class="fa">&#xe603;</i><!-- <span class="ui-number">100+</span> --></span></a>
         <a class="icons-heart" href="#"><i class="fa">&#xe607;</i></a>
-        <a class="btn btn-warning btn-sm" href="#" ng-if="product.type === 1 && product.serviceCode != 2"><i class="fa">&#xe622;</i>立即出价</a>
+        <a class="btn btn-warning btn-sm" href="#" ng-if="product.type === 1 && product.status === 0"><i class="fa">&#xe622;</i>缴纳保证金</a>
+        <a class="btn btn-warning btn-sm" href="#" ng-if="product.type === 1 && product.status === 1">立即出价</a>
+        <a class="btn btn-warning btn-sm" href="#" ng-if="product.type === 2 && product.status === 0">尚未开始</a>
+        <a class="btn btn-warning btn-sm" href="#" ng-if="product.type === 2 && product.status === 1">已结束</a>
+        <a class="btn btn-warning btn-sm" href="#" ng-if="product.type === 2 && product.status === 2">已下架</a>
     </div>
     <div class="ui-blank"></div>
 </footer>

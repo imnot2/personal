@@ -46,6 +46,7 @@
 .ui-header .hd-right {
     right: 0;
     text-align: right;
+    color: #1F927F;
 }
 
 .ui-header [class^="icons-"] {
@@ -62,6 +63,7 @@
 .ui-header .hd-left .fa,
 .ui-header .hd-right .fa {
     font-size: pxtorem(26px);
+    color: #1F927F;
 }
 
 .ui-header .hd-right [class^="icons-"] {
@@ -1115,6 +1117,10 @@
 .ui-title {
     font-size: pxtorem(18px);
     color: #666666;
+    background-color: #eee;
+    height: pxtorem(46px);
+    line-height: pxtorem(56px);
+    margin: 0;
     padding-left: pxtorem(10px);
 }
 
@@ -1474,25 +1480,30 @@
         display: flex;
         a {
             flex: 1;
-            float: left;
+            margin-right: pxtorem(10px);
         }
         [class^="icons-"] {
             display: inline-block;
-            width: 17%;
             .fa {
-                font-size: pxtorem(40px);
+                font-size: pxtorem(35px);
                 vertical-align: sub;
+                color: #1F927F;
             }
         }
         .btn {
-            width: 49%;
             font-size: pxtorem(16px);
             .fa {
                 font-size: pxtorem(32px);
                 vertical-align: sub;
+                color: #fff;
             }
             &.btn-sm {
-                flex: 4;
+                flex: 6;
+                padding: 0;
+                border: none;
+                height: pxtorem(40px);
+                line-height: pxtorem(40px);
+                margin: 0 auto;
             }
         }
         &.active {
@@ -1810,7 +1821,7 @@
 .ui-tabs-pane .item-info [class^="item-"],
 .ui-tabs-pane .item-info [class*=" item-"] {
     color: #9A9A9A;
-    margin-left: pxtorem(10px);
+    margin-left: pxtorem(8px);
 }
 
 .ui-tabs-pane .item-info .fa {
@@ -2540,8 +2551,14 @@ end message
 *=============================================================================
 */
 
-.ui-detail-panel img {
-    width: 100%;
+.ui-detail-panel {
+    img {
+        width: 100%;
+        margin-bottom: pxtorem(10px);
+    }
+    .ui-description {
+        padding-bottom: pxtorem(26px);
+    }
 }
 
 
@@ -2578,7 +2595,7 @@ end message
 }
 
 .ui-eval-detail li p {
-    font-size: pxtorem(14px);
+    font-size: pxtorem(12px);
     margin: 0;
     color: #666666;
 }

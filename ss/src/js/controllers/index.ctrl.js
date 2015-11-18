@@ -7,8 +7,6 @@ ctrls.controller('indexCtrl', [
     'productsService',
     'user',
     function($scope, $http, $state, $stateParams, $rootScope, productsService, user) {
-        console.log("BB");
-
         $scope.slideMenuShow = false;
         $scope.showLogin = false;
         $scope.loginSlideIn = true; //下拉登录框接下来是否为下拉显示(true)、上拉隐藏(false

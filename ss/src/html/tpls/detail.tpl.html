@@ -43,9 +43,9 @@
     </div>
     <h3 class="ui-title">商品详情</h3>
     <div class="ui-detail-panel">
-        <p class="ui-decription" ng-bind="{{product.description}}"></p>
+        <p class="ui-description">{{product.description}}</p>
         <img ng-repeat="src in product.srcs" ng-src="{{src}}">
-        <div ng-if="{{!product.description && !product.srcs.length}}" class="ui-alert">暂无详情</div>
+        <div ng-if="noDescription" class="ui-alert">暂无详情</div>
     </div>
     <h3 class="ui-title">评论<span>{{product.comments.length}}条</span></h3>
     <div class="ui-eval">
@@ -56,7 +56,7 @@
             <li>
         </ul>
         <p class="ui-more-down">点击加载更多评论</p>
-        <div class="ui-alert" ng-if="{{!product.comments.length}}">暂无评论</div>
+        <div class="ui-alert" ng-if="noComment">暂无评论</div>
     </div>
     <h3 class="ui-title">商家介绍</h3>
     <div class="ui-brand">
@@ -76,7 +76,7 @@
         <a class="icons-home" href="#"><i class="fa">&#xe618;</i></a>
         <a class="icons-coms active" href="#"><span class="ui-number-meta"><i class="fa">&#xe603;</i><!-- <span class="ui-number">100+</span> --></span></a>
         <a class="icons-heart" href="#"><i class="fa">&#xe607;</i></a>
-        <a class="btn btn-warning btn-sm" href="#" ng-if="product.type === 1 && product.status === 0"><i class="fa">&#xe622;</i>缴纳保证金</a>
+        <a class="btn btn-warning btn-sm" href="#" ng-if="product.type === 1 && product.status === 0" ui-sref="paydeposit({id:product.id})"><i class="fa">&#xe622;</i>缴纳保证金</a>
         <a class="btn btn-warning btn-sm" href="#" ng-if="product.type === 1 && product.status === 1">立即出价</a>
         <a class="btn btn-warning btn-sm" href="#" ng-if="product.type === 2 && product.status === 0">尚未开始</a>
         <a class="btn btn-warning btn-sm" href="#" ng-if="product.type === 2 && product.status === 1">已结束</a>

@@ -14,42 +14,14 @@
         <p class="ui-tpye">冻结保证金：<span class="ui-c-green fs"><i>&yen;</i>213</span></p>
     </div>
     <h3 class="ui-title">收货地址</h3>
-    <div class="ui-info-panel" ng-repeat="{{address in user.addresses}}">
+    <div class="ui-info-panel" ng-repeat="address in addresses">
         <div class="ui-info-cent ui-arrows active">
-            <p><strong ng-bind="{{address.name}}"></strong><span class="ui-" ng-if="{{address.isdefault}}">[默认]</span></p>
-            <p><strong ng-bind="{{address.mobile}}"></strong></p>
-            <p  ng-bind="{{address.detail}}"></p>
+            <p><span class="address-name">{{address.name}}</span><span class="ui-" ng-if="address.isDefault">[默认]</span></p>
+            <p><span class="address-mobile">{{address.mobile}}</span></p>
+            <p class="address-detail">{{address.detail}}</p>
         </div>
     </div>
-    <div class="ui-info-panel">
-        <div class="ui-info-cent active">
-            <p><strong>东方朔</strong><span class="ui-">[默认]</span></p>
-            <p><strong>18888888888</strong></p>
-            <p>西汉平原郡厌次县（今山东省德州市陵县 **街道 **路 **号</p>
-            <span class="ui-check"><i class="fa">&#xe610;</i></span>
-        </div>
-    </div>
-    <div class="ui-info-panel">
-        <div class="ui-info-cent ui-arrows">
-            <p><strong>东方朔</strong></p>
-            <p><strong>18888888888</strong></p>
-            <p>上海 闸北</p>
-            <span class="ui-check"><i class="fa">&#xe610;</i></span>
-        </div>
-    </div>
-    <div class="ui-info-panel">
-        <div class="ui-info-cent ui-info-handle">
-            <p><strong>东方朔</strong></p>
-            <p><strong>18888888888</strong></p>
-            <p>西汉平原郡厌次县（今山东省德州市陵县 **街道 **路 **号</p>
-            <span class="ui-check"><i class="fa">&#xe610;</i></span>
-            <div class="ui-handle">
-                <a href="#" class="icons-edit"><i class="fa">&#xe60f;</i></a>
-                <a href="#" class="icons-delete"><i class="fa">&#xe62d;</i></a>
-            </div>
-        </div>
-    </div>
-    <div class="ui-info-panel" ng-if="{{!user.address.length}}">
+    <div class="ui-info-panel" ng-if="hasAddress">
         <div class="ui-info-cent ui-arrows">
             <a href="" class="ui-c-gray">添加收货人信息</a>
         </div>
@@ -66,7 +38,7 @@
         <!-- <li><a href="#" class="btn btn-primary btn-lg btn-block">全部上架</a></li> -->
     </div>
 </section>
-<section class="ui-container">
+<section class="ui-container" style="display:none">
     <div class="ui-thumb">
         <img src="static/temp/2.jpg">
         <p>一口价<span><i>&yen;</i>1520</span></p>
@@ -91,7 +63,23 @@
         <!-- <li><a href="#" class="btn btn-primary btn-lg btn-block">全部上架</a></li> -->
     </div>
 </section>
-<section class="ui-container">
+<!-- 地址管理 -->
+<section class="ui-container" style="display:none">
+    <div class="ui-info-panel">
+        <div class="ui-info-cent ui-arrows">
+            <p><strong>东方朔</strong></p>
+            <p><strong>18888888888</strong></p>
+            <p>上海 闸北</p>
+            <span class="ui-check"><i class="fa">&#xe610;</i></span>
+            <div class="ui-handle">
+                <a href="#" class="icons-edit"><i class="fa">&#xe60f;</i></a>
+                <a href="#" class="icons-delete"><i class="fa">&#xe62d;</i></a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- 添加收货地址 -->
+<section class="ui-container" style="display:none">
     <div class="ui-form-action">
         <div class="ui-form">
             <div class="ui-form-item">

@@ -1177,90 +1177,83 @@
     color: #FFA64D;
     font-size: pxtorem(18px);
 }
-
-.ui-info-panel {
-    background-color: #ffffff;
+.paydeposit{
+    .ui-container{
+        position: static;
+        background-color: #eee;
+    }
 }
-
 .ui-info-panel {
     border-top: 1px solid #DDD;
     border-bottom: 1px solid #DDD;
     margin-top: -1px;
-}
-
-.ui-info-panel .ui-info-cent {
-    border-left: pxtorem(3px) solid #ffffff;
-    padding: pxtorem(10px) pxtorem(40px) pxtorem(10px) pxtorem(15px);
-    position: relative;
-    z-index: 10;
-}
-
-.ui-info-panel .ui-info-cent.active {
-    border-left: pxtorem(3px) solid #209281;
-}
-
-.ui-info-panel .ui-info-cent p {
-    margin-bottom: pxtorem(3px);
-    color: #666666;
-}
-
-.ui-info-panel .ui-info-cent p:last-child {
-    margin-bottom: 0;
-}
-
-.ui-info-panel .ui-info-cent strong {
-    font-weight: normal;
-    font-size: pxtorem(18px);
-}
-
-.ui-info-panel .ui-info-cent strong + span {
-    color: #FFA64D;
-    font-size: pxtorem(18px);
-}
-
-.ui-info-panel .ui-info-cent a {
-    display: block;
-    padding: pxtorem(5px) 0;
-    text-decoration: none;
-}
-
-.ui-info-panel .ui-info-cent .ui-check {
-    display: none;
-}
-
-.ui-info-panel .ui-info-cent.active .ui-check {
-    display: block;
-    position: absolute;
-    top: 50%;
-    right: pxtorem(13px);
-    margin-top: pxtorem(-10px);
-}
-
-.ui-info-panel .ui-info-handle {
-    padding-right: pxtorem(110px);
-}
-
-.ui-info-panel .ui-info-cent .ui-handle {
-    position: absolute;
-    top: 50%;
-    right: pxtorem(15px);
-    margin-top: pxtorem(-14px);
-}
-
-.ui-info-panel .ui-info-cent .ui-handle a {
-    display: inline-block;
-}
-
-.ui-info-cent .ui-alipay {
-    font-size: pxtorem(18px);
-    color: #999999;
-}
-
-.ui-info-cent .ui-alipay .fa {
-    font-size: pxtorem(36px);
-    margin-right: pxtorem(10px);
-    color: #999999;
-    vertical-align: sub;
+    background-color: #ffffff;
+    .ui-info-cent {
+        border-left: pxtorem(3px) solid #ffffff;
+        padding: pxtorem(10px) pxtorem(40px) pxtorem(10px) pxtorem(15px);
+        position: relative;
+        z-index: 10;
+        &.active {
+            border-left: pxtorem(3px) solid #209281;
+            .ui-check {
+                display: block;
+                position: absolute;
+                top: 50%;
+                right: pxtorem(13px);
+                margin-top: pxtorem(-10px);
+            }
+        }
+        p {
+            margin-bottom: pxtorem(3px);
+            color: #666666;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+        span {
+            font-weight: normal;
+            font-size: pxtorem(18px);
+        }
+        a {
+            display: block;
+            padding: pxtorem(5px) 0;
+            text-decoration: none;
+        }
+        .address-name{
+            font-size: pxtorem(16px);
+        }
+        .address-mobile{
+            font-size: pxtorem(16px);
+        }
+        .address-detail{
+            font-size: pxtorem(12px);
+        }
+        .ui-check {
+            display: none;
+        }
+        .ui-handle {
+            position: absolute;
+            top: 50%;
+            right: pxtorem(15px);
+            margin-top: pxtorem(-14px);
+            a {
+                display: inline-block;
+            }
+        }
+        .ui-alipay {
+            font-size: pxtorem(18px);
+            color: #999999;
+            .fa {
+                font-size: pxtorem(36px);
+                margin-right: pxtorem(10px);
+                color: #999999;
+                vertical-align: sub;
+            }
+        }
+    }
+    .ui-info-handle {
+        padding-right: pxtorem(110px);
+    }
 }
 
 
@@ -2558,6 +2551,7 @@ end message
     }
     .ui-description {
         padding-bottom: pxtorem(26px);
+        line-height: pxtorem(18px);
     }
 }
 
@@ -2620,6 +2614,7 @@ end message
 
 .ui-brand {
     background-color: #ffffff;
+    padding-bottom: pxtorem(78px);
 }
 
 .ui-brand h4 {

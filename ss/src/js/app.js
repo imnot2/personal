@@ -94,12 +94,44 @@ ssApp.config(function($stateProvider, $urlRouterProvider) {
             }
         }
     }).state('paydeposit', {
-        url: '/paydeposit/:id',
+        url: '/paydeposit/:type:id',
         views: {
             '': {
                 templateUrl: 'tpls/paydeposit.tpl.html',
                 controller: 'paydepositCtrl'
-            }
+            },
+            'content@paydeposit': {
+                templateUrl: function($stateParams) {
+                    return 'tpls/ui-wiget/paydeposit'+$stateParams.type+'.tpl.html'
+                },
+                // controllerProvider: function($stateParams) {
+                //     return 'paydeposit' + $stateParams.page
+                // }
+            },
+            // 'content@detail': {
+            //     templateUrl: function($stateParams) {
+            //         return 'tpls/ui-wiget/paydepositDetail.tpl.html'
+            //     },
+            //     // controllerProvider: function($stateParams) {
+            //     //     return 'paydeposit' + $stateParams.page
+            //     // }
+            // },
+            // 'content@addaddress': {
+            //     templateUrl: function($stateParams) {
+            //         return 'tpls/ui-wiget/paydepositAddAddress.tpl.html'
+            //     },
+            //     // controllerProvider: function($stateParams) {
+            //     //     return 'paydeposit' + $stateParams.page
+            //     // }
+            // },
+            // 'content@addressmanger': {
+            //     templateUrl: function($stateParams) {
+            //         return 'tpls/ui-wiget/paydepositAddressManger.tpl.html'
+            //     },
+            //     // controllerProvider: function($stateParams) {
+            //     //     return 'paydeposit' + $stateParams.page
+            //     // }
+            // }
         }
     })
 });

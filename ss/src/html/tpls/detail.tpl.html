@@ -76,7 +76,7 @@
         <a class="icons-home" href="#"><i class="fa">&#xe618;</i></a>
         <a class="icons-coms active" href="#"><span class="ui-number-meta"><i class="fa">&#xe603;</i><!-- <span class="ui-number">100+</span> --></span></a>
         <a class="icons-heart" href="#"><i class="fa">&#xe607;</i></a>
-        <a class="btn btn-warning btn-sm" href="#" ng-if="product.type === 1 && product.status === 0" ui-sref="paydeposit({id:product.id})"><i class="fa">&#xe622;</i>缴纳保证金</a>
+        <a class="btn btn-warning btn-sm" href="#" ng-if="product.type === 1 && product.status === 0" ui-sref="paydeposit({type:'init',id:product.id})"><i class="fa">&#xe622;</i>缴纳保证金</a>
         <a class="btn btn-warning btn-sm" href="#" ng-if="product.type === 1 && product.status === 1">立即出价</a>
         <a class="btn btn-warning btn-sm" href="#" ng-if="product.type === 2 && product.status === 0">尚未开始</a>
         <a class="btn btn-warning btn-sm" href="#" ng-if="product.type === 2 && product.status === 1">已结束</a>

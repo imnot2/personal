@@ -16,7 +16,7 @@ services.service('addressService', [
         },{
         	id:2222,
         	name:'guigui',
-        	isDefault:true,
+        	isDefault:false,
         	mobile:1867777777,
         	detail:'西汉平原郡厌次县（今山东省德州市陵县 **街道 **路 **号'
         }];

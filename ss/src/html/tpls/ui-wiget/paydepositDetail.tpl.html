@@ -1,19 +1,19 @@
 <section class="ui-container">
     <div class="ui-thumb">
-        <img src="static/temp/2.jpg">
-        <p>一口价<span><i>&yen;</i>1520</span></p>
+        <img ng-src="{{product.srcs[0]}}">
+        <p>一口价<span><i>&yen;</i>{{product.curPrice}}</span></p>
     </div>
     <h3 class="ui-title">收货地址</h3>
     <div class="ui-info-panel">
-        <div class="ui-info-cent ui-arrows active">
-            <p><strong>东方朔</strong></p>
-            <p><strong>18888888888</strong></p>
-            <p>上海 闸北</p>
+        <div class="ui-info-cent ui-arrows active" ui-sref="paydeposit({type:'addressManger'})">
+            <p><span class="address-name">{{defaultAddress.name}}</span><span class="ui-">[默认]</span></p>
+            <p><span class="address-mobile">{{defaultAddress.mobile}}</span></p>
+            <p class="address-detail">{{defaultAddress.detail}}</p>
         </div>
     </div>
     <h3 class="ui-title">缴纳方式</h3>
     <div class="ui-info-panel">
-        <div class="ui-info-cent">
+        <div class="ui-info-cent pay-way">
             <p class="ui-alipay"><i class="fa">&#xe611;</i>支付宝支付</p>
         </div>
     </div>

@@ -94,7 +94,7 @@ ssApp.config(function($stateProvider, $urlRouterProvider) {
             }
         }
     }).state('paydeposit', {
-        url: '/paydeposit/:type:id',
+        url: '/paydeposit/:type/:id',
         views: {
             '': {
                 templateUrl: 'tpls/paydeposit.tpl.html',

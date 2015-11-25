@@ -1,13 +1,13 @@
-<section class="ui-container">
-    <div class="ui-info-panel">
-        <div class="ui-info-cent ui-arrows">
-            <p><strong>东方朔</strong></p>
-            <p><strong>18888888888</strong></p>
-            <p>上海 闸北</p>
+<section class="ui-container {{containerClass}}">
+    <div class="ui-info-panel" ng-repeat="address in addresses" addressId="{{address.id}}" >
+        <div class="ui-info-cent ui-arrows" ng-class="{active:address.isDefault}">
+            <p><span class="address-name">{{address.name}}</span><span class="ui-" ng-if="address.isDefault">[默认]</span></p>
+            <p><span class="address-mobile">{{address.mobile}}</span></p>
+            <p class="address-detail">{{address.detail}}</p>
             <span class="ui-check"><i class="fa">&#xe610;</i></span>
             <div class="ui-handle">
-                <a href="#" class="icons-edit"><i class="fa">&#xe60f;</i></a>
-                <a href="#" class="icons-delete"><i class="fa">&#xe62d;</i></a>
+                <a href="#" class="icons-edit" editAddress><i class="fa">&#xe60f;</i></a>
+                <a href="#" class="icons-delete" deleteAddress><i class="fa">&#xe62d;</i></a>
             </div>
         </div>
     </div>

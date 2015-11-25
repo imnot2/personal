@@ -66,9 +66,6 @@ ssApp.config(function($stateProvider, $urlRouterProvider) {
             'content@register': {
                 templateUrl: function($stateParams) {
                     return 'tpls/ui-wiget/registerContent' + $stateParams.page + '.tpl.html'
-                },
-                controllerProvider: function($stateParams) {
-                    return 'register' + $stateParams.page
                 }
             }
         }
@@ -103,35 +100,8 @@ ssApp.config(function($stateProvider, $urlRouterProvider) {
             'content@paydeposit': {
                 templateUrl: function($stateParams) {
                     return 'tpls/ui-wiget/paydeposit'+$stateParams.type+'.tpl.html'
-                },
-                // controllerProvider: function($stateParams) {
-                //     return 'paydeposit' + $stateParams.page
-                // }
-            },
-            // 'content@detail': {
-            //     templateUrl: function($stateParams) {
-            //         return 'tpls/ui-wiget/paydepositDetail.tpl.html'
-            //     },
-            //     // controllerProvider: function($stateParams) {
-            //     //     return 'paydeposit' + $stateParams.page
-            //     // }
-            // },
-            // 'content@addaddress': {
-            //     templateUrl: function($stateParams) {
-            //         return 'tpls/ui-wiget/paydepositAddAddress.tpl.html'
-            //     },
-            //     // controllerProvider: function($stateParams) {
-            //     //     return 'paydeposit' + $stateParams.page
-            //     // }
-            // },
-            // 'content@addressmanger': {
-            //     templateUrl: function($stateParams) {
-            //         return 'tpls/ui-wiget/paydepositAddressManger.tpl.html'
-            //     },
-            //     // controllerProvider: function($stateParams) {
-            //     //     return 'paydeposit' + $stateParams.page
-            //     // }
-            // }
+                }
+            },          
         }
     })
 });

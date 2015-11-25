@@ -1,10 +1,11 @@
 <header class="ui-header">
     <h2>缴纳保证金</h2>
     <span class="hd-left">
-    <a href="javascript:;" class="icons-back"><i class="fa">&#xe632;</i></a>
+    <a href="javascript:;" class="icons-back" back><i class="fa">&#xe632;</i></a>
   </span>
     <span class="hd-right">
-    <a href="javascript:;" class="icons-save">保存</a>
+    <span class="icons-save" ng-if="showSave" saveAddress>保存</span>
+    <span class="icons-save" ng-if="showAdd" ui-sref="paydeposit({type:'AddAddress'})">新增</span>
   </span>
 </header>
 <div ui-view="content"></div>

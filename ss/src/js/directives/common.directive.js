@@ -2,7 +2,7 @@ directives.directive('login', ['$state', function($state) {
     return {
         restrict: 'AE',
         link: function(scope, element, attrs) {
-            touch.on(element,'tap', function() {
+            touch.on(element, 'tap', function() {
                 $state.go('login');
             })
         }
@@ -10,8 +10,8 @@ directives.directive('login', ['$state', function($state) {
 }]).directive('register', ['$state', function($state) {
     return {
         restrict: 'AE',
-        link: function(scope, element, attrs) {            
-            touch.on(element,'tap', function() {
+        link: function(scope, element, attrs) {
+            touch.on(element, 'tap', function() {
                 $state.go('register', {
                     page: 1
                 })
@@ -22,7 +22,7 @@ directives.directive('login', ['$state', function($state) {
     return {
         restrict: 'AE',
         link: function(scope, element, attrs) {
-            touch.on(element,'tap', function() {
+            touch.on(element, 'tap', function() {
                 window.history.back()
             })
         }
@@ -31,7 +31,7 @@ directives.directive('login', ['$state', function($state) {
     return {
         restrict: 'AE',
         link: function(scope, element, attrs) {
-            touch.on(element,'tap', function() {
+            touch.on(element, 'tap', function() {
                 $state.go('forgetpassword', {
                     page: 1
                 })
@@ -57,7 +57,7 @@ directives.directive('login', ['$state', function($state) {
         var html = [],
             i, str;
 
-        for(i = 0; i < timeStr.length; i++) {
+        for (i = 0; i < timeStr.length; i++) {
             str = timeStr[i];
             str !== ':' ? html.push('<i>' + str + '</i>') : html.push(str);
         }
@@ -75,4 +75,31 @@ directives.directive('login', ['$state', function($state) {
             }, m)
         }
     }
-})
+}).directive('saveaddress', ['addressService', function(addressService) {
+    return {
+        restrict: 'AE',
+        link: function(scope, element, attrs) {
+            touch.on(element, 'tap', function() {
+                addressService.saveAddress();
+            })
+        }
+    }
+}]).directive('deleteaddress', ['addressService', function(addressService) {
+    return {
+        restrict: 'AE',
+        link: function(scope, element, attrs) {
+            touch.on(element, 'tap', function() {
+                addressService.deleteAddress($(element).parents('.ui-info-panel').attr('addressid'));
+            })
+        }
+    }
+}]).directive('editaddress', ['addressService', function(addressService) {
+    return {
+        restrict: 'AE',
+        link: function(scope, element, attrs) {
+            touch.on(element, 'tap', function() {
+                addressService.editAddress($(element).parents('.ui-info-panel').attr('addressid'));
+            })
+        }
+    }
+}])

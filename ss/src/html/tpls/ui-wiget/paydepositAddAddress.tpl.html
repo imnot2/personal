@@ -1,24 +1,26 @@
-<section class="ui-container">
+<section class="ui-container {{containerClass}}">
     <div class="ui-form-action">
-        <div class="ui-form">
-            <div class="ui-form-item">
-                <input type="text" placeholder="用户名">
-                <a href="#" class="ui-icon-close"><i class="fa">&#xe612;</i></a>
+        <form name="addAddress">
+            <div class="ui-form">
+                <div class="ui-form-item">
+                    <input name="name" ng-model="newAddress.name" type="text" placeholder="用户名" required>
+                    <a ng-click="newAddress.name = ''" ng-show="addAddress.name.$dirty" class="ui-icon-close"><i class="fa">&#xe612;</i></a>
+                </div>
+                <div class="ui-form-item">
+                    <input name="mobile" ng-model="newAddress.mobile" type="number" placeholder="输入手机号" required>
+                    <a ng-click="newAddress.mobile = ''" ng-show="addAddress.mobile.$dirty" class="ui-icon-close"><i class="fa">&#xe612;</i></a>
+                </div>
+                <div class="ui-form-item">
+                    <input name="postcode" ng-model="newAddress.postcode" type="number" placeholder="邮政编码" required>
+                    <a ng-click="newAddress.postcode = ''" ng-show="addAddress.postcode.$dirty" class="ui-icon-close"><i class="fa">&#xe612;</i></a>
+                </div>
+                <div class="ui-form-item ui-arrows">
+                    <p>省，市，区</p>
+                </div>
+                <div class="ui-form-item">
+                    <textarea name="detail" ng-model="newAddress.detail" id="" cols="30" rows="4" placeholder="详细地址" required></textarea>
+                </div>
             </div>
-            <div class="ui-form-item">
-                <input type="number" placeholder="输入手机号">
-                <a href="#" class="ui-icon-close"><i class="fa">&#xe612;</i></a>
-            </div>
-            <div class="ui-form-item">
-                <input type="number" placeholder="邮政编码">
-                <a href="#" class="ui-icon-close"><i class="fa">&#xe612;</i></a>
-            </div>
-            <div class="ui-form-item ui-arrows">
-                <p>省，市，区</p>
-            </div>
-            <div class="ui-form-item">
-                <textarea name="" id="" cols="30" rows="4" placeholder="详细地址"></textarea>
-            </div>
-        </div>
+        </form>
     </div>
 </section>

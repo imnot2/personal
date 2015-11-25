@@ -1,11 +1,11 @@
-<section class="ui-container">
+<section class="ui-container {{containerClass}}">
     <div class="ui-thumb">
         <img ng-src="{{product.srcs[0]}}">
         <p>一口价<span><i>&yen;</i>{{product.curPrice}}</span></p>
     </div>
     <h3 class="ui-title">收货地址</h3>
     <div class="ui-info-panel">
-        <div class="ui-info-cent ui-arrows active" ui-sref="paydeposit({type:'addressManger'})">
+        <div class="ui-info-cent ui-arrows active" ui-sref="paydeposit({type:'AddressManger'})">
             <p><span class="address-name">{{defaultAddress.name}}</span><span class="ui-">[默认]</span></p>
             <p><span class="address-mobile">{{defaultAddress.mobile}}</span></p>
             <p class="address-detail">{{defaultAddress.detail}}</p>

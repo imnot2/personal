@@ -78,27 +78,41 @@ directives.directive('login', ['$state', function($state) {
 }).directive('saveaddress', ['addressService', function(addressService) {
     return {
         restrict: 'AE',
+        scope:{
+            root:'='
+        },
         link: function(scope, element, attrs) {
             touch.on(element, 'tap', function() {
-                addressService.saveAddress();
+                scope.root.saveAddress(scope.root.newAddress);
             })
         }
     }
 }]).directive('deleteaddress', ['addressService', function(addressService) {
     return {
         restrict: 'AE',
+        scope: {
+            root:'=',
+            address: '='
+        },
         link: function(scope, element, attrs) {
             touch.on(element, 'tap', function() {
-                addressService.deleteAddress($(element).parents('.ui-info-panel').attr('addressid'));
+                scope.root.deleteAddress(scope.address);
+                //addressService.deleteAddress($(element).parents('.ui-info-panel').attr('addressid'));
             })
         }
     }
 }]).directive('editaddress', ['addressService', function(addressService) {
     return {
         restrict: 'AE',
+        scope: {
+            root:'=',
+            address: '='
+        },
         link: function(scope, element, attrs) {
+            console.log(scope);
             touch.on(element, 'tap', function() {
-                addressService.editAddress($(element).parents('.ui-info-panel').attr('addressid'));
+                scope.root.editAddress(scope.address);
+                //addressService.editAddress($(element).parents('.ui-info-panel').attr('addressid'));
             })
         }
     }

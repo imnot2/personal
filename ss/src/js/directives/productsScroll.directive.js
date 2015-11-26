@@ -8,7 +8,6 @@ directives.directive('productsscroll', [
         return {
             restrict: 'AE',
             link: function(scope, element, attrs) {
-                console.log("AA");
                 var pageHash = {
                         '1': 'processing',
                         '2': 'willBegin',

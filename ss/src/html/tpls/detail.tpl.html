@@ -51,7 +51,7 @@
     <div class="ui-eval">
         <ul class="ui-eval-detail">
             <li ng-repeat="comment in product.comments"><img ng-src="{{comment.avator}}">
-                <h3><a href="#">回复</a>d*B</h3>
+                <h3><a href="javascript:;">回复</a>d*B</h3>
                 <p>{{comment.conts}}</p><span class="ui-time">刚刚</span></li>
             <li>
         </ul>
@@ -73,14 +73,14 @@
 </section>
 <footer class="ui-footer">
     <div class="ui-footer-btn">
-        <a class="icons-home" href="#"><i class="fa">&#xe618;</i></a>
-        <a class="icons-coms active" href="#"><span class="ui-number-meta"><i class="fa">&#xe603;</i><!-- <span class="ui-number">100+</span> --></span></a>
-        <a class="icons-heart" href="#"><i class="fa">&#xe607;</i></a>
-        <a class="btn btn-warning btn-sm" href="#" ng-if="product.type === 1 && product.status === 0" ui-sref="paydeposit({type:'init',id:product.id})"><i class="fa">&#xe622;</i>缴纳保证金</a>
-        <a class="btn btn-warning btn-sm" href="#" ng-if="product.type === 1 && product.status === 1">立即出价</a>
-        <a class="btn btn-warning btn-sm" href="#" ng-if="product.type === 2 && product.status === 0">尚未开始</a>
-        <a class="btn btn-warning btn-sm" href="#" ng-if="product.type === 2 && product.status === 1">已结束</a>
-        <a class="btn btn-warning btn-sm" href="#" ng-if="product.type === 2 && product.status === 2">已下架</a>
+        <a class="icons-home" href="javascript:;"><i class="fa">&#xe618;</i></a>
+        <a class="icons-coms active" href="javascript:;"><span class="ui-number-meta"><i class="fa">&#xe603;</i><!-- <span class="ui-number">100+</span> --></span></a>
+        <a class="icons-heart" href="javascript:;"><i class="fa">&#xe607;</i></a>
+        <a class="btn btn-warning btn-sm" href="javascript:;" ng-if="product.type === 1 && product.status === 0" ui-sref="paydeposit({type:'init',id:product.id})"><i class="fa">&#xe622;</i>缴纳保证金</a>
+        <a class="btn btn-warning btn-sm" href="javascript:;" ng-if="product.type === 1 && product.status === 1">立即出价</a>
+        <a class="btn btn-warning btn-sm" href="javascript:;" ng-if="product.type === 2 && product.status === 0">尚未开始</a>
+        <a class="btn btn-warning btn-sm" href="javascript:;" ng-if="product.type === 2 && product.status === 1">已结束</a>
+        <a class="btn btn-warning btn-sm" href="javascript:;" ng-if="product.type === 2 && product.status === 2">已下架</a>
     </div>
     <div class="ui-blank"></div>
 </footer>

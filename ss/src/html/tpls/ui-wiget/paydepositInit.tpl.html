@@ -13,7 +13,7 @@
     </div>
     <div class="ui-info-panel" ng-if="hasAddress">
         <div class="ui-info-cent ui-arrows">
-            <a href="" class="ui-c-gray">添加收货人信息</a>
+            <a href="javascript:;" ui-serf="paydeposit({type:'AddAddress'})" class="ui-c-gray">添加收货人信息</a>
         </div>
     </div>
     <h3 class="ui-title">缴纳方式</h3>
@@ -22,9 +22,9 @@
             <p class="ui-alipay"><i class="fa">&#xe611;</i>支付宝支付</p>
         </div>
     </div>
-    <p class="ui-pasw-deal">我同意<a href="#">赏时竞拍协议</a></p>
+    <p class="ui-pasw-deal">我同意<a href="javascript:;">赏时竞拍协议</a></p>
     <div class="ui-btn-panel">
         <a class="btn btn-primary btn-lgs btn-block" ui-sref="paydeposit({type:'detail'})">同意并缴纳</a>
-        <!-- <li><a href="#" class="btn btn-primary btn-lg btn-block">全部上架</a></li> -->
+        <!-- <li><a href="javascript:;" class="btn btn-primary btn-lg btn-block">全部上架</a></li> -->
     </div>
 </section>

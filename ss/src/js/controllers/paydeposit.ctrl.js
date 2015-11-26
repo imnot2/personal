@@ -1,10 +1,11 @@
 ctrls.controller('paydepositCtrl', [
     '$scope',
     '$stateParams',
+    '$state',
     'addressService',
     'productsService',
     'detailService',
-    function($scope, $stateParams, addressService, productsService, detailService) {
+    function($scope, $stateParams, $state, addressService, productsService, detailService) {
         $scope.wrapClass = 'page-home paydeposit';
         $scope.containerClass = $stateParams.type;
         $scope.addresses = addressService.addresses;
@@ -23,9 +24,34 @@ ctrls.controller('paydepositCtrl', [
         });
         detailService.getDetail($stateParams.id);
 
-        //保存地址
-        $scope.save = function() {
-            addressService.saveAddress();
+        $scope.newAddress = productsService.newAddress;
+        // $scope.$on('editAddress.update', function() {
+        //     $scope.newAddress = productsService.editAddress;
+        //     if ($scope.$root.$$phase != '$apply' && $scope.$root.$$phase != '$digest') {
+        //         $scope.$digest();
+        //     }
+        // });
+
+
+        $scope.newAddress = {
+            id: '',
+            name: '',
+            mobile: '',
+            postcode: '',
+            detail: ''
+        };
+        $scope.saveAddress = function(address) {
+            addressService.saveAddress(address);
+        }
+        $scope.deleteAddress = function(address) {
+            addressService.deleteAddress(address.id);
+        }
+        $scope.editAddress = function(address) {
+            $scope.newAddress = address;
+            $scope.$digest();
+            $state.go('paydeposit', {
+                type: 'AddAddress'
+            });
         }
     }
 ])

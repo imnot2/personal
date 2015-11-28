@@ -101,6 +101,18 @@ directives.directive('login', ['$state', function($state) {
             })
         }
     }
+}]).directive('addaddress', ['addressService', function(addressService) {
+    return {
+        restrict: 'AE',
+        scope:{
+            root:'='
+        },
+        link: function(scope, element, attrs) {
+            touch.on(element, 'tap', function() {
+                scope.root.addAddress();
+            })
+        }
+    }
 }]).directive('deleteaddress', ['addressService', function(addressService) {
     return {
         restrict: 'AE',

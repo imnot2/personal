@@ -5,7 +5,7 @@
   </span>
     <span class="hd-right">
     <span class="icons-save" ng-if="showSave" root="$parent" saveAddress>保存</span>
-    <span class="icons-save" ng-if="showAdd" ui-sref="paydeposit({type:'AddAddress'})">新增</span>
+    <span class="icons-save" ng-if="showAdd" root="$parent" addAddress>新增</span>
   </span>
 </header>
 <div ui-view="content"></div>

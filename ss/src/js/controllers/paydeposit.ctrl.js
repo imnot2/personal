@@ -33,13 +33,15 @@ ctrls.controller('paydepositCtrl', [
         // });
 
 
-        $scope.newAddress = {
-            id: '',
-            name: '',
-            mobile: '',
-            postcode: '',
-            detail: ''
-        };
+        $scope.newAddress = addressService.newAddress;
+        $scope.addAddress = function() {
+            for (var p in addressService.newAddress) {
+                addressService.newAddress[p] = '';
+            }
+            $state.go('paydeposit', {
+                type: 'AddAddress'
+            });
+        }
         $scope.saveAddress = function(address) {
             addressService.saveAddress(address);
         }
@@ -48,11 +50,9 @@ ctrls.controller('paydepositCtrl', [
         }
         $scope.editAddress = function(address) {
             var address = address || {};
-            for(var p in address){
-                $scope.newAddress[p] = address[p]
+            for (var p in address) {
+                addressService.newAddress[p] = address[p]
             }
-            //$scope.newAddress = address;
-            //$scope.$apply();
             $state.go('paydeposit', {
                 type: 'AddAddress'
             });

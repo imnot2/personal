@@ -50,7 +50,13 @@ services.service('addressService', [
         //         detail: '西汉平原郡厌次县（今山东省德州市陵县 **街道 **路 **号'
         //     }
         // }
-
+        this.newAddress = {
+            id: '',
+            name: '',
+            mobile: '',
+            postcode: '',
+            detail: ''
+        };
         this.getAddresses = function() {};
         this.saveAddress = function(address) {
             console.log("add");

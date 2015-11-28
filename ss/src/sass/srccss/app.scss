@@ -1259,10 +1259,13 @@
         .ui-handle {
             position: absolute;
             top: 50%;
-            right: pxtorem(-80px);
+            /*right: pxtorem(-80px);*/
             margin-top: pxtorem(-14px);
             a {
                 display: inline-block;
+            }
+            &.show{
+                
             }
         }
         .ui-alipay {

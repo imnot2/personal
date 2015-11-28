@@ -47,8 +47,12 @@ ctrls.controller('paydepositCtrl', [
             addressService.deleteAddress(address.id);
         }
         $scope.editAddress = function(address) {
-            $scope.newAddress = address;
-            $scope.$digest();
+            var address = address || {};
+            for(var p in address){
+                $scope.newAddress[p] = address[p]
+            }
+            //$scope.newAddress = address;
+            //$scope.$apply();
             $state.go('paydeposit', {
                 type: 'AddAddress'
             });

@@ -1,6 +1,6 @@
 <section class="ui-container {{containerClass}}">
     <div class="ui-info-panel" ng-repeat="address in addresses" addressId="{{address.id}}" >
-        <div class="ui-info-cent ui-arrows" ng-class="{active:address.isDefault}">
+        <div class="ui-info-cent ui-arrows" ng-class="{active:address.isDefault}" modifyaddress>
             <p><span class="address-name">{{address.name}}</span><span class="ui-" ng-if="address.isDefault">[默认]</span></p>
             <p><span class="address-mobile">{{address.mobile}}</span></p>
             <p class="address-detail">{{address.detail}}</p>

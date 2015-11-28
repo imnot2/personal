@@ -75,7 +75,21 @@ directives.directive('login', ['$state', function($state) {
             }, m)
         }
     }
-}).directive('saveaddress', ['addressService', function(addressService) {
+}).directive('modifyaddress', ['addressService', function(addressService) {
+    return {
+        restrict: 'AE',
+        link: function(scope, element, attrs) {
+            var target = $(element).find('.ui-handle');
+            target.addClass('slideAnimated');
+            touch.on(element, "swiperight", function(ev) {
+                target.removeClass('slideOutRight').addClass('slideInRight');
+            })
+            touch.on(element, "swipeleft", function(ev) {
+                target.removeClass('slideInRight').addClass('slideOutRight');
+            })
+        }
+    }
+}]).directive('saveaddress', ['addressService', function(addressService) {
     return {
         restrict: 'AE',
         scope:{

@@ -1,22 +1,8 @@
-<header class="ui-header">
-    <h2>我的</h2>
-    <span class="hd-left">
-    <a href="javascript:;" class="icons-back" back><i class="fa">&#xe632;</i></a>
-  </span>
-    <span class="hd-right">
-    <a href="javascript:;" class="icons-set"><i class="fa">&#xe60d;</i></a>
-  </span>
-</header>
-<div class="ui-user-head">
-    <h3><span class="ui-uesr-img"><img src="static/temp/1s.jpg"><span class="icons-haed"><i class="fa">&#xe635;</i></span></span></h3>
-    <p class="ui-user-name">xianzhiding <span class="icons-comments"><i class="fa">&#xe62e;</i><span class="badge">9</span></span>
-    </p>
-</div>
 <section class="ui-container">
     <ul class="user-tabs ui-user-navbar-nav">
-        <li class="active"><i class="fa">&#xe60c;</i>我的订单</li>
-        <li><i class="fa">&#xe633;</i>店铺设置</li>
-        <li><i class="fa">&#xe634;</i>商品管理</li>
+        <li ng-class="{active:page == 1}" ui-sref="user({identity:'Seller',page:1})"><i class="fa">&#xe60c;</i>我的订单</li>
+        <li ng-class="{active:page == 2}"><i class="fa" ui-sref="user({identity:'Seller',page:2})">&#xe633;</i>店铺设置</li>
+        <li ng-class="{active:page == 3}"><i class="fa" ui-sref="user({identity:'Seller',page:3})">&#xe634;</i>商品管理</li>
     </ul>
     <div class="user-tabs-content">
         <div class="user-tabs-pane"></div>

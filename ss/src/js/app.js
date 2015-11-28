@@ -32,20 +32,20 @@ ssApp.config(function($stateProvider, $urlRouterProvider) {
             //     controller: 'sideMenuCtrl'
             // }
         }
-    }).state('userBuyer', {
-        url: '/user/buyer/{page:[1-2]{1}}',
+    }).state('user', {
+        url: '/user/:identity/:page',
         views: {
             '': {
-                templateUrl: 'tpls/userBuyer.tpl.html',
-                controller: 'userBuyer'
-            }
-        }
-    }).state('userSeller', {
-        url: '/user/seller/{page:[1-3]{1}}',
-        views: {
-            '': {
-                templateUrl: 'tpls/userSeller.tpl.html',
-                controller: 'userSeller'
+                templateUrl: 'tpls/user.tpl.html',
+                controller: 'userCtrl'
+            },
+            'content@user': {
+                templateUrl: function($stateParams) {
+                    return 'tpls/ui-wiget/user' + $stateParams.identity + '.tpl.html'
+                },
+                controllerProvider: function($stateParams) {
+                    return 'user' + $stateParams.identity + 'Ctrl';
+                }
             }
         }
     }).state('login', {
@@ -53,33 +53,41 @@ ssApp.config(function($stateProvider, $urlRouterProvider) {
         views: {
             '': {
                 templateUrl: 'tpls/login.tpl.html',
-                controller: 'login'
+                controller: 'loginCtrl'
             }
         }
     }).state('register', {
-        url: '/user/register/{page:[1-2]{1}}',
+        url: '/user/register:page',
         views: {
             '': {
                 templateUrl: 'tpls/register.tpl.html',
-                controller: 'register'
+                controller: 'registerCtrl'
             },
             'content@register': {
                 templateUrl: function($stateParams) {
-                    return 'tpls/ui-wiget/registerContent' + $stateParams.page + '.tpl.html'
+                    return 'tpls/ui-wiget/register' + $stateParams.page + '.tpl.html'
                 }
             }
         }
     }).state('forgetpassword', {
-        url: '/user/forgetpassword/{page:[1-2]{1}}',
+        url: '/user/forgetpassword:page',
         views: {
             '': {
                 templateUrl: 'tpls/forgetPassword.tpl.html',
-                //controller: 'register'
+                controller: 'forgetpasswordCtrl'
             },
             'content@forgetpassword': {
                 templateUrl: function($stateParams) {
-                    return 'tpls/ui-wiget/forgetPasswordContent' + $stateParams.page + '.tpl.html'
+                    return 'tpls/ui-wiget/forgetPassword' + $stateParams.page + '.tpl.html'
                 }
+            }
+        }
+    }).state('setting', {
+        url: '/user/setting',
+        views: {
+            '': {
+                templateUrl: 'tpls/setting.tpl.html',
+                controller: 'settingCtrl'
             }
         }
     }).state('detail', {
@@ -99,9 +107,9 @@ ssApp.config(function($stateProvider, $urlRouterProvider) {
             },
             'content@paydeposit': {
                 templateUrl: function($stateParams) {
-                    return 'tpls/ui-wiget/paydeposit'+$stateParams.type+'.tpl.html'
+                    return 'tpls/ui-wiget/paydeposit' + $stateParams.type + '.tpl.html'
                 }
-            },          
+            },
         }
     })
 });

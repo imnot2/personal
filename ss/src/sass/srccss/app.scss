@@ -705,6 +705,18 @@
  *=================================================================================================================================================
  */
 
+.rigister {
+    .ui-btn {
+        margin-top: pxtorem(20px);
+    }
+}
+
+.forgetpassword {
+    .ui-btn {
+        margin-top: pxtorem(20px);
+    }
+}
+
 .ui-form {
     background-color: #ffffff;
     padding: 0 pxtorem(5px);
@@ -1188,15 +1200,16 @@
     .ui-container {
         position: static;
         background-color: #eee;
-        &.AddressManger{
+        &.AddressManger {
             padding-top: pxtorem(20px);
-            .ui-arrows{
-                &:after{
-                    border:none;
-                };
+            .ui-arrows {
+                &:after {
+                    border: none;
+                }
+                ;
             }
         }
-        &.AddAddress{
+        &.AddAddress {
             background-color: #fff;
         }
     }
@@ -1264,9 +1277,7 @@
             a {
                 display: inline-block;
             }
-            &.show{
-                
-            }
+            &.show {}
         }
         .ui-alipay {
             font-size: pxtorem(18px);

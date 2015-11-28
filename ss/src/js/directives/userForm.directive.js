@@ -26,6 +26,20 @@ directives.directive('mobile', function() {
             $(element).find('input[type]').attr('placeholder', attrs.placeholder);
         }
     }
+}).directive('repassword', function() {
+    return {
+        restrict: 'E',
+        template: [
+            '<div class="ui-form-item">',
+            '    <input type="password" ng-model="user.repassword">',
+            '    <span class="icons-info"><i class="fa">&#xe619;</i></span>',
+            '</div>'
+        ].join(''),
+        replace: true,
+        link: function(scope, element, attrs) {
+            $(element).find('input[type]').attr('placeholder', attrs.placeholder);
+        }
+    }
 }).directive('username', function() {
     return {
         restrict: 'E',
@@ -55,7 +69,7 @@ directives.directive('mobile', function() {
         link: function(scope, element, attrs) {
             var m = codeService[codeService.curMobile] || {};
             var timer;
-            var countdown = m.curCountDown;
+            var countdown = m.curCountDown || 60;
             $(element).find('input[type]').attr('placeholder', attrs.placeholder);
             scope.tips = '60秒';
             scope.disable = true;

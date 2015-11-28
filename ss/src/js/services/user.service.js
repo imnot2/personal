@@ -94,6 +94,7 @@ services.factory('user', ['$http', 'utils', function($http, utilsService) {
         saveUserInfo: function(token) {},
         getUserInfo: function() {},
         getToken: function() {
+            return '';
             return 'asdfa3rewtq';
         },
         getIdentity: function() {

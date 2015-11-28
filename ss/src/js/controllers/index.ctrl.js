@@ -46,13 +46,11 @@ ctrls.controller('indexCtrl', [
             if (noLogin) {
                 $state.go('login')
             } else {
-                $state.go('user' + identity, {
-                    page: 1
+                $state.go('user', {
+                    'identity': identity,
+                    'page': 1
                 })
             }
         }
-
-
-        console.log("BBed");
     }
 ])

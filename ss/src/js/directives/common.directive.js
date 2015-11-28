@@ -13,7 +13,51 @@ directives.directive('login', ['$state', function($state) {
         link: function(scope, element, attrs) {
             touch.on(element, 'tap', function() {
                 $state.go('register', {
+                    page: 'UserAndPassword'
+                })
+            })
+        }
+    }
+}]).directive('registerverifymobile', ['$state', function($state) {
+    return {
+        restrict: 'AE',
+        link: function(scope, element, attrs) {
+            touch.on(element, 'tap', function() {
+                $state.go('register', {
+                    page: 'VerifyMobile'
+                })
+            })
+        }
+    }
+}]).directive('setting', ['$state', function($state) {
+    return {
+        restrict: 'AE',
+        link: function(scope, element, attrs) {
+            touch.on(element, 'tap', function() {
+                $state.go('setting', {
                     page: 1
+                })
+            })
+        }
+    }
+}]).directive('forgetpassword', ['$state', function($state) {
+    return {
+        restrict: 'AE',
+        link: function(scope, element, attrs) {
+            touch.on(element, 'tap', function() {
+                $state.go('forgetpassword', {
+                    page: 'Mobile'
+                })
+            })
+        }
+    }
+}]).directive('forgetpasswordsendcode', ['$state', function($state) {
+    return {
+        restrict: 'AE',
+        link: function(scope, element, attrs) {
+            touch.on(element, 'tap', function() {
+                $state.go('forgetpassword', {
+                    page: 'SendCode'
                 })
             })
         }
@@ -27,18 +71,7 @@ directives.directive('login', ['$state', function($state) {
             })
         }
     }
-}).directive('forgetpassword', ['$state', function($state) {
-    return {
-        restrict: 'AE',
-        link: function(scope, element, attrs) {
-            touch.on(element, 'tap', function() {
-                $state.go('forgetpassword', {
-                    page: 1
-                })
-            })
-        }
-    }
-}]).directive('countdown', function() {
+}).directive('countdown', function() {
     var s = 1000;
     var m = s * 60;
     var h = m * 60;
@@ -92,8 +125,8 @@ directives.directive('login', ['$state', function($state) {
 }]).directive('saveaddress', ['addressService', function(addressService) {
     return {
         restrict: 'AE',
-        scope:{
-            root:'='
+        scope: {
+            root: '='
         },
         link: function(scope, element, attrs) {
             touch.on(element, 'tap', function() {
@@ -104,8 +137,8 @@ directives.directive('login', ['$state', function($state) {
 }]).directive('addaddress', ['addressService', function(addressService) {
     return {
         restrict: 'AE',
-        scope:{
-            root:'='
+        scope: {
+            root: '='
         },
         link: function(scope, element, attrs) {
             touch.on(element, 'tap', function() {
@@ -117,7 +150,7 @@ directives.directive('login', ['$state', function($state) {
     return {
         restrict: 'AE',
         scope: {
-            root:'=',
+            root: '=',
             address: '='
         },
         link: function(scope, element, attrs) {
@@ -131,7 +164,7 @@ directives.directive('login', ['$state', function($state) {
     return {
         restrict: 'AE',
         scope: {
-            root:'=',
+            root: '=',
             address: '='
         },
         link: function(scope, element, attrs) {

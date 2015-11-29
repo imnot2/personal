@@ -1,13 +1,14 @@
-services.factory('user', ['$http', 'utils', function($http, utilsService) {
+services.service('user', ['$http', 'utils', function($http, utilsService) {
     var res = {
         userInfo: {
-            id: '',
+            id: '28765544',
             name: 'sosochen',
-            avatar: '',
-            level: '',
+            avatar: '/images/temp/1.jpg',
+            level: '4',
             identity: 'Buyer'
         },
         token: 'asdfa3rewtq',
+        //token: '',
         msg: '登录成功！',
         status: 0
     };
@@ -16,37 +17,38 @@ services.factory('user', ['$http', 'utils', function($http, utilsService) {
         //     name: name,
         //     password: password
         // }).success(function(res) {
-        if(res.status === 0) {
+        if (res.status === 0) {
             this.isLogin = true;
             //this.userInfo = res.userInfo;
             this.saveUserInfo(res.userInfo);
             //this.token = res.token;
-            $.setCookie('t', res.token);
+            $.cookie('t', res.token);
         }
-        callback(res);
+        callback && callback(res);
         //})
     };
-    this.saveUserInfo = function(userinfo) {
-        $.setCookie('UState', {
+    this.saveUserInfo = function(userInfo) {
+        $.cookie.json = true;
+        $.cookie('UState', {
             id: userInfo.id,
             name: userInfo.name,
             level: userInfo.level,
             avatar: userInfo.avatar,
             identity: userInfo.identity
-        }, true);
+        });
+    };
+    this.getUserInfo = function() {
+        return JSON.parse($.cookie('UState'));
     };
     this.getToken = function() {
-        return $.getCookie('t', true);
-    };
-    this.getIdentity = function() {
-        return this.getUState('identity');
+        return $.cookie('t');
     };
     this.getUState = function(key) {
-        var ustate = $.getCookie('UState', true);
-        if(ustate && (typeof ustate == 'object')) {
+        var ustate = $.cookie('UState');
+        if (ustate && (typeof ustate == 'object')) {
             try {
                 return ustate[key];
-            } catch(error) {
+            } catch (error) {
                 return false;
             }
         } else {
@@ -60,46 +62,15 @@ services.factory('user', ['$http', 'utils', function($http, utilsService) {
         $.removeCookie('token', {
             path: '/'
         });
-        if(typeof callback == 'function') {
+        if (typeof callback == 'function') {
             callback();
-            if(isRedir) {
+            if (isRedir) {
                 setTimeout(function() {
                     user.redirect('/');
                 }, 800);
             }
-        } else if(isRedir) {
+        } else if (isRedir) {
             this.redirect('/');
         }
     };
-    this.checkLogin = function(isValid, callback) {
-        if(this.getUState('t')) {
-            if(isValid) {
-                this.getUserInfo(callback);
-            }
-            return true;
-        }
-        return false;
-    };
-    return {
-        login: function(loginInfo, callback) {
-            var res = {
-                userName: 'sosochen',
-                token: 'asdfa3rewtq',
-                msg: '登录成功！'
-            }
-            this.userName = res.userName;
-            callback(res);
-        },
-        register: function() {},
-        saveUserInfo: function(token) {},
-        getUserInfo: function() {},
-        getToken: function() {
-            return '';
-            return 'asdfa3rewtq';
-        },
-        getIdentity: function() {
-            return 'Buyer';
-        }
-    }
-
 }])

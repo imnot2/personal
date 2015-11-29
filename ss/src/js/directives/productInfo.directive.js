@@ -3,7 +3,6 @@ directives.directive('productinfo', ['user', '$rootScope', '$state', '$statePara
         return {
             restrict: 'AE',
             scope: {
-                showlogin: '=',
                 product: '=',
                 loginslidein: '='
             },
@@ -20,7 +19,6 @@ directives.directive('productinfo', ['user', '$rootScope', '$state', '$statePara
                 touch.on($(element).find('.item-hammer,.item-comments,.item-heart'), 'tap', function(ev) {
                     if(!token) {
                         scope.loginslidein = true;
-                        scope.showlogin = true;
                         scope.$apply();
                         //$('.ui-login').show();
                     } else {

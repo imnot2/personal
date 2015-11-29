@@ -45,6 +45,7 @@ ctrls.controller('userCtrl', [
     'user',
     'utils',
     function($scope, $http, $state, $stateParams, $rootScope, user, utils) {
+        console.log($stateParams);
         $scope.submit = function(loginInfo) {
             user.login(loginInfo, function(res) {
                 $rootScope.dialog = {

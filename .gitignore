@@ -1,6 +1,7 @@
 /*.sublime-project
 /*.sublime-workspace
 /ss/dist
-/ss/node_modules
+/**/**/node_modules
+/**/**/bower_components
 /ss/.sass-cache
 /ss/build

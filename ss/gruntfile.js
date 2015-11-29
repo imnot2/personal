@@ -146,8 +146,23 @@ module.exports = function(grunt) {
             //合并js
             build: {
                 files: {
-                    '<%= dirs.build.js %>/app.js': ['<%= dirs.src.js %>/module.prefix', '<%= dirs.src.js %>/app.js', '<%= dirs.src.js %>/routers/*.js', '<%= dirs.src.js %>/controllers/**/*.js', '<%= dirs.src.js %>/directives/**/*.js', '<%= dirs.src.js %>/filters/**/*.js', '<%= dirs.src.js %>/services/**/*.js', '<%= dirs.src.js %>/module.suffix'],
-                    '<%= dirs.build.js %>/vendor/lib.js': ['<%= dirs.src.lib %>/angular/angular.js', '<%= dirs.src.lib %>/angular-ui-router/release/angular-ui-router.js', '<%= dirs.src.lib %>/jquery/jquery.js', '<%= dirs.src.lib %>/touchjs/dist/touch-0.2.14.js']
+                    '<%= dirs.build.js %>/app.js': [
+                        '<%= dirs.src.js %>/module.prefix', 
+                        '<%= dirs.src.js %>/app.js', 
+                        '<%= dirs.src.js %>/routers/*.js', 
+                        '<%= dirs.src.js %>/controllers/**/*.js', 
+                        '<%= dirs.src.js %>/directives/**/*.js', 
+                        '<%= dirs.src.js %>/filters/**/*.js', 
+                        '<%= dirs.src.js %>/services/**/*.js', 
+                        '<%= dirs.src.js %>/module.suffix'
+                    ],
+                    '<%= dirs.build.js %>/vendor/lib.js': [     
+                        '<%= dirs.src.lib %>/angular/angular.js', 
+                        '<%= dirs.src.lib %>/angular-ui-router/release/angular-ui-router.js', 
+                        '<%= dirs.src.lib %>/jquery/dist/jquery.js', 
+                        '<%= dirs.src.lib %>/jquery.cookie/jquery.cookie.js', 
+                        '<%= dirs.src.lib %>/touchjs/dist/touch-0.2.14.js'
+                    ]
                 }
             },
             // dest:{

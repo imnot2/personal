@@ -1,9 +1,30 @@
-directives.directive('login', ['$state', function($state) {
+directives.directive('touser', ['$state', 'user', function($state, user) {
+    return {
+        restrict: 'AE',
+        link: function(scope, element, attrs) {
+            var token = user.getToken();
+            var userInfo;
+            touch.on(element, 'tap', function() {
+                if (!token) {
+                    $state.go('login')
+                } else {
+                    userInfo = user.getUserInfo();
+                    $state.go('user', {
+                        'identity': userInfo.identity,
+                        'page': 1
+                    })
+                }
+            })
+        }
+    }
+}]).directive('login', ['$state', function($state) {
     return {
         restrict: 'AE',
         link: function(scope, element, attrs) {
             touch.on(element, 'tap', function() {
-                $state.go('login');
+                $state.go('login', {
+                    'ret': window.location.href
+                });
             })
         }
     }
@@ -68,6 +89,30 @@ directives.directive('login', ['$state', function($state) {
         link: function(scope, element, attrs) {
             touch.on(element, 'tap', function() {
                 window.history.back()
+            })
+        }
+    }
+}).directive('toggleslidemenu', function() {
+    return {
+        restrict: 'AE',
+        link: function(scope, element, attrs) {
+            touch.on(element, 'tap', function() {
+                scope.slideMenuShow = !scope.slideMenuShow;
+                scope.$apply();
+            })
+        }
+    }
+}).directive('slidemenu', function() {
+    return {
+        restrict: 'AE',
+        link: function(scope, element, attrs) {
+            touch.on($(element).find('.ui-sidemenu-mask'), 'tap', function() {
+                scope.slideMenuShow = false;
+                scope.$apply();
+            });
+            touch.on($(element).find('.ui-sidemenu-main'), 'swipeleft', function() {
+                scope.slideMenuShow = false;
+                scope.$apply();
             })
         }
     }

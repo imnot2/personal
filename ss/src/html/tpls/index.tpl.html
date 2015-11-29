@@ -1,10 +1,10 @@
 <header class="ui-header">
     <h2>赏视</h2>
-    <span class="hd-left" ng-click="slideMenuShow = !slideMenuShow">
+    <span class="hd-left" toggleSlideMenu>
         <a href="javascript:;" class="icons-menu"><i class="fa">&#xe600;</i></a>        
     </span>
     <span class="hd-right">
-        <a ng-click="toUser()" class="icons-user"><span class="badge" ng-bind="dynamicCount"></span><i class="fa">&#xe61f;</i></a>
+        <a class="icons-user" toUser><span class="badge" ng-bind="dynamicCount"></span><i class="fa">&#xe61f;</i></a>
     </span>
 </header>
 <ul class="ui-tabs ui-navbar-nav">
@@ -15,8 +15,8 @@
 <section class="ui-container" productsScroll>
     <div class="ui-tabs-content">
         <div class="ui-tabs-pane" ng-class="{active:type!=2&&type!=3}">
-            <article ng-repeat="product in products.processing.showData" data-id="{{product.id}}" ui-sref="detail({id:product.id})">
-                <div class="ui-item-image">
+            <article ng-repeat="product in products.processing.showData" data-id="{{product.id}}">
+                <div class="ui-item-image" ui-sref="detail({id:product.id})">
                     <a href="javascript:;"><img ng-src="{{product.src}}">
                     </a>
                     <div class="item-title">
@@ -28,7 +28,7 @@
                 <div class="item-hd">
                     <p class="item-head"><img ng-src="{{product.owner.avatar}}">{{product.owner.name}}<i class="fa">&#xe607;</i>
                     </p>
-                    <productInfo loginslidein="$parent.loginSlideIn" product="product" showlogin="$parent.showLogin"></productInfo>
+                    <productInfo loginslidein="$parent.loginSlideIn" product="product"></productInfo>
                 </div>
             </article>
             <p class="ui-line-tips"><span>到底啦</span>
@@ -51,7 +51,7 @@
             </p>
         </div>
         <div class="ui-tabs-pane" ng-class="{active:type==3}">
-            <div class="ui-login-tips" ng-show="noLogin">
+            <div class="ui-login-tips" ng-if="!isLogin" ng-show="noLogin">
                 <p class="ui-line-tips"><span>哎呀，你还没登录呢！</span>
                 </p>
                 <a login class="btn btn-default btn-lgs btn-block">快来登录</a>
@@ -71,7 +71,7 @@
                 <div class="item-hd">
                     <p class="item-head"><img ng-src="{{product.owner.avatar}}">{{product.owner.name}}<i class="fa">&#xe607;</i>
                     </p>
-                    <productInfo loginslidein="$parent.loginSlideIn" product="product" showlogin="$parent.showLogin"></productInfo>
+                    <productInfo loginslidein="$parent.loginSlideIn" product="product"></productInfo>
                 </div>
             </article>
             <p class="ui-line-tips"><span>到底啦</span>
@@ -79,10 +79,20 @@
         </div>
     </div>
 </section>
-<div class="ui-sidemenu slideAnimated slideInLeft" ng-show="slideMenuShow" ng-click="slideMenuShow = !slideMenuShow">
+<div class="ui-sidemenu slideAnimated" ng-class="{slideInLeft:slideMenuShow,slideOutLeft:!slideMenuShow}" slideMenu>
     <div class="ui-sidemenu-mask"></div>
     <div class="ui-sidemenu-main">
-        <slideMenuUser></slideMenuUser>
+        <div class="ui-sidemenu-user" ng-if="!isLogin">
+            <div>
+                <a href="javascript:;"><img ng-src="/images/icons/thumbnail.png"></a>
+            </div>
+            <p><a login>登录</a><a register>注册</a></p>
+        </div>
+        <div class="ui-sidemenu-user" ng-if="isLogin">
+            <div> <i class="fa">&#xe60d;</i>
+                <a><img ng-src="{{userInfo.avatar}}"></a> <i class="fa">&#xe60c;</i> </div>
+            <p><span>{{userInfo.name}}</span></p>
+        </div>
         <ul class="ui-sidemenu-nav">
             <li class="ui-arrows"><a href="javascript:;"><i class="fa">&#xe601;</i> 藏品心得</a></li>
             <li class="ui-arrows"><a href="javascript:;"><i class="fa">&#xe605;</i> 我要投稿</a></li>
@@ -104,7 +114,7 @@
         <h5>加载更多...</h5>
     </div>
 </div>
-<div class="ui-login slideDownAnimated" ng-class="{slideInDown:loginSlideIn,slideOutUp:!loginSlideIn}" slideDownLogin ng-show="showLogin">
+<div class="ui-login slideDownAnimated" ng-class="{slideInDown:loginSlideIn,slideOutUp:!loginSlideIn}" slideDownLogin>
     <p><span>哎呀，你还没登录呢！</span>
     </p>
     <a href="javascript:;" class="btn btn-primary btn-lgs btn-block" login>登录后更精彩</a>

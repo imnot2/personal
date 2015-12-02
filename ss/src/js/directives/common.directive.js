@@ -28,6 +28,15 @@ directives.directive('touser', ['$state', 'user', function($state, user) {
             })
         }
     }
+}]).directive('loginrequest', ['$http', '$state', 'user', function($http, $state, user) {
+    return {
+        restrict: 'AE',
+        link: function(scope, element, attrs) {
+            touch.on(element, 'tap', function() {
+
+            })
+        }
+    }
 }]).directive('register', ['$state', function($state) {
     return {
         restrict: 'AE',

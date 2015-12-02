@@ -1,4 +1,4 @@
-services.service('user', ['$http', 'utils', function($http, utilsService) {
+services.service('user', ['$http', '$rootScope', 'utils', function($http, $rootScope, utilsService) {
     var res = {
         userInfo: {
             id: '28765544',
@@ -23,6 +23,10 @@ services.service('user', ['$http', 'utils', function($http, utilsService) {
             this.saveUserInfo(res.userInfo);
             //this.token = res.token;
             $.cookie('t', res.token);
+        }
+        $rootScope.dialog = {
+            show: true,
+            content: res.msg
         }
         callback && callback(res);
         //})

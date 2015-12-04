@@ -101,27 +101,30 @@ directives.directive('touser', ['$state', 'user', function($state, user) {
             })
         }
     }
-}).directive('slidemenutoggle', ['uiSlideMenu', function(uiSlideMenu) {
+}).directive('slidemenutoggle', ['uiToggleService', function(uiToggleService) {
     return {
         restrict: 'AE',
         link: function(scope, element, attrs) {
             touch.on(element, 'tap', function() {
-                uiSlideMenu.toggle();
+                var slidemenu = uiToggleService.getUI('slidemenu');
+                slidemenu.show = false;
+                slidemenu.toggle();
             })
         }
     }
-}]).directive('slidemenupanel', ['uiSlideMenu', function(uiSlideMenu) {
+}]).directive('slidemenupanel', ['uiToggleService', function(uiToggleService) {
     return {
         restrict: 'AE',
         link: function(scope, element, attrs) {
-            scope.$on('slideMenu.toggle', function() {
-                element.removeClass(uiSlideMenu.show ? 'slideOutLeft' : 'slideInLeft').addClass(uiSlideMenu.show ? 'slideInLeft' : 'slideOutLeft')
+            var slidemenu = uiToggleService.getUI('slidemenu');
+            scope.$on('slidemenu.toggle', function() {
+                element.removeClass(slidemenu.show ? 'slideOutLeft' : 'slideInLeft').addClass(slidemenu.show ? 'slideInLeft' : 'slideOutLeft')
             })
             touch.on($(element).find('.ui-sidemenu-mask'), 'tap', function() {
-                uiSlideMenu.toggle();
+                slidemenu.toggle();
             });
             touch.on($(element).find('.ui-sidemenu-main'), 'swipeleft', function() {
-                uiSlideMenu.toggle();
+                slidemenu.toggle();
             })
         }
     }

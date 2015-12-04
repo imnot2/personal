@@ -33,7 +33,7 @@ directives.directive('touser', ['$state', 'user', function($state, user) {
         restrict: 'AE',
         link: function(scope, element, attrs) {
             touch.on(element, 'tap', function() {
-
+                user.login();
             })
         }
     }
@@ -101,31 +101,31 @@ directives.directive('touser', ['$state', 'user', function($state, user) {
             })
         }
     }
-}).directive('toggleslidemenu', function() {
+}).directive('slidemenutoggle', ['uiSlideMenu', function(uiSlideMenu) {
     return {
         restrict: 'AE',
         link: function(scope, element, attrs) {
             touch.on(element, 'tap', function() {
-                scope.slideMenuShow = !scope.slideMenuShow;
-                scope.$apply();
+                uiSlideMenu.toggle();
             })
         }
     }
-}).directive('slidemenu', function() {
+}]).directive('slidemenupanel', ['uiSlideMenu', function(uiSlideMenu) {
     return {
         restrict: 'AE',
         link: function(scope, element, attrs) {
+            scope.$on('slideMenu.toggle', function() {
+                element.removeClass(uiSlideMenu.show ? 'slideOutLeft' : 'slideInLeft').addClass(uiSlideMenu.show ? 'slideInLeft' : 'slideOutLeft')
+            })
             touch.on($(element).find('.ui-sidemenu-mask'), 'tap', function() {
-                scope.slideMenuShow = false;
-                scope.$apply();
+                uiSlideMenu.toggle();
             });
             touch.on($(element).find('.ui-sidemenu-main'), 'swipeleft', function() {
-                scope.slideMenuShow = false;
-                scope.$apply();
+                uiSlideMenu.toggle();
             })
         }
     }
-}).directive('countdown', function() {
+}]).directive('countdown', function() {
     var s = 1000;
     var m = s * 60;
     var h = m * 60;

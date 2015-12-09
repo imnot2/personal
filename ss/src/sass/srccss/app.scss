@@ -3,6 +3,7 @@
 @import "base/functions";
 @import "base/normalize";
 @import "base/globalclasses";
+@import "base/minxins";
 .ui-container {
     position: absolute;
     top: pxtorem(47px);
@@ -247,6 +248,7 @@
     background-color: rgba(0, 0, 0, .7);
     z-index: 50;
     padding: pxtorem(24px) pxtorem(10px) pxtorem(30px);
+    -webkit-transform: translate3d(0, -130%, 0);
 }
 
 .ui-login:after {
@@ -721,15 +723,15 @@
 .ui-form {
     background-color: #ffffff;
     padding: 0 pxtorem(5px);
-    border-top: 1px solid #DDDDDD;
-    border-bottom: 1px solid #DDDDDD;
+    @include border-bottom;
+    @include border-top;
     margin-top: -1px;
 }
 
 .ui-form-item {
     position: relative;
     padding: pxtorem(5px);
-    border-bottom: 1px solid #DDDDDD;
+    @include border-bottom;
 }
 
 .ui-form-item:last-child {
@@ -1207,7 +1209,6 @@
                 &:after {
                     border: none;
                 }
-                ;
             }
         }
         &.AddAddress {
@@ -1220,26 +1221,8 @@
     border-bottom: 1px solid #DDD;
     background-color: #ffffff;
     position: relative;
-    &:before {
-        position: absolute;
-        left: 0;
-        content: '';
-        width: 100%;
-        height: 1px;
-        border-top: 1px solid #DDD;
-        top: -1px;
-        -webkit-transform: scaleY(.5);
-    }
-    &:after {
-        position: absolute;
-        left: 0;
-        content: '';
-        width: 100%;
-        height: 1px;
-        border-bottom: 1px solid #DDD;
-        bottom: -1px;
-        -webkit-transform: scaleY(.5);
-    }
+    @include border-bottom;
+    @include border-top;
     .ui-info-cent {
         border-left: pxtorem(3px) solid #ffffff;
         padding: pxtorem(18px) pxtorem(100px) pxtorem(18px) pxtorem(15px);
@@ -1695,15 +1678,18 @@
 
 .page-home {
     background-color: #EEEEEE;
-}
-
-.page-home .ui-container {
-    top: pxtorem(83px);
-    overflow: hidden;
-}
-
-.page-home .ui-container.show {
-    display: block;
+    .btn-block {
+        width: auto;
+    }
+    .ui-container {
+        top: pxtorem(83px);
+        overflow: hidden;
+    }
+    .ui-container {
+        &.show {
+            display: block;
+        }
+    }
 }
 
 .ui-tabs {

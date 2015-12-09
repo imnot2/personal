@@ -51,7 +51,7 @@
             </p>
         </div>
         <div class="ui-tabs-pane" ng-class="{active:type==3}">
-            <div class="ui-login-tips" ng-if="!isLogin" ng-show="noLogin">
+            <div class="ui-login-tips" ng-if="!isLogin">
                 <p class="ui-line-tips"><span>哎呀，你还没登录呢！</span>
                 </p>
                 <a login class="btn btn-default btn-lgs btn-block">快来登录</a>
@@ -114,10 +114,10 @@
         <h5>加载更多...</h5>
     </div>
 </div>
-<div class="ui-login slideDownAnimated" ng-class="{slideInDown:loginSlideIn,slideOutUp:!loginSlideIn}" slideDownLogin>
+<div class="ui-login slideDownAnimated" slideDownLogin>
     <p><span>哎呀，你还没登录呢！</span>
     </p>
     <a href="javascript:;" class="btn btn-primary btn-lgs btn-block" login>登录后更精彩</a>
     <p>登录后可以查看您所关注的商品哦。</p>
-    <p>没有账号 快来<a href="javascript:;" register>申请一个</a>吧</p>
+    <p>没有账号 快来<a register>申请一个</a>吧</p>
 </div>

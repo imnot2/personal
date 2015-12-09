@@ -13,16 +13,29 @@ ctrls.controller('userCtrl', [
     }
 ]).controller('userBuyerCtrl', [
     '$scope',
-    '$http',
     '$state',
     '$stateParams',
-    '$rootScope',
-    'user',
-    'utils',
-    function($scope, $http, $state, $stateParams, $rootScope, user, utils) {
+    'orderService',
+    function($scope, $state, $stateParams, orderService) {
         $scope.wrapClass = 'page-home page-buyer';
         $scope.page = parseInt($stateParams.page);
         $scope.showorderTips = true;
+
+        orderService.getOrders('myorder');
+        $scope.$on('myorder.update', function() {
+            $scope.myorder = orderService.myorder;
+            if ($scope.$root.$$phase != '$apply' && $scope.$root.$$phase != '$digest') {
+                $scope.$digest();
+            }
+        });
+
+        orderService.getOrders('auctionorder');
+        $scope.$on('auctionorder.update', function() {
+            $scope.auctionorder = orderService.auctionorder;
+            if ($scope.$root.$$phase != '$apply' && $scope.$root.$$phase != '$digest') {
+                $scope.$digest();
+            }
+        });
     }
 ]).controller('userSellerCtrl', [
     '$scope',

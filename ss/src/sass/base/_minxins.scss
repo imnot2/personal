@@ -1,0 +1,25 @@
+@mixin border-init {
+    position: absolute;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 1px;
+}
+
+@mixin border-top {
+    &:after {
+        @include border-init;
+        border-top: 1px solid #DDD;
+        top: -1px;
+        -webkit-transform: scaleY(.5);
+    }
+}
+
+@mixin border-bottom {
+    &:before {
+        @include border-init;
+        border-bottom: 1px solid #DDD;
+        bottom: -1px;
+        -webkit-transform: scaleY(.5);
+    }
+}

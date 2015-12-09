@@ -2,8 +2,8 @@ services.service('uiToggleService', ['$rootScope', function($rootScope) {
     var me = this;
 
     function UiToggle(name, defaultShow) {
-        if (me[this.name]) return me[this.name];
-        me[this.name] = this;
+        if (me[name]) return me[name];
+        me[name] = this;
         this.name = name;
         this.show = defaultShow;
     }
@@ -12,6 +12,6 @@ services.service('uiToggleService', ['$rootScope', function($rootScope) {
         $rootScope.$broadcast(this.name + '.toggle');
     }
     this.getUI = function(name) {
-        return new UiToggle(name);
+        return name ? new UiToggle(name) : {};
     }
 }])

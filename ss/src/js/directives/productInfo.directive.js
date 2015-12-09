@@ -1,5 +1,5 @@
-directives.directive('productinfo', ['user', '$rootScope', '$state', '$stateParams',
-    function(user, $rootScope, $state, $stateParams) {
+directives.directive('productinfo', ['user', 'uiToggleService', '$rootScope', '$state', '$stateParams',
+    function(user, uiToggleService, $rootScope, $state, $stateParams) {
         return {
             restrict: 'AE',
             scope: {
@@ -16,11 +16,12 @@ directives.directive('productinfo', ['user', '$rootScope', '$state', '$statePara
             replace: true,
             link: function(scope, element, attrs) {
                 var token = user.getToken();
+                var dropdown;
                 touch.on($(element).find('.item-hammer,.item-comments,.item-heart'), 'tap', function(ev) {
                     if(!token) {
-                        scope.loginslidein = true;
-                        scope.$apply();
-                        //$('.ui-login').show();
+                        dropdown = uiToggleService.getUI('dropdown');
+                        dropdown.show = false;
+                        dropdown.toggle();
                     } else {
                         //$state.go();
                     }

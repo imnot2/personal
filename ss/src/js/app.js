@@ -49,11 +49,10 @@ ssApp.config(function($stateProvider, $urlRouterProvider) {
             }
         }
     }).state('login', {
-        url: '/user/login',
+        url: '/user/login/:current:params',
         views: {
             '': {
-                templateUrl: 'tpls/login.tpl.html',
-                controller: 'loginCtrl'
+                templateUrl: 'tpls/login.tpl.html'
             }
         }
     }).state('register', {

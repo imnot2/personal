@@ -49,28 +49,6 @@ ctrls.controller('userCtrl', [
         $scope.wrapClass = 'page-home page-seller';
         $scope.page = parseInt($stateParams.page);
     }
-]).controller('loginCtrl', [
-    '$scope',
-    '$http',
-    '$state',
-    '$stateParams',
-    '$rootScope',
-    'user',
-    'utils',
-    function($scope, $http, $state, $stateParams, $rootScope, user, utils) {
-        console.log($stateParams);
-        $scope.submit = function(loginInfo) {
-            user.login(loginInfo, function(res) {
-                $rootScope.dialog = {
-                    show: true,
-                    content: res.msg
-                }
-                if (res.status === 0) {
-
-                }
-            });
-        }
-    }
 ]).controller('registerCtrl', [
     '$scope',
     '$http',

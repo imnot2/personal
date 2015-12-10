@@ -23,17 +23,22 @@ directives.directive('touser', ['$state', 'user', function($state, user) {
         link: function(scope, element, attrs) {
             touch.on(element, 'tap', function() {
                 $state.go('login', {
-                    'ret': window.location.href
+                    'current': $state.current.name,
+                    'params': JSON.stringify($state.params)
                 });
             })
         }
     }
-}]).directive('loginrequest', ['$http', '$state', 'user', function($http, $state, user) {
+}]).directive('loginrequest', ['$http', '$state', '$stateParams', 'user', function($http, $state, $stateParams, user) {
     return {
         restrict: 'AE',
         link: function(scope, element, attrs) {
             touch.on(element, 'tap', function() {
-                user.login();
+                if (scope.userForm.$dirty) {
+                    user.login(scope.user.mobile, scope.user.password, function() {
+                        $state.go($stateParams.current, JSON.parse($stateParams.params));
+                    });
+                }
             })
         }
     }

@@ -13,6 +13,7 @@ services.service('user', ['$http', '$rootScope', 'utils', function($http, $rootS
         status: 0
     };
     this.login = function(name, password, callback) {
+        console.log(arguments);
         // $http.post('xxx', {
         //     name: name,
         //     password: password
@@ -28,6 +29,7 @@ services.service('user', ['$http', '$rootScope', 'utils', function($http, $rootS
             show: true,
             content: res.msg
         }
+        $rootScope.$apply();
         callback && callback(res);
         //})
     };
@@ -42,7 +44,8 @@ services.service('user', ['$http', '$rootScope', 'utils', function($http, $rootS
         });
     };
     this.getUserInfo = function() {
-        return JSON.parse($.cookie('UState'));
+        var userinfo = $.cookie('UState');
+        return typeof userinfo === 'string' ? JSON.parse(userinfo) : userinfo;
     };
     this.getToken = function() {
         return $.cookie('t');

@@ -4,8 +4,7 @@ ctrls.controller('paydepositCtrl', [
     '$state',
     'addressService',
     'productsService',
-    'detailService',
-    function($scope, $stateParams, $state, addressService, productsService, detailService) {
+    function($scope, $stateParams, $state, addressService, productsService) {
         $scope.wrapClass = 'page-home paydeposit';
         $scope.containerClass = $stateParams.type;
         $scope.addresses = addressService.addresses;
@@ -22,7 +21,7 @@ ctrls.controller('paydepositCtrl', [
         $scope.$on('product.get', function() {
             $scope.product = productsService.products.manager[$stateParams.id];
         });
-        detailService.getDetail($stateParams.id);
+        productsService.getDetail($stateParams.id);
 
         $scope.newAddress = productsService.newAddress;
         // $scope.$on('editAddress.update', function() {

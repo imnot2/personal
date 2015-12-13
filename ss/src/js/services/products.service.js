@@ -52,4 +52,21 @@ services.service('productsService', ['$http', '$rootScope', function($http, $roo
             failFn(err);
         })
     }
+    this.getDetail = function(id) {
+        var products = this.products.manager;
+        if (products[id]) {
+            $rootScope.$broadcast('product.get');
+        } else {
+            $http({
+                //url: '/detail/' + id + '.json',
+                url: '/products/detail.json?v=' + new Date().getTime(),
+                method: 'GET'
+            }).success(function(res) {
+                products[id] = res.data;
+                $rootScope.$broadcast('product.get');
+            }).error(function(err) {
+                console.log(err);
+            })
+        }
+    }
 }])

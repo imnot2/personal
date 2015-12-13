@@ -3,8 +3,7 @@ ctrls.controller('detailCtrl', [
     '$stateParams',
     '$rootScope',
     'productsService',
-    'detailService',
-    function($scope, $stateParams, $rootScope, productsService, detailService) {
+    function($scope, $stateParams, $rootScope, productsService) {
         $scope.wrapClass = 'page-detail';
 
         //获取商品详情
@@ -13,6 +12,6 @@ ctrls.controller('detailCtrl', [
             $scope.noDescription = $scope.product.description.length < 1 && !$scope.product.srcs.length
             $scope.noComment = !$scope.product.comments.length;
         });
-        detailService.getDetail($stateParams.id);
+        productsService.getDetail($stateParams.id);
     }
 ])

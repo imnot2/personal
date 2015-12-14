@@ -3,28 +3,35 @@ services.service('viewListService', ['$rootScope', function($rootScope) {
 
     function ViewList(viewName, node, options) {
         var dataScore = options.dataScore;
+        this.options = $.extend(options, {});
         this.viewName = viewName;
         this.node = node;
-        this.dataScore = options.dataScore
+        this.dataScore = this.options.dataScore
         this.point = 0;
         this.showSize = 8;
         this.oldTop = 0; // 滚动时不停刷新这个值，用来判断滚动条是否停下来;
         this.referTop = 0; //每次滚动停下来才刷新这个值，用来判断滚动的放心。
         this.paneWrap;
         this.paneNode;
-        this.interval = null; // 定时器  
+        this.interval = null; // 定时器 
+        // this.updateEvt = 'product.update';
+        // this.loadData = function(){
+
+        // } 
     }
     ViewList.prototype = {
         init: function() {
-            $rootScope.$on('products.update', function() {
+            var me = this;
+            $rootScope.$on(me.updateEvt, function() {
                 paneWrap = $(element).find('.ui-tabs-content');
                 paneNode = paneWrap.find('.ui-tabs-pane.active');
 
-                products = productsService.products[page];
+                //products = productsService.products[page];
+                me.dataScore = me.options.dataScore
 
-                updateShowData();
+                me.updateShowData();
 
-                bindScroll(paneNode);
+                me.bindScroll(paneNode);
             });
         },
         bindScroll: function() {
@@ -60,22 +67,11 @@ services.service('viewListService', ['$rootScope', function($rootScope) {
                 }, 300);
             }
         },
-        updateShowData: function() {
-            var point = this.point,
-                showSize = this.showSize;
 
-            if (point < 0) {
-                point = 0;
-            }
-            if (point + showSize > this.dataScore.srcData.length) {
-                point = this.dataScore.srcData.length - showSize;
-            }
-            this.dataScore.showData = this.dataScore.srcData.slice(point, point + showSize);
-            $rootScope.$broadcast(this.viewName + 'viewlist.update');
-        },
         whenStop: function() {
             var node = this.node;
             var showSize = this.showSize;
+            var point = this.point;
 
             var itemHeight = node.children('article').height() + 20; //358; //一个商品dom的高度。
             var scrollTop = node.scrollTop();
@@ -110,24 +106,35 @@ services.service('viewListService', ['$rootScope', function($rootScope) {
                 needScrollTop = scrollTop - scale * itemHeight;
             }
 
-            unbindScroll(node);
+            this.unbindScroll(node);
 
             if (point !== 0) {
                 this.referTop = needScrollTop;
                 node.scrollTop(needScrollTop);
             }
 
-            if (point !== products.srcData.length - showSize) {
-                bindScroll(node);
+            if (point !== this.dataScore.srcData.length - showSize) {
+                this.bindScroll(node);
             } else {
                 //并通知productsService 需要向后端拉数据了。
-                productsService.getProducts(page, 'true');
+                //productsService.getProducts(page, 'true');
+                this.options.loadData();
             }
-        }
+        },
+        updateShowData: function() {
+            var point = this.point,
+                showSize = this.showSize;
+
+            if (point < 0) {
+                point = 0;
+            }
+            if (point + showSize > this.dataScore.srcData.length) {
+                point = this.dataScore.srcData.length - showSize;
+            }
+            this.dataScore.showData = this.dataScore.srcData.slice(point, point + showSize);
+            $rootScope.$broadcast(this.viewName + 'viewlist.update');
+        },
     }
-
-
-
     this.newViewList = function(viewName, node, options) {
         new ViewList(viewName, node, options);
     }

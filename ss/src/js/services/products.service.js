@@ -44,7 +44,7 @@ services.service('productsService', ['$http', '$rootScope', function($http, $roo
                 angular.forEach(res.data, function(value, key) {
                     me.products.manager[value.id] = value;
                 });
-                $rootScope.$broadcast('products.update');
+                $rootScope.$broadcast(productsType + '.update');
                 successFn();
             }
         }).error(function(err) {

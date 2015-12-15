@@ -2,11 +2,9 @@ services.service('viewListService', ['$rootScope', function($rootScope) {
     var me = this;
 
     function ViewList(viewName, node, options) {
-        var dataScore = options.dataScore;
         this.options = $.extend(options, {});
         this.viewName = viewName;
         this.node = node;
-        this.dataScore = this.options.dataScore
         this.point = 0;
         this.showSize = 8;
         this.oldTop = 0; // 滚动时不停刷新这个值，用来判断滚动条是否停下来;
@@ -14,28 +12,29 @@ services.service('viewListService', ['$rootScope', function($rootScope) {
         this.paneWrap;
         this.paneNode;
         this.interval = null; // 定时器 
-        // this.updateEvt = 'product.update';
-        // this.loadData = function(){
-
-        // } 
+        this.dataScore = this.options.dataScore;
+        this.updateEvt = this.options.updateEvt;
+        this.loadData = this.options.loadData;
+        this.init();
     }
     ViewList.prototype = {
         init: function() {
             var me = this;
             $rootScope.$on(me.updateEvt, function() {
-                paneWrap = $(element).find('.ui-tabs-content');
-                paneNode = paneWrap.find('.ui-tabs-pane.active');
+                // paneWrap = $(element).find('.ui-tabs-content');
+                // paneNode = paneWrap.find('.ui-tabs-pane.active');
 
                 //products = productsService.products[page];
-                me.dataScore = me.options.dataScore
+                me.dataScore = me.options.dataScore;
 
                 me.updateShowData();
 
-                me.bindScroll(paneNode);
+                me.bindScroll(this.node);
             });
+            this.loadData();
         },
         bindScroll: function() {
-            unbindScroll(this.node);
+            this.unbindScroll(this.node);
             this.node.on('scroll', this.scrollEvt);
         },
         unbindScroll: function() {
@@ -118,7 +117,7 @@ services.service('viewListService', ['$rootScope', function($rootScope) {
             } else {
                 //并通知productsService 需要向后端拉数据了。
                 //productsService.getProducts(page, 'true');
-                this.options.loadData();
+                this.loadData();
             }
         },
         updateShowData: function() {
@@ -132,7 +131,7 @@ services.service('viewListService', ['$rootScope', function($rootScope) {
                 point = this.dataScore.srcData.length - showSize;
             }
             this.dataScore.showData = this.dataScore.srcData.slice(point, point + showSize);
-            $rootScope.$broadcast(this.viewName + 'viewlist.update');
+            $rootScope.$broadcast(this.viewName + '.viewlist.update');
         },
     }
     this.newViewList = function(viewName, node, options) {

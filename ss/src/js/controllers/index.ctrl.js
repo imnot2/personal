@@ -19,13 +19,27 @@ ctrls.controller('indexCtrl', [
         $scope.type = parseInt($stateParams.type);
 
         //进行中
-        productsService.getProducts('processing');
+        //productsService.getProducts('processing');
 
         //即将开始
-        productsService.getProducts('willBegin');
+        //productsService.getProducts('willBegin');
 
-        $scope.$on('showData.update', function() {
-            $scope.products = productsService.products;
+        $scope.products = {};
+
+        $scope.$on('processing.viewlist.update', function() {
+            $scope.products.processing = productsService.products.processing;
+            if ($scope.$root.$$phase != '$apply' && $scope.$root.$$phase != '$digest') {
+                $scope.$digest();
+            }
+        });
+        $scope.$on('willBegin.viewlist.update', function() {
+            $scope.products.willBegin = productsService.products.willBegin;
+            if ($scope.$root.$$phase != '$apply' && $scope.$root.$$phase != '$digest') {
+                $scope.$digest();
+            }
+        });
+        $scope.$on('interest.viewlist.update', function() {
+            $scope.products.interest = productsService.products.interest;
             if ($scope.$root.$$phase != '$apply' && $scope.$root.$$phase != '$digest') {
                 $scope.$digest();
             }

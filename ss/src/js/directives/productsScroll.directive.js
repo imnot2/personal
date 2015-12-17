@@ -15,9 +15,7 @@ directives.directive('productsscroll', [
                     '3': 'interest'
                 };
                 var page = pageHash[$stateParams.type];
-                var paneWrap = $(element).find('.ui-tabs-content');
-                var paneNode = paneWrap.find('.ui-tabs-pane.active');
-                viewListService.newViewList(page, paneNode, {
+                viewListService.newViewList(page, element, {
                     dataScore: productsService.products[page],
                     updateEvt: page + '.update',
                     loadData: function() {

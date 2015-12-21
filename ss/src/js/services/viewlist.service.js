@@ -1,27 +1,24 @@
 services.service('viewListService', ['$rootScope', 'utils', function($rootScope, utils) {
     var me = this;
+    var direction;
+    var instance;
 
     function bindScroll() {
-        var instance = me.view;
-        unbindScroll(instance);
-        instance.node.on('scroll', scrollEvt);
+        unbindScroll();
+        instance.pane.on('scroll', whenStop);
     }
 
     function unbindScroll() {
-        var instance = me.view;
-        instance.node.off('scroll', scrollEvt);
-        instance.referTop = instance.node.scrollTop();
+        instance.pane.off('scroll', whenStop);
+        instance.referTop = instance.pane.scrollTop();
     }
 
-    function scrollEvt() {
-        var instance = me.view,
-            node = instance.node,
-            oldTop = instance.oldTop,
-            interval = instance.interval,
-            direction = 'up'; //向上滑动。
+    function listenerStop(stopFn) {
+        var node = instance.pane;
 
-        if (interval == null) {
-            interval = setInterval(function() {
+        direction = 'up'; //向上滑动。
+        if (instance.interval == null) {
+            instance.interval = setInterval(function() {
 
                 //跟上一次滚动的距离做比较得出方向。
                 if (node.scrollTop() < instance.referTop) {
@@ -29,69 +26,68 @@ services.service('viewListService', ['$rootScope', 'utils', function($rootScope,
                 };
 
                 // 判断此刻到顶部的距离是否和上次滚动前的距离相等  
-                if (node.scrollTop() == oldTop) {
-                    clearInterval(interval);
-                    interval = null;
-                    whenStop(node, direction);
+                if (node.scrollTop() == instance.oldTop) {
+                    clearInterval(instance.interval);
+                    instance.interval = null;
+                    stopFn && stopFn();
                 };
-                oldTop = node.scrollTop();
+                instance.oldTop = node.scrollTop();
             }, 300);
         }
     }
 
-    function whenStop(instance, direction) {
-        var instance = me.view;
-        var node = instance.node;
-        var showSize = instance.showSize;
-        var point = instance.point;
-
-        var itemHeight = node.children('article').height() + 20; //358; //一个商品dom的高度。
-        var scrollTop = node.scrollTop();
-        var scrollBottom;
-        var scale;
-        var needScrollTop;
-
-        if (direction === 'down') {
-            scrollBottom = itemHeight * showSize - scrollTop - instance.paneWrap.height();
-            scale = parseInt(scrollBottom / itemHeight);
-            if (scale > 3) {
-                scale -= 3;
-                point -= scale;
+    function whenStop() {
+        listenerStop(function() {
+            var node = instance.pane;
+            var showSize = instance.showSize;
+            var itemHeight = node.children('article').height() + 20; //358; //一个商品dom的高度。
+            var scrollTop = node.scrollTop();
+            var scrollBottom;
+            var scale;
+            var needScrollTop;
+            if (direction === 'down') {
+                scrollBottom = itemHeight * showSize - scrollTop - instance.wrap.height();
+                scale = parseInt(scrollBottom / itemHeight);
+                if (scale > 3) {
+                    scale -= 3;
+                    instance.point -= scale;
+                } else {
+                    scale = 0;
+                }
             } else {
-                scale = 0;
+                scale = parseInt(scrollTop / itemHeight);
+                if (scale > 3) {
+                    scale -= 3;
+                    instance.point += scale;
+                } else {
+                    scale = 0;
+                }
             }
-        } else {
-            scale = parseInt(scrollTop / itemHeight);
-            if (scale > 3) {
-                scale -= 3;
-                point += scale;
+            console.log('point: ' + instance.point);
+            console.log('scrollTop: ' + scrollTop);
+            console.log('direction: ' + direction);
+
+            if (direction === 'down') {
+                needScrollTop = scrollTop + scale * itemHeight;
             } else {
-                scale = 0;
+                needScrollTop = scrollTop - scale * itemHeight;
             }
-        }
 
-        instance.updateShowData();
+            unbindScroll();
 
-        if (direction === 'down') {
-            needScrollTop = scrollTop + scale * itemHeight;
-        } else {
-            needScrollTop = scrollTop - scale * itemHeight;
-        }
-
-        unbindScroll(instance);
-
-        if (point !== 0) {
-            instance.referTop = needScrollTop;
-            node.scrollTop(needScrollTop);
-        }
-
-        if (point !== instance.dataScore.srcData.length - showSize) {
-            bindScroll(node);
-        } else {
-            //并通知productsService 需要向后端拉数据了。
-            //productsService.getProducts(page, 'true');
-            instance.loadData();
-        }
+            if (instance.point > 0) {
+                instance.updateShowData();
+                instance.referTop = needScrollTop;
+                node.scrollTop(needScrollTop);
+            }
+            if (instance.point >= instance.dataScore.srcData.length - showSize) {
+                instance.loadData();
+            }
+            if (instance.point <= 0) {
+                instance.point = 0;
+            }
+            listenerStop(bindScroll);
+        });
     }
 
     function ViewList(viewName, element, options) {
@@ -111,35 +107,31 @@ services.service('viewListService', ['$rootScope', 'utils', function($rootScope,
         init: function() {
             var me = this;
             $rootScope.$on(me.updateEvt, function() {
-
-                instance.paneWrap = me.el.find('.ui-tabs-content');
-                instance.paneNode = paneWrap.find('.ui-tabs-pane.active');
-                me.node = paneNode;
                 me.dataScore = me.options.dataScore;
-
                 me.updateShowData();
-
-                bindScroll(me);
+                me.wrap = me.el.find(instance.options.wrap);
+                me.pane = me.wrap.find(instance.options.pane);
+                bindScroll();
             });
-            this.loadData();
+            this.loadData(true);
         },
 
         updateShowData: function() {
-            var point = this.point,
-                showSize = this.showSize;
+            var showSize = this.showSize;
 
-            if (point < 0) {
-                point = 0;
+            if (this.point < 0) {
+                this.point = 0;
             }
-            if (point + showSize > this.dataScore.srcData.length) {
-                point = this.dataScore.srcData.length - showSize;
+            if (this.point + showSize > this.dataScore.srcData.length) {
+                this.point = this.dataScore.srcData.length - showSize;
             }
-            this.dataScore.showData = this.dataScore.srcData.slice(point, point + showSize);
+            this.dataScore.showData = this.dataScore.srcData.slice(this.point, this.point + showSize);
             $rootScope.$broadcast(this.viewName + '.viewlist.update');
         },
     }
     this.newViewList = function(viewName, node, options) {
-        this.view = new ViewList(viewName, node, options);
-        this.view.init();
+        console.log('viewName: ' +viewName);
+        instance = this.view = new ViewList(viewName, node, options);
+        instance.init();
     }
 }])

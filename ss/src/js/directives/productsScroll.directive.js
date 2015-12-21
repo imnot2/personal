@@ -15,13 +15,23 @@ directives.directive('productsscroll', [
                     '3': 'interest'
                 };
                 var page = pageHash[$stateParams.type];
-                viewListService.newViewList(page, element, {
-                    dataScore: productsService.products[page],
-                    updateEvt: page + '.update',
-                    loadData: function() {
-                        productsService.getProducts(page, 'true');
-                    }
-                });
+                console.log(page);
+                setTimeout(function() {
+                    viewListService.newViewList(page, element, {
+                        dataScore: productsService.products[page],
+                        updateEvt: page + '.update',
+                        wrap: '.ui-tabs-content',
+                        pane: '.ui-tabs-pane.active',
+                        loadData: function(isFirst) {
+                            productsService.getProducts({
+                                type: page,
+                                isFirst: isFirst,
+                                needLogin: page === 'interest'
+                            });
+                        }
+                    });
+                }, 1);
+
 
             }
         }

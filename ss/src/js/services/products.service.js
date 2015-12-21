@@ -1,4 +1,4 @@
-services.service('productsService', ['$http', '$rootScope', function($http, $rootScope) {
+services.service('productsService', ['$http', '$rootScope', 'user', function($http, $rootScope, user) {
     var me = this;
 
     this.products = {
@@ -25,14 +25,21 @@ services.service('productsService', ['$http', '$rootScope', function($http, $roo
     // this.products.interest = {};
 
 
-    this.getProducts = function(productsType, successFn, failFn, isRefresh) {
-        var products = me.products[productsType];
-        if (!angular.isFunction(arguments[1])) {
-            isRefresh = arguments[1];
-            successFn = function() {};
-            failFn = function() {};
+    this.getProducts = function(productConfig) {
+        if (productConfig.needLogin && !user.getToken()) {
+            return;
         }
-        if (products.showData.length && isRefresh === 'false') return;
+        var productsType = productConfig['type'];
+        var products = me.products[productsType];
+        var isFirst = productConfig['isFirst'];
+        var successFn = productConfig['successFn'] || function() {};
+        var failFn = productConfig['failFn'] || function() {};
+
+        console.log(isFirst);
+        if(isFirst && products.showData.length){
+            $rootScope.$broadcast(productsType + '.update');
+            return;
+        }        
 
         //console.log('getProducts');
         $http({

@@ -37,13 +37,17 @@ services.service('productsService', ['$http', '$rootScope', 'user', function($ht
 
         console.log(isFirst);
         if(isFirst && products.showData.length){
-            $rootScope.$broadcast(productsType + '.update');
+            //$rootScope.$broadcast(productsType + '.update'); 
+            setTimeout(function(){
+                successFn();
+            },1);          
+            //successFn();
             return;
         }        
 
         //console.log('getProducts');
         $http({
-            url: '/products/' + productsType + '.json',
+            url: '/products/' + productsType + '.json?v='+ new Date().getTime(),
             method: 'GET'
         }).success(function(res) {
             if (res.data.length) {
@@ -51,7 +55,7 @@ services.service('productsService', ['$http', '$rootScope', 'user', function($ht
                 angular.forEach(res.data, function(value, key) {
                     me.products.manager[value.id] = value;
                 });
-                $rootScope.$broadcast(productsType + '.update');
+                //$rootScope.$broadcast(productsType + '.update');
                 successFn();
             }
         }).error(function(err) {

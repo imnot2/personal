@@ -74,48 +74,63 @@ services.service('viewListService', ['$rootScope', 'utils', function($rootScope,
             }
 
             unbindScroll();
+            instance.updateShowData();
 
-            if (instance.point > 0) {
-                instance.updateShowData();
+            if (instance.point !== 0) {
                 instance.referTop = needScrollTop;
                 node.scrollTop(needScrollTop);
             }
+
             if (instance.point >= instance.dataScore.srcData.length - showSize) {
-                instance.loadData();
+                //并通知productsService 需要向后端拉数据了。
+                instance.onupdate(false);
             }
             if (instance.point <= 0) {
                 instance.point = 0;
             }
             listenerStop(bindScroll);
+            // if (instance.point > 0) {
+            //     
+            //     instance.referTop = needScrollTop;
+            //     node.scrollTop(needScrollTop);
+            // }
+            // if (instance.point >= instance.dataScore.srcData.length - showSize) {
+            //     instance.onupdate(false);
+            // }
+            // if (instance.point <= 0) {
+            //     instance.point = 0;
+            // }
+
         });
     }
 
     function ViewList(viewName, element, options) {
         this.options = $.extend(options, {});
         this.viewName = viewName;
-        this.el = $(element);
-        this.point = 0;
         this.showSize = 8;
-        this.oldTop = 0; // 滚动时不停刷新这个值，用来判断滚动条是否停下来;
-        this.referTop = 0; //每次滚动停下来才刷新这个值，用来判断滚动的放心。
-        this.interval = null; // 定时器 
         this.dataScore = this.options.dataScore;
         this.updateEvt = this.options.updateEvt;
         this.loadData = this.options.loadData;
     }
     ViewList.prototype = {
-        init: function() {
+        init: function(element) {
+            this.point = 0;
+            this.oldTop = 0; // 滚动时不停刷新这个值，用来判断滚动条是否停下来;
+            this.referTop = 0; //每次滚动停下来才刷新这个值，用来判断滚动的放心。
+            this.interval = null; // 定时器  
+            this.el = $(element);
+            this.onupdate();
+        },
+        onupdate: function() {
             var me = this;
-            $rootScope.$on(me.updateEvt, function() {
+            this.loadData(true, function() {
                 me.dataScore = me.options.dataScore;
                 me.updateShowData();
-                me.wrap = me.el.find(instance.options.wrap);
-                me.pane = me.wrap.find(instance.options.pane);
+                me.wrap = me.el.find(me.options.wrap);
+                me.pane = me.wrap.find(me.options.pane);
                 bindScroll();
             });
-            this.loadData(true);
         },
-
         updateShowData: function() {
             var showSize = this.showSize;
 
@@ -129,9 +144,14 @@ services.service('viewListService', ['$rootScope', 'utils', function($rootScope,
             $rootScope.$broadcast(this.viewName + '.viewlist.update');
         },
     }
-    this.newViewList = function(viewName, node, options) {
-        console.log('viewName: ' +viewName);
-        instance = this.view = new ViewList(viewName, node, options);
-        instance.init();
+    this.newViewList = function(viewName, element, options) {
+        if (!viewName) return;
+        if (!this[viewName]) {
+            this[viewName] = new ViewList(viewName, element, options);
+        }
+        instance = this[viewName];
+
+        //指令对应的element需要重新获取。
+        instance.init(element);
     }
 }])

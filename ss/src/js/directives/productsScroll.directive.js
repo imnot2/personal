@@ -15,24 +15,19 @@ directives.directive('productsscroll', [
                     '3': 'interest'
                 };
                 var page = pageHash[$stateParams.type];
-                console.log(page);
-                setTimeout(function() {
-                    viewListService.newViewList(page, element, {
-                        dataScore: productsService.products[page],
-                        updateEvt: page + '.update',
-                        wrap: '.ui-tabs-content',
-                        pane: '.ui-tabs-pane.active',
-                        loadData: function(isFirst) {
-                            productsService.getProducts({
-                                type: page,
-                                isFirst: isFirst,
-                                needLogin: page === 'interest'
-                            });
-                        }
-                    });
-                }, 1);
-
-
+                viewListService.newViewList(page, element, {
+                    dataScore: productsService.products[page],
+                    wrap: '.ui-tabs-content',
+                    pane: '.ui-tabs-pane.active',
+                    loadData: function(isFirst, callback) {
+                        productsService.getProducts({
+                            type: page,
+                            isFirst: isFirst,
+                            needLogin: page === 'interest',
+                            successFn: callback
+                        });
+                    }
+                });
             }
         }
     }

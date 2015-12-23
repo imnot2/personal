@@ -32,7 +32,7 @@ services.service('viewListService', ['$rootScope', 'utils', function($rootScope,
                     stopFn && stopFn();
                 };
                 instance.oldTop = node.scrollTop();
-            }, 300);
+            }, 100);
         }
     }
 
@@ -63,9 +63,6 @@ services.service('viewListService', ['$rootScope', 'utils', function($rootScope,
                     scale = 0;
                 }
             }
-            console.log('point: ' + instance.point);
-            console.log('scrollTop: ' + scrollTop);
-            console.log('direction: ' + direction);
 
             if (direction === 'down') {
                 needScrollTop = scrollTop + scale * itemHeight;
@@ -76,18 +73,23 @@ services.service('viewListService', ['$rootScope', 'utils', function($rootScope,
             unbindScroll();
             instance.updateShowData();
 
-            if (instance.point !== 0) {
+            if (instance.point < 0) {
+                instance.point = 0;
+            }
+            if (instance.point > 0) {
                 instance.referTop = needScrollTop;
                 node.scrollTop(needScrollTop);
+                console.log('instance.referTop : ' + needScrollTop);
             }
 
             if (instance.point >= instance.dataScore.srcData.length - showSize) {
                 //并通知productsService 需要向后端拉数据了。
                 instance.onupdate(false);
             }
-            if (instance.point <= 0) {
-                instance.point = 0;
-            }
+
+            console.log('point: ' + instance.point);
+            console.log('needScrollTop: ' + needScrollTop);
+
             listenerStop(bindScroll);
             // if (instance.point > 0) {
             //     
@@ -127,7 +129,7 @@ services.service('viewListService', ['$rootScope', 'utils', function($rootScope,
                 me.dataScore = me.options.dataScore;
                 me.updateShowData();
                 me.wrap = me.el.find(me.options.wrap);
-                me.pane = me.wrap.find(me.options.pane);
+                me.pane = me.el.find(me.options.pane);
                 bindScroll();
             });
         },

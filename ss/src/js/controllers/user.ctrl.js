@@ -10,6 +10,7 @@ ctrls.controller('userCtrl', [
         $scope.wrapClass = 'page-home page-buyer';
         $scope.page = parseInt($stateParams.page);
         $scope.showorderTips = true;
+        $scope.userInfo = user.getUserInfo();
     }
 ]).controller('userBuyerCtrl', [
     '$scope',

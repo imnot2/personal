@@ -1,9 +1,21 @@
 services.service('orderService', ['$http', '$rootScope', function($http, $rootScope) {
     var me = this;
-    this.ordersManger = {};
-    this.myorder = [];
-    this.auctionorder = [];
-    this.pageIndex = 0;
+
+    this.orders = {
+        myorder: {
+            srcData: [],
+            showData: [],
+            curPage: 0
+        },
+        auctionorder: {
+            srcData: [],
+            showData: [],
+            curPage: 0
+        },
+        manager: {},
+        showSize: 5
+    };
+
     this.resolveOrders = function(order) {
         switch (order.status) {
             case 1:
@@ -12,7 +24,24 @@ services.service('orderService', ['$http', '$rootScope', function($http, $rootSc
         }
         return order;
     }
-    this.getOrders = function(orderType) {
+    this.getOrders = function(orderConfig) {
+
+        var ordersType = orderConfig['type'];
+        var orders = me.orders[ordersType];
+        var isFirst = orderConfig['isFirst'];
+        var successFn = orderConfig['successFn'] || function() {};
+        var failFn = orderConfig['failFn'] || function() {};
+
+        if (isFirst && orders.showData.length) {
+            //$rootScope.$broadcast(ordersType + '.update'); 
+            setTimeout(function() {
+                successFn();
+            }, 1);
+            //successFn();
+            return;
+        }
+
+
         $http({
             //url: '/products/'+orderType+'.json?v=' + new Date().getTime(),
             url: '/products/orders.json?v=' + new Date().getTime(),
@@ -22,14 +51,16 @@ services.service('orderService', ['$http', '$rootScope', function($http, $rootSc
             if (res.status === 200) {
                 for (i = 0; i < res.data.length; i++) {
                     order = res.data[i];
-                    me[orderType].push(me.resolveOrders(order));
-                    me.ordersManger[order.id] = order;
+                    orders.srcData.push(me.resolveOrders(order));
+                    me.orders.manger[order.id] = order;
                 }
                 $rootScope.$broadcast(orderType + '.update');
+                successFn();
             }
-            me.pageIndex++;
+            orders.curPage++;
         }).error(function(err) {
             $rootScope.$broadcast(orderType + '.error');
+            failFn();
         })
     }
     this.getOrderById = function(orderid) {

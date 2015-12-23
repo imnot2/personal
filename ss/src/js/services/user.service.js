@@ -3,7 +3,7 @@ services.service('user', ['$http', '$rootScope', 'utils', function($http, $rootS
         userInfo: {
             id: '28765544',
             name: 'sosochen',
-            avatar: '/images/temp/1.jpg',
+            avatar: '/images/temp/1s.jpg',
             level: '4',
             identity: 'Buyer'
         },

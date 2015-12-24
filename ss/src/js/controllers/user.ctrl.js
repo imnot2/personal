@@ -22,21 +22,30 @@ ctrls.controller('userCtrl', [
         $scope.page = parseInt($stateParams.page);
         $scope.showorderTips = true;
 
-        orderService.getOrders('myorder');
-        $scope.$on('myorder.update', function() {
-            $scope.myorder = orderService.myorder;
+        //进行中
+        $scope.$on('myorder.viewlist.update', function() {
+            $scope.myorder = orderService.orders.myorder.showData;
             if ($scope.$root.$$phase != '$apply' && $scope.$root.$$phase != '$digest') {
                 $scope.$digest();
             }
         });
 
-        orderService.getOrders('auctionorder');
-        $scope.$on('auctionorder.update', function() {
-            $scope.auctionorder = orderService.auctionorder;
-            if ($scope.$root.$$phase != '$apply' && $scope.$root.$$phase != '$digest') {
-                $scope.$digest();
-            }
-        });
+
+        // orderService.getOrders('myorder');
+        // $scope.$on('myorder.update', function() {
+        //     $scope.myorder = orderService.myorder;
+        //     if ($scope.$root.$$phase != '$apply' && $scope.$root.$$phase != '$digest') {
+        //         $scope.$digest();
+        //     }
+        // });
+
+        // orderService.getOrders('auctionorder');
+        // $scope.$on('auctionorder.update', function() {
+        //     $scope.auctionorder = orderService.auctionorder;
+        //     if ($scope.$root.$$phase != '$apply' && $scope.$root.$$phase != '$digest') {
+        //         $scope.$digest();
+        //     }
+        // });
     }
 ]).controller('userSellerCtrl', [
     '$scope',

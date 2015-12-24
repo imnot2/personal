@@ -38,11 +38,11 @@ directives.directive('productsscroll', [
                         '1': 'myorder',
                         '2': 'auctionorder'
                     };
-                    var page = pageHash[$stateParams.type];
+                    var page = pageHash[$stateParams.page];
                     viewListService.newViewList(page, element, {
-                        dataScore: orderService[page],
-                        wrap: '.ui-tabs-pane.active',
-                        pane: '.ui-tabs-pane.active',
+                        dataScore: orderService.orders[page],
+                        // wrap: '.user-tabs-pane.active',
+                        // pane: '.user-tabs-pane.active',
                         loadData: function(isFirst, callback) {
                             orderService.getOrders({
                                 type: page,

@@ -40,7 +40,7 @@ services.service('viewListService', ['$rootScope', 'utils', function($rootScope,
         listenerStop(function() {
             var node = instance.pane;
             var showSize = instance.showSize;
-            var itemHeight = node.children('article').height() + 20; //358; //一个商品dom的高度。
+            var itemHeight = node.find('article').height() + 20; //358; //一个商品dom的高度。
             var scrollTop = node.scrollTop();
             var scrollBottom;
             var scale;
@@ -128,8 +128,8 @@ services.service('viewListService', ['$rootScope', 'utils', function($rootScope,
             this.loadData(true, function() {
                 me.dataScore = me.options.dataScore;
                 me.updateShowData();
-                me.wrap = me.el.find(me.options.wrap);
-                me.pane = me.el.find(me.options.pane);
+                me.wrap = me.options.wrap ? me.el.find(me.options.wrap) : $(document);
+                me.pane = me.options.wrap ? me.el.find(me.options.wrap) : $(document);
                 bindScroll();
             });
         },

@@ -25,12 +25,12 @@ services.service('orderService', ['$http', '$rootScope', function($http, $rootSc
         return order;
     }
     this.getOrders = function(orderConfig) {
-
+        var me = this;
         var ordersType = orderConfig['type'];
-        var orders = me.orders[ordersType];
         var isFirst = orderConfig['isFirst'];
         var successFn = orderConfig['successFn'] || function() {};
         var failFn = orderConfig['failFn'] || function() {};
+        var orders = me.orders[ordersType];
 
         if (isFirst && orders.showData.length) {
             //$rootScope.$broadcast(ordersType + '.update'); 
@@ -52,19 +52,20 @@ services.service('orderService', ['$http', '$rootScope', function($http, $rootSc
                 for (i = 0; i < res.data.length; i++) {
                     order = res.data[i];
                     orders.srcData.push(me.resolveOrders(order));
-                    me.orders.manger[order.id] = order;
+                    me.orders.manager[order.id] = order;
                 }
-                $rootScope.$broadcast(orderType + '.update');
+                $rootScope.$broadcast(ordersType + '.update');
                 successFn();
             }
             orders.curPage++;
         }).error(function(err) {
-            $rootScope.$broadcast(orderType + '.error');
+            $rootScope.$broadcast(ordersType + '.error');
             failFn();
         })
     }
     this.getOrderById = function(orderid) {
-        if (this.ordersManger[orderid]) {
+        var me = this;
+        if (me.orders.manager[orderid]) {
             $rootScope.$broadcast('order.get');
         } else {
             $http({
@@ -72,7 +73,7 @@ services.service('orderService', ['$http', '$rootScope', function($http, $rootSc
                 url: '/products/orderdetail.json?v=' + new Date().getTime(),
                 method: 'GET'
             }).success(function(res) {
-                this.ordersManger[orderid] = res.data;
+                me.orders.manager[order.id] = res.data;
                 $rootScope.$broadcast('order.get');
             }).error(function(err) {
                 $rootScope.$broadcast('order.error');

@@ -5,7 +5,8 @@ services.service('user', ['$http', '$rootScope', 'utils', function($http, $rootS
             name: 'sosochen',
             avatar: '/images/temp/1s.jpg',
             level: '4',
-            identity: 'Buyer'
+            //identity: 'Buyer'
+            identity: 'Seller'
         },
         token: 'asdfa3rewtq',
         //token: '',

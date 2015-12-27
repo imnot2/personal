@@ -20,11 +20,7 @@ services.service('productsService', ['$http', '$rootScope', 'user', function($ht
         manager: {},
         showSize: 5
     };
-    // this.products.processing = {};
-    // this.products.willBegin = {};
-    // this.products.interest = {};
-
-
+   
     this.getProducts = function(productConfig) {
         if (productConfig.needLogin && !user.getToken()) {
             return;
@@ -36,12 +32,11 @@ services.service('productsService', ['$http', '$rootScope', 'user', function($ht
         var failFn = productConfig['failFn'] || function() {};
 
         console.log(isFirst);
-        if(isFirst && products.showData.length){
-            //$rootScope.$broadcast(productsType + '.update'); 
+        if(isFirst && products.showData.length){            
             setTimeout(function(){
+                $rootScope.$broadcast(productsType + '.update'); 
                 successFn();
-            },1);          
-            //successFn();
+            },1);  
             return;
         }        
 
@@ -55,7 +50,7 @@ services.service('productsService', ['$http', '$rootScope', 'user', function($ht
                 angular.forEach(res.data, function(value, key) {
                     me.products.manager[value.id] = value;
                 });
-                //$rootScope.$broadcast(productsType + '.update');
+                $rootScope.$broadcast(productsType + '.update');
                 successFn();
             }
         }).error(function(err) {

@@ -6,7 +6,10 @@ directives.directive('touser', ['$state', 'user', function($state, user) {
             var userInfo;
             touch.on(element, 'tap', function() {
                 if (!token) {
-                    $state.go('login')
+                    $state.go('login', {
+                        'cur': $state.current.name,
+                        'params': JSON.stringify($state.params)
+                    })
                 } else {
                     userInfo = user.getUserInfo();
                     $state.go('user', {
@@ -23,7 +26,7 @@ directives.directive('touser', ['$state', 'user', function($state, user) {
         link: function(scope, element, attrs) {
             touch.on(element, 'tap', function() {
                 $state.go('login', {
-                    'current': $state.current.name,
+                    'cur': $state.current.name,
                     'params': JSON.stringify($state.params)
                 });
             })
@@ -36,7 +39,7 @@ directives.directive('touser', ['$state', 'user', function($state, user) {
             touch.on(element, 'tap', function() {
                 if (scope.userForm.$dirty) {
                     user.login(scope.user.mobile, scope.user.password, function() {
-                        $state.go($stateParams.current, JSON.parse($stateParams.params));
+                        $state.go($stateParams.cur, JSON.parse($stateParams.params));
                     });
                 }
             })

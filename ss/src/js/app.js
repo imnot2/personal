@@ -49,14 +49,14 @@ ssApp.config(function($stateProvider, $urlRouterProvider) {
             }
         }
     }).state('login', {
-        url: '/user/login/:current:params',
+        url: '/login/:cur/:params',
         views: {
             '': {
                 templateUrl: 'tpls/login.tpl.html'
             }
         }
     }).state('register', {
-        url: '/user/register:page',
+        url: '/register/:page',
         views: {
             '': {
                 templateUrl: 'tpls/register.tpl.html',
@@ -69,7 +69,7 @@ ssApp.config(function($stateProvider, $urlRouterProvider) {
             }
         }
     }).state('forgetpassword', {
-        url: '/user/forgetpassword:page',
+        url: '/forgetpassword/:page',
         views: {
             '': {
                 templateUrl: 'tpls/forgetPassword.tpl.html',

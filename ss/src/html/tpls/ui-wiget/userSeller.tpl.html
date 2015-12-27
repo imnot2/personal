@@ -5,8 +5,22 @@
         <li ng-class="{active:page == 3}"><i class="fa" ui-sref="user({identity:'Seller',page:3})">&#xe634;</i>商品管理</li>
     </ul>
     <div class="user-tabs-content">
-        <div class="user-tabs-pane"></div>
-        <div class="ui-tabs-pane active">
+        <div class="user-tabs-pane" ng-class="{active:page == 1}">
+            <article class="ui-order-panel" ng-repeat="order in myorder">
+                <div class="ui-order-hd">
+                    <span class="ui-c-gray">{{order.statusText}}</span>
+                    <p class="ui-order-number">订单号<strong>{{order.number}}</strong></p>
+                </div>
+                <div class="ui-order-bd">
+                    <a href="javascript:;">
+                        <span class="ui-img"><img ng-src="{{order.product.srcs[0]}}"></span>
+                        <h3 class="ui-order-title ui-toe">{{order.product.title}}</h3>
+                        <p class="ui-price"><i>&yen;</i>{{order.product.price}}</p>
+                    </a>
+                </div>
+            </article>
+        </div>
+        <div class="user-tabs-pane" ng-class="{active:page == 2}">
             <ul class="ui-store-panel">
                 <li>
                     <input type="text" name="" id="" placeholder="店铺名称(一旦设置将无法修改,请谨慎)">
@@ -32,54 +46,62 @@
                     <li><a href="javascript:;" class="btn btn-primary btn-lgs btn-block">确认设置</a></li>
                 </ul>
             </div>
-        </div>
-    </div>
-    <div class="user-tabs-pane active">
-        <ul class="ui-mini-tabs">
-            <li class="active">在售中</li>
-            <li>已下架</li>
-        </ul>
-        <div class="ui-tabs-content">
-            <div class="ui-mini-tab-panel">
-                <article class="ui-order-panel">
-                    <div class="ui-order-bd">
-                        <a href="javascript:;">
-                            <span class="ui-img"><img src="static/temp/4.jpg"></span>
-                            <h3 class="ui-order-title ui-toe">亿珍阁翡翠 玉石缅甸翡翠手镯 A货玉器 玉镯子 飘花玉手镯亿珍阁翡翠 玉石缅甸翡翠手镯 A货玉器 玉镯子 飘花玉手镯</h3>
-                            <p class="ui-price"><span>一口价</span> <i>&yen;</i>124.00</p>
-                        </a>
-                    </div>
-                    <div class="ui-order-ft">
-                        <ul class="ui-btn-line">
-                            <li><a href="javascript:;" class="btn btn-default btn-lg btn-block">下架</a></li>
-                            <li><a href="javascript:;" class="btn btn-default btn-lg btn-block">删除</a></li>
-                            <li><a href="javascript:;" class="btn btn-default btn-lg btn-block">修改</a></li>
-                        </ul>
-                    </div>
-                </article>
-                <article class="ui-order-panel">
-                    <div class="ui-order-bd">
-                        <a href="javascript:;">
-                            <span class="ui-img"><img src="static/temp/4.jpg"></span>
-                            <h3 class="ui-order-title ui-toe">亿珍阁翡翠 玉石缅甸翡翠手镯 A货玉器 玉镯子 飘花玉手镯亿珍阁翡翠 玉石缅甸翡翠手镯 A货玉器 玉镯子 飘花玉手镯</h3>
-                            <p class="ui-price"><span>当前价</span> <i>&yen;</i>124.00</p>
-                        </a>
-                    </div>
-                    <div class="ui-order-ft">
-                        <ul class="ui-btn-line">
-                            <li><a href="javascript:;" class="btn btn-default btn-lg btn-block disabled">下架</a></li>
-                            <li><a href="javascript:;" class="btn btn-default btn-lg btn-block disabled">删除</a></li>
-                            <li><a href="javascript:;" class="btn btn-default btn-lg btn-block disabled">修改</a></li>
-                        </ul>
-                    </div>
-                </article>
+            <div class="btn-bottom-panel">
+                <ul class="ui-btn-line">
+                    <!-- <li><a href="javascript:;" class="btn btn-primary btn-lg btn-block">全部上架</a></li> -->
+                    <li><a href="javascript:;" class="btn btn-warning btn-lg btn-block">发布商品</a></li>
+                </ul>
             </div>
         </div>
-    </div>
-    <div class="btn-bottom-panel">
-        <ul class="ui-btn-line">
-            <!-- <li><a href="javascript:;" class="btn btn-primary btn-lg btn-block">全部上架</a></li> -->
-            <li><a href="javascript:;" class="btn btn-warning btn-lg btn-block">发布商品</a></li>
-        </ul>
+        <div class="user-tabs-pane" ng-class="{active:page == 3}">
+            <ul class="ui-mini-tabs" isSelling="isSelling" switchProductManager>
+                <li ng-class="{active:isSelling}">在售中</li>
+                <li ng-class="{active:!isSelling}">已下架</li>
+            </ul>
+            <div class="ui-tabs-content">
+                <div class="ui-mini-tab-panel" ng-class="{active:isSelling}">
+                    <article class="ui-order-panel" ng-repeat="product in selling">
+                        <div class="ui-order-bd">
+                            <a href="javascript:;">
+                                <span class="ui-img"><img ng-src="{{product.src}}"></span>
+                                <h3 class="ui-order-title ui-toe">{{product.description}}</h3>
+                                <p class="ui-price"><span>一口价</span> <i>&yen;</i>{{product.curPrice}}</p>
+                            </a>
+                        </div>
+                        <div class="ui-order-ft">
+                            <ul class="ui-btn-line">
+                                <li><a href="javascript:;" class="btn btn-default btn-lg btn-block">下架</a></li>
+                                <li><a href="javascript:;" class="btn btn-default btn-lg btn-block">删除</a></li>
+                                <li><a href="javascript:;" class="btn btn-default btn-lg btn-block">修改</a></li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+                <div class="ui-mini-tab-panel" ng-class="{active:!isSelling}">
+                    <article class="ui-order-panel" ng-repeat="product in selling">
+                        <div class="ui-order-bd">
+                            <a href="javascript:;">
+                                <span class="ui-img"><img ng-src="{{product.src}}"></span>
+                                <h3 class="ui-order-title ui-toe">{{product.description}}</h3>
+                                <p class="ui-price"><span>一口价</span> <i>&yen;</i>{{product.curPrice}}</p>
+                            </a>
+                        </div>
+                        <div class="ui-order-ft">
+                            <ul class="ui-btn-line">
+                                <li><a href="javascript:;" class="btn btn-default btn-lg btn-block">下架</a></li>
+                                <li><a href="javascript:;" class="btn btn-default btn-lg btn-block">删除</a></li>
+                                <li><a href="javascript:;" class="btn btn-default btn-lg btn-block">修改</a></li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <div class="btn-bottom-panel">
+                <ul class="ui-btn-line">
+                    <li><a href="javascript:;" class="btn btn-primary btn-lg btn-block">全部上架</a></li>
+                    <li><a href="javascript:;" class="btn btn-warning btn-lg btn-block">发布商品</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
 </section>

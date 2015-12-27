@@ -8,41 +8,50 @@ ctrls.controller('indexCtrl', [
     'user',
     function($scope, $http, $state, $stateParams, $rootScope, productsService, user) {
         var token = user.getToken();
-        if(token){
+        if (token) {
             $scope.userInfo = user.getUserInfo();
             $scope.isLogin = true;
-        }else{
+        } else {
             $scope.isLogin = false;
-        } 
+        }
         $scope.wrapClass = 'page-home';
 
         $scope.type = parseInt($stateParams.type);
-        
-        $scope.products = {};
-
-        //进行中
-        $scope.$on('processing.viewlist.update', function() {
-            $scope.products.processing = productsService.products.processing;
-            if ($scope.$root.$$phase != '$apply' && $scope.$root.$$phase != '$digest') {
-                $scope.$digest();
-            }
-        });
-
-        //即将开始
-        $scope.$on('willBegin.viewlist.update', function() {
-            $scope.products.willBegin = productsService.products.willBegin;
-            if ($scope.$root.$$phase != '$apply' && $scope.$root.$$phase != '$digest') {
-                $scope.$digest();
-            }
-        });
 
         //关注中
-        $scope.$on('interest.viewlist.update', function() {
-            $scope.products.interest = productsService.products.interest;
+        if ($scope.type == 3 && token) {
+            productsService.getProducts({
+                type: 'interest',
+                isFirst: true
+            });
+        };
+
+        //进行中
+        if ($scope.type == 1) {
+            productsService.getProducts({
+                type: 'processing',
+                isFirst: true
+            });
+        };
+        
+        //即将开始
+        if ($scope.type == 2) {
+            productsService.getProducts({
+                type: 'willBegin',
+                isFirst: true
+            });
+        };
+
+
+
+
+        $scope.$on('showData.update', function() {
+            $scope.products = productsService.products;
             if ($scope.$root.$$phase != '$apply' && $scope.$root.$$phase != '$digest') {
                 $scope.$digest();
             }
-        });        
+        });
+
 
         $scope.dynamicCount = 9;
     }

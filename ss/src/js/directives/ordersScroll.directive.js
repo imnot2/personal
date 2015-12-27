@@ -1,20 +1,19 @@
-directives.directive('productsscroll', [
+directives.directive('ordersscroll', [
     '$rootScope',
     '$state',
     '$stateParams',
-    'productsService',
+    'orderService',
     'utils',
-    function($rootScope, $state, $stateParams, productsService, utils) {
+    function($rootScope, $state, $stateParams, orderService, utils) {
         return {
             restrict: 'AE',
             link: function(scope, element, attrs) {
                 var pageHash = {
-                        '1': 'processing',
-                        '2': 'willBegin',
-                        '3': 'interest'
+                        '1': 'myorder',
+                        '2': 'auctionorder'
                     },
                     page = pageHash[$stateParams.type],
-                    products = productsService.products[page],
+                    orders = orderService.orders[page],
                     point = 0,
                     showSize = 8,
                     oldTop = 0, // 滚动时不停刷新这个值，用来判断滚动条是否停下来;
@@ -63,10 +62,10 @@ directives.directive('productsscroll', [
                     if (point < 0) {
                         point = 0;
                     }
-                    if (point + showSize > products.srcData.length) {
-                        point = products.srcData.length - showSize;
+                    if (point + showSize > orders.srcData.length) {
+                        point = orders.srcData.length - showSize;
                     }
-                    products.showData = products.srcData.slice(point, point + showSize);
+                    orders.showData = orders.srcData.slice(point, point + showSize);
                     $rootScope.$broadcast('showData.update');
                 }
 
@@ -111,11 +110,11 @@ directives.directive('productsscroll', [
                         node.scrollTop(needScrollTop);
                     }
 
-                    if (point !== products.srcData.length - showSize) {
+                    if (point !== orders.srcData.length - showSize) {
                         bindScroll(node);
                     } else {
-                        //并通知productsService 需要向后端拉数据了。
-                        productsService.getProducts({
+                        //并通知orderService 需要向后端拉数据了。
+                        orderService.getOrders({
                             type: page
                         });
                     }
@@ -125,7 +124,7 @@ directives.directive('productsscroll', [
                     paneWrap = $(element).find('.ui-tabs-content');
                     paneNode = paneWrap.find('.ui-tabs-pane.active');
 
-                    products = productsService.products[page];
+                    orders = orderService.orders[page];
 
                     updateShowData();
 

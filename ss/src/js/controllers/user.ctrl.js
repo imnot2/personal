@@ -11,6 +11,12 @@ ctrls.controller('userCtrl', [
         $scope.page = parseInt($stateParams.page);
         $scope.showorderTips = true;
         $scope.userInfo = user.getUserInfo();
+        if (!user.getToken()) {
+            $state.go('login', {
+                'cur': $state.current.name,
+                'params': JSON.stringify($state.params)
+            });
+        }
     }
 ]).controller('userBuyerCtrl', [
     '$scope',
@@ -18,34 +24,28 @@ ctrls.controller('userCtrl', [
     '$stateParams',
     'orderService',
     function($scope, $state, $stateParams, orderService) {
-        $scope.wrapClass = 'page-home page-buyer';
-        $scope.page = parseInt($stateParams.page);
-        $scope.showorderTips = true;
 
-        //进行中
-        $scope.$on('myorder.viewlist.update', function() {
-            $scope.myorder = orderService.orders.myorder.showData;
-            if ($scope.$root.$$phase != '$apply' && $scope.$root.$$phase != '$digest') {
-                $scope.$digest();
+        orderService.getOrders({
+            type: 'myorder',
+            isFirst: true,
+            successFn: function() {
+                $scope.myorder = orderService.orders.myorder.srcData;
+                if ($scope.$root.$$phase != '$apply' && $scope.$root.$$phase != '$digest') {
+                    $scope.$digest();
+                }
             }
         });
 
-
-        // orderService.getOrders('myorder');
-        // $scope.$on('myorder.update', function() {
-        //     $scope.myorder = orderService.myorder;
-        //     if ($scope.$root.$$phase != '$apply' && $scope.$root.$$phase != '$digest') {
-        //         $scope.$digest();
-        //     }
-        // });
-
-        // orderService.getOrders('auctionorder');
-        // $scope.$on('auctionorder.update', function() {
-        //     $scope.auctionorder = orderService.auctionorder;
-        //     if ($scope.$root.$$phase != '$apply' && $scope.$root.$$phase != '$digest') {
-        //         $scope.$digest();
-        //     }
-        // });
+        orderService.getOrders({
+            type: 'auctionorder',
+            isFirst: true,
+            successFn: function() {
+                $scope.auctionorder = orderService.orders.auctionorder.srcData;
+                if ($scope.$root.$$phase != '$apply' && $scope.$root.$$phase != '$digest') {
+                    $scope.$digest();
+                }
+            }
+        });
     }
 ]).controller('userSellerCtrl', [
     '$scope',
@@ -56,8 +56,7 @@ ctrls.controller('userCtrl', [
     'user',
     'utils',
     function($scope, $http, $state, $stateParams, $rootScope, user, utils) {
-        $scope.wrapClass = 'page-home page-seller';
-        $scope.page = parseInt($stateParams.page);
+        $scope.isSelling = true;
     }
 ]).controller('registerCtrl', [
     '$scope',

@@ -1,8 +1,8 @@
 <section class="ui-container">
-    <ul class="user-tabs ui-user-navbar-nav">
-        <li ng-class="{active:page == 1}" ui-sref="user({identity:'Seller',page:1})"><i class="fa">&#xe60c;</i>我的订单</li>
-        <li ng-class="{active:page == 2}"><i class="fa" ui-sref="user({identity:'Seller',page:2})">&#xe633;</i>店铺设置</li>
-        <li ng-class="{active:page == 3}"><i class="fa" ui-sref="user({identity:'Seller',page:3})">&#xe634;</i>商品管理</li>
+    <ul class="user-tabs ui-user-navbar-nav" ng-init="page = 1" hookvar="page" switch>
+        <li ng-class="{active:page == 1}"><i class="fa">&#xe60c;</i>我的订单</li>
+        <li ng-class="{active:page == 2}"><i class="fa">&#xe633;</i>店铺设置</li>
+        <li ng-class="{active:page == 3}"><i class="fa">&#xe634;</i>商品管理</li>
     </ul>
     <div class="user-tabs-content">
         <div class="user-tabs-pane" ng-class="{active:page == 1}">
@@ -54,12 +54,12 @@
             </div>
         </div>
         <div class="user-tabs-pane" ng-class="{active:page == 3}">
-            <ul class="ui-mini-tabs" isSelling="isSelling" switchProductManager>
-                <li ng-class="{active:isSelling}">在售中</li>
-                <li ng-class="{active:!isSelling}">已下架</li>
+            <ul class="ui-mini-tabs" ng-init="inpage = 1" hookvar="inpage" switch>
+                <li ng-class="{active:inpage == 1}">在售中</li>
+                <li ng-class="{active:inpage == 2}">已下架</li>
             </ul>
-            <div class="ui-tabs-content">
-                <div class="ui-mini-tab-panel" ng-class="{active:isSelling}">
+            <div class="user-tabs-content">
+                <div class="ui-mini-tab-panel" ng-class="{active:inpage == 1}">
                     <article class="ui-order-panel" ng-repeat="product in selling">
                         <div class="ui-order-bd">
                             <a href="javascript:;">
@@ -77,7 +77,7 @@
                         </div>
                     </article>
                 </div>
-                <div class="ui-mini-tab-panel" ng-class="{active:!isSelling}">
+                <div class="ui-mini-tab-panel" ng-class="{active:inpage == 2}">
                     <article class="ui-order-panel" ng-repeat="product in selling">
                         <div class="ui-order-bd">
                             <a href="javascript:;">

@@ -33,7 +33,7 @@ ctrls.controller('indexCtrl', [
                 isFirst: true
             });
         };
-        
+
         //即将开始
         if ($scope.type == 2) {
             productsService.getProducts({
@@ -41,9 +41,6 @@ ctrls.controller('indexCtrl', [
                 isFirst: true
             });
         };
-
-
-
 
         $scope.$on('showData.update', function() {
             $scope.products = productsService.products;

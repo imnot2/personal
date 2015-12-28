@@ -12,12 +12,12 @@
         <li class="active">买家模式<i class="fa">&#xe610;</i></li>
         <li>卖家模式<i class="fa">&#xe610;</i></li>
     </ul>
-    <ul class="set-tabs ui-user-navbar-nav">
-        <li class="active"><i class="fa">&#xe61f;</i>修改用户信息</li>
-        <li><i class="fa">&#xe620;</i>修改密码</li>
+    <ul class="set-tabs ui-user-navbar-nav" ng-init="page = 1" hookvar="page" switch>
+        <li ng-class="{active:page == 1}"><i class="fa">&#xe61f;</i>修改用户信息</li>
+        <li ng-class="{active:page == 2}"><i class="fa">&#xe620;</i>修改密码</li>
     </ul>
     <div class="set-tabs-content">
-        <div class="set-tabs-pane active">
+        <div class="set-tabs-pane" ng-class="{active:page == 1}">
             <div class="ui-form-action">
                 <div class="ui-form ui-form-icon">
                     <form action="" id="form-action">
@@ -42,7 +42,7 @@
                 </div>
             </div>
         </div>
-        <div class="set-tabs-pane active">
+        <div class="set-tabs-pane" ng-class="{active:page == 2}">
             <div class="ui-form-action">
                 <div class="ui-form ui-form-icon">
                     <form action="" id="form-action">

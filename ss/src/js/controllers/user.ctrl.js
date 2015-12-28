@@ -56,7 +56,7 @@ ctrls.controller('userCtrl', [
     'user',
     'utils',
     function($scope, $http, $state, $stateParams, $rootScope, user, utils) {
-        $scope.isSelling = true;
+        $scope.isSelling = true;          
     }
 ]).controller('registerCtrl', [
     '$scope',

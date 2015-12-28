@@ -14,9 +14,9 @@ ssApp.run(function($rootScope, $state, $stateParams) {
     $rootScope.$stateParams = $stateParams;
 });
 ssApp.config(function($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/index/1');
+    $urlRouterProvider.otherwise('/index');
     $stateProvider.state('index', {
-        url: '/index/{type:[1-3]{1}}',
+        url: '/index',
         views: {
             '': {
                 //template: '这里是第一列的内容',
@@ -33,7 +33,7 @@ ssApp.config(function($stateProvider, $urlRouterProvider) {
             // }
         }
     }).state('user', {
-        url: '/user/:identity/:page',
+        url: '/user/:identity',
         views: {
             '': {
                 templateUrl: 'tpls/user.tpl.html',

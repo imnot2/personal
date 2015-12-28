@@ -1,7 +1,7 @@
 <section class="ui-container">
-    <ul class="user-tabs ui-user-navbar-nav">
-        <li ng-class="{active:page == 1}" ui-sref="user({identity:'Buyer',page:1})"><i class="fa">&#xe60c;</i>我的订单</li>
-        <li ng-class="{active:page == 2}" ui-sref="user({identity:'Buyer',page:2})"><i class="fa">&#xe622;</i>拍卖中</li>
+    <ul class="user-tabs ui-user-navbar-nav" ng-init="page = 1" hookvar="page" switch>
+        <li ng-class="{active:page == 1}"><i class="fa">&#xe60c;</i>我的订单</li>
+        <li ng-class="{active:page == 2}"><i class="fa">&#xe622;</i>拍卖中</li>
     </ul>
     <div class="user-tabs-content" productsScroll>
         <p class="ui-line-tips" ng-show="{{showorderTips}}"><span>目前您还未下单，赶紧去下单吧</span></p>

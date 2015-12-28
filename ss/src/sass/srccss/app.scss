@@ -2281,6 +2281,10 @@ end user-tabs
 
 .set-tabs-pane {
     padding-top: pxtorem(15px);
+    display: none;
+    &.active{
+        display: block;
+    }
 }
 
 .set-tabs-content .set-tabs-pane:nth-child(2) {

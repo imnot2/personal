@@ -7,10 +7,10 @@
         <a class="icons-user" toUser><span class="badge" ng-bind="dynamicCount"></span><i class="fa">&#xe61f;</i></a>
     </span>
 </header>
-<ul class="ui-tabs ui-navbar-nav">
-    <li ui-sref="index({type:1})" ng-class="{active:type!=2&&type!=3}">进行中</li>
-    <li ui-sref="index({type:2})" ng-class="{active:type==2}">即将开始</li>
-    <li ui-sref="index({type:3})" ng-class="{active:type==3}">关注中</li>
+<ul class="ui-tabs ui-navbar-nav" ng-init="type = 1" hookvar="type" switch>
+    <li ng-class="{active:type!=2&&type!=3}">进行中</li>
+    <li ng-class="{active:type==2}">即将开始</li>
+    <li ng-class="{active:type==3}">关注中</li>
 </ul>
 <section class="ui-container" productsScroll>
     <div class="ui-tabs-content">

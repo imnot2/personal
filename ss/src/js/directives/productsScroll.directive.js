@@ -8,13 +8,8 @@ directives.directive('productsscroll', [
         return {
             restrict: 'AE',
             link: function(scope, element, attrs) {
-                var pageHash = {
-                        '1': 'processing',
-                        '2': 'willBegin',
-                        '3': 'interest'
-                    },
-                    page = pageHash[$stateParams.type],
-                    products = productsService.products[page],
+                var page,
+                    products,
                     point = 0,
                     showSize = 8,
                     oldTop = 0, // 滚动时不停刷新这个值，用来判断滚动条是否停下来;
@@ -24,13 +19,11 @@ directives.directive('productsscroll', [
                     interval = null; // 定时器  
 
                 function bindScroll(node) {
-                    unbindScroll(node);
                     node.on('scroll', scrollEvt);
                 }
 
                 function unbindScroll(node) {
-                    node.off('scroll', scrollEvt);
-                    referTop = node.scrollTop();
+                    node.off('scroll', scrollEvt);                    
                 }
 
                 function scrollEvt() {
@@ -38,6 +31,7 @@ directives.directive('productsscroll', [
                         direction = 'up'; //向上滑动。
 
                     if (interval == null) {
+                        referTop = node.scrollTop();
                         interval = setInterval(function() {
 
                             //跟上一次滚动的距离做比较得出方向。
@@ -71,7 +65,8 @@ directives.directive('productsscroll', [
                 }
 
                 function whenStop(node, direction) {
-                    var itemHeight = node.children('article').height() + 20; //358; //一个商品dom的高度。
+                    var children = node.children('article');
+                    var itemHeight = children.height() + parseInt(children.css('marginBottom')) + parseInt(children.css('marginTop')); //358; //一个商品dom的高度。
                     var scrollTop = node.scrollTop();
                     var scrollBottom;
                     var scale;
@@ -121,15 +116,29 @@ directives.directive('productsscroll', [
                     }
                 }
 
-                scope.$on(page + '.update', function() {
+                function whenUpdate(page) {
                     paneWrap = $(element).find('.ui-tabs-content');
                     paneNode = paneWrap.find('.ui-tabs-pane.active');
 
+                    page = page;
                     products = productsService.products[page];
 
+                    unbindScroll(paneNode);
+                    paneNode.scrollTop(0);
+
+                    point = 0;
                     updateShowData();
 
                     bindScroll(paneNode);
+                }
+                scope.$on('processing.update', function() {
+                    whenUpdate('processing');
+                });
+                scope.$on('willBegin.update', function() {
+                    whenUpdate('willBegin');
+                });
+                scope.$on('interest.update', function() {
+                    whenUpdate('interest');
                 });
             }
         }

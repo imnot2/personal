@@ -16,31 +16,30 @@ ctrls.controller('indexCtrl', [
         }
         $scope.wrapClass = 'page-home';
 
-        $scope.type = parseInt($stateParams.type);
-
-        //关注中
-        if ($scope.type == 3 && token) {
-            productsService.getProducts({
-                type: 'interest',
-                isFirst: true
-            });
-        };
-
-        //进行中
-        if ($scope.type == 1) {
-            productsService.getProducts({
-                type: 'processing',
-                isFirst: true
-            });
-        };
-
-        //即将开始
-        if ($scope.type == 2) {
-            productsService.getProducts({
-                type: 'willBegin',
-                isFirst: true
-            });
-        };
+        $scope.$watch('type', function(newVal, oldVal) {
+            switch (newVal) {
+                case 1:
+                    productsService.getProducts({
+                        type: 'processing',
+                        isFirst: true
+                    });
+                    break;
+                case 2:
+                    productsService.getProducts({
+                        type: 'willBegin',
+                        isFirst: true
+                    });
+                    break;
+                case 3:
+                    if (token) {
+                        productsService.getProducts({
+                            type: 'interest',
+                            isFirst: true
+                        });
+                    }
+                    break;
+            }
+        });
 
         $scope.$on('showData.update', function() {
             $scope.products = productsService.products;

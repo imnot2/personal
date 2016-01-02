@@ -110,5 +110,21 @@ ssApp.config(function($stateProvider, $urlRouterProvider) {
                 }
             },
         }
+    }).state('contribute', {
+        url: '/contribute',
+        views: {
+            '': {
+                templateUrl: 'tpls/contribute.tpl.html',
+                controller: 'contributeCtrl'
+            }
+        }
+    }).state('collect', {
+        url: '/collect',
+        views: {
+            '': {
+                templateUrl: 'tpls/collect.tpl.html',
+                controller: 'collectCtrl'
+            }
+        }
     })
 });

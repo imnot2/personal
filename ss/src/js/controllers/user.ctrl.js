@@ -95,4 +95,27 @@ ctrls.controller('userCtrl', [
     'user',
     'utils',
     function($scope, $http, $state, $stateParams, $rootScope, user, utils) {}
+]).controller('contributeCtrl', [
+    '$scope',
+    '$http',
+    '$state',
+    '$stateParams',
+    '$rootScope',
+    'user',
+    'utils',
+    function($scope, $http, $state, $stateParams, $rootScope, user, utils) {
+        $scope.wrapClass = 'page-contribute';
+    }
+]).controller('collectCtrl', [
+    '$scope',
+    '$http',
+    '$state',
+    '$stateParams',
+    '$rootScope',
+    'user',
+    'utils',
+    function($scope, $http, $state, $stateParams, $rootScope, user, utils) {
+        $scope.wrapClass = 'page-collect';
+    }
 ])
+

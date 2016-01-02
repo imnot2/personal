@@ -126,5 +126,13 @@ ssApp.config(function($stateProvider, $urlRouterProvider) {
                 controller: 'collectCtrl'
             }
         }
+    }).state('contact', {
+        url: '/contact',
+        views: {
+            '': {
+                templateUrl: 'tpls/contact.tpl.html',
+                controller: 'contactCtrl'
+            }
+        }
     })
 });

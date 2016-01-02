@@ -240,4 +240,31 @@ directives.directive('touser', ['$state', 'user', function($state, user) {
             })
         }
     }
+}]).directive('collect', ['$state', function($state) {
+    return {
+        restrict: 'AE',        
+        link: function(scope, element, attrs) {
+            touch.on(element, 'tap', function() {
+                $state.go('collect');
+            })
+        }
+    }
+}]).directive('cantact', ['$state', function($state) {
+    return {
+        restrict: 'AE',        
+        link: function(scope, element, attrs) {
+            touch.on(element, 'tap', function() {
+                $state.go('cantact');
+            })
+        }
+    }
+}]).directive('contribute', ['$state', function($state) {
+    return {
+        restrict: 'AE',        
+        link: function(scope, element, attrs) {
+            touch.on(element, 'tap', function() {
+                $state.go('contribute');
+            })
+        }
+    }
 }])

@@ -249,12 +249,12 @@ directives.directive('touser', ['$state', 'user', function($state, user) {
             })
         }
     }
-}]).directive('cantact', ['$state', function($state) {
+}]).directive('contact', ['$state', function($state) {
     return {
         restrict: 'AE',        
         link: function(scope, element, attrs) {
             touch.on(element, 'tap', function() {
-                $state.go('cantact');
+                $state.go('contact');
             })
         }
     }

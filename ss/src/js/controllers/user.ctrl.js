@@ -1,30 +1,16 @@
 ctrls.controller('userCtrl', [
     '$scope',
-    '$http',
-    '$state',
     '$stateParams',
-    '$rootScope',
-    'user',
-    'utils',
-    function($scope, $http, $state, $stateParams, $rootScope, user, utils) {
+    'loginRedirect',
+    function($scope, $stateParams, loginRedirect) {
         $scope.wrapClass = 'page-home page-buyer';
         $scope.page = parseInt($stateParams.page);
         $scope.showorderTips = true;
-        $scope.userInfo = user.getUserInfo();
-        if (!user.getToken()) {
-            $state.go('login', {
-                'cur': $state.current.name,
-                'params': JSON.stringify($state.params)
-            });
-        }
     }
 ]).controller('userBuyerCtrl', [
     '$scope',
-    '$state',
-    '$stateParams',
     'orderService',
-    function($scope, $state, $stateParams, orderService) {
-
+    function($scope, orderService) {
         orderService.getOrders({
             type: 'myorder',
             isFirst: true,
@@ -56,7 +42,7 @@ ctrls.controller('userCtrl', [
     'user',
     'utils',
     function($scope, $http, $state, $stateParams, $rootScope, user, utils) {
-        $scope.isSelling = true;          
+        $scope.isSelling = true;
     }
 ]).controller('registerCtrl', [
     '$scope',
@@ -77,24 +63,19 @@ ctrls.controller('userCtrl', [
     }
 ]).controller('forgetpasswordCtrl', [
     '$scope',
-    '$http',
-    '$state',
-    '$stateParams',
-    '$rootScope',
-    'user',
-    'utils',
-    function($scope, $http, $state, $stateParams, $rootScope, user, utils) {
+    function($scope) {
         $scope.wrapClass = 'forgetpassword';
     }
 ]).controller('settingCtrl', [
     '$scope',
-    '$http',
-    '$state',
-    '$stateParams',
-    '$rootScope',
-    'user',
-    'utils',
-    function($scope, $http, $state, $stateParams, $rootScope, user, utils) {}
+    'getToken',
+    function($scope, getToken) {
+        if (getToken) {
+            alert(1);
+        } else {
+            alert(2);
+        }
+    }
 ]).controller('contributeCtrl', [
     '$scope',
     function($scope) {
@@ -111,4 +92,3 @@ ctrls.controller('userCtrl', [
         $scope.wrapClass = 'page-contact';
     }
 ])
-

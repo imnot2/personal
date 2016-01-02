@@ -37,7 +37,14 @@ ssApp.config(function($stateProvider, $urlRouterProvider) {
         views: {
             '': {
                 templateUrl: 'tpls/user.tpl.html',
-                controller: 'userCtrl'
+                controller: 'userCtrl',
+                resolve: {
+                    loginRedirect: function(user) {
+                        return user.loginRedirect({
+                            state: 'user'
+                        });
+                    }
+                }
             },
             'content@user': {
                 templateUrl: function($stateParams) {
@@ -82,13 +89,14 @@ ssApp.config(function($stateProvider, $urlRouterProvider) {
             }
         }
     }).state('setting', {
-        url: '/user/setting',
+        url: '/setting',
         views: {
             '': {
                 templateUrl: 'tpls/setting.tpl.html',
                 controller: 'settingCtrl'
             }
-        }
+        },
+
     }).state('detail', {
         url: '/detail/:id',
         views: {

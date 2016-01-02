@@ -36,10 +36,17 @@ directives.directive('touser', ['$state', 'user', function($state, user) {
     return {
         restrict: 'AE',
         link: function(scope, element, attrs) {
+            var cur = $stateParams.cur;
+            var params = $stateParams.params;
             touch.on(element, 'tap', function() {
                 if (scope.userForm.$dirty) {
-                    user.login(scope.user.mobile, scope.user.password, function() {
-                        $state.go($stateParams.cur, JSON.parse($stateParams.params));
+                    user.login(scope.user.mobile, scope.user.password, function(userinfo) {
+                        if (cur === 'user') {
+                            params = JSON.stringify({
+                                identity: userinfo.identity
+                            });
+                        }
+                        $state.go(cur, JSON.parse(params));
                     });
                 }
             })
@@ -242,7 +249,7 @@ directives.directive('touser', ['$state', 'user', function($state, user) {
     }
 }]).directive('collect', ['$state', function($state) {
     return {
-        restrict: 'AE',        
+        restrict: 'AE',
         link: function(scope, element, attrs) {
             touch.on(element, 'tap', function() {
                 $state.go('collect');
@@ -251,7 +258,7 @@ directives.directive('touser', ['$state', 'user', function($state, user) {
     }
 }]).directive('contact', ['$state', function($state) {
     return {
-        restrict: 'AE',        
+        restrict: 'AE',
         link: function(scope, element, attrs) {
             touch.on(element, 'tap', function() {
                 $state.go('contact');
@@ -260,7 +267,7 @@ directives.directive('touser', ['$state', 'user', function($state, user) {
     }
 }]).directive('contribute', ['$state', function($state) {
     return {
-        restrict: 'AE',        
+        restrict: 'AE',
         link: function(scope, element, attrs) {
             touch.on(element, 'tap', function() {
                 $state.go('contribute');

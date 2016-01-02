@@ -1,4 +1,5 @@
-services.service('user', ['$http', '$rootScope', 'utils', function($http, $rootScope, utilsService) {
+services.service('user', ['$http', '$rootScope', '$state', '$q', 'utils', function($http, $rootScope, $state, $q, utilsService) {
+    console.log("userservice");
     var res = {
         userInfo: {
             id: '28765544',
@@ -31,7 +32,7 @@ services.service('user', ['$http', '$rootScope', 'utils', function($http, $rootS
             content: res.msg
         }
         $rootScope.$apply();
-        callback && callback(res);
+        callback && callback(res.userInfo);
         //})
     };
     this.saveUserInfo = function(userInfo) {
@@ -81,4 +82,15 @@ services.service('user', ['$http', '$rootScope', 'utils', function($http, $rootS
             this.redirect('/');
         }
     };
+    this.loginRedirect = function(redirectObj) {
+        var deferred = $q.defer();
+        if (this.getToken()) {
+            return deferred.resolve();
+        } else {
+            $state.go('login', {
+                'cur': redirectObj.state,
+                'params': JSON.stringify(redirectObj.params)
+            });
+        }
+    }
 }])

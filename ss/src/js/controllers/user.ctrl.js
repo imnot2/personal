@@ -68,13 +68,7 @@ ctrls.controller('userCtrl', [
     }
 ]).controller('settingCtrl', [
     '$scope',
-    'getToken',
-    function($scope, getToken) {
-        if (getToken) {
-            alert(1);
-        } else {
-            alert(2);
-        }
+    function($scope) {
     }
 ]).controller('contributeCtrl', [
     '$scope',

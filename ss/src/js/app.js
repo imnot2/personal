@@ -93,7 +93,14 @@ ssApp.config(function($stateProvider, $urlRouterProvider) {
         views: {
             '': {
                 templateUrl: 'tpls/setting.tpl.html',
-                controller: 'settingCtrl'
+                controller: 'settingCtrl',
+                resolve: {
+                    loginRedirect: function(user) {
+                        return user.loginRedirect({
+                            state: 'setting'
+                        });
+                    }
+                }
             }
         },
 

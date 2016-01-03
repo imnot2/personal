@@ -35,24 +35,12 @@ ctrls.controller('userCtrl', [
     }
 ]).controller('userSellerCtrl', [
     '$scope',
-    '$http',
-    '$state',
-    '$stateParams',
-    '$rootScope',
-    'user',
-    'utils',
-    function($scope, $http, $state, $stateParams, $rootScope, user, utils) {
+    function($scope) {
         $scope.isSelling = true;
     }
 ]).controller('registerCtrl', [
     '$scope',
-    '$http',
-    '$state',
-    '$stateParams',
-    '$rootScope',
-    'user',
-    'utils',
-    function($scope, $http, $state, $stateParams, $rootScope, user, utils) {
+    function($scope) {
         $scope.wrapClass = "rigister";
         $scope.toParent = function(obj) {
             $scope[obj.displayName] = obj;
@@ -69,6 +57,7 @@ ctrls.controller('userCtrl', [
 ]).controller('settingCtrl', [
     '$scope',
     function($scope) {
+        $scope.wrapClass = 'page-setting';
     }
 ]).controller('contributeCtrl', [
     '$scope',

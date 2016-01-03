@@ -17,5 +17,14 @@ services.service('utils', [
                 return fn.apply(scope || fn, args);
             };
         }
+        this.parseUrl = function(hash,keyArr){
+            var hashArr = hash || window.location.hash.substring(2).split('/');
+            var i;
+            var parseObj = {};
+            for(i = 0; i< keyArr.length; i++){
+                parseObj[keyArr[i]] = hashArr[i] || '';
+            }
+            return parseObj;
+        }
     }
 ])

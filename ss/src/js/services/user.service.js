@@ -1,5 +1,5 @@
 services.service('user', ['$http', '$rootScope', '$state', '$timeout', '$location', '$q', 'utils', function($http, $rootScope, $state, $timeout, $location, $q, utils) {
-    console.log("userservice");    
+    console.log("userservice");
     var res = {
         userInfo: {
             id: '28765544',
@@ -86,30 +86,18 @@ services.service('user', ['$http', '$rootScope', '$state', '$timeout', '$locatio
         var redirectArr = redirectArr || [];
         var deferred = $q.defer();
         var me = this;
-        //$timeout(function() {
-        $rootScope.$on('$locationChangeSuccess', function() {
-            debugger;
-            console.log(arguments);
-            var newUrl = $location.$$absUrl;
-            var hash = newUrl.match(/#\/(.*)+$/)[1].split('/');
-            var parseUrlObj = utils.parseUrl(hash.splice(1), redirectArr);
-            var loginOption = {
-                'cur': hash[0]
-            };
-            if (redirectArr.length) {
-                loginOption.params = JSON.stringify(parseUrlObj)
-            }
-            if (me.getToken()) {
-                deferred.resolve("Allo!");
-            } else {
-                $state.go('login', loginOption);
-            }
-        });
-        //}, 3000);
-
-        // $timeout(function() {
-        //     deferred.resolve("Allo!");
-        // }, 2000);
+        var state = me.stateChange;        
+        var loginOption = {
+            'cur': state[1].name
+        };
+        if (redirectArr.length) {
+            loginOption.params = JSON.stringify(state[2])
+        }
+        if (me.getToken()) {
+            deferred.resolve();
+        } else {
+            $state.go('login', loginOption);
+        }
         return deferred.promise;
     }
 }])

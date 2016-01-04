@@ -11,9 +11,12 @@ var directives = angular.module('directives', []);
 
 
 
-ssApp.run(['$rootScope', '$state', '$stateParams', function($rootScope, $state, $stateParams) {
+ssApp.run(['$rootScope', '$state', '$stateParams', '$location', 'user', function($rootScope, $state, $stateParams, $location, user) {
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
+    $rootScope.$on('$stateChangeStart', function(ev) {
+        user.stateChange = arguments;
+    });
 }]);
 ssApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/index');

@@ -9,11 +9,13 @@ var ctrls = angular.module('controllers', []);
 var services = angular.module('services', []);
 var directives = angular.module('directives', []);
 
-ssApp.run(function($rootScope, $state, $stateParams) {
+
+
+ssApp.run(['$rootScope', '$state', '$stateParams', function($rootScope, $state, $stateParams) {
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
-});
-ssApp.config(function($stateProvider, $urlRouterProvider) {
+}]);
+ssApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/index');
     $stateProvider.state('index', {
         url: '/index',
@@ -40,9 +42,7 @@ ssApp.config(function($stateProvider, $urlRouterProvider) {
                 controller: 'userCtrl',
                 resolve: {
                     loginRedirect: function(user) {
-                        return user.loginRedirect({
-                            state: 'user'
-                        });
+                        return user.loginRedirect(['identity', 'page']);
                     }
                 }
             },
@@ -96,9 +96,7 @@ ssApp.config(function($stateProvider, $urlRouterProvider) {
                 controller: 'settingCtrl',
                 resolve: {
                     loginRedirect: function(user) {
-                        return user.loginRedirect({
-                            state: 'setting'
-                        });
+                        return user.loginRedirect();
                     }
                 }
             }
@@ -117,7 +115,12 @@ ssApp.config(function($stateProvider, $urlRouterProvider) {
         views: {
             '': {
                 templateUrl: 'tpls/paydeposit.tpl.html',
-                controller: 'paydepositCtrl'
+                controller: 'paydepositCtrl',
+                resolve: {
+                    loginRedirect: function(user) {
+                        return user.loginRedirect(['type', 'id']);
+                    }
+                }
             },
             'content@paydeposit': {
                 templateUrl: function($stateParams) {
@@ -150,4 +153,4 @@ ssApp.config(function($stateProvider, $urlRouterProvider) {
             }
         }
     })
-});
+}]);

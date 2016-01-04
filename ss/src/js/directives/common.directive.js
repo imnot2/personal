@@ -5,18 +5,23 @@ directives.directive('touser', ['$state', 'user', function($state, user) {
             var token = user.getToken();
             var userInfo;
             touch.on(element, 'tap', function() {
-                if (!token) {
-                    $state.go('login', {
-                        'cur': $state.current.name,
-                        'params': JSON.stringify($state.params)
-                    })
-                } else {
-                    userInfo = user.getUserInfo();
-                    $state.go('user', {
-                        'identity': userInfo.identity,
-                        'page': 1
-                    })
-                }
+                // if (!token) {
+                //     $state.go('login', {
+                //         'cur': $state.current.name,
+                //         'params': JSON.stringify($state.params)
+                //     })
+                // } else {
+                //     userInfo = user.getUserInfo();
+                //     $state.go('user', {
+                //         'identity': userInfo.identity,
+                //         'page': 1
+                //     })
+                // }
+                userInfo = user.getUserInfo();
+                $state.go('user', {
+                    'identity': userInfo.identity,
+                    'page': 1
+                })
             })
         }
     }

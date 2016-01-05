@@ -46,7 +46,7 @@ services.service('user', ['$http', '$rootScope', '$state', '$timeout', '$locatio
         });
     };
     this.getUserInfo = function() {
-        var userinfo = $.cookie('UState');
+        var userinfo = $.cookie('UState') || {};
         return typeof userinfo === 'string' ? JSON.parse(userinfo) : userinfo;
     };
     this.getToken = function() {

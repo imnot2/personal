@@ -279,4 +279,23 @@ directives.directive('touser', ['$state', 'user', function($state, user) {
             })
         }
     }
+}]).directive('uploadimg', ['$state', function($state) {
+    return {
+        restrict: 'AE',
+        link: function(scope, element, attrs) {
+            $(element).on('change', function() {
+                var file = element[0].files[0];
+                var fileSize;
+                console.log(file);
+                if (file) {
+                    fileSize = 0;
+                    if (file.size > 1024 * 1024){
+                        fileSize = (Math.round(file.size * 100 / (1024 * 1024)) / 100).toString() + 'MB';
+                    }else{
+                        fileSize = (Math.round(file.size * 100 / 1024) / 100).toString() + 'KB';
+                    }                    
+                }
+            })
+        }
+    }
 }])

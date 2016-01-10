@@ -8,9 +8,9 @@
       </span>
 </header>
 <section class="ui-container">
-    <ul class="ui-btn-line ui-tab-lg">
-        <li class="active">买家模式<i class="fa">&#xe610;</i></li>
-        <li>卖家模式<i class="fa">&#xe610;</i></li>
+    <ul class="ui-btn-line ui-tab-lg" ng-init="identityModel = 1" hookvar="identityModel" switch>
+        <li ng-class="{active:identityModel == 1}">买家模式<i class="fa">&#xe610;</i></li>
+        <li ng-class="{active:identityModel == 2}">卖家模式<i class="fa">&#xe610;</i></li>
     </ul>
     <ul class="set-tabs ui-user-navbar-nav" ng-init="page = 1" hookvar="page" switch>
         <li ng-class="{active:page == 1}"><i class="fa">&#xe61f;</i>修改用户信息</li>

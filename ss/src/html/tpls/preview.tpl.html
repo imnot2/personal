@@ -10,17 +10,17 @@
 <section class="ui-container">
     <div class="ui-my-shop">
         <div class="ui-hd-img">
-            <img class="ui-blur" src="static/temp/3.jpg">
-            <img src="static/temp/3.jpg">
+            <img class="ui-blur" src="/images/temp/3.jpg">
+            <img src="/images/temp/3.jpg">
         </div>
         <div class="ui-user-head">
-            <h3><span class="ui-uesr-img"><img src="static/temp/1s.jpg"></span></h3>
-            <p class="ui-user-name">xianzhiding <i class="icons-heart fa">&#xe606;</i></p>
+            <h3><span class="ui-uesr-img"><img ng-src="{{user.avator}}"></span></h3>
+            <p class="ui-user-name">{{user.name}} <i class="icons-heart fa">&#xe606;</i></p>
         </div>
     </div>
     <div class="ui-thing-info">
-        <p class="ui-text-para">翡翠（jadeite）， 也称翡翠玉、翠玉、硬玉、缅甸玉，是玉的一种。翡翠是在地质作用下形成的达到玉级的石质多晶集合体，主要由硬玉或硬玉及钠质（钠铬辉石）、钠钙质辉石（绿辉石）组成，可含有角闪石、长石、铬铁矿、褐铁矿等。[1] 在古代翡翠是一种生活在南方的鸟，毛色十分美丽，通常有蓝、绿、红、棕等颜色。一般这种鸟雄性的为红色，谓之“翡”，雌性的为绿色，谓之“翠”。</p>
-        <p class="ui-map">实体店地址：<i class="fa">&#xe630;</i><span>上海长宁区</span></p>
+        <p class="ui-text-para">{{store.storeInfo}}</p>
+        <p class="ui-map">实体店地址：<i class="fa">&#xe630;</i><span>{{store.storeAddress}}</span></p>
         <div class="ui-photo">
             <img src="static/temp/4.jpg" alt="">
         </div>

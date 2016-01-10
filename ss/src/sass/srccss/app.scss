@@ -1362,19 +1362,17 @@
 
 .ui-thumb {
     padding: pxtorem(20px) pxtorem(50px) 0;
-}
-
-.ui-thumb p {
-    margin-bottom: 0;
-    text-align: center;
-    font-size: pxtorem(15px);
-    padding-top: pxtorem(15px);
-    color: #999999;
-}
-
-.ui-thumb p span {
-    font-size: pxtorem(18px);
-    color: #209281;
+    p {
+        margin-bottom: 0;
+        text-align: center;
+        font-size: pxtorem(15px);
+        padding-top: pxtorem(15px);
+        color: #999999;
+        span {
+            font-size: pxtorem(18px);
+            color: #209281;
+        }
+    }
 }
 
 
@@ -1385,48 +1383,44 @@
 
 .ui-tab-lg {
     padding: pxtorem(10px);
-}
-
-.ui-tab-lg li {
-    border-radius: pxtorem(3px);
-    font-size: pxtorem(16px);
-    background-color: #ffffff;
-    border: pxtorem(2px) solid #DDDDDD;
-    padding: pxtorem(12px) 0;
-}
-
-.ui-tab-lg li .fa {
-    display: none;
-}
-
-.ui-tab-lg li.active {
-    border-color: #1D917F;
-    color: #1D917F;
-    position: relative;
-}
-
-.ui-tab-lg li.active .fa {
-    display: block;
-    position: absolute;
-    bottom: pxtorem(-3px);
-    right: pxtorem(-2px);
-    z-index: 2;
-    color: #fff;
-}
-
-.ui-tab-lg li.active:after {
-    display: block;
-    z-index: 0;
-    content: '';
-    border-top: pxtorem(12px) solid transparent;
-    border-left: pxtorem(12px) solid transparent;
-    border-right: pxtorem(12px) solid #1D917F;
-    border-bottom: pxtorem(12px) solid #1D917F;
-    width: pxtorem(24px);
-    height: pxtorem(24px);
-    position: absolute;
-    right: -1px;
-    bottom: -1px;
+    li {
+        border-radius: pxtorem(3px);
+        font-size: pxtorem(16px);
+        background-color: #ffffff;
+        border: pxtorem(2px) solid #DDDDDD;
+        padding: pxtorem(12px) 0;
+        &.active {
+            border-color: #1D917F;
+            color: #1D917F;
+            position: relative;
+            .fa {
+                display: block;
+                position: absolute;
+                bottom: pxtorem(-3px);
+                right: pxtorem(-2px);
+                z-index: 2;
+                color: #fff;
+                font-size: pxtorem(22px);
+            }
+            &:after {
+                display: block;
+                z-index: 0;
+                content: '';
+                border-top: pxtorem(18px) solid transparent;
+                border-left: pxtorem(18px) solid transparent;
+                border-right: pxtorem(18px) solid #1D917F;
+                border-bottom: pxtorem(18px) solid #1D917F;
+                width: 0;
+                height: 0;
+                position: absolute;
+                right: -1px;
+                bottom: -1px;
+            }
+        }
+        .fa {
+            display: none;
+        }
+    }
 }
 
 
@@ -1451,51 +1445,47 @@
 
 /*.ui-my-shop{position: relative;z-index: 1;}*/
 
-.ui-my-shop .ui-hd-img {
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-}
-
-.ui-my-shop .ui-blur {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.ui-my-shop .ui-user-head {
-   /* margin-top: pxtorem(-55px);*/
-    position: relative;
-    z-index: 2;
-}
-
-.ui-my-shop .ui-user-head h3 {
-    margin: 0;
-}
-
-.ui-my-shop .ui-user-head .icons-heart {
-    font-size: pxtorem(24px);
-    vertical-align: middle;
+.ui-my-shop {
+    .ui-hd-img {
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+    }
+    .ui-blur {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .ui-user-head {
+        margin-top: pxtorem(-55px);
+        position: relative;
+        z-index: 2;
+        h3 {
+            margin: 0;
+        }
+        .icons-heart {
+            font-size: pxtorem(24px);
+            vertical-align: middle;
+        }
+    }
 }
 
 .ui-thing-info {
     padding: pxtorem(10px);
     color: #999999;
     font-size: pxtorem(16px);
-}
-
-.ui-thing-info .ui-map {
-    margin-bottom: pxtorem(20px);
-}
-
-.ui-thing-info .ui-photo {
-    background-color: #CCCCCC;
-    min-width: pxtorem(300px);
-    min-height: pxtorem(200px);
-    margin-top: pxtorem(35px);
-    margin-left: pxtorem(15px);
-    border: pxtorem(2px) solid #fff;
-    box-shadow: pxtorem(-3px) pxtorem(-3px) 0 #CCCCCC, pxtorem(-5px) pxtorem(-5px) 0 #fff, pxtorem(-8px) pxtorem(-8px) 0 #CCCCCC, pxtorem(-10px) pxtorem(-10px) 0 #fff, pxtorem(-13px) pxtorem(-13px) 0 #CCCCCC, pxtorem(-15px) pxtorem(-15px) 0 #fff
+    .ui-map {
+        margin-bottom: pxtorem(20px);
+    }
+    .ui-photo {
+        background-color: #CCCCCC;
+        min-width: pxtorem(300px);
+        min-height: pxtorem(200px);
+        margin-top: pxtorem(35px);
+        margin-left: pxtorem(15px);
+        border: pxtorem(2px) solid #fff;
+        box-shadow: pxtorem(-3px) pxtorem(-3px) 0 #CCCCCC, pxtorem(-5px) pxtorem(-5px) 0 #fff, pxtorem(-8px) pxtorem(-8px) 0 #CCCCCC, pxtorem(-10px) pxtorem(-10px) 0 #fff, pxtorem(-13px) pxtorem(-13px) 0 #CCCCCC, pxtorem(-15px) pxtorem(-15px) 0 #fff
+    }
 }
 
 
@@ -2840,6 +2830,8 @@ end message
         }
     }
 }
+
+
 /*
  *page-publish
  *=============================================================================

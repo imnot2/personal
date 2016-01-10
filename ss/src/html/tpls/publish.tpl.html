@@ -1,10 +1,10 @@
 <header class="ui-header">
     <h2>发布</h2>
     <span class="hd-left">
-        <a href="javascript:;" class="icons-back"><i class="fa">&#xe632;</i></a>
+        <a href="javascript:;" class="icons-back" back><i class="fa">&#xe632;</i></a>
       </span>
     <span class="hd-right">
-        <a href="javascript:;" class="icons-save">预览</a>
+        <a href="javascript:;" class="icons-save" preview>预览</a>
       </span>
 </header>
 <section class="ui-container">
@@ -27,37 +27,39 @@
         <div class="ui-tabs-content">
             <div class="ui-tabs-pane active">
                 <div class="ui-form-action">
-                    <div class="ui-form">
-                        <div class="ui-form-item">
-                            <input type="text" placeholder="商品名">
-                        </div>
-                        <div class="ui-form-item ui-arrows">
-                            <p>类别</p>
-                        </div>
-                        <div class="ui-form-item ui-arrows">
-                            <p>保证金</p>
-                        </div>
-                        <div class="ui-form-item">
-                            <input type="number" placeholder="起拍金额">
-                        </div>
-                        <div class="ui-form-item ui-arrows">
-                            <p>加价幅度</p>
-                        </div>
-                        <div class="ui-form-item">
-                            <input type="number" placeholder="底价 非必填(拍卖如未达到底价，流拍处理)">
-                        </div>
-                        <div class="ui-form-item-level">
-                            <div class="ui-form-item ui-arrows">
-                                <p>上架日期<span>非必选</span></p>
+                    <form action="" name="storeForm">
+                        <div class="ui-form">
+                            <div class="ui-form-item">
+                                <input ng-model="product.name" type="text" placeholder="商品名">
                             </div>
                             <div class="ui-form-item ui-arrows">
-                                <p>上架时间<span>非必选</span></p>
+                                <p>类别</p>
+                            </div>
+                            <div class="ui-form-item ui-arrows">
+                                <p>保证金</p>
+                            </div>
+                            <div class="ui-form-item">
+                                <input type="number" placeholder="起拍金额">
+                            </div>
+                            <div class="ui-form-item ui-arrows">
+                                <p>加价幅度</p>
+                            </div>
+                            <div class="ui-form-item">
+                                <input type="number" placeholder="底价 非必填(拍卖如未达到底价，流拍处理)">
+                            </div>
+                            <div class="ui-form-item-level">
+                                <div class="ui-form-item ui-arrows">
+                                    <p>上架日期<span>非必选</span></p>
+                                </div>
+                                <div class="ui-form-item ui-arrows">
+                                    <p>上架时间<span>非必选</span></p>
+                                </div>
+                            </div>
+                            <div class="ui-form-item">
+                                <textarea name="" id="" cols="30" rows="4" placeholder="宝贝详情"></textarea>
                             </div>
                         </div>
-                        <div class="ui-form-item">
-                            <textarea name="" id="" cols="30" rows="4" placeholder="宝贝详情"></textarea>
-                        </div>
-                    </div>
+                    </form>
                     <div class="ui-file-panel">
                         <ul class="ui-file-img">
                             <li><img src="static/temp/1s.jpg"></li>

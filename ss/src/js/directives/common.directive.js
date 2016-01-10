@@ -279,6 +279,33 @@ directives.directive('touser', ['$state', 'user', function($state, user) {
             })
         }
     }
+}]).directive('previw', ['$state', function($state) {
+    return {
+        restrict: 'AE',
+        link: function(scope, element, attrs) {
+            touch.on(element, 'tap', function() {
+                $state.go('previw');
+            })
+        }
+    }
+}]).directive('publish', ['$state', function($state) {
+    return {
+        restrict: 'AE',
+        link: function(scope, element, attrs) {
+            touch.on(element, 'tap', function() {
+                $state.go('publish');
+            })
+        }
+    }
+}]).directive('messages', ['$state', function($state) {
+    return {
+        restrict: 'AE',
+        link: function(scope, element, attrs) {
+            touch.on(element, 'tap', function() {
+                $state.go('messages');
+            })
+        }
+    }
 }]).directive('uploadimg', ['$state', function($state) {
     return {
         restrict: 'AE',

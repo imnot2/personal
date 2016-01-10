@@ -2868,6 +2868,17 @@ end message
     }
 }
 
+
+/*
+ *page-setting
+ *=============================================================================
+ */
+.page-setting{
+    .ui-btn{
+        margin-top: pxtorem(10px);
+    }
+}
+
 .slideAnimated {
     -webkit-animation-duration: 0.5s;
     animation-duration: 0.5s;

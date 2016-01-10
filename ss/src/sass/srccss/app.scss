@@ -1590,14 +1590,14 @@
 
 .ui-cont-email {
     padding-top: pxtorem(40px);
-}
-
-.ui-cont-email i {
-    font-size: pxtorem(70px);
-}
-
-.ui-cont-email a {
-    font-size: pxtorem(16px);
+    i {
+        font-size: pxtorem(70px);
+        color: #1F927F;
+    }
+    a {
+        font-size: pxtorem(16px);
+        color: #1F927F;
+    }
 }
 
 

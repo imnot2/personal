@@ -4,6 +4,11 @@
 @import "base/normalize";
 @import "base/globalclasses";
 @import "base/minxins";
+body {
+    background-color: #eee;
+    color: #666;
+}
+
 .ui-container {
     position: absolute;
     top: pxtorem(47px);
@@ -2842,6 +2847,9 @@ end message
  */
 
 .page-publish {
+    .ui-container {
+        position: static;
+    }
     .ui-tabs-content {
         position: relative;
         .ui-tabs-pane {
@@ -2851,6 +2859,12 @@ end message
                 display: block;
             }
         }
+    }
+    .ui-text {
+        padding: pxtorem(10px);
+    }
+    .btn-block{
+        width: auto;
     }
 }
 

@@ -23,69 +23,28 @@
         <li ng-class="{active:sellModel == 1}">拍卖模式<i class="fa">&#xe610;</i></li>
         <li ng-class="{active:sellModel == 2}">一口价模式<i class="fa">&#xe610;</i></li>
     </ul>
-    <div style="position:relative;">
-        <div class="ui-tabs-content">
-            <div class="ui-tabs-pane active">
-                <div class="ui-form-action">
-                    <form action="" name="storeForm">
-                        <div class="ui-form">
-                            <div class="ui-form-item">
-                                <input ng-model="product.name" type="text" placeholder="商品名">
-                            </div>
-                            <div class="ui-form-item ui-arrows">
-                                <p>类别</p>
-                            </div>
-                            <div class="ui-form-item ui-arrows">
-                                <p>保证金</p>
-                            </div>
-                            <div class="ui-form-item">
-                                <input type="number" placeholder="起拍金额">
-                            </div>
-                            <div class="ui-form-item ui-arrows">
-                                <p>加价幅度</p>
-                            </div>
-                            <div class="ui-form-item">
-                                <input type="number" placeholder="底价 非必填(拍卖如未达到底价，流拍处理)">
-                            </div>
-                            <div class="ui-form-item-level">
-                                <div class="ui-form-item ui-arrows">
-                                    <p>上架日期<span>非必选</span></p>
-                                </div>
-                                <div class="ui-form-item ui-arrows">
-                                    <p>上架时间<span>非必选</span></p>
-                                </div>
-                            </div>
-                            <div class="ui-form-item">
-                                <textarea name="" id="" cols="30" rows="4" placeholder="宝贝详情"></textarea>
-                            </div>
-                        </div>
-                    </form>
-                    <div class="ui-file-panel">
-                        <ul class="ui-file-img">
-                            <li><img src="static/temp/1s.jpg"></li>
-                            <li><img src="static/img/icons-plus.png"></li>
-                        </ul>
-                        <ul class="ui-btn-line">
-                            <li><a href="javascript:;" class="btn btn-default btn-lgs btn-block">预览</a></li>
-                            <li><a href="javascript:;" class="btn btn-primary btn-lgs btn-block">确认设置</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="ui-tabs-pane">
+    <div class="ui-tabs-content">
+        <div class="ui-tabs-pane" ng-class="{active:sellModel == 1}">
+            <form action="" name="storeForm">
                 <div class="ui-form-action">
                     <div class="ui-form">
                         <div class="ui-form-item">
-                            <input type="text" placeholder="商品名">
+                            <input ng-model="product.name" type="text" placeholder="商品名">
                         </div>
                         <div class="ui-form-item ui-arrows">
                             <p>类别</p>
                         </div>
+                        <div class="ui-form-item ui-arrows">
+                            <p>保证金</p>
+                        </div>
                         <div class="ui-form-item">
-                            <input type="number" placeholder="一口价金额">
+                            <input type="number" placeholder="起拍金额">
                         </div>
                         <div class="ui-form-item ui-arrows">
                             <p>加价幅度</p>
+                        </div>
+                        <div class="ui-form-item">
+                            <input type="number" placeholder="底价 非必填(拍卖如未达到底价，流拍处理)">
                         </div>
                         <div class="ui-form-item-level">
                             <div class="ui-form-item ui-arrows">
@@ -100,19 +59,66 @@
                         </div>
                     </div>
                     <div class="ui-file-panel">
-                        <ul class="ui-btn-line ui-file-img">
-                            <li><img src="static/temp/1s.jpg">
-                                <!--<span> <i class="fa">&#xe607;</i></span> --></li>
-                            <li><span><i class="fa">&#xe62f;</i></span></li>
-                            <li><span><i class="fa">&#xe62f;</i></span></li>
-                            <li><span><i class="fa">&#xe62f;</i></span></li>
-                            <li><span><i class="fa">&#xe62f;</i></span></li>
+                        <ul class="ui-file-img">
+                            <li>
+                                <input type="file" ng-model="formData.img1" name="img1" uploadimg /><img src="/images/temp/icons-plus.png" alt="" class="selected"></li>
+                            <li>
+                                <input type="file" ng-model="formData.img2" name="img2" uploadimg /><img src="/images/temp/icons-plus.png" alt="" class="selected"></li>
+                            <li>
+                                <input type="file" ng-model="formData.img2" name="img2" uploadimg /><img src="/images/temp/icons-plus.png" alt="" class="selected"></li>
                         </ul>
                         <ul class="ui-btn-line">
-                            <li preview><a href="javascript:;" class="btn btn-default btn-lgs">预览</a></li>
-                            <li><a href="javascript:;" class="btn btn-primary btn-lgs">确认设置</a></li>
+                            <li><a href="javascript:;" class="btn btn-default btn-lgs btn-block">预览</a></li>
+                            <li><a href="javascript:;" class="btn btn-primary btn-lgs btn-block">确认设置</a></li>
                         </ul>
                     </div>
+                </div>
+            </form>
+        </div>
+        <div class="ui-tabs-pane" ng-class="{active:sellModel == 2}">
+            <div class="ui-form-action">
+                <div class="ui-form">
+                    <div class="ui-form-item">
+                        <input type="text" placeholder="商品名">
+                    </div>
+                    <div class="ui-form-item ui-arrows">
+                        <p>类别</p>
+                    </div>
+                    <div class="ui-form-item">
+                        <input type="number" placeholder="一口价金额">
+                    </div>
+                    <div class="ui-form-item ui-arrows">
+                        <p>加价幅度</p>
+                    </div>
+                    <div class="ui-form-item-level">
+                        <div class="ui-form-item ui-arrows">
+                            <p>上架日期<span>非必选</span></p>
+                        </div>
+                        <div class="ui-form-item ui-arrows">
+                            <p>上架时间<span>非必选</span></p>
+                        </div>
+                    </div>
+                    <div class="ui-form-item">
+                        <textarea name="" id="" cols="30" rows="4" placeholder="宝贝详情"></textarea>
+                    </div>
+                </div>
+                <div class="ui-file-panel">
+                    <ul class="ui-btn-line ui-file-img">
+                        <li>
+                            <input type="file" ng-model="formData.img2" name="img2" uploadimg /><img src="/images/temp/icons-plus.png" alt="" class="selected"></li>
+                        <li>
+                            <input type="file" ng-model="formData.img2" name="img2" uploadimg /><img src="/images/temp/icons-plus.png" alt="" class="selected"></li>
+                        <li>
+                            <input type="file" ng-model="formData.img2" name="img2" uploadimg /><img src="/images/temp/icons-plus.png" alt="" class="selected"></li>
+                        <li>
+                            <input type="file" ng-model="formData.img2" name="img2" uploadimg /><img src="/images/temp/icons-plus.png" alt="" class="selected"></li>
+                        <li>
+                            <input type="file" ng-model="formData.img2" name="img2" uploadimg /><img src="/images/temp/icons-plus.png" alt="" class="selected"></li>
+                    </ul>
+                    <ul class="ui-btn-line">
+                        <li preview><a href="javascript:;" class="btn btn-default btn-lgs btn-block">预览</a></li>
+                        <li><a href="javascript:;" class="btn btn-primary btn-lgs btn-block">确认设置</a></li>
+                    </ul>
                 </div>
             </div>
         </div>

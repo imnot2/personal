@@ -160,7 +160,12 @@ ssApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $
         views: {
             '': {
                 templateUrl: 'tpls/messages.tpl.html',
-                controller: 'messagesCtrl'
+                controller: 'messagesCtrl',
+                resolve: {
+                    loginRedirect: function(user) {
+                        return user.loginRedirect();
+                    }
+                }
             }
         }
     }).state('preview', {
@@ -168,7 +173,12 @@ ssApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $
         views: {
             '': {
                 templateUrl: 'tpls/preview.tpl.html',
-                controller: 'previewCtrl'
+                controller: 'previewCtrl',
+                resolve: {
+                    loginRedirect: function(user) {
+                        return user.loginRedirect();
+                    }
+                }
             }
         }
     }).state('publish', {
@@ -176,7 +186,12 @@ ssApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $
         views: {
             '': {
                 templateUrl: 'tpls/publish.tpl.html',
-                controller: 'publishCtrl'
+                controller: 'publishCtrl',
+                resolve: {
+                    loginRedirect: function(user) {
+                        return user.loginRedirect();
+                    }
+                }
             }
         }
     })

@@ -451,11 +451,14 @@
  */
 
 .ui-btn-line {
-    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
 }
 
 .ui-btn-line li {
     -webkit-box-flex: 1;
+    flex-grow:1;
     text-align: center;
     cursor: pointer;
     width: 100%;

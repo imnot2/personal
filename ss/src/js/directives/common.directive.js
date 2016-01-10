@@ -42,7 +42,9 @@ directives.directive('touser', ['$state', 'user', function($state, user) {
         restrict: 'AE',
         link: function(scope, element, attrs) {
             var cur = $stateParams.cur;
-            var params = $stateParams.params || {};
+            var params = $stateParams.params || '';
+            var args = [];
+            args.push(cur);
             touch.on(element, 'tap', function() {
                 if (scope.userForm.$dirty) {
                     user.login(scope.user.mobile, scope.user.password, function(userinfo) {
@@ -51,7 +53,10 @@ directives.directive('touser', ['$state', 'user', function($state, user) {
                                 identity: userinfo.identity
                             });
                         }
-                        $state.go(cur, JSON.parse(params));
+                        if (params) {
+                            args.push(JSON.parse(params));
+                        }
+                        $state.go.apply($state,args);
                     });
                 }
             })
@@ -342,7 +347,7 @@ directives.directive('touser', ['$state', 'user', function($state, user) {
             savestore: '&'
         },
         link: function(scope, element, attrs) {
-            console.log(scope);            
+            console.log(scope);
             touch.on(element, 'tap', function(e) {
                 scope.savestore();
                 //scope.$parent.savesetting();

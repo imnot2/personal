@@ -8,725 +8,765 @@
             "name": "sosochen",
             "level": 3
         },
-        "auctions": 15,
-        "comments": 1,
-        "likes": 55,
+        "auctions": [{
+            "avatar": "/images/temp/1.jpg",
+            "name": "guigui",
+            "price": "444"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "name": "dingding",
+            "price": "555"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "name": "biggie",
+            "price": "666"
+        }],
+        "comments": [{
+            "avatar": "/images/temp/1.jpg",
+            "conts": "这是假货吗？",
+            "reply": "你说的是废话吗？"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "好像很漂亮的样子",
+            "reply": "废话"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "包邮吗？亲",
+            "reply": "废话"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "买一送一么？",
+            "reply": "你SB么？"
+        }],
+        "likes": 1,
         "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉2212"
+        "srcs": ["/images/temp/1.jpg"],
+        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉2212",
+        "description": "翡翠（jadeite）， 也称翡翠玉、翠玉、硬玉、缅甸玉，是玉的一种。翡翠是在地质作用下形成的达到玉级的石质多晶集合体，主要由硬玉或硬玉及钠质（钠铬辉石）、钠钙质辉石（绿辉石）组成，可含有角闪石、长石、铬铁矿、褐铁矿等。[1] 在古代翡翠是一种生活在南方的鸟，毛色十分美丽，通常有蓝、绿、红、棕等颜色。一般这种鸟雄性的为红色，谓之“翡”，雌性的为绿色，谓之“翠”。",
+        "type": 1,
+        "status": 0,
+        "margin": "0",
+        "startPrice": 44,
+        "range": 10
     }, {
-        "id": 23876617,
+        "id": 88384629,
         "endtime": 1444657093125,
         "owner": {
             "avatar": "/images/temp/1.jpg",
             "name": "sosochen",
             "level": 3
         },
-        "auctions": 15,
-        "comments": 2,
-        "likes": 55,
+        "auctions": [{
+            "avatar": "/images/temp/1.jpg",
+            "name": "guigui",
+            "price": "444"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "name": "dingding",
+            "price": "555"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "name": "biggie",
+            "price": "666"
+        }],
+        "comments": [{
+            "avatar": "/images/temp/1.jpg",
+            "conts": "这是假货吗？",
+            "reply": "你说的是废话吗？"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "好像很漂亮的样子",
+            "reply": "废话"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "包邮吗？亲",
+            "reply": "废话"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "买一送一么？",
+            "reply": "你SB么？"
+        }],
+        "likes": 2,
         "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂22422"
+        "srcs": ["/images/temp/1.jpg"],
+        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉2212",
+        "description": "翡翠（jadeite）， 也称翡翠玉、翠玉、硬玉、缅甸玉，是玉的一种。翡翠是在地质作用下形成的达到玉级的石质多晶集合体，主要由硬玉或硬玉及钠质（钠铬辉石）、钠钙质辉石（绿辉石）组成，可含有角闪石、长石、铬铁矿、褐铁矿等。[1] 在古代翡翠是一种生活在南方的鸟，毛色十分美丽，通常有蓝、绿、红、棕等颜色。一般这种鸟雄性的为红色，谓之“翡”，雌性的为绿色，谓之“翠”。",
+        "type": 1,
+        "status": 0,
+        "margin": "0",
+        "startPrice": 44,
+        "range": 10
     }, {
-        "id": 100081736,
+        "id": 88384629,
         "endtime": 1444657093125,
         "owner": {
             "avatar": "/images/temp/1.jpg",
             "name": "sosochen",
             "level": 3
         },
-        "auctions": 15,
-        "comments": 3,
-        "likes": 55,
+        "auctions": [{
+            "avatar": "/images/temp/1.jpg",
+            "name": "guigui",
+            "price": "444"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "name": "dingding",
+            "price": "555"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "name": "biggie",
+            "price": "666"
+        }],
+        "comments": [{
+            "avatar": "/images/temp/1.jpg",
+            "conts": "这是假货吗？",
+            "reply": "你说的是废话吗？"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "好像很漂亮的样子",
+            "reply": "废话"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "包邮吗？亲",
+            "reply": "废话"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "买一送一么？",
+            "reply": "你SB么？"
+        }],
+        "likes": 3,
         "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂543"
+        "srcs": ["/images/temp/1.jpg"],
+        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉2212",
+        "description": "翡翠（jadeite）， 也称翡翠玉、翠玉、硬玉、缅甸玉，是玉的一种。翡翠是在地质作用下形成的达到玉级的石质多晶集合体，主要由硬玉或硬玉及钠质（钠铬辉石）、钠钙质辉石（绿辉石）组成，可含有角闪石、长石、铬铁矿、褐铁矿等。[1] 在古代翡翠是一种生活在南方的鸟，毛色十分美丽，通常有蓝、绿、红、棕等颜色。一般这种鸟雄性的为红色，谓之“翡”，雌性的为绿色，谓之“翠”。",
+        "type": 1,
+        "status": 0,
+        "margin": "0",
+        "startPrice": 44,
+        "range": 10
     }, {
-        "id": 888828,
+        "id": 88384629,
         "endtime": 1444657093125,
         "owner": {
             "avatar": "/images/temp/1.jpg",
             "name": "sosochen",
             "level": 3
         },
-        "auctions": 15,
-        "comments": 4,
-        "likes": 55,
+        "auctions": [{
+            "avatar": "/images/temp/1.jpg",
+            "name": "guigui",
+            "price": "444"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "name": "dingding",
+            "price": "555"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "name": "biggie",
+            "price": "666"
+        }],
+        "comments": [{
+            "avatar": "/images/temp/1.jpg",
+            "conts": "这是假货吗？",
+            "reply": "你说的是废话吗？"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "好像很漂亮的样子",
+            "reply": "废话"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "包邮吗？亲",
+            "reply": "废话"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "买一送一么？",
+            "reply": "你SB么？"
+        }],
+        "likes": 4,
         "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂745"
+        "srcs": ["/images/temp/1.jpg"],
+        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉2212",
+        "description": "翡翠（jadeite）， 也称翡翠玉、翠玉、硬玉、缅甸玉，是玉的一种。翡翠是在地质作用下形成的达到玉级的石质多晶集合体，主要由硬玉或硬玉及钠质（钠铬辉石）、钠钙质辉石（绿辉石）组成，可含有角闪石、长石、铬铁矿、褐铁矿等。[1] 在古代翡翠是一种生活在南方的鸟，毛色十分美丽，通常有蓝、绿、红、棕等颜色。一般这种鸟雄性的为红色，谓之“翡”，雌性的为绿色，谓之“翠”。",
+        "type": 1,
+        "status": 0,
+        "margin": "0",
+        "startPrice": 44,
+        "range": 10
     }, {
-        "id": 48957303,
+        "id": 88384629,
         "endtime": 1444657093125,
         "owner": {
             "avatar": "/images/temp/1.jpg",
             "name": "sosochen",
             "level": 3
         },
-        "auctions": 15,
-        "comments": 5,
-        "likes": 55,
+        "auctions": [{
+            "avatar": "/images/temp/1.jpg",
+            "name": "guigui",
+            "price": "444"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "name": "dingding",
+            "price": "555"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "name": "biggie",
+            "price": "666"
+        }],
+        "comments": [{
+            "avatar": "/images/temp/1.jpg",
+            "conts": "这是假货吗？",
+            "reply": "你说的是废话吗？"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "好像很漂亮的样子",
+            "reply": "废话"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "包邮吗？亲",
+            "reply": "废话"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "买一送一么？",
+            "reply": "你SB么？"
+        }],
+        "likes": 5,
         "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
+        "srcs": ["/images/temp/1.jpg"],
+        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉2212",
+        "description": "翡翠（jadeite）， 也称翡翠玉、翠玉、硬玉、缅甸玉，是玉的一种。翡翠是在地质作用下形成的达到玉级的石质多晶集合体，主要由硬玉或硬玉及钠质（钠铬辉石）、钠钙质辉石（绿辉石）组成，可含有角闪石、长石、铬铁矿、褐铁矿等。[1] 在古代翡翠是一种生活在南方的鸟，毛色十分美丽，通常有蓝、绿、红、棕等颜色。一般这种鸟雄性的为红色，谓之“翡”，雌性的为绿色，谓之“翠”。",
+        "type": 1,
+        "status": 0,
+        "margin": "0",
+        "startPrice": 44,
+        "range": 10
     }, {
-        "id": 105130392,
+        "id": 88384629,
         "endtime": 1444657093125,
         "owner": {
             "avatar": "/images/temp/1.jpg",
             "name": "sosochen",
             "level": 3
         },
-        "auctions": 15,
-        "comments": 6,
-        "likes": 55,
+        "auctions": [{
+            "avatar": "/images/temp/1.jpg",
+            "name": "guigui",
+            "price": "444"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "name": "dingding",
+            "price": "555"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "name": "biggie",
+            "price": "666"
+        }],
+        "comments": [{
+            "avatar": "/images/temp/1.jpg",
+            "conts": "这是假货吗？",
+            "reply": "你说的是废话吗？"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "好像很漂亮的样子",
+            "reply": "废话"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "包邮吗？亲",
+            "reply": "废话"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "买一送一么？",
+            "reply": "你SB么？"
+        }],
+        "likes": 6,
         "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
+        "srcs": ["/images/temp/1.jpg"],
+        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉2212",
+        "description": "翡翠（jadeite）， 也称翡翠玉、翠玉、硬玉、缅甸玉，是玉的一种。翡翠是在地质作用下形成的达到玉级的石质多晶集合体，主要由硬玉或硬玉及钠质（钠铬辉石）、钠钙质辉石（绿辉石）组成，可含有角闪石、长石、铬铁矿、褐铁矿等。[1] 在古代翡翠是一种生活在南方的鸟，毛色十分美丽，通常有蓝、绿、红、棕等颜色。一般这种鸟雄性的为红色，谓之“翡”，雌性的为绿色，谓之“翠”。",
+        "type": 1,
+        "status": 0,
+        "margin": "0",
+        "startPrice": 44,
+        "range": 10
     }, {
-        "id": 7985097,
+        "id": 88384629,
         "endtime": 1444657093125,
         "owner": {
             "avatar": "/images/temp/1.jpg",
             "name": "sosochen",
             "level": 3
         },
-        "auctions": 15,
-        "comments": 7,
-        "likes": 55,
+        "auctions": [{
+            "avatar": "/images/temp/1.jpg",
+            "name": "guigui",
+            "price": "444"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "name": "dingding",
+            "price": "555"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "name": "biggie",
+            "price": "666"
+        }],
+        "comments": [{
+            "avatar": "/images/temp/1.jpg",
+            "conts": "这是假货吗？",
+            "reply": "你说的是废话吗？"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "好像很漂亮的样子",
+            "reply": "废话"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "包邮吗？亲",
+            "reply": "废话"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "买一送一么？",
+            "reply": "你SB么？"
+        }],
+        "likes": 7,
         "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
+        "srcs": ["/images/temp/1.jpg"],
+        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉2212",
+        "description": "翡翠（jadeite）， 也称翡翠玉、翠玉、硬玉、缅甸玉，是玉的一种。翡翠是在地质作用下形成的达到玉级的石质多晶集合体，主要由硬玉或硬玉及钠质（钠铬辉石）、钠钙质辉石（绿辉石）组成，可含有角闪石、长石、铬铁矿、褐铁矿等。[1] 在古代翡翠是一种生活在南方的鸟，毛色十分美丽，通常有蓝、绿、红、棕等颜色。一般这种鸟雄性的为红色，谓之“翡”，雌性的为绿色，谓之“翠”。",
+        "type": 1,
+        "status": 0,
+        "margin": "0",
+        "startPrice": 44,
+        "range": 10
     }, {
-        "id": 104278103,
+        "id": 88384629,
         "endtime": 1444657093125,
         "owner": {
             "avatar": "/images/temp/1.jpg",
             "name": "sosochen",
             "level": 3
         },
-        "auctions": 15,
-        "comments": 8,
-        "likes": 55,
+        "auctions": [{
+            "avatar": "/images/temp/1.jpg",
+            "name": "guigui",
+            "price": "444"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "name": "dingding",
+            "price": "555"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "name": "biggie",
+            "price": "666"
+        }],
+        "comments": [{
+            "avatar": "/images/temp/1.jpg",
+            "conts": "这是假货吗？",
+            "reply": "你说的是废话吗？"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "好像很漂亮的样子",
+            "reply": "废话"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "包邮吗？亲",
+            "reply": "废话"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "买一送一么？",
+            "reply": "你SB么？"
+        }],
+        "likes": 8,
         "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
+        "srcs": ["/images/temp/1.jpg"],
+        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉2212",
+        "description": "翡翠（jadeite）， 也称翡翠玉、翠玉、硬玉、缅甸玉，是玉的一种。翡翠是在地质作用下形成的达到玉级的石质多晶集合体，主要由硬玉或硬玉及钠质（钠铬辉石）、钠钙质辉石（绿辉石）组成，可含有角闪石、长石、铬铁矿、褐铁矿等。[1] 在古代翡翠是一种生活在南方的鸟，毛色十分美丽，通常有蓝、绿、红、棕等颜色。一般这种鸟雄性的为红色，谓之“翡”，雌性的为绿色，谓之“翠”。",
+        "type": 1,
+        "status": 0,
+        "margin": "0",
+        "startPrice": 44,
+        "range": 10
     }, {
-        "id": 1973195,
+        "id": 88384629,
         "endtime": 1444657093125,
         "owner": {
             "avatar": "/images/temp/1.jpg",
             "name": "sosochen",
             "level": 3
         },
-        "auctions": 15,
-        "comments": 9,
-        "likes": 55,
+        "auctions": [{
+            "avatar": "/images/temp/1.jpg",
+            "name": "guigui",
+            "price": "444"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "name": "dingding",
+            "price": "555"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "name": "biggie",
+            "price": "666"
+        }],
+        "comments": [{
+            "avatar": "/images/temp/1.jpg",
+            "conts": "这是假货吗？",
+            "reply": "你说的是废话吗？"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "好像很漂亮的样子",
+            "reply": "废话"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "包邮吗？亲",
+            "reply": "废话"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "买一送一么？",
+            "reply": "你SB么？"
+        }],
+        "likes": 9,
         "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
+        "srcs": ["/images/temp/1.jpg"],
+        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉2212",
+        "description": "翡翠（jadeite）， 也称翡翠玉、翠玉、硬玉、缅甸玉，是玉的一种。翡翠是在地质作用下形成的达到玉级的石质多晶集合体，主要由硬玉或硬玉及钠质（钠铬辉石）、钠钙质辉石（绿辉石）组成，可含有角闪石、长石、铬铁矿、褐铁矿等。[1] 在古代翡翠是一种生活在南方的鸟，毛色十分美丽，通常有蓝、绿、红、棕等颜色。一般这种鸟雄性的为红色，谓之“翡”，雌性的为绿色，谓之“翠”。",
+        "type": 1,
+        "status": 0,
+        "margin": "0",
+        "startPrice": 44,
+        "range": 10
     }, {
-        "id": 17258835,
+        "id": 88384629,
         "endtime": 1444657093125,
         "owner": {
             "avatar": "/images/temp/1.jpg",
             "name": "sosochen",
             "level": 3
         },
-        "auctions": 15,
-        "comments": 10,
-        "likes": 55,
+        "auctions": [{
+            "avatar": "/images/temp/1.jpg",
+            "name": "guigui",
+            "price": "444"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "name": "dingding",
+            "price": "555"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "name": "biggie",
+            "price": "666"
+        }],
+        "comments": [{
+            "avatar": "/images/temp/1.jpg",
+            "conts": "这是假货吗？",
+            "reply": "你说的是废话吗？"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "好像很漂亮的样子",
+            "reply": "废话"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "包邮吗？亲",
+            "reply": "废话"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "买一送一么？",
+            "reply": "你SB么？"
+        }],
+        "likes": 10,
         "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
+        "srcs": ["/images/temp/1.jpg"],
+        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉2212",
+        "description": "翡翠（jadeite）， 也称翡翠玉、翠玉、硬玉、缅甸玉，是玉的一种。翡翠是在地质作用下形成的达到玉级的石质多晶集合体，主要由硬玉或硬玉及钠质（钠铬辉石）、钠钙质辉石（绿辉石）组成，可含有角闪石、长石、铬铁矿、褐铁矿等。[1] 在古代翡翠是一种生活在南方的鸟，毛色十分美丽，通常有蓝、绿、红、棕等颜色。一般这种鸟雄性的为红色，谓之“翡”，雌性的为绿色，谓之“翠”。",
+        "type": 1,
+        "status": 0,
+        "margin": "0",
+        "startPrice": 44,
+        "range": 10
     }, {
-        "id": 75926968,
+        "id": 88384629,
         "endtime": 1444657093125,
         "owner": {
             "avatar": "/images/temp/1.jpg",
             "name": "sosochen",
             "level": 3
         },
-        "auctions": 15,
-        "comments": 11,
-        "likes": 55,
+        "auctions": [{
+            "avatar": "/images/temp/1.jpg",
+            "name": "guigui",
+            "price": "444"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "name": "dingding",
+            "price": "555"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "name": "biggie",
+            "price": "666"
+        }],
+        "comments": [{
+            "avatar": "/images/temp/1.jpg",
+            "conts": "这是假货吗？",
+            "reply": "你说的是废话吗？"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "好像很漂亮的样子",
+            "reply": "废话"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "包邮吗？亲",
+            "reply": "废话"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "买一送一么？",
+            "reply": "你SB么？"
+        }],
+        "likes": 11,
         "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
+        "srcs": ["/images/temp/1.jpg"],
+        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉2212",
+        "description": "翡翠（jadeite）， 也称翡翠玉、翠玉、硬玉、缅甸玉，是玉的一种。翡翠是在地质作用下形成的达到玉级的石质多晶集合体，主要由硬玉或硬玉及钠质（钠铬辉石）、钠钙质辉石（绿辉石）组成，可含有角闪石、长石、铬铁矿、褐铁矿等。[1] 在古代翡翠是一种生活在南方的鸟，毛色十分美丽，通常有蓝、绿、红、棕等颜色。一般这种鸟雄性的为红色，谓之“翡”，雌性的为绿色，谓之“翠”。",
+        "type": 1,
+        "status": 0,
+        "margin": "0",
+        "startPrice": 44,
+        "range": 10
     }, {
-        "id": 50362325,
+        "id": 88384629,
         "endtime": 1444657093125,
         "owner": {
             "avatar": "/images/temp/1.jpg",
             "name": "sosochen",
             "level": 3
         },
-        "auctions": 15,
-        "comments": 12,
-        "likes": 55,
+        "auctions": [{
+            "avatar": "/images/temp/1.jpg",
+            "name": "guigui",
+            "price": "444"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "name": "dingding",
+            "price": "555"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "name": "biggie",
+            "price": "666"
+        }],
+        "comments": [{
+            "avatar": "/images/temp/1.jpg",
+            "conts": "这是假货吗？",
+            "reply": "你说的是废话吗？"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "好像很漂亮的样子",
+            "reply": "废话"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "包邮吗？亲",
+            "reply": "废话"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "买一送一么？",
+            "reply": "你SB么？"
+        }],
+        "likes": 12,
         "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
+        "srcs": ["/images/temp/1.jpg"],
+        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉2212",
+        "description": "翡翠（jadeite）， 也称翡翠玉、翠玉、硬玉、缅甸玉，是玉的一种。翡翠是在地质作用下形成的达到玉级的石质多晶集合体，主要由硬玉或硬玉及钠质（钠铬辉石）、钠钙质辉石（绿辉石）组成，可含有角闪石、长石、铬铁矿、褐铁矿等。[1] 在古代翡翠是一种生活在南方的鸟，毛色十分美丽，通常有蓝、绿、红、棕等颜色。一般这种鸟雄性的为红色，谓之“翡”，雌性的为绿色，谓之“翠”。",
+        "type": 1,
+        "status": 0,
+        "margin": "0",
+        "startPrice": 44,
+        "range": 10
     }, {
-        "id": 89475164,
+        "id": 88384629,
         "endtime": 1444657093125,
         "owner": {
             "avatar": "/images/temp/1.jpg",
             "name": "sosochen",
             "level": 3
         },
-        "auctions": 15,
-        "comments": 13,
-        "likes": 55,
+        "auctions": [{
+            "avatar": "/images/temp/1.jpg",
+            "name": "guigui",
+            "price": "444"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "name": "dingding",
+            "price": "555"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "name": "biggie",
+            "price": "666"
+        }],
+        "comments": [{
+            "avatar": "/images/temp/1.jpg",
+            "conts": "这是假货吗？",
+            "reply": "你说的是废话吗？"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "好像很漂亮的样子",
+            "reply": "废话"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "包邮吗？亲",
+            "reply": "废话"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "买一送一么？",
+            "reply": "你SB么？"
+        }],
+        "likes": 13,
         "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
+        "srcs": ["/images/temp/1.jpg"],
+        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉2212",
+        "description": "翡翠（jadeite）， 也称翡翠玉、翠玉、硬玉、缅甸玉，是玉的一种。翡翠是在地质作用下形成的达到玉级的石质多晶集合体，主要由硬玉或硬玉及钠质（钠铬辉石）、钠钙质辉石（绿辉石）组成，可含有角闪石、长石、铬铁矿、褐铁矿等。[1] 在古代翡翠是一种生活在南方的鸟，毛色十分美丽，通常有蓝、绿、红、棕等颜色。一般这种鸟雄性的为红色，谓之“翡”，雌性的为绿色，谓之“翠”。",
+        "type": 1,
+        "status": 0,
+        "margin": "0",
+        "startPrice": 44,
+        "range": 10
     }, {
-        "id": 77298615,
+        "id": 88384629,
         "endtime": 1444657093125,
         "owner": {
             "avatar": "/images/temp/1.jpg",
             "name": "sosochen",
             "level": 3
         },
-        "auctions": 15,
-        "comments": 14,
-        "likes": 55,
+        "auctions": [{
+            "avatar": "/images/temp/1.jpg",
+            "name": "guigui",
+            "price": "444"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "name": "dingding",
+            "price": "555"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "name": "biggie",
+            "price": "666"
+        }],
+        "comments": [{
+            "avatar": "/images/temp/1.jpg",
+            "conts": "这是假货吗？",
+            "reply": "你说的是废话吗？"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "好像很漂亮的样子",
+            "reply": "废话"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "包邮吗？亲",
+            "reply": "废话"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "买一送一么？",
+            "reply": "你SB么？"
+        }],
+        "likes": 14,
         "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
+        "srcs": ["/images/temp/1.jpg"],
+        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉2212",
+        "description": "翡翠（jadeite）， 也称翡翠玉、翠玉、硬玉、缅甸玉，是玉的一种。翡翠是在地质作用下形成的达到玉级的石质多晶集合体，主要由硬玉或硬玉及钠质（钠铬辉石）、钠钙质辉石（绿辉石）组成，可含有角闪石、长石、铬铁矿、褐铁矿等。[1] 在古代翡翠是一种生活在南方的鸟，毛色十分美丽，通常有蓝、绿、红、棕等颜色。一般这种鸟雄性的为红色，谓之“翡”，雌性的为绿色，谓之“翠”。",
+        "type": 1,
+        "status": 0,
+        "margin": "0",
+        "startPrice": 44,
+        "range": 10
     }, {
-        "id": 39557620,
+        "id": 88384629,
         "endtime": 1444657093125,
         "owner": {
             "avatar": "/images/temp/1.jpg",
             "name": "sosochen",
             "level": 3
         },
-        "auctions": 15,
-        "comments": 15,
-        "likes": 55,
+        "auctions": [{
+            "avatar": "/images/temp/1.jpg",
+            "name": "guigui",
+            "price": "444"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "name": "dingding",
+            "price": "555"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "name": "biggie",
+            "price": "666"
+        }],
+        "comments": [{
+            "avatar": "/images/temp/1.jpg",
+            "conts": "这是假货吗？",
+            "reply": "你说的是废话吗？"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "好像很漂亮的样子",
+            "reply": "废话"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "包邮吗？亲",
+            "reply": "废话"
+        }, {
+            "avatar": "/images/temp/1.jpg",
+            "conts": "买一送一么？",
+            "reply": "你SB么？"
+        }],
+        "likes": 15,
         "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
+        "srcs": ["/images/temp/1.jpg"],
+        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉2212",
+        "description": "翡翠（jadeite）， 也称翡翠玉、翠玉、硬玉、缅甸玉，是玉的一种。翡翠是在地质作用下形成的达到玉级的石质多晶集合体，主要由硬玉或硬玉及钠质（钠铬辉石）、钠钙质辉石（绿辉石）组成，可含有角闪石、长石、铬铁矿、褐铁矿等。[1] 在古代翡翠是一种生活在南方的鸟，毛色十分美丽，通常有蓝、绿、红、棕等颜色。一般这种鸟雄性的为红色，谓之“翡”，雌性的为绿色，谓之“翠”。",
+        "type": 1,
+        "status": 0,
+        "margin": "0",
+        "startPrice": 44,
+        "range": 10
     }, {
-        "id": 10678802,
+        "id": 88384629,
         "endtime": 1444657093125,
         "owner": {
             "avatar": "/images/temp/1.jpg",
             "name": "sosochen",
             "level": 3
         },
-        "auctions": 15,
-        "comments": 16,
-        "likes": 55,
-        "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
-    }, {
-        "id": 59743868,
-        "endtime": 1444657093125,
-        "owner": {
+        "auctions": [{
             "avatar": "/images/temp/1.jpg",
-            "name": "sosochen",
-            "level": 3
-        },
-        "auctions": 15,
-        "comments": 17,
-        "likes": 55,
-        "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
-    }, {
-        "id": 13651095,
-        "endtime": 1444657093125,
-        "owner": {
+            "name": "guigui",
+            "price": "444"
+        }, {
             "avatar": "/images/temp/1.jpg",
-            "name": "sosochen",
-            "level": 3
-        },
-        "auctions": 15,
-        "comments": 18,
-        "likes": 55,
-        "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
-    }, {
-        "id": 82006968,
-        "endtime": 1444657093125,
-        "owner": {
+            "name": "dingding",
+            "price": "555"
+        }, {
             "avatar": "/images/temp/1.jpg",
-            "name": "sosochen",
-            "level": 3
-        },
-        "auctions": 15,
-        "comments": 19,
-        "likes": 55,
-        "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
-    }, {
-        "id": 104387021,
-        "endtime": 1444657093125,
-        "owner": {
+            "name": "biggie",
+            "price": "666"
+        }],
+        "comments": [{
             "avatar": "/images/temp/1.jpg",
-            "name": "sosochen",
-            "level": 3
-        },
-        "auctions": 15,
-        "comments": 20,
-        "likes": 55,
-        "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
-    }, {
-        "id": 114185012,
-        "endtime": 1444657093125,
-        "owner": {
+            "conts": "这是假货吗？",
+            "reply": "你说的是废话吗？"
+        }, {
             "avatar": "/images/temp/1.jpg",
-            "name": "sosochen",
-            "level": 3
-        },
-        "auctions": 15,
-        "comments": 21,
-        "likes": 55,
-        "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
-    }, {
-        "id": 42140294,
-        "endtime": 1444657093125,
-        "owner": {
+            "conts": "好像很漂亮的样子",
+            "reply": "废话"
+        }, {
             "avatar": "/images/temp/1.jpg",
-            "name": "sosochen",
-            "level": 3
-        },
-        "auctions": 15,
-        "comments": 22,
-        "likes": 55,
-        "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
-    }, {
-        "id": 72749233,
-        "endtime": 1444657093125,
-        "owner": {
+            "conts": "包邮吗？亲",
+            "reply": "废话"
+        }, {
             "avatar": "/images/temp/1.jpg",
-            "name": "sosochen",
-            "level": 3
-        },
-        "auctions": 15,
-        "comments": 23,
-        "likes": 55,
+            "conts": "买一送一么？",
+            "reply": "你SB么？"
+        }],
+        "likes": 16,
         "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
-    }, {
-        "id": 82972434,
-        "endtime": 1444657093125,
-        "owner": {
-            "avatar": "/images/temp/1.jpg",
-            "name": "sosochen",
-            "level": 3
-        },
-        "auctions": 15,
-        "comments": 24,
-        "likes": 55,
-        "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
-    }, {
-        "id": 36970254,
-        "endtime": 1444657093125,
-        "owner": {
-            "avatar": "/images/temp/1.jpg",
-            "name": "sosochen",
-            "level": 3
-        },
-        "auctions": 15,
-        "comments": 25,
-        "likes": 55,
-        "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
-    }, {
-        "id": 98270205,
-        "endtime": 1444657093125,
-        "owner": {
-            "avatar": "/images/temp/1.jpg",
-            "name": "sosochen",
-            "level": 3
-        },
-        "auctions": 15,
-        "comments": 26,
-        "likes": 55,
-        "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
-    }, {
-        "id": 105225762,
-        "endtime": 1444657093125,
-        "owner": {
-            "avatar": "/images/temp/1.jpg",
-            "name": "sosochen",
-            "level": 3
-        },
-        "auctions": 15,
-        "comments": 27,
-        "likes": 55,
-        "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
-    }, {
-        "id": 89802244,
-        "endtime": 1444657093125,
-        "owner": {
-            "avatar": "/images/temp/1.jpg",
-            "name": "sosochen",
-            "level": 3
-        },
-        "auctions": 15,
-        "comments": 28,
-        "likes": 55,
-        "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
-    }, {
-        "id": 100743817,
-        "endtime": 1444657093125,
-        "owner": {
-            "avatar": "/images/temp/1.jpg",
-            "name": "sosochen",
-            "level": 3
-        },
-        "auctions": 15,
-        "comments": 29,
-        "likes": 55,
-        "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
-    }, {
-        "id": 79833887,
-        "endtime": 1444657093125,
-        "owner": {
-            "avatar": "/images/temp/1.jpg",
-            "name": "sosochen",
-            "level": 3
-        },
-        "auctions": 15,
-        "comments": 30,
-        "likes": 55,
-        "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
-    }, {
-        "id": 76608831,
-        "endtime": 1444657093125,
-        "owner": {
-            "avatar": "/images/temp/1.jpg",
-            "name": "sosochen",
-            "level": 3
-        },
-        "auctions": 15,
-        "comments": 31,
-        "likes": 55,
-        "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
-    }, {
-        "id": 46342133,
-        "endtime": 1444657093125,
-        "owner": {
-            "avatar": "/images/temp/1.jpg",
-            "name": "sosochen",
-            "level": 3
-        },
-        "auctions": 15,
-        "comments": 32,
-        "likes": 55,
-        "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
-    }, {
-        "id": 79667249,
-        "endtime": 1444657093125,
-        "owner": {
-            "avatar": "/images/temp/1.jpg",
-            "name": "sosochen",
-            "level": 3
-        },
-        "auctions": 15,
-        "comments": 33,
-        "likes": 55,
-        "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
-    }, {
-        "id": 110287549,
-        "endtime": 1444657093125,
-        "owner": {
-            "avatar": "/images/temp/1.jpg",
-            "name": "sosochen",
-            "level": 3
-        },
-        "auctions": 15,
-        "comments": 34,
-        "likes": 55,
-        "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
-    }, {
-        "id": 108478230,
-        "endtime": 1444657093125,
-        "owner": {
-            "avatar": "/images/temp/1.jpg",
-            "name": "sosochen",
-            "level": 3
-        },
-        "auctions": 15,
-        "comments": 35,
-        "likes": 55,
-        "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
-    }, {
-        "id": 15065568,
-        "endtime": 1444657093125,
-        "owner": {
-            "avatar": "/images/temp/1.jpg",
-            "name": "sosochen",
-            "level": 3
-        },
-        "auctions": 15,
-        "comments": 36,
-        "likes": 55,
-        "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
-    }, {
-        "id": 18092393,
-        "endtime": 1444657093125,
-        "owner": {
-            "avatar": "/images/temp/1.jpg",
-            "name": "sosochen",
-            "level": 3
-        },
-        "auctions": 15,
-        "comments": 37,
-        "likes": 55,
-        "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
-    }, {
-        "id": 71180608,
-        "endtime": 1444657093125,
-        "owner": {
-            "avatar": "/images/temp/1.jpg",
-            "name": "sosochen",
-            "level": 3
-        },
-        "auctions": 15,
-        "comments": 38,
-        "likes": 55,
-        "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
-    }, {
-        "id": 108479138,
-        "endtime": 1444657093125,
-        "owner": {
-            "avatar": "/images/temp/1.jpg",
-            "name": "sosochen",
-            "level": 3
-        },
-        "auctions": 15,
-        "comments": 39,
-        "likes": 55,
-        "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
-    }, {
-        "id": 36617353,
-        "endtime": 1444657093125,
-        "owner": {
-            "avatar": "/images/temp/1.jpg",
-            "name": "sosochen",
-            "level": 3
-        },
-        "auctions": 15,
-        "comments": 40,
-        "likes": 55,
-        "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
-    }, {
-        "id": 82052433,
-        "endtime": 1444657093125,
-        "owner": {
-            "avatar": "/images/temp/1.jpg",
-            "name": "sosochen",
-            "level": 3
-        },
-        "auctions": 15,
-        "comments": 41,
-        "likes": 55,
-        "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
-    }, {
-        "id": 11234701,
-        "endtime": 1444657093125,
-        "owner": {
-            "avatar": "/images/temp/1.jpg",
-            "name": "sosochen",
-            "level": 3
-        },
-        "auctions": 15,
-        "comments": 42,
-        "likes": 55,
-        "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
-    }, {
-        "id": 105017806,
-        "endtime": 1444657093125,
-        "owner": {
-            "avatar": "/images/temp/1.jpg",
-            "name": "sosochen",
-            "level": 3
-        },
-        "auctions": 15,
-        "comments": 43,
-        "likes": 55,
-        "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
-    }, {
-        "id": 76020560,
-        "endtime": 1444657093125,
-        "owner": {
-            "avatar": "/images/temp/1.jpg",
-            "name": "sosochen",
-            "level": 3
-        },
-        "auctions": 15,
-        "comments": 44,
-        "likes": 55,
-        "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
-    }, {
-        "id": 25314799,
-        "endtime": 1444657093125,
-        "owner": {
-            "avatar": "/images/temp/1.jpg",
-            "name": "sosochen",
-            "level": 3
-        },
-        "auctions": 15,
-        "comments": 45,
-        "likes": 55,
-        "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
-    }, {
-        "id": 54756010,
-        "endtime": 1444657093125,
-        "owner": {
-            "avatar": "/images/temp/1.jpg",
-            "name": "sosochen",
-            "level": 3
-        },
-        "auctions": 15,
-        "comments": 46,
-        "likes": 55,
-        "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
-    }, {
-        "id": 26737216,
-        "endtime": 1444657093125,
-        "owner": {
-            "avatar": "/images/temp/1.jpg",
-            "name": "sosochen",
-            "level": 3
-        },
-        "auctions": 15,
-        "comments": 47,
-        "likes": 55,
-        "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
-    }, {
-        "id": 100823088,
-        "endtime": 1444657093125,
-        "owner": {
-            "avatar": "/images/temp/1.jpg",
-            "name": "sosochen",
-            "level": 3
-        },
-        "auctions": 15,
-        "comments": 48,
-        "likes": 55,
-        "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
-    }, {
-        "id": 74828047,
-        "endtime": 1444657093125,
-        "owner": {
-            "avatar": "/images/temp/1.jpg",
-            "name": "sosochen",
-            "level": 3
-        },
-        "auctions": 15,
-        "comments": 49,
-        "likes": 55,
-        "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
-    }, {
-        "id": 114915433,
-        "endtime": 1444657093125,
-        "owner": {
-            "avatar": "/images/temp/1.jpg",
-            "name": "sosochen",
-            "level": 3
-        },
-        "auctions": 15,
-        "comments": 50,
-        "likes": 55,
-        "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
-    }, {
-        "id": 30742402,
-        "endtime": 1444657093125,
-        "owner": {
-            "avatar": "/images/temp/1.jpg",
-            "name": "sosochen",
-            "level": 3
-        },
-        "auctions": 15,
-        "comments": 51,
-        "likes": 55,
-        "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
-    }, {
-        "id": 103772918,
-        "endtime": 1444657093125,
-        "owner": {
-            "avatar": "/images/temp/1.jpg",
-            "name": "sosochen",
-            "level": 3
-        },
-        "auctions": 15,
-        "comments": 52,
-        "likes": 55,
-        "curPrice": 1290,
-        "src": "/images/temp/1.jpg",
-        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉器挂件222"
+        "srcs": ["/images/temp/1.jpg"],
+        "title": "石守一生新疆和田玉蝉吊坠玉石一鸣惊人玉2212",
+        "description": "翡翠（jadeite）， 也称翡翠玉、翠玉、硬玉、缅甸玉，是玉的一种。翡翠是在地质作用下形成的达到玉级的石质多晶集合体，主要由硬玉或硬玉及钠质（钠铬辉石）、钠钙质辉石（绿辉石）组成，可含有角闪石、长石、铬铁矿、褐铁矿等。[1] 在古代翡翠是一种生活在南方的鸟，毛色十分美丽，通常有蓝、绿、红、棕等颜色。一般这种鸟雄性的为红色，谓之“翡”，雌性的为绿色，谓之“翠”。",
+        "type": 1,
+        "status": 0,
+        "margin": "0",
+        "startPrice": 44,
+        "range": 10
     }]
 }

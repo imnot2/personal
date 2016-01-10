@@ -116,11 +116,11 @@ directives.directive('productsscroll', [
                     }
                 }
 
-                function whenUpdate(page) {
+                function whenUpdate(productType) {
                     paneWrap = $(element).find('.ui-tabs-content');
                     paneNode = paneWrap.find('.ui-tabs-pane.active');
 
-                    page = page;
+                    page = productType;
                     products = productsService.products[page];
 
                     unbindScroll(paneNode);

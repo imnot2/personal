@@ -17,7 +17,7 @@
         <div class="ui-tabs-pane" ng-class="{active:type!=2&&type!=3}">
             <article ng-repeat="product in products.processing.showData" data-id="{{product.id}}">
                 <div class="ui-item-image" ui-sref="detail({id:product.id})">
-                    <a href="javascript:;"><img ng-src="{{product.src}}">
+                    <a href="javascript:;"><img ng-src="{{product.srcs[0]}}">
                     </a>
                     <div class="item-title">
                         <h3>{{product.title}}</h3>

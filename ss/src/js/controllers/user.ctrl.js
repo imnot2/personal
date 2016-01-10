@@ -35,8 +35,20 @@ ctrls.controller('userCtrl', [
     }
 ]).controller('userSellerCtrl', [
     '$scope',
-    function($scope) {
+    '$http',
+    function($scope, $http) {
         $scope.isSelling = true;
+        $scope.formData = {};
+        $scope.savesetting = function() {
+            var data = {
+                name: $scope.storeName,
+                info: $scope.storeInfo,
+                address: $scope.storeAddress,
+                imgs: $scope.formData
+            }
+
+            console.log(data);
+        }
     }
 ]).controller('registerCtrl', [
     '$scope',

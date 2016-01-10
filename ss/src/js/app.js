@@ -155,5 +155,29 @@ ssApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $
                 controller: 'contactCtrl'
             }
         }
+    }).state('messages', {
+        url: '/messages',
+        views: {
+            '': {
+                templateUrl: 'tpls/messages.tpl.html',
+                controller: 'messagesCtrl'
+            }
+        }
+    }).state('preview', {
+        url: '/preview',
+        views: {
+            '': {
+                templateUrl: 'tpls/preview.tpl.html',
+                controller: 'previewCtrl'
+            }
+        }
+    }).state('publish', {
+        url: '/publish',
+        views: {
+            '': {
+                templateUrl: 'tpls/publish.tpl.html',
+                controller: 'publishCtrl'
+            }
+        }
     })
 }]);

@@ -708,13 +708,13 @@
  *=================================================================================================================================================
  */
 
-.rigister {
+.page-rigister {
     .ui-btn {
         margin-top: pxtorem(20px);
     }
 }
 
-.forgetpassword {
+.page-forgetpassword {
     .ui-btn {
         margin-top: pxtorem(20px);
     }
@@ -2809,6 +2809,42 @@ end message
 
 .page-contribute .ui-container .ui-store-panel {
     margin-top: 0;
+}
+
+
+/*
+ *page-messages
+ *=============================================================================
+ */
+
+.page-messages {
+    .ui-tabs-content {
+        position: relative;
+        .ui-tabs-pane {
+            position: relative;
+            display: none;
+            &.active {
+                display: block;
+            }
+        }
+    }
+}
+/*
+ *page-publish
+ *=============================================================================
+ */
+
+.page-publish {
+    .ui-tabs-content {
+        position: relative;
+        .ui-tabs-pane {
+            position: relative;
+            display: none;
+            &.active {
+                display: block;
+            }
+        }
+    }
 }
 
 .slideAnimated {

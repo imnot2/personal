@@ -41,7 +41,7 @@ ctrls.controller('userCtrl', [
 ]).controller('registerCtrl', [
     '$scope',
     function($scope) {
-        $scope.wrapClass = "rigister";
+        $scope.wrapClass = "page-rigister";
         $scope.toParent = function(obj) {
             $scope[obj.displayName] = obj;
         }
@@ -52,7 +52,7 @@ ctrls.controller('userCtrl', [
 ]).controller('forgetpasswordCtrl', [
     '$scope',
     function($scope) {
-        $scope.wrapClass = 'forgetpassword';
+        $scope.wrapClass = 'page-forgetpassword';
     }
 ]).controller('settingCtrl', [
     '$scope',
@@ -73,5 +73,20 @@ ctrls.controller('userCtrl', [
     '$scope',
     function($scope) {
         $scope.wrapClass = 'page-contact';
+    }
+]).controller('publishCtrl', [
+    '$scope',
+    function($scope) {
+        $scope.wrapClass = 'page-publish';
+    }
+]).controller('messagesCtrl', [
+    '$scope',
+    function($scope) {
+        $scope.wrapClass = 'page-messages';
+    }
+]).controller('previewCtrl', [
+    '$scope',
+    function($scope) {
+        $scope.wrapClass = 'page-preview';
     }
 ])

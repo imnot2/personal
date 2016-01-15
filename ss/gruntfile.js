@@ -185,9 +185,11 @@ module.exports = function(grunt) {
             //     }]
             // },
             dest: {
-                files: {
+                files: [{
                     '<%= dirs.dest.js %>/app.js': ['<%= dirs.build.js %>/app.js']
-                }
+                }, {
+                    '<%= dirs.dest.js %>/vendor/lib.js': ['<%= dirs.build.js %>/vendor/lib.js']
+                }]
             }
         },
         // replace: {

@@ -44,18 +44,18 @@ ssApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $
                 templateUrl: '/tpls/user.tpl.html',
                 controller: 'userCtrl',
                 resolve: {
-                    loginRedirect: function(user) {
+                    loginRedirect: ['user', function(user) {
                         return user.loginRedirect(['identity', 'page']);
-                    }
+                    }]
                 }
             },
             'content@user': {
                 templateUrl: function($stateParams) {
                     return '/tpls/ui-wiget/user' + $stateParams.identity + '.tpl.html'
                 },
-                controllerProvider: function($stateParams) {
+                controllerProvider: ['$stateParams', function($stateParams) {
                     return 'user' + $stateParams.identity + 'Ctrl';
-                }
+                }]
             }
         }
     }).state('login', {
@@ -98,9 +98,9 @@ ssApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $
                 templateUrl: '/tpls/setting.tpl.html',
                 controller: 'settingCtrl',
                 resolve: {
-                    loginRedirect: function(user) {
+                    loginRedirect: ['user', function(user) {
                         return user.loginRedirect();
-                    }
+                    }]
                 }
             }
         },
@@ -120,9 +120,9 @@ ssApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $
                 templateUrl: '/tpls/paydeposit.tpl.html',
                 controller: 'paydepositCtrl',
                 resolve: {
-                    loginRedirect: function(user) {
+                    loginRedirect: ['user', function(user) {
                         return user.loginRedirect(['type', 'id']);
-                    }
+                    }]
                 }
             },
             'content@paydeposit': {
@@ -162,9 +162,9 @@ ssApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $
                 templateUrl: '/tpls/messages.tpl.html',
                 controller: 'messagesCtrl',
                 resolve: {
-                    loginRedirect: function(user) {
+                    loginRedirect: ['user', function(user) {
                         return user.loginRedirect();
-                    }
+                    }]
                 }
             }
         }
@@ -175,9 +175,9 @@ ssApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $
                 templateUrl: '/tpls/preview.tpl.html',
                 controller: 'previewCtrl',
                 resolve: {
-                    loginRedirect: function(user) {
+                    loginRedirect: ['user', function(user) {
                         return user.loginRedirect();
-                    }
+                    }]
                 }
             }
         }
@@ -188,9 +188,9 @@ ssApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $
                 templateUrl: '/tpls/publish.tpl.html',
                 controller: 'publishCtrl',
                 resolve: {
-                    loginRedirect: function(user) {
+                    loginRedirect: ['user', function(user) {
                         return user.loginRedirect();
-                    }
+                    }]
                 }
             }
         }

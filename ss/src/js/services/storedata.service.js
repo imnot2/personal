@@ -1,4 +1,4 @@
-services.service('storeDataService', function($rootScope) {
+services.service('storeDataService', function() {
     this.data = {
         countdown: {}
     };

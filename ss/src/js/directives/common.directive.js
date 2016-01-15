@@ -56,7 +56,7 @@ directives.directive('touser', ['$state', 'user', function($state, user) {
                         if (params) {
                             args.push(JSON.parse(params));
                         }
-                        $state.go.apply($state,args);
+                        $state.go.apply($state, args);
                     });
                 }
             })
@@ -153,7 +153,7 @@ directives.directive('touser', ['$state', 'user', function($state, user) {
             })
         }
     }
-}]).directive('countdown', function() {
+}]).directive('countdown', ['storeDataService', function(storeDataService) {
     var s = 1000;
     var m = s * 60;
     var h = m * 60;
@@ -181,16 +181,22 @@ directives.directive('touser', ['$state', 'user', function($state, user) {
     }
     return {
         restrict: 'AE',
-        template: '<span></span>',
-        replace: true,
+        scope: {
+            id: "@"
+        },
         link: function(scope, element, attrs) {
+            var o = storeDataService.data.countdown;
+            if (o[scope.id]) {
+                clearInterval(o[scope.id])
+            }
             $(element).html(parseHtml(attrs.timestamp));
-            setInterval(function() {
+            o[scope.id] = setInterval(function() {
+                console.log($(element).index());
                 $(element).html(parseHtml(attrs.timestamp));
             }, m)
         }
     }
-}).directive('modifyaddress', ['addressService', function(addressService) {
+}]).directive('modifyaddress', ['addressService', function(addressService) {
     return {
         restrict: 'AE',
         link: function(scope, element, attrs) {

@@ -113,6 +113,14 @@ ssApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $
                 controller: 'detailCtrl'
             }
         }
+    }).state('orderdetail', {
+        url: '/orderdetail/:orderid',
+        views: {
+            '': {
+                templateUrl: '/tpls/orderdetail.tpl.html',
+                controller: 'orderdetailCtrl'
+            }
+        }
     }).state('paydeposit', {
         url: '/paydeposit/:type/:id',
         views: {

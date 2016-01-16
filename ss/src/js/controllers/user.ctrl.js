@@ -36,7 +36,8 @@ ctrls.controller('userCtrl', [
 ]).controller('userSellerCtrl', [
     '$scope',
     '$http',
-    function($scope, $http) {
+    'orderService',
+    function($scope, $http, orderService) {
         $scope.isSelling = true;
         $scope.formData = {};
         $scope.savesetting = function() {
@@ -46,9 +47,18 @@ ctrls.controller('userCtrl', [
                 address: $scope.storeAddress,
                 imgs: $scope.formData
             }
-
             console.log(data);
         }
+        orderService.getOrders({
+            type: 'myorder',
+            isFirst: true,
+            successFn: function() {
+                $scope.myorder = orderService.orders.myorder.srcData;
+                if ($scope.$root.$$phase != '$apply' && $scope.$root.$$phase != '$digest') {
+                    $scope.$digest();
+                }
+            }
+        });
     }
 ]).controller('registerCtrl', [
     '$scope',

@@ -457,6 +457,7 @@ body {
  */
 
 .ui-btn-line {
+    display:-webkit-box;
     display: -webkit-flex;
     display: flex;
     justify-content: center;
@@ -1512,6 +1513,7 @@ body {
         bottom: 0;
         left: 0;
         right: 0;
+        display:-webkit-box;
         display: flex;
         a {
             flex: 1;
@@ -2156,6 +2158,7 @@ body {
 .ui-file-img {
     margin-bottom: pxtorem(20px);
     display: flex;
+    display:-webkit-box;
     justify-content: center;
     &:after {
         display: block;

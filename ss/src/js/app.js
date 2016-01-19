@@ -114,11 +114,27 @@ ssApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $
             }
         }
     }).state('orderdetail', {
-        url: '/orderdetail/:orderid',
+        url: '/orderdetail/:identity/:orderid',
         views: {
             '': {
-                templateUrl: '/tpls/orderdetail.tpl.html',
-                controller: 'orderdetailCtrl'
+                templateUrl: function($stateParams) {
+                    return '/tpls/orderFor' + $stateParams.identity + '.tpl.html'
+                },
+                //templateUrl: '/tpls/orderdetail.tpl.html',
+                controllerProvider: ['$stateParams', function($stateParams) {
+                    return 'order' + $stateParams.identity + 'Ctrl';
+                }],
+                //controller: 'orderdetailCtrl'，
+                resolve: {
+                    loginRedirect: ['$stateParams', '$q', 'user', function($stateParams, $q, user) {
+                        var deferred = $q.defer();
+                        var promise = user.loginRedirect(['identity', 'orderid']);
+                        promise.then(function(identity) {
+                            $stateParams.identity = identity;
+                            deferred.resolve();
+                        });
+                    }]
+                }
             }
         }
     }).state('paydeposit', {

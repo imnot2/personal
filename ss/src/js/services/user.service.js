@@ -6,8 +6,8 @@ services.service('user', ['$http', '$rootScope', '$state', '$timeout', '$locatio
             name: 'sosochen',
             avatar: '/images/temp/1s.jpg',
             level: '4',
-            //identity: 'Buyer'
-            identity: 'Seller'
+            identity: 'Buyer'
+            //identity: 'Seller'
         },
         token: 'asdfa3rewtq',
         //token: '',
@@ -54,15 +54,17 @@ services.service('user', ['$http', '$rootScope', '$state', '$timeout', '$locatio
     };
     this.getUState = function(key) {
         var ustate = $.cookie('UState');
-        if (ustate && (typeof ustate == 'object')) {
+        if (angular.isString(ustate)) {
             try {
-                return ustate[key];
+                return JSON.parse(ustate)[key];
             } catch (error) {
                 return false;
             }
-        } else {
-            return false;
         }
+        if (angular.isObject(ustate)) {
+            return ustate[key];
+        }
+        return false;
     };
     this.cleanUState = function(isRedir, callback) {
         $.removeCookie('UState', {
@@ -86,7 +88,7 @@ services.service('user', ['$http', '$rootScope', '$state', '$timeout', '$locatio
         var redirectArr = redirectArr || [];
         var deferred = $q.defer();
         var me = this;
-        var state = me.stateChange;        
+        var state = me.stateChange;
         var loginOption = {
             'cur': state[1].name
         };
@@ -94,7 +96,7 @@ services.service('user', ['$http', '$rootScope', '$state', '$timeout', '$locatio
             loginOption.params = JSON.stringify(state[2])
         }
         if (me.getToken()) {
-            deferred.resolve();
+            deferred.resolve(me.getUState('identity'));
         } else {
             $state.go('login', loginOption);
         }

@@ -2882,6 +2882,18 @@ end message
         margin-top: pxtorem(10px);
     }
 }
+/*
+ *page-orderdetail
+ *=============================================================================
+ */
+.page-orderdetail{
+    .ui-container{
+        overflow: auto;
+    }
+    .btn-block{
+        width: auto;
+    }
+}
 
 .slideAnimated {
     -webkit-animation-duration: 0.5s;

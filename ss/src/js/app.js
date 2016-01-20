@@ -103,8 +103,7 @@ ssApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $
                     }]
                 }
             }
-        },
-
+        }
     }).state('detail', {
         url: '/detail/:id',
         views: {
@@ -118,20 +117,21 @@ ssApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $
         views: {
             '': {
                 templateUrl: function($stateParams) {
-                    return '/tpls/orderFor' + $stateParams.identity + '.tpl.html'
-                },
-                //templateUrl: '/tpls/orderdetail.tpl.html',
+                    return '/tpls/orderFor' + $stateParams.identity + '.tpl.html';
+                },                
                 controllerProvider: ['$stateParams', function($stateParams) {
                     return 'order' + $stateParams.identity + 'Ctrl';
                 }],
-                //controller: 'orderdetailCtrl'，
                 resolve: {
-                    loginRedirect: ['$stateParams', '$q', 'user', function($stateParams, $q, user) {
-                        var deferred = $q.defer();
+                    loginRedirect: ['$stateParams', '$state', 'user', function($stateParams, $state, user) {
                         var promise = user.loginRedirect(['identity', 'orderid']);
                         promise.then(function(identity) {
-                            $stateParams.identity = identity;
-                            deferred.resolve();
+                            if ($stateParams.identity !== identity) {
+                                $state.go('orderdetail', {
+                                    'identity': identity,
+                                    'orderid': $stateParams.orderid
+                                })
+                            }
                         });
                     }]
                 }

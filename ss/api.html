@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>赏时 api</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-size: 12px;
+    }
+    
+    table {
+        border-collapse: collapse;
+        border: 1px solid #EDECEC;
+    }
+    
+    table th,
+    table td {
+        border: 1px solid #EDECEC;
+    }
+    
+    table th {
+        line-height: 30px;
+        background: #f8f8f8;
+    }
+    
+    .interface-title {
+        height: 34px;
+        line-height: 34px;
+        background: #f6faff;
+        border: 1px solid #becfdd;
+        color: #333;
+        padding-left: 10px;
+        font-size: 13px;
+        font-weight: bold;
+    }
+    
+    .interface-item {
+        clear: both;
+    }
+    
+    .item-lft,
+    .item-rt {
+        float: left;
+        line-height: 24px;
+        margin: 10px 0px;
+    }
+    
+    .item-bd {
+        padding-left: 30px;
+    }
+    
+    .item-lft {
+        clear: both;
+        width: 140px;
+        font-weight: bold;
+        text-align: right;
+    }
+    
+    .item-rt {
+        margin-left: 20px;
+        width: 70%;
+        padding-left: 10px;
+    }
+    
+    .code {
+        border: 1px dashed #999;
+        background: #fafafa;
+        color: #555;
+        font-family: "Courier New";
+        margin-left: 30px;
+        width: 69%;
+    }
+    </style>
+    <script>
+    var api = [{
+        title: '登录接口',
+        http: 'post',
+        url: '',
+        options: [{
+            name: 'userName',
+            des: '用户名'，
+            isMust: true,
+            info: '用户名'
+        }]
+    }]
+    </script>
+</head>
+
+<body>
+    <div class="interface">
+        <div class="interface-title">登录接口</div>
+        <div class="interface-item">
+            <div class="item-bd">
+                <div class="item-lft">HTTP请求方式</div>
+                <div class="item-rt">GET/POST</div>
+                <div class="item-lft">请求URL</div>
+                <div class="item-rt code">http://221.122.112.136:8080/sms/mt.jsp?cpName=用户账号&amp;cpPwd=用户密码&amp;phones=号码&amp;msg=内容</div>
+                <div class="item-lft">请求参数</div>
+                <div class="item-rt">
+                    <table width="100%">
+                        <tbody>
+                            <tr>
+                                <th width="20%">参数名称</th>
+                                <th width="20%">类型</th>
+                                <th width="20%">是否必须</th>
+                                <th width="40%">描述</th>
+                            </tr>
+                            <tr>
+                                <td>cpName</td>
+                                <td>用户账号</td>
+                                <td>是</td>
+                                <td>用户账号</td>
+                            </tr>
+                            <tr class="odd">
+                                <td>cpPwd</td>
+                                <td>用户密码</td>
+                                <td>是</td>
+                                <td>用户密码</td>
+                            </tr>
+                            <tr>
+                                <td>phones</td>
+                                <td>接收号码</td>
+                                <td>是</td>
+                                <td>同时发送给多个号码时,号码之间用英文半角逗号分隔
+                                    <br> GET方式每次最多可以提交50条号码
+                                    <br> POST方式每次最多可以提交10000个号码
+                                </td>
+                            </tr>
+                            <tr class="odd">
+                                <td>msg</td>
+                                <td>短信内容</td>
+                                <td>是</td>
+                                <td style="color:#f00">发送内容需要用gbk编码进行UrlEncode,如果采用post方式，需要用GBK编码做两次URLEncode
+                                    <br>
+                                    <span style="color:#0a0">发送内容后面添加签名，例如：<b style="color:#f00">【交通银行】</b>,否则会失败</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>spCode</td>
+                                <td>用户流水号</td>
+                                <td>否</td>
+                                <td>用户自定义流水号(20位以内数字)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="item-lft">返回结果</div>
+                <div class="item-rt">
+                    <table width="100%">
+                        <tbody>
+                            <tr>
+                                <th width="20%">参数名称</th>
+                                <th width="30%">类型</th>
+                                <th width="50%">描述</th>
+                            </tr>
+                            <tr>
+                                <td>返回描述</td>
+                                <td>String</td>
+                                <td>发送成功返回0，如果发送不成功，则返回“ERROR&amp;&amp;对应的错误信息”</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="item-lft">请求数据</div>
+                <pre class="item-rt code">
+                    {
+                        "cpid":"您的用户名",
+                        "cppwd":"您的密码",
+                        "items":[
+                            {
+                                "content":"您申请的验证码是12313【天信博易】",
+                                "phone":"18810049552",
+                                "extend":"123123",
+                                "spnumber":"11111"
+                            },
+                            {
+                                "content":"您申请的验证码是12313【天信博易】",
+                                "phone":"18810049552",
+                                "extend":"123123",
+                                "spnumber":"11111"
+                            }
+                        ]
+                    }
+                </pre>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

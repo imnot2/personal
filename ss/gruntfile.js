@@ -64,7 +64,7 @@ module.exports = function(grunt) {
             //合并css
             build: {
                 files: {
-                    '<%= dirs.build.css %>/app.css': ['<%= dirs.build.css %>/**/*.css']
+                    '<%= dirs.build.css %>/app.css': ['<%= dirs.build.css %>/**/*.css','<%= dirs.src.lib %>/animate.css/animate.css']
                 }
             },
             //压缩css

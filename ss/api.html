@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>赏时 api</title>
+    <script src="vendor/artTemplate/dist/template.js"></script>
     <style>
     * {
         margin: 0;
@@ -75,30 +76,15 @@
         width: 69%;
     }
     </style>
-    <script>
-    var api = [{
-        title: '登录接口',
-        http: 'post',
-        url: '',
-        options: [{
-            name: 'userName',
-            des: '用户名'，
-            isMust: true,
-            info: '用户名'
-        }]
-    }]
-    </script>
-</head>
-
-<body>
-    <div class="interface">
-        <div class="interface-title">登录接口</div>
+    <script id="api-ui" type="text/html">
+        {{each api}}
+        <div class="interface-title">{{$value.title}}</div>
         <div class="interface-item">
             <div class="item-bd">
                 <div class="item-lft">HTTP请求方式</div>
-                <div class="item-rt">GET/POST</div>
+                <div class="item-rt">{{$value.http}}</div>
                 <div class="item-lft">请求URL</div>
-                <div class="item-rt code">http://221.122.112.136:8080/sms/mt.jsp?cpName=用户账号&amp;cpPwd=用户密码&amp;phones=号码&amp;msg=内容</div>
+                <div class="item-rt code">{{$value.url}}</div>
                 <div class="item-lft">请求参数</div>
                 <div class="item-rt">
                     <table width="100%">
@@ -109,42 +95,18 @@
                                 <th width="20%">是否必须</th>
                                 <th width="40%">描述</th>
                             </tr>
-                            <tr>
-                                <td>cpName</td>
-                                <td>用户账号</td>
-                                <td>是</td>
-                                <td>用户账号</td>
-                            </tr>
+                            {{each $value.options}}
                             <tr class="odd">
-                                <td>cpPwd</td>
-                                <td>用户密码</td>
-                                <td>是</td>
-                                <td>用户密码</td>
-                            </tr>
-                            <tr>
-                                <td>phones</td>
-                                <td>接收号码</td>
-                                <td>是</td>
-                                <td>同时发送给多个号码时,号码之间用英文半角逗号分隔
-                                    <br> GET方式每次最多可以提交50条号码
-                                    <br> POST方式每次最多可以提交10000个号码
+                                <td>{{$value.name}}</td>
+                                <td>{{$value.des}}</td>
+                                <td>
+                                    {{if $value.isMust}}
+                                    <span>是</span> {{else}}
+                                    <span>否</span> {{/if}}
                                 </td>
+                                <td>{{$value.info}}</td>
                             </tr>
-                            <tr class="odd">
-                                <td>msg</td>
-                                <td>短信内容</td>
-                                <td>是</td>
-                                <td style="color:#f00">发送内容需要用gbk编码进行UrlEncode,如果采用post方式，需要用GBK编码做两次URLEncode
-                                    <br>
-                                    <span style="color:#0a0">发送内容后面添加签名，例如：<b style="color:#f00">【交通银行】</b>,否则会失败</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>spCode</td>
-                                <td>用户流水号</td>
-                                <td>否</td>
-                                <td>用户自定义流水号(20位以内数字)</td>
-                            </tr>
+                            {{/each}}
                         </tbody>
                     </table>
                 </div>
@@ -188,7 +150,29 @@
                 </pre>
             </div>
         </div>
-    </div>
+        {{/each}}
+    </script>
+</head>
+
+<body>
+    <div id="content" class="interface"></div>
+    <script>
+    var data = {
+        api: [{
+            title: '登录接口',
+            http: 'post',
+            url: '',
+            options: [{
+                name: 'userName',
+                des: '用户名',
+                isMust: true,
+                info: '用户名'
+            }]
+        }]
+    }
+    var html = template('api-ui', data);
+    document.getElementById('content').innerHTML = html;
+    </script>
 </body>
 
 </html>

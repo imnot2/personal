@@ -22,6 +22,7 @@
     "angular": "^1.5.0",
     "angular-ui-router": "^0.2.18",
     "touchjs": "^0.2.14",
-    "animate.css": "^3.5.1"
+    "animate.css": "^3.5.1",
+    "artTemplate": "^3.0.1"
   }
 }

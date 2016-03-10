@@ -1,31 +1,27 @@
 {
-    "name": "ss",
-    "version": "1.0.0",
-    "homepage": "https://github.com/imnot2/personal",
-    "authors": [
-        "bigui.ding@gmain.com"
-    ],
-    "description": "ssApp packages",
-    "main": "app",
-    "moduleType": [
-        "amd",
-        "es6",
-        "globals",
-        "node",
-        "yui"
-    ],
-    "keywords": [
-        "ssapp"
-    ],
-    "license": "MIT",
-    "ignore": [
-        "**/.*",
-        "node_modules",
-        "bower_components",
-        "test",
-        "tests"
-    ],
-    "devDependencies": {
-        "jquery": "~2.1.4"
-    }
+  "name": "shangshi",
+  "description": "SS",
+  "main": "main.js",
+  "authors": [
+    "bigui.ding@gmail.com"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/imnot2/personal",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.1",
+    "jquery.cookie": "jquery-cookie#^1.4.1",
+    "angular": "^1.5.0",
+    "angular-ui-router": "^0.2.18",
+    "touchjs": "^0.2.14",
+    "animate.css": "^3.5.1"
+  }
 }

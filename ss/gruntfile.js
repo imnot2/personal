@@ -18,7 +18,7 @@ module.exports = function(grunt) {
                 root: 'src',
                 sass: '<%= dirs.src.root %>/sass',
                 js: '<%= dirs.src.root %>/js',
-                lib: '<%= dirs.src.root %>/js/vendor/bower_components',
+                lib: '<%= dirs.root %>/vendor',
                 imgs: '<%= dirs.src.root %>/images',
                 font: '<%= dirs.src.root %>/fonts',
                 tpl: '<%= dirs.src.root %>/tpls',
@@ -165,7 +165,7 @@ module.exports = function(grunt) {
                         '<%= dirs.src.lib %>/angular-ui-router/release/angular-ui-router.js',
                         '<%= dirs.src.lib %>/jquery/dist/jquery.js',
                         '<%= dirs.src.lib %>/jquery.cookie/jquery.cookie.js',
-                        '<%= dirs.src.lib %>/touchjs/dist/touch-0.2.14.js'
+                        '<%= dirs.src.lib %>/touchjs/touch.js'
                     ]
                 }
             },

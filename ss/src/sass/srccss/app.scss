@@ -35,7 +35,7 @@ body {
     margin: 0;
     height: pxtorem(46px);
     line-height: pxtorem(46px);
-    font-size: pxtorem(20px);
+    @include font-dpr(20px);
 }
 
 .ui-header [class^="hd-"],
@@ -59,7 +59,7 @@ body {
     padding: pxtorem(10px);
     min-width: pxtorem(50px);
     display: block;
-    font-size: pxtorem(16px);
+    @include font-dpr(16px);
 }
 
 .ui-header .hd-left .icons-back {
@@ -68,7 +68,7 @@ body {
 
 .ui-header .hd-left .fa,
 .ui-header .hd-right .fa {
-    font-size: pxtorem(26px);
+    @include font-dpr(26px);
     color: #1F927F;
 }
 
@@ -184,7 +184,7 @@ body {
 }
 
 .ui-loding-info h5 {
-    font-size: pxtorem(16px);
+    @include font-dpr(16px);
     margin-bottom: pxtorem(5px);
     margin-top: 0;
 }
@@ -239,7 +239,7 @@ body {
 
 .item-price {
     color: #fff;
-    font-size: pxtorem(16px);
+    @include font-dpr(16px);
     font-weight: bold;
 }
 
@@ -348,7 +348,7 @@ body {
     text-align: left;
     padding: pxtorem(10px);
     color: #999999;
-    font-size: pxtorem(14px);
+    @include font-dpr(14px);
     a {
         color: #1F927F;
     }
@@ -419,11 +419,11 @@ body {
 }
 
 .ui-share .fa {
-    font-size: pxtorem(48px);
+    @include font-dpr(48px);
 }
 
 .ui-share p {
-    font-size: pxtorem(16px);
+    @include font-dpr(16px);
 }
 
 
@@ -489,7 +489,7 @@ body {
 
 .ui-star .fa {
     color: #CCCCCC;
-    font-size: pxtorem(32px);
+    @include font-dpr(32px);
     margin-right: pxtorem(5px);
     cursor: pointer;
 }
@@ -551,7 +551,7 @@ body {
 
 .ui-sidemenu-user i {
     display: inline-block;
-    font-size: pxtorem(30px);
+    @include font-dpr(30px);
     padding: pxtorem(7px);
     border-radius: 100%;
     border: 1px solid #DDDDDD;
@@ -597,14 +597,14 @@ body {
 .ui-sidemenu-nav li:after{-webkit-transform:rotate(-45deg);bottom: pxtorem(15px);}*/
 
 .ui-sidemenu-nav li .fa {
-    font-size: pxtorem(22px);
+    @include font-dpr(22px);
     color: #999999;
     margin-right: pxtorem(10px);
 }
 
 .ui-sidemenu-nav li a {
     color: #666666;
-    font-size: pxtorem(14px);
+    @include font-dpr(14px);
     font-weight: bold;
     padding: pxtorem(10px);
     display: block;
@@ -637,7 +637,7 @@ body {
 .ui-dialog-cent {
     background: rgba(0, 0, 0, .8);
     text-align: center;
-    font-size: pxtorem(14px);
+    @include font-dpr(14px);
     color: #fff;
     line-height: pxtorem(18px);
     min-height: pxtorem(18px);
@@ -654,7 +654,7 @@ body {
 
 .ui-dialog-hd h3 {
     margin: 0;
-    font-size: pxtorem(20px);
+    @include font-dpr(20px);
     padding-top: pxtorem(20px);
 }
 
@@ -684,7 +684,7 @@ body {
     background: transparent;
     display: block;
     -webkit-box-flex: 1;
-    font-size: pxtorem(20px);
+    @include font-dpr(20px);
 }
 
 .ui-dialog-ft button:first-child {
@@ -733,15 +733,15 @@ body {
 .ui-form {
     background-color: #ffffff;
     padding: 0 pxtorem(5px);
-    @include border-bottom;
-    @include border-top;
+    border-bottom: 1px solid #DDD;
+    border-top: 1px solid #DDD;
     margin-top: -1px;
 }
 
 .ui-form-item {
     position: relative;
     padding: pxtorem(5px);
-    @include border-bottom;
+    border-bottom: 1px solid #DDD;
 }
 
 .ui-form-item:last-child {
@@ -753,7 +753,7 @@ body {
     border: none;
     width: 100%;
     padding: pxtorem(8px) pxtorem(5px) pxtorem(8px) pxtorem(5px);
-    font-size: pxtorem(15px);
+    @include font-dpr(15px);
     color: #666666;
 }
 
@@ -773,7 +773,7 @@ body {
     position: absolute;
     top: 50%;
     left: pxtorem(5px);
-    font-size: pxtorem(24px);
+    @include font-dpr(24px);
     margin-top: pxtorem(-17px);
     color: #999999;
 }
@@ -789,7 +789,7 @@ body {
 .ui-form-item p {
     margin-bottom: 0;
     padding: pxtorem(7px) pxtorem(5px);
-    font-size: pxtorem(15px);
+    @include font-dpr(15px);
     color: #666666;
 }
 
@@ -837,7 +837,7 @@ body {
     border-radius: 100%;
     text-align: center;
     line-height: pxtorem(68px);
-    font-size: pxtorem(60px);
+    @include font-dpr(60px);
     padding: pxtorem(5px);
     text-decoration: none;
     margin-left: pxtorem(10px);
@@ -939,7 +939,7 @@ body {
 
 .ui-radio input[type="radio"] + .fa {
     color: #CCCCCC;
-    font-size: pxtorem(32px);
+    @include font-dpr(32px);
     float: left;
     margin-left: pxtorem(-20px);
 }
@@ -1038,7 +1038,7 @@ body {
 
 .ui-icon-close .fa {
     color: #DDDDDD;
-    font-size: pxtorem(24px);
+    @include font-dpr(24px);
 }
 
 .ui-form-item-level {
@@ -1104,7 +1104,7 @@ body {
 }
 
 .ui-uesr-default {
-    font-size: pxtorem(60px);
+    @include font-dpr(60px);
     color: #fff;
     padding: pxtorem(13px);
 }
@@ -1123,7 +1123,7 @@ body {
 .ui-user-name {
     text-align: center;
     color: #999;
-    font-size: pxtorem(15px);
+    @include font-dpr(15px);
 }
 
 .ui-user-name .icons-comments {
@@ -1144,11 +1144,11 @@ body {
 }
 
 .ui-user-name .icons-comments .fa {
-    font-size: pxtorem(20px);
+    @include font-dpr(20px);
 }
 
 .ui-title {
-    font-size: pxtorem(18px);
+    @include font-dpr(18px);
     color: #666666;
     background-color: #eee;
     height: pxtorem(46px);
@@ -1158,7 +1158,7 @@ body {
 }
 
 .ui-title span {
-    font-size: pxtorem(14px);
+    @include font-dpr(14px);
     color: #999999;
     margin-left: pxtorem(10px);
 }
@@ -1203,12 +1203,12 @@ body {
 
 .ui-addr-info strong {
     font-weight: normal;
-    font-size: pxtorem(18px);
+    @include font-dpr(18px);
 }
 
 .ui-addr-info span {
     color: #FFA64D;
-    font-size: pxtorem(18px);
+    @include font-dpr(18px);
 }
 
 .paydeposit {
@@ -1233,8 +1233,8 @@ body {
     border-bottom: 1px solid #DDD;
     background-color: #ffffff;
     position: relative;
-    @include border-bottom;
-    @include border-top;
+    border-bottom: 1px solid #DDD;
+    border-top: 1px solid #DDD;
     .ui-info-cent {
         border-left: pxtorem(3px) solid #ffffff;
         padding: pxtorem(18px) pxtorem(100px) pxtorem(18px) pxtorem(15px);
@@ -1263,7 +1263,7 @@ body {
         }
         span {
             font-weight: normal;
-            font-size: pxtorem(16px);
+            @include font-dpr(16px);
             line-height: pxtorem(24px);
         }
         a {
@@ -1272,13 +1272,13 @@ body {
             text-decoration: none;
         }
         .address-name {
-            font-size: pxtorem(16px);
+            @include font-dpr(16px);
         }
         .address-mobile {
-            font-size: pxtorem(16px);
+            @include font-dpr(16px);
         }
         .address-detail {
-            font-size: pxtorem(12px);
+            @include font-dpr(12px);
             line-height: pxtorem(20px);
         }
         .ui-check {
@@ -1295,10 +1295,10 @@ body {
             &.show {}
         }
         .ui-alipay {
-            font-size: pxtorem(18px);
+            @include font-dpr(18px);
             color: #999999;
             .fa {
-                font-size: pxtorem(36px);
+                @include font-dpr(36px);
                 margin-right: pxtorem(10px);
                 color: #999999;
                 vertical-align: sub;
@@ -1314,11 +1314,11 @@ body {
 /*ui-check*/
 
 .ui-check {
-    /*border-radius: 100%;width: pxtorem(24px);height: pxtorem(24px);line-height: pxtorem(24px);font-size: pxtorem(18px); display: block;text-align: center; background-color: #fff;*/
+    /*border-radius: 100%;width: pxtorem(24px);height: pxtorem(24px);line-height: pxtorem(24px);@include font-dpr(18px); display: block;text-align: center; background-color: #fff;*/
 }
 
 .ui-check .fa {
-    font-size: pxtorem(24px);
+    @include font-dpr(24px);
     color: #209281;
 }
 
@@ -1326,7 +1326,7 @@ body {
     width: pxtorem(32px);
     height: pxtorem(32px);
     color: #fff;
-    font-size: pxtorem(22px);
+    @include font-dpr(22px);
     line-height: pxtorem(22px);
     text-align: center;
     display: inline-block;
@@ -1352,16 +1352,16 @@ body {
     padding-bottom: 0;
     p {
         color: #666;
-        font-size: pxtorem(16px);
+        @include font-dpr(16px);
         &:last-child {
             margin-bottom: 0;
         }
         &.ui-tpye {
             color: #999;
-            font-size: pxtorem(14px);
+            @include font-dpr(14px);
         }
         .fs {
-            font-size: pxtorem(20px);
+            @include font-dpr(20px);
             font-weight: bold;
         }
     }
@@ -1375,11 +1375,11 @@ body {
     p {
         margin-bottom: 0;
         text-align: center;
-        font-size: pxtorem(15px);
+        @include font-dpr(15px);
         padding-top: pxtorem(15px);
         color: #999999;
         span {
-            font-size: pxtorem(18px);
+            @include font-dpr(18px);
             color: #209281;
         }
     }
@@ -1395,7 +1395,7 @@ body {
     padding: pxtorem(10px);
     li {
         border-radius: pxtorem(3px);
-        font-size: pxtorem(16px);
+        @include font-dpr(16px);
         background-color: #ffffff;
         border: pxtorem(2px) solid #DDDDDD;
         padding: pxtorem(12px) 0;
@@ -1410,7 +1410,7 @@ body {
                 right: pxtorem(-2px);
                 z-index: 2;
                 color: #fff;
-                font-size: pxtorem(22px);
+                @include font-dpr(22px);
             }
             &:after {
                 display: block;
@@ -1440,7 +1440,7 @@ body {
  */
 
 .ui-map .fa {
-    font-size: pxtorem(20px);
+    @include font-dpr(20px);
     color: #999999;
 }
 
@@ -1474,7 +1474,7 @@ body {
             margin: 0;
         }
         .icons-heart {
-            font-size: pxtorem(24px);
+            @include font-dpr(24px);
             vertical-align: middle;
         }
     }
@@ -1483,7 +1483,7 @@ body {
 .ui-thing-info {
     padding: pxtorem(10px);
     color: #999999;
-    font-size: pxtorem(16px);
+    @include font-dpr(16px);
     .ui-map {
         margin-bottom: pxtorem(20px);
     }
@@ -1522,15 +1522,15 @@ body {
         [class^="icons-"] {
             display: inline-block;
             .fa {
-                font-size: pxtorem(35px);
+                @include font-dpr(35px);
                 vertical-align: sub;
                 color: #1F927F;
             }
         }
         .btn {
-            font-size: pxtorem(16px);
+            @include font-dpr(16px);
             .fa {
-                font-size: pxtorem(32px);
+                @include font-dpr(32px);
                 vertical-align: sub;
                 color: #fff;
             }
@@ -1580,7 +1580,7 @@ body {
 }
 
 .ui-cont-main h4 i {
-    font-size: pxtorem(24px);
+    @include font-dpr(24px);
     margin: 0 pxtorem(8px);
     color: #CCCCCC
 }
@@ -1598,11 +1598,11 @@ body {
 .ui-cont-email {
     padding-top: pxtorem(40px);
     i {
-        font-size: pxtorem(70px);
+        @include font-dpr(70px);
         color: #1F927F;
     }
     a {
-        font-size: pxtorem(16px);
+        @include font-dpr(16px);
         color: #1F927F;
     }
 }
@@ -1627,7 +1627,7 @@ body {
     padding-bottom: pxtorem(15px);
     margin-bottom: pxtorem(15px);
     margin-top: 0;
-    font-size: pxtorem(16px);
+    @include font-dpr(16px);
     text-align: center;
     color: #666666;
 }
@@ -1780,7 +1780,7 @@ body {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    font-size: pxtorem(16px);
+    @include font-dpr(16px);
     color: #fff;
     font-weight: bold;
 }
@@ -1811,7 +1811,7 @@ body {
 }
 
 .ui-tabs-pane .fa {
-    font-size: pxtorem(20px);
+    @include font-dpr(20px);
 }
 
 .ui-tabs-pane .ui-item-image .item-heart .active {
@@ -1976,12 +1976,12 @@ body {
 .ui-user-navbar-nav li .fa {
     display: block;
     text-align: center;
-    font-size: pxtorem(26px);
+    @include font-dpr(26px);
     margin-bottom: pxtorem(2px);
 }
 
 .ui-user-navbar-nav li {
-    font-size: pxtorem(16px);
+    @include font-dpr(16px);
     position: relative;
     padding-bottom: pxtorem(8px);
     border-bottom: 1px solid #DDDDDD;
@@ -2051,21 +2051,21 @@ body {
 
 .ui-order-bd h3 {
     margin: 0 0 pxtorem(7px);
-    font-size: pxtorem(16px);
+    @include font-dpr(16px);
     color: #666666;
     line-height: pxtorem(22px);
 }
 
 .ui-order-bd .ui-price {
     color: #1F927F;
-    font-size: pxtorem(18px);
+    @include font-dpr(18px);
     font-weight: bold;
     padding-bottom: pxtorem(10px);
     margin-bottom: 0;
 }
 
 .ui-order-bd .ui-price span {
-    font-size: pxtorem(13px);
+    @include font-dpr(13px);
     color: #999999;
     font-weight: normal;
 }
@@ -2112,7 +2112,7 @@ body {
     }
     input,
     textarea {
-        font-size: pxtorem(14px);
+        @include font-dpr(14px);
         padding: pxtorem(15px);
         border: none;
         width: 100%;
@@ -2178,7 +2178,7 @@ body {
         }
         .fa {
             padding: pxtorem(10px);
-            font-size: pxtorem(32px);
+            @include font-dpr(32px);
             color: #CCCCCC;
         }
         margin-left: 2%;
@@ -2366,7 +2366,7 @@ end set
 }
 
 .ui-message-info li .fa {
-    font-size: pxtorem(50px);
+    @include font-dpr(50px);
     float: left;
     margin-left: pxtorem(-65px);
     color: #999;
@@ -2374,7 +2374,7 @@ end set
 }
 
 .ui-message-info li h3 {
-    font-size: pxtorem(16px);
+    @include font-dpr(16px);
     color: #666666;
     margin-top: 0;
     margin-bottom: pxtorem(15px);
@@ -2449,7 +2449,7 @@ end set
     color: #999;
     border-radius: pxtorem(10px);
     padding: pxtorem(3px) pxtorem(20px);
-    font-size: pxtorem(12px);
+    @include font-dpr(12px);
 }
 
 
@@ -2472,7 +2472,7 @@ end message
 }
 
 .ui-goods .ui-title-detail {
-    font-size: pxtorem(18px);
+    @include font-dpr(18px);
     padding: 0 pxtorem(10px);
     margin: 0;
     color: #666666;
@@ -2488,7 +2488,7 @@ end message
 
 .ui-goods .ui-price span {
     color: #1F927F;
-    font-size: pxtorem(16px);
+    @include font-dpr(16px);
     font-weight: bold;
 }
 
@@ -2589,14 +2589,14 @@ end message
 }
 
 .ui-roll-meta li h3 {
-    font-size: pxtorem(14px);
+    @include font-dpr(14px);
     font-weight: normal;
     margin: 0;
     color: #999999;
 }
 
 .ui-roll-meta li p {
-    font-size: pxtorem(12px);
+    @include font-dpr(12px);
     margin: 0;
     color: #999999;
 }
@@ -2644,7 +2644,7 @@ end message
 }
 
 .ui-eval-detail li h3 {
-    font-size: pxtorem(14px);
+    @include font-dpr(14px);
     font-weight: normal;
     margin: 0;
     color: #999999;
@@ -2652,7 +2652,7 @@ end message
 }
 
 .ui-eval-detail li p {
-    font-size: pxtorem(12px);
+    @include font-dpr(12px);
     margin: 0;
     color: #666666;
 }
@@ -2683,7 +2683,7 @@ end message
 .ui-brand h4 {
     padding: pxtorem(10px);
     margin: 0;
-    font-size: pxtorem(18px);
+    @include font-dpr(18px);
 }
 
 .ui-brand h4 a {
@@ -2693,13 +2693,13 @@ end message
 
 .ui-brand h4 .fa {
     color: #999999;
-    font-size: pxtorem(20px);
+    @include font-dpr(20px);
 }
 
 .ui-detail-panel {
     padding: pxtorem(10px);
     background-color: #ffffff;
-    font-size: pxtorem(14px);
+    @include font-dpr(14px);
     color: #666666;
 }
 
@@ -2747,7 +2747,7 @@ end message
 }
 
 .ui-com-goods p {
-    font-size: pxtorem(14px);
+    @include font-dpr(14px);
     margin-bottom: 0;
     line-height: pxtorem(20px);
     color: #666;
@@ -2812,7 +2812,7 @@ end message
 }
 
 .item-title h3 {
-    font-size: pxtorem(16px);
+    @include font-dpr(16px);
     margin: 0;
 }
 
@@ -2865,7 +2865,7 @@ end message
     }
     .ui-text {
         padding: pxtorem(10px);
-        font-size: pxtorem(12px);
+        @include font-dpr(12px);
     }
     .btn-block{
         width: auto;

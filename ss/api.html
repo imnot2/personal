@@ -54,6 +54,12 @@
         padding-left: 30px;
     }
     
+    .item-bd:after {
+        content: '';
+        clear: both;
+        display: block;
+    }
+    
     .item-lft {
         clear: both;
         width: 140px;
@@ -83,28 +89,20 @@
             <div class="item-bd">
                 <div class="item-lft">HTTP请求方式</div>
                 <div class="item-rt">{{$value.http}}</div>
-                <div class="item-lft">请求URL</div>
-                <div class="item-rt code">{{$value.url}}</div>
                 <div class="item-lft">请求参数</div>
                 <div class="item-rt">
                     <table width="100%">
                         <tbody>
                             <tr>
                                 <th width="20%">参数名称</th>
-                                <th width="20%">类型</th>
-                                <th width="20%">是否必须</th>
-                                <th width="40%">描述</th>
+                                <th width="30%">类型</th>
+                                <th width="50%">描述</th>
                             </tr>
                             {{each $value.options}}
                             <tr class="odd">
                                 <td>{{$value.name}}</td>
                                 <td>{{$value.des}}</td>
-                                <td>
-                                    {{if $value.isMust}}
-                                    <span>是</span> {{else}}
-                                    <span>否</span> {{/if}}
-                                </td>
-                                <td>{{$value.info}}</td>
+                                <td>{{$value.tips}}</td>
                             </tr>
                             {{/each}}
                         </tbody>
@@ -119,35 +117,16 @@
                                 <th width="30%">类型</th>
                                 <th width="50%">描述</th>
                             </tr>
-                            <tr>
-                                <td>返回描述</td>
-                                <td>String</td>
-                                <td>发送成功返回0，如果发送不成功，则返回“ERROR&amp;&amp;对应的错误信息”</td>
+                            {{each $value.result}}
+                            <tr class="odd">
+                                <td>{{$value.name}}</td>
+                                <td>{{$value.des}}</td>
+                                <td>{{$value.tips}}</td>
                             </tr>
+                            {{/each}}
                         </tbody>
                     </table>
                 </div>
-                <div class="item-lft">请求数据</div>
-                <pre class="item-rt code">
-                    {
-                        "cpid":"您的用户名",
-                        "cppwd":"您的密码",
-                        "items":[
-                            {
-                                "content":"您申请的验证码是12313【天信博易】",
-                                "phone":"18810049552",
-                                "extend":"123123",
-                                "spnumber":"11111"
-                            },
-                            {
-                                "content":"您申请的验证码是12313【天信博易】",
-                                "phone":"18810049552",
-                                "extend":"123123",
-                                "spnumber":"11111"
-                            }
-                        ]
-                    }
-                </pre>
             </div>
         </div>
         {{/each}}
@@ -161,12 +140,102 @@
         api: [{
             title: '登录接口',
             http: 'post',
-            url: '',
             options: [{
                 name: 'userName',
                 des: '用户名',
-                isMust: true,
-                info: '用户名'
+                tips: ''
+            }, {
+                name: 'password',
+                des: '密码',
+                tips: ''
+            }],
+            result: [{
+                name: 'status',
+                des: '状态码',
+                tips: '成功返回1，失败返回0'
+            }, {
+                name: 'userName',
+                des: '用户名',
+                tips: ''
+            }, {
+                name: 'id',
+                des: '用户id',
+                tips: ''
+            }]
+        }, {
+            title: '发送手机验证码',
+            http: 'get',
+            options: [{
+                name: 'mobileNumber',
+                des: '手机号',
+                tips: ''
+            }],
+            result: [{
+                name: 'status',
+                des: '状态码',
+                tips: '成功返回1，失败返回0'
+            }, {
+                name: 'msg',
+                des: '提示信息',
+                tips: ''
+            }, {
+                name: 'mobileCheckCode',
+                des: '短信验证码',
+                tips: ''
+            }]
+        }, {
+            title: '注册',
+            http: 'post',
+            options: [{
+                name: 'password',
+                des: '密码',
+                tips: ''
+            }, {
+                name: 'confirmPassword',
+                des: '确认密码',
+                tips: ''
+            }, {
+                name: 'userName',
+                des: '用户名',
+                tips: ''
+            }, {
+                name: 'mobileCheckCode',
+                des: '短信验证码',
+                tips: ''
+            }, {
+                name: 'userSex',
+                des: '用户性别',
+                tips: ''
+            }],
+            result: [{
+                name: 'status',
+                des: '状态码',
+                tips: '成功返回1，失败返回0'
+            }, {
+                name: 'msg',
+                des: '提示信息',
+                tips: ''
+            }]
+        }, {
+            title: '找回密码',
+            http: 'post',
+            options: [{
+                name: 'mobileCheckCode',
+                des: '短信验证码',
+                tips: ''
+            }, {
+                name: 'newPassword',
+                des: '新密码',
+                tips: ''
+            }],
+            result: [{
+                name: 'status',
+                des: '状态码',
+                tips: '成功返回1，失败返回0'
+            }, {
+                name: 'msg',
+                des: '提示信息',
+                tips: ''
             }]
         }]
     }

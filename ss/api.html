@@ -237,6 +237,142 @@
                 des: '提示信息',
                 tips: ''
             }]
+        }, {
+            title: '获取正在进行拍卖的商品',
+            http: 'get',
+            options: [],
+            result: [{
+                name: 'endTime',
+                des: '结束时间',
+                tips: '时间戳'
+            }, {
+                name: 'src',
+                des: '商品图片地址',
+                tips: ''
+            }, {
+                name: 'title',
+                des: '商品标题',
+                tips: ''
+            }, {
+                name: 'ower',
+                des: '{name:XXX,avatar:头像地址}',
+                tips: '商品拥有者的信息'
+            }, {
+                name: 'product',
+                des: '[{comments:[{}],likes:商品关注数,auctions:[{},{}, ...]}]',
+                tips: '商品list'
+            }, {
+                name: 'curPrice',
+                des: '当前价格',
+                tips: ''
+            }]
+        }, {
+            title: '获取即将开始拍卖的商品',
+            http: 'get',
+            options: [],
+            result: [{
+                name: 'startTime',
+                des: '开始时间',
+                tips: '时间戳'
+            }, {
+                name: 'src',
+                des: '商品图片地址',
+                tips: ''
+            }, {
+                name: 'title',
+                des: '商品标题',
+                tips: ''
+            }, {
+                name: 'isCollected',
+                des: '是否已经收藏',
+                tips: ''
+            }]
+        }, {
+            title: '获取关注的拍卖商品',
+            http: 'get',
+            options: [],
+            result: [{
+                name: 'endTime',
+                des: '结束时间',
+                tips: '时间戳'
+            }, {
+                name: 'src',
+                des: '商品图片地址',
+                tips: ''
+            }, {
+                name: 'title',
+                des: '商品标题',
+                tips: ''
+            }, {
+                name: 'ower',
+                des: '{name:XXX,avatar:头像地址}',
+                tips: '商品拥有者的信息'
+            }, {
+                name: 'product',
+                des: '[{comments:[{}],likes:商品关注数,auctions:[{},{}, ...]}]',
+                tips: '商品list'
+            }, {
+                name: 'curPrice',
+                des: '当前价格',
+                tips: ''
+            }]
+        }, {
+            title: '获取商品详情',
+            http: 'get',
+            options: [{
+                name: 'id',
+                des: '商品id',
+                tips: ''
+            }],
+            result: [{
+                name: 'type',
+                des: '商品类型（数字）',
+                tips: '1为即将开始，2为正在进行，3为关注中'
+            }, {
+                name: 'src',
+                des: '商品图片地址',
+                tips: ''
+            }, {
+                name: 'title',
+                des: '商品标题',
+                tips: ''
+            }, {
+                name: 'startTime',
+                des: '开始时间',
+                tips: '如果商品类型为1，需要此字段'
+            }, {
+                name: 'endTime',
+                des: '结束时间',
+                tips: '如果商品类型为2，需要此字段'
+            }, {
+                name: 'curPrice',
+                des: '当前价格',
+                tips: '当商品类型为1时，需要此字段'
+            }, {
+                name: 'margin',
+                des: '保证金',
+                tips: ''
+            }, {
+                name: 'startPrice',
+                des: '起拍价',
+                tips: ''
+            }, {
+                name: 'range',
+                des: '加价幅度',
+                tips: ''
+            }, {
+                name: 'auctions',
+                des: '出价记录',
+                tips: '记录list，[{avatar:xxx,name:xxx, price:xxx}]'
+            }, {
+                name: 'comments',
+                des: '评价记录',
+                tips: '记录list，[{avatar:xxx,name:xxx, content:xxx,time:xxx}]'
+            }, {
+                name: 'store',
+                des: '商家信息',
+                tips: '{products:500,likes:500,wellScale:90%}'
+            }]
         }]
     }
     var html = template('api-ui', data);
@@ -244,4 +380,4 @@
     </script>
 </body>
 
-</html>
+</html

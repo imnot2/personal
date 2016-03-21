@@ -64,14 +64,14 @@ module.exports = function(grunt) {
             //合并css
             build: {
                 files: {
-                    '<%= dirs.build.css %>/app.css': ['<%= dirs.build.css %>/**/*.css','<%= dirs.src.lib %>/animate.css/animate.css']
+                    '<%= dirs.build.css %>/app.css': ['<%= dirs.build.css %>/srccss/*.css','<%= dirs.src.lib %>/animate.css/animate.css']
                 }
             },
             //压缩css
             dest: {
                 expand: true,
                 cwd: '<%= dirs.build.css %>',
-                src: ['**/*.css', '!**/*-min.css'],
+                src: ['app.css', '!**/*-min.css'],
                 dest: '<%= dirs.dest.css %>',
                 ext: '.css'
             }
@@ -235,7 +235,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-string-replace');
     grunt.loadNpmTasks('grunt-contrib-concat');
 
-    grunt.registerTask('dev', ['clean', 'compass', 'imagemin', 'concat:build', 'copy:build']);
+    grunt.registerTask('dev', ['clean', 'compass', 'cssmin:build', 'imagemin', 'concat:build', 'copy:build']);
     grunt.registerTask('dest', ['dev', 'uglify:dest', 'cssmin:dest', 'copy:dest']);
     grunt.registerTask('default', ['dest']);
 }

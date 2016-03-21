@@ -217,6 +217,27 @@
                 tips: ''
             }]
         }, {
+            title: '修改密码',
+            http: 'post',
+            options: [{
+                name: 'oldPassword',
+                des: '密码',
+                tips: ''
+            }, {
+                name: 'newPassword',
+                des: '确认密码',
+                tips: ''
+            }],
+            result: [{
+                name: 'status',
+                des: '状态码',
+                tips: '成功返回1，失败返回0'
+            }, {
+                name: 'msg',
+                des: '提示信息',
+                tips: ''
+            }]
+        }, {
             title: '找回密码',
             http: 'post',
             options: [{
@@ -471,6 +492,250 @@
                 tips: ''
             }]
         }, {
+            title: '获取我的订单',
+            http: 'get',
+            options: [],
+            result: [{
+                name: 'myOrderList',
+                des: '订单列表',
+                tips: '[{orderStatus:"1:取消，2:待支付，3:已收货，4:已完成，5:已流拍，6：待收货",orderId:xxx,src:xxx,title:xxx,price:xxx}]'
+            }]
+        }, {
+            title: '查看订单详情',
+            http: 'get',
+            options: [],
+            result: [{
+                name: 'orderStatus',
+                des: '订单状态',
+                tips: '1:取消，2:待支付，3:已收货，4:已完成，5:已流拍，6：待收货'
+            }, {
+                name: 'orderId',
+                des: '订单号',
+                tips: ''
+            }, {
+                name: 'src',
+                des: '商品图片',
+                tips: ''
+            }, {
+                name: 'title',
+                des: '商品标题',
+                tips: ''
+            }, {
+                name: 'price',
+                des: '商品价格',
+                tips: ''
+            }, {
+                name: 'address',
+                des: '收货地址',
+                tips: '{name：xxx，mobile:xxx,city:xxx,detail:xxx}'
+            }]
+        }, {
+            title: '确认收货接口',
+            http: 'get',
+            options: [{
+                name: 'orderId',
+                des: '订单id',
+                tips: ''
+            }],
+            result: [{
+                name: 'msg',
+                des: '接口信息',
+                tips: ''
+            }]
+        }, {
+            title: '提交评分接口',
+            http: 'get',
+            options: [{
+                name: 'orderId',
+                des: '订单id',
+                tips: ''
+            }, {
+                name: 'grade',
+                des: '评分',
+                tips: ''
+            }],
+            result: [{
+                name: 'msg',
+                des: '接口信息',
+                tips: ''
+            }]
+        }, {
+            title: '店铺设置，保存／更新',
+            http: 'get',
+            options: [{
+                name: 'storeName',
+                des: '店铺名称',
+                tips: ''
+            }, {
+                name: 'description',
+                des: '店铺介绍',
+                tips: ''
+            },{
+                name: 'address',
+                des: '店铺地址',
+                tips: ''
+            },{
+                name: 'imgs',
+                des: '店铺图片',
+                tips: '图片list'
+            }],
+            result: [{
+                name: 'msg',
+                des: '接口信息',
+                tips: ''
+            }]
+        }, {
+            title: '获取在售中的商品',
+            http: 'get',
+            options: [],
+            result: [{
+                name: 'src',
+                des: '商品图片',
+                tips: ''
+            },{
+                name: 'title',
+                des: '商品商品标题',
+                tips: ''
+            },{
+                name: 'productType',
+                des: '商品类型',
+                tips: '1:1口价，2:竞拍'
+            },{
+                name: 'price',
+                des: '商品价格',
+                tips: '1口价跟竞拍商品看是否需要做区分'
+            },{
+                name: 'msg',
+                des: '接口信息',
+                tips: ''
+            }]
+        }, {
+            title: '商品下架',
+            http: 'get',
+            options: [{
+                name: 'productId',
+                des: '商品id',
+                tips: ''
+            }],
+            result: [{
+                name: 'msg',
+                des: '接口信息',
+                tips: ''
+            }]
+        }, {
+            title: '商品上架',
+            http: 'get',
+            options: [{
+                name: 'productId',
+                des: '商品id',
+                tips: ''
+            }],
+            result: [{
+                name: 'msg',
+                des: '接口信息',
+                tips: ''
+            }]
+        }, {
+            title: '删除商品',
+            http: 'get',
+            options: [{
+                name: 'productId',
+                des: '商品id',
+                tips: ''
+            }],
+            result: [{
+                name: 'msg',
+                des: '接口信息',
+                tips: ''
+            }]
+        }, {
+            title: '确认发货',
+            http: 'get',
+            options: [{
+                name: 'orderId',
+                des: '订单id',
+                tips: ''
+            },{
+                name: 'logistics',
+                des: '物流商',
+                tips: ''
+            },{
+                name: 'logisticsId',
+                des: '物流单号',
+                tips: ''
+            }],
+            result: [{
+                name: 'msg',
+                des: '接口信息',
+                tips: ''
+            }]
+        }, {
+            title: '发布商品',
+            http: 'get',
+            options: [{
+                name: 'productType',
+                des: '商品类型',
+                tips: '1:1口价，2：拍卖模式'
+            },{
+                name: 'name',
+                des: '商品名',
+                tips: ''
+            },{
+                name: 'margin',
+                des: '保证金',
+                tips: '竞拍商品需缴纳保证金'
+            },{
+                name: 'startPrice',
+                des: '起拍价格',
+                tips: '竞拍商品需缴纳保证金'
+            },{
+                name: 'range',
+                des: '加价幅度',
+                tips: '竞拍商品'
+            },{
+                name: 'minPrice',
+                des: '底价',
+                tips: '竞拍商品'
+            },{
+                name: 'startDate',
+                des: '上架日期',
+                tips: ''
+            },{
+                name: 'startDtime',
+                des: '上架时间',
+                tips: ''
+            },{
+                name: 'detail',
+                des: '商品详情',
+                tips: ''
+            },{
+                name: 'imgs',
+                des: '商品图片',
+                tips: ''
+            },{
+                name: 'onePrice',
+                des: '一口价',
+                tips: '一口价商品'
+            }],
+            result: [{
+                name: 'msg',
+                des: '接口信息',
+                tips: ''
+            }]
+        }, {
+            title: '支付订单',
+            http: 'post',
+            options: [{
+                name: 'orderId',
+                des: '订单id',
+                tips: ''
+            }],
+            result: [{
+                name: 'msg',
+                des: '接口信息',
+                tips: ''
+            }]
+        }, {
             title: '支付保证金',
             http: 'post',
             options: [{
@@ -493,5 +758,4 @@
     document.getElementById('content').innerHTML = html;
     </script>
 </body>
-
-</html>
+</htm

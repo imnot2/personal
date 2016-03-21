@@ -1,7 +1,9 @@
 /*.sublime-project
 /*.sublime-workspace
+/ss/build
 /ss/dist
 /**/**/node_modules
-/**/**/bower_components
 /ss/.sass-cache
-/ss/build
+/ss/vendor
+/**/**/.DS_Store
+

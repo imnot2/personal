@@ -35,13 +35,35 @@ ctrls.controller('userCtrl', [
     }
 ]).controller('userSellerCtrl', [
     '$scope',
-    function($scope) {
+    '$http',
+    'orderService',
+    function($scope, $http, orderService) {
         $scope.isSelling = true;
+        $scope.formData = {};
+        $scope.savesetting = function() {
+            var data = {
+                name: $scope.storeName,
+                info: $scope.storeInfo,
+                address: $scope.storeAddress,
+                imgs: $scope.formData
+            }
+            console.log(data);
+        }
+        orderService.getOrders({
+            type: 'myorder',
+            isFirst: true,
+            successFn: function() {
+                $scope.myorder = orderService.orders.myorder.srcData;
+                if ($scope.$root.$$phase != '$apply' && $scope.$root.$$phase != '$digest') {
+                    $scope.$digest();
+                }
+            }
+        });
     }
 ]).controller('registerCtrl', [
     '$scope',
     function($scope) {
-        $scope.wrapClass = "rigister";
+        $scope.wrapClass = "page-rigister";
         $scope.toParent = function(obj) {
             $scope[obj.displayName] = obj;
         }
@@ -52,7 +74,7 @@ ctrls.controller('userCtrl', [
 ]).controller('forgetpasswordCtrl', [
     '$scope',
     function($scope) {
-        $scope.wrapClass = 'forgetpassword';
+        $scope.wrapClass = 'page-forgetpassword';
     }
 ]).controller('settingCtrl', [
     '$scope',
@@ -73,5 +95,20 @@ ctrls.controller('userCtrl', [
     '$scope',
     function($scope) {
         $scope.wrapClass = 'page-contact';
+    }
+]).controller('publishCtrl', [
+    '$scope',
+    function($scope) {
+        $scope.wrapClass = 'page-publish';
+    }
+]).controller('messagesCtrl', [
+    '$scope',
+    function($scope) {
+        $scope.wrapClass = 'page-messages';
+    }
+]).controller('previewCtrl', [
+    '$scope',
+    function($scope) {
+        $scope.wrapClass = 'page-preview';
     }
 ])

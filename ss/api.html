@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>赏时 api</title>
+    <script src="vendor/artTemplate/dist/template.js"></script>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-size: 12px;
+    }
+    
+    table {
+        border-collapse: collapse;
+        border: 1px solid #EDECEC;
+    }
+    
+    table th,
+    table td {
+        border: 1px solid #EDECEC;
+    }
+    
+    table th {
+        line-height: 30px;
+        background: #f8f8f8;
+    }
+    
+    .interface-title {
+        height: 34px;
+        line-height: 34px;
+        background: #f6faff;
+        border: 1px solid #becfdd;
+        color: #333;
+        padding-left: 10px;
+        font-size: 13px;
+        font-weight: bold;
+    }
+    
+    .interface-item {
+        clear: both;
+    }
+    
+    .item-lft,
+    .item-rt {
+        float: left;
+        line-height: 24px;
+        margin: 10px 0px;
+    }
+    
+    .item-bd {
+        padding-left: 30px;
+    }
+    
+    .item-bd:after {
+        content: '';
+        clear: both;
+        display: block;
+    }
+    
+    .item-lft {
+        clear: both;
+        width: 140px;
+        font-weight: bold;
+        text-align: right;
+    }
+    
+    .item-rt {
+        margin-left: 20px;
+        width: 70%;
+        padding-left: 10px;
+    }
+    
+    .code {
+        border: 1px dashed #999;
+        background: #fafafa;
+        color: #555;
+        font-family: "Courier New";
+        margin-left: 30px;
+        width: 69%;
+    }
+    </style>
+    <script id="api-ui" type="text/html">
+        {{each api}}
+        <div class="interface-title">{{$value.title}}</div>
+        <div class="interface-item">
+            <div class="item-bd">
+                <div class="item-lft">HTTP请求方式</div>
+                <div class="item-rt">{{$value.http}}</div>
+                <div class="item-lft">请求参数</div>
+                <div class="item-rt">
+                    <table width="100%">
+                        <tbody>
+                            <tr>
+                                <th width="20%">参数名称</th>
+                                <th width="30%">类型</th>
+                                <th width="50%">描述</th>
+                            </tr>
+                            {{each $value.options}}
+                            <tr class="odd">
+                                <td>{{$value.name}}</td>
+                                <td>{{$value.des}}</td>
+                                <td>{{$value.tips}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="item-lft">返回结果</div>
+                <div class="item-rt">
+                    <table width="100%">
+                        <tbody>
+                            <tr>
+                                <th width="20%">参数名称</th>
+                                <th width="30%">类型</th>
+                                <th width="50%">描述</th>
+                            </tr>
+                            {{each $value.result}}
+                            <tr class="odd">
+                                <td>{{$value.name}}</td>
+                                <td>{{$value.des}}</td>
+                                <td>{{$value.tips}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </script>
+</head>
+
+<body>
+    <div id="content" class="interface"></div>
+    <script>
+    var data = {
+        api: [{
+            title: '登录接口',
+            http: 'post',
+            options: [{
+                name: 'userName',
+                des: '用户名',
+                tips: ''
+            }, {
+                name: 'password',
+                des: '密码',
+                tips: ''
+            }],
+            result: [{
+                name: 'status',
+                des: '状态码',
+                tips: '成功返回1，失败返回0'
+            }, {
+                name: 'userName',
+                des: '用户名',
+                tips: ''
+            }, {
+                name: 'id',
+                des: '用户id',
+                tips: ''
+            }]
+        }, {
+            title: '发送手机验证码',
+            http: 'get',
+            options: [{
+                name: 'mobileNumber',
+                des: '手机号',
+                tips: ''
+            }],
+            result: [{
+                name: 'status',
+                des: '状态码',
+                tips: '成功返回1，失败返回0'
+            }, {
+                name: 'msg',
+                des: '提示信息',
+                tips: ''
+            }, {
+                name: 'mobileCheckCode',
+                des: '短信验证码',
+                tips: ''
+            }]
+        }, {
+            title: '注册',
+            http: 'post',
+            options: [{
+                name: 'password',
+                des: '密码',
+                tips: ''
+            }, {
+                name: 'confirmPassword',
+                des: '确认密码',
+                tips: ''
+            }, {
+                name: 'userName',
+                des: '用户名',
+                tips: ''
+            }, {
+                name: 'mobileCheckCode',
+                des: '短信验证码',
+                tips: ''
+            }, {
+                name: 'userSex',
+                des: '用户性别',
+                tips: ''
+            }],
+            result: [{
+                name: 'status',
+                des: '状态码',
+                tips: '成功返回1，失败返回0'
+            }, {
+                name: 'msg',
+                des: '提示信息',
+                tips: ''
+            }]
+        }, {
+            title: '找回密码',
+            http: 'post',
+            options: [{
+                name: 'mobileCheckCode',
+                des: '短信验证码',
+                tips: ''
+            }, {
+                name: 'newPassword',
+                des: '新密码',
+                tips: ''
+            }],
+            result: [{
+                name: 'status',
+                des: '状态码',
+                tips: '成功返回1，失败返回0'
+            }, {
+                name: 'msg',
+                des: '提示信息',
+                tips: ''
+            }]
+        }, {
+            title: '获取正在进行拍卖的商品',
+            http: 'get',
+            options: [],
+            result: [{
+                name: 'endTime',
+                des: '结束时间',
+                tips: '时间戳'
+            }, {
+                name: 'src',
+                des: '商品图片地址',
+                tips: ''
+            }, {
+                name: 'title',
+                des: '商品标题',
+                tips: ''
+            }, {
+                name: 'ower',
+                des: '{name:XXX,avatar:头像地址}',
+                tips: '商品拥有者的信息'
+            }, {
+                name: 'product',
+                des: '[{comments:[{}],likes:商品关注数,auctions:[{},{}, ...]}]',
+                tips: '商品list'
+            }, {
+                name: 'curPrice',
+                des: '当前价格',
+                tips: ''
+            }]
+        }, {
+            title: '获取即将开始拍卖的商品',
+            http: 'get',
+            options: [],
+            result: [{
+                name: 'startTime',
+                des: '开始时间',
+                tips: '时间戳'
+            }, {
+                name: 'src',
+                des: '商品图片地址',
+                tips: ''
+            }, {
+                name: 'title',
+                des: '商品标题',
+                tips: ''
+            }, {
+                name: 'isCollected',
+                des: '是否已经收藏',
+                tips: ''
+            }]
+        }, {
+            title: '获取关注的拍卖商品',
+            http: 'get',
+            options: [],
+            result: [{
+                name: 'endTime',
+                des: '结束时间',
+                tips: '时间戳'
+            }, {
+                name: 'src',
+                des: '商品图片地址',
+                tips: ''
+            }, {
+                name: 'title',
+                des: '商品标题',
+                tips: ''
+            }, {
+                name: 'ower',
+                des: '{name:XXX,avatar:头像地址}',
+                tips: '商品拥有者的信息'
+            }, {
+                name: 'product',
+                des: '[{comments:[{}],likes:商品关注数,auctions:[{},{}, ...]}]',
+                tips: '商品list'
+            }, {
+                name: 'curPrice',
+                des: '当前价格',
+                tips: ''
+            }]
+        }, {
+            title: '获取商品详情',
+            http: 'get',
+            options: [{
+                name: 'id',
+                des: '商品id',
+                tips: ''
+            }],
+            result: [{
+                name: 'type',
+                des: '商品类型（数字）',
+                tips: '1为即将开始，2为正在进行，3为关注中'
+            }, {
+                name: 'src',
+                des: '商品图片地址',
+                tips: ''
+            }, {
+                name: 'title',
+                des: '商品标题',
+                tips: ''
+            }, {
+                name: 'startTime',
+                des: '开始时间',
+                tips: '如果商品类型为1，需要此字段'
+            }, {
+                name: 'endTime',
+                des: '结束时间',
+                tips: '如果商品类型为2，需要此字段'
+            }, {
+                name: 'curPrice',
+                des: '当前价格',
+                tips: '当商品类型为1时，需要此字段'
+            }, {
+                name: 'margin',
+                des: '保证金',
+                tips: ''
+            }, {
+                name: 'startPrice',
+                des: '起拍价',
+                tips: ''
+            }, {
+                name: 'range',
+                des: '加价幅度',
+                tips: ''
+            }, {
+                name: 'auctions',
+                des: '出价记录',
+                tips: '记录list，[{avatar:xxx,name:xxx, price:xxx}]'
+            }, {
+                name: 'comments',
+                des: '评价记录',
+                tips: '记录list，[{avatar:xxx,name:xxx, content:xxx,time:xxx}]'
+            }, {
+                name: 'store',
+                des: '商家信息',
+                tips: '{products:500,likes:500,wellScale:90%}'
+            }]
+        }, {
+            title: '添加/修改地址',
+            http: 'post',
+            options: [{
+                name: 'userName',
+                des: '用户名字',
+                tips: ''
+            }, {
+                name: 'mobile',
+                des: '手机号码',
+                tips: ''
+            }, {
+                name: 'postcode',
+                des: '邮编',
+                tips: ''
+            }, {
+                name: 'city',
+                des: '城市',
+                tips: ''
+            }, {
+                name: 'detail',
+                des: '具体地址',
+                tips: ''
+            }, {
+                name: 'isDefault',
+                des: '是否设置默认地址',
+                tips: ''
+            }],
+            result: [{
+                name: 'status',
+                des: '状态码',
+                tips: '成功返回1，失败返回0'
+            }, {
+                name: 'msg',
+                des: '接口信息',
+                tips: ''
+            }]
+        }, {
+            title: '删除地址',
+            http: 'post',
+            options: [{
+                name: 'addressId',
+                des: '地址id',
+                tips: ''
+            }],
+            result: [{
+                name: 'status',
+                des: '状态码',
+                tips: '成功返回1，失败返回0'
+            }, {
+                name: 'msg',
+                des: '接口信息',
+                tips: ''
+            }]
+        }, {
+            title: '查看地址详情',
+            http: 'post',
+            options: [{
+                name: 'addressId',
+                des: '地址id',
+                tips: ''
+            }],
+            result: [{
+                name: 'addressDetail',
+                des: '地址详情',
+                tips: '{userName:xxx,mobile:xxx,city:xxx,detail:xxx,postcode:xxx}'
+            }, {
+                name: 'msg',
+                des: '接口信息',
+                tips: ''
+            }]
+        }, {
+            title: '查看地址列表',
+            http: 'post',
+            options: [],
+            result: [{
+                name: 'addressList',
+                des: '地址列表',
+                tips: '[{userName:xxx,mobile:xxx,city:xxx,detail:xxx,postcode:xxx}, ...]'
+            }, {
+                name: 'msg',
+                des: '接口信息',
+                tips: ''
+            }]
+        }, {
+            title: '获取默认收货地址',
+            http: 'post',
+            options: [],
+            result: [{
+                name: 'addressDetail',
+                des: '地址详情',
+                tips: '{userName:xxx,mobile:xxx,city:xxx,detail:xxx,postcode:xxx}'
+            }, {
+                name: 'msg',
+                des: '接口信息',
+                tips: ''
+            }]
+        }, {
+            title: '支付保证金',
+            http: 'post',
+            options: [{
+                name: 'orderId',
+                des: '订单id',
+                tips: ''
+            }, {
+                name: 'addressId',
+                des: '地址id',
+                tips: ''
+            }],
+            result: [{
+                name: 'msg',
+                des: '接口信息',
+                tips: ''
+            }]
+        }]
+    }
+    var html = template('api-ui', data);
+    document.getElementById('content').innerHTML = html;
+    </script>
+</body>
+
+</html>

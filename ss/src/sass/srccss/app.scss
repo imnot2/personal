@@ -4,6 +4,11 @@
 @import "base/normalize";
 @import "base/globalclasses";
 @import "base/minxins";
+body {
+    background-color: #eee;
+    color: #666;
+}
+
 .ui-container {
     position: absolute;
     top: pxtorem(47px);
@@ -30,7 +35,7 @@
     margin: 0;
     height: pxtorem(46px);
     line-height: pxtorem(46px);
-    font-size: pxtorem(20px);
+    @include font-dpr(20px);
 }
 
 .ui-header [class^="hd-"],
@@ -54,7 +59,7 @@
     padding: pxtorem(10px);
     min-width: pxtorem(50px);
     display: block;
-    font-size: pxtorem(16px);
+    @include font-dpr(16px);
 }
 
 .ui-header .hd-left .icons-back {
@@ -63,12 +68,13 @@
 
 .ui-header .hd-left .fa,
 .ui-header .hd-right .fa {
-    font-size: pxtorem(26px);
+    @include font-dpr(26px);
     color: #1F927F;
 }
 
 .ui-header .hd-right [class^="icons-"] {
     text-align: right;
+    color: #1F927F;
 }
 
 .ui-header .hd-right .icons-save {
@@ -178,7 +184,7 @@
 }
 
 .ui-loding-info h5 {
-    font-size: pxtorem(16px);
+    @include font-dpr(16px);
     margin-bottom: pxtorem(5px);
     margin-top: 0;
 }
@@ -233,7 +239,7 @@
 
 .item-price {
     color: #fff;
-    font-size: pxtorem(16px);
+    @include font-dpr(16px);
     font-weight: bold;
 }
 
@@ -342,7 +348,7 @@
     text-align: left;
     padding: pxtorem(10px);
     color: #999999;
-    font-size: pxtorem(14px);
+    @include font-dpr(14px);
     a {
         color: #1F927F;
     }
@@ -413,11 +419,11 @@
 }
 
 .ui-share .fa {
-    font-size: pxtorem(48px);
+    @include font-dpr(48px);
 }
 
 .ui-share p {
-    font-size: pxtorem(16px);
+    @include font-dpr(16px);
 }
 
 
@@ -451,11 +457,15 @@
  */
 
 .ui-btn-line {
-    display: -webkit-box;
+    display:-webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
 }
 
 .ui-btn-line li {
     -webkit-box-flex: 1;
+    flex-grow: 1;
     text-align: center;
     cursor: pointer;
     width: 100%;
@@ -479,7 +489,7 @@
 
 .ui-star .fa {
     color: #CCCCCC;
-    font-size: pxtorem(32px);
+    @include font-dpr(32px);
     margin-right: pxtorem(5px);
     cursor: pointer;
 }
@@ -541,7 +551,7 @@
 
 .ui-sidemenu-user i {
     display: inline-block;
-    font-size: pxtorem(30px);
+    @include font-dpr(30px);
     padding: pxtorem(7px);
     border-radius: 100%;
     border: 1px solid #DDDDDD;
@@ -587,14 +597,14 @@
 .ui-sidemenu-nav li:after{-webkit-transform:rotate(-45deg);bottom: pxtorem(15px);}*/
 
 .ui-sidemenu-nav li .fa {
-    font-size: pxtorem(22px);
+    @include font-dpr(22px);
     color: #999999;
     margin-right: pxtorem(10px);
 }
 
 .ui-sidemenu-nav li a {
     color: #666666;
-    font-size: pxtorem(14px);
+    @include font-dpr(14px);
     font-weight: bold;
     padding: pxtorem(10px);
     display: block;
@@ -627,7 +637,7 @@
 .ui-dialog-cent {
     background: rgba(0, 0, 0, .8);
     text-align: center;
-    font-size: pxtorem(14px);
+    @include font-dpr(14px);
     color: #fff;
     line-height: pxtorem(18px);
     min-height: pxtorem(18px);
@@ -644,7 +654,7 @@
 
 .ui-dialog-hd h3 {
     margin: 0;
-    font-size: pxtorem(20px);
+    @include font-dpr(20px);
     padding-top: pxtorem(20px);
 }
 
@@ -674,7 +684,7 @@
     background: transparent;
     display: block;
     -webkit-box-flex: 1;
-    font-size: pxtorem(20px);
+    @include font-dpr(20px);
 }
 
 .ui-dialog-ft button:first-child {
@@ -708,13 +718,13 @@
  *=================================================================================================================================================
  */
 
-.rigister {
+.page-rigister {
     .ui-btn {
         margin-top: pxtorem(20px);
     }
 }
 
-.forgetpassword {
+.page-forgetpassword {
     .ui-btn {
         margin-top: pxtorem(20px);
     }
@@ -723,15 +733,15 @@
 .ui-form {
     background-color: #ffffff;
     padding: 0 pxtorem(5px);
-    @include border-bottom;
-    @include border-top;
+    border-bottom: 1px solid #DDD;
+    border-top: 1px solid #DDD;
     margin-top: -1px;
 }
 
 .ui-form-item {
     position: relative;
     padding: pxtorem(5px);
-    @include border-bottom;
+    border-bottom: 1px solid #DDD;
 }
 
 .ui-form-item:last-child {
@@ -743,7 +753,7 @@
     border: none;
     width: 100%;
     padding: pxtorem(8px) pxtorem(5px) pxtorem(8px) pxtorem(5px);
-    font-size: pxtorem(15px);
+    @include font-dpr(15px);
     color: #666666;
 }
 
@@ -763,7 +773,7 @@
     position: absolute;
     top: 50%;
     left: pxtorem(5px);
-    font-size: pxtorem(24px);
+    @include font-dpr(24px);
     margin-top: pxtorem(-17px);
     color: #999999;
 }
@@ -779,7 +789,7 @@
 .ui-form-item p {
     margin-bottom: 0;
     padding: pxtorem(7px) pxtorem(5px);
-    font-size: pxtorem(15px);
+    @include font-dpr(15px);
     color: #666666;
 }
 
@@ -827,7 +837,7 @@
     border-radius: 100%;
     text-align: center;
     line-height: pxtorem(68px);
-    font-size: pxtorem(60px);
+    @include font-dpr(60px);
     padding: pxtorem(5px);
     text-decoration: none;
     margin-left: pxtorem(10px);
@@ -929,7 +939,7 @@
 
 .ui-radio input[type="radio"] + .fa {
     color: #CCCCCC;
-    font-size: pxtorem(32px);
+    @include font-dpr(32px);
     float: left;
     margin-left: pxtorem(-20px);
 }
@@ -1028,7 +1038,7 @@
 
 .ui-icon-close .fa {
     color: #DDDDDD;
-    font-size: pxtorem(24px);
+    @include font-dpr(24px);
 }
 
 .ui-form-item-level {
@@ -1094,7 +1104,7 @@
 }
 
 .ui-uesr-default {
-    font-size: pxtorem(60px);
+    @include font-dpr(60px);
     color: #fff;
     padding: pxtorem(13px);
 }
@@ -1113,7 +1123,7 @@
 .ui-user-name {
     text-align: center;
     color: #999;
-    font-size: pxtorem(15px);
+    @include font-dpr(15px);
 }
 
 .ui-user-name .icons-comments {
@@ -1134,11 +1144,11 @@
 }
 
 .ui-user-name .icons-comments .fa {
-    font-size: pxtorem(20px);
+    @include font-dpr(20px);
 }
 
 .ui-title {
-    font-size: pxtorem(18px);
+    @include font-dpr(18px);
     color: #666666;
     background-color: #eee;
     height: pxtorem(46px);
@@ -1148,7 +1158,7 @@
 }
 
 .ui-title span {
-    font-size: pxtorem(14px);
+    @include font-dpr(14px);
     color: #999999;
     margin-left: pxtorem(10px);
 }
@@ -1193,12 +1203,12 @@
 
 .ui-addr-info strong {
     font-weight: normal;
-    font-size: pxtorem(18px);
+    @include font-dpr(18px);
 }
 
 .ui-addr-info span {
     color: #FFA64D;
-    font-size: pxtorem(18px);
+    @include font-dpr(18px);
 }
 
 .paydeposit {
@@ -1223,8 +1233,8 @@
     border-bottom: 1px solid #DDD;
     background-color: #ffffff;
     position: relative;
-    @include border-bottom;
-    @include border-top;
+    border-bottom: 1px solid #DDD;
+    border-top: 1px solid #DDD;
     .ui-info-cent {
         border-left: pxtorem(3px) solid #ffffff;
         padding: pxtorem(18px) pxtorem(100px) pxtorem(18px) pxtorem(15px);
@@ -1253,7 +1263,7 @@
         }
         span {
             font-weight: normal;
-            font-size: pxtorem(16px);
+            @include font-dpr(16px);
             line-height: pxtorem(24px);
         }
         a {
@@ -1262,13 +1272,13 @@
             text-decoration: none;
         }
         .address-name {
-            font-size: pxtorem(16px);
+            @include font-dpr(16px);
         }
         .address-mobile {
-            font-size: pxtorem(16px);
+            @include font-dpr(16px);
         }
         .address-detail {
-            font-size: pxtorem(12px);
+            @include font-dpr(12px);
             line-height: pxtorem(20px);
         }
         .ui-check {
@@ -1285,10 +1295,10 @@
             &.show {}
         }
         .ui-alipay {
-            font-size: pxtorem(18px);
+            @include font-dpr(18px);
             color: #999999;
             .fa {
-                font-size: pxtorem(36px);
+                @include font-dpr(36px);
                 margin-right: pxtorem(10px);
                 color: #999999;
                 vertical-align: sub;
@@ -1304,11 +1314,11 @@
 /*ui-check*/
 
 .ui-check {
-    /*border-radius: 100%;width: pxtorem(24px);height: pxtorem(24px);line-height: pxtorem(24px);font-size: pxtorem(18px); display: block;text-align: center; background-color: #fff;*/
+    /*border-radius: 100%;width: pxtorem(24px);height: pxtorem(24px);line-height: pxtorem(24px);@include font-dpr(18px); display: block;text-align: center; background-color: #fff;*/
 }
 
 .ui-check .fa {
-    font-size: pxtorem(24px);
+    @include font-dpr(24px);
     color: #209281;
 }
 
@@ -1316,7 +1326,7 @@
     width: pxtorem(32px);
     height: pxtorem(32px);
     color: #fff;
-    font-size: pxtorem(22px);
+    @include font-dpr(22px);
     line-height: pxtorem(22px);
     text-align: center;
     display: inline-block;
@@ -1342,16 +1352,16 @@
     padding-bottom: 0;
     p {
         color: #666;
-        font-size: pxtorem(16px);
+        @include font-dpr(16px);
         &:last-child {
             margin-bottom: 0;
         }
         &.ui-tpye {
             color: #999;
-            font-size: pxtorem(14px);
+            @include font-dpr(14px);
         }
         .fs {
-            font-size: pxtorem(20px);
+            @include font-dpr(20px);
             font-weight: bold;
         }
     }
@@ -1362,19 +1372,17 @@
 
 .ui-thumb {
     padding: pxtorem(20px) pxtorem(50px) 0;
-}
-
-.ui-thumb p {
-    margin-bottom: 0;
-    text-align: center;
-    font-size: pxtorem(15px);
-    padding-top: pxtorem(15px);
-    color: #999999;
-}
-
-.ui-thumb p span {
-    font-size: pxtorem(18px);
-    color: #209281;
+    p {
+        margin-bottom: 0;
+        text-align: center;
+        @include font-dpr(15px);
+        padding-top: pxtorem(15px);
+        color: #999999;
+        span {
+            @include font-dpr(18px);
+            color: #209281;
+        }
+    }
 }
 
 
@@ -1385,48 +1393,44 @@
 
 .ui-tab-lg {
     padding: pxtorem(10px);
-}
-
-.ui-tab-lg li {
-    border-radius: pxtorem(3px);
-    font-size: pxtorem(16px);
-    background-color: #ffffff;
-    border: pxtorem(2px) solid #DDDDDD;
-    padding: pxtorem(12px) 0;
-}
-
-.ui-tab-lg li .fa {
-    display: none;
-}
-
-.ui-tab-lg li.active {
-    border-color: #1D917F;
-    color: #1D917F;
-    position: relative;
-}
-
-.ui-tab-lg li.active .fa {
-    display: block;
-    position: absolute;
-    bottom: pxtorem(-3px);
-    right: pxtorem(-2px);
-    z-index: 2;
-    color: #fff;
-}
-
-.ui-tab-lg li.active:after {
-    display: block;
-    z-index: 0;
-    content: '';
-    border-top: pxtorem(12px) solid transparent;
-    border-left: pxtorem(12px) solid transparent;
-    border-right: pxtorem(12px) solid #1D917F;
-    border-bottom: pxtorem(12px) solid #1D917F;
-    width: pxtorem(24px);
-    height: pxtorem(24px);
-    position: absolute;
-    right: -1px;
-    bottom: -1px;
+    li {
+        border-radius: pxtorem(3px);
+        @include font-dpr(16px);
+        background-color: #ffffff;
+        border: pxtorem(2px) solid #DDDDDD;
+        padding: pxtorem(12px) 0;
+        &.active {
+            border-color: #1D917F;
+            color: #1D917F;
+            position: relative;
+            .fa {
+                display: block;
+                position: absolute;
+                bottom: pxtorem(-3px);
+                right: pxtorem(-2px);
+                z-index: 2;
+                color: #fff;
+                @include font-dpr(22px);
+            }
+            &:after {
+                display: block;
+                z-index: 0;
+                content: '';
+                border-top: pxtorem(18px) solid transparent;
+                border-left: pxtorem(18px) solid transparent;
+                border-right: pxtorem(18px) solid #1D917F;
+                border-bottom: pxtorem(18px) solid #1D917F;
+                width: 0;
+                height: 0;
+                position: absolute;
+                right: -1px;
+                bottom: -1px;
+            }
+        }
+        .fa {
+            display: none;
+        }
+    }
 }
 
 
@@ -1436,7 +1440,7 @@
  */
 
 .ui-map .fa {
-    font-size: pxtorem(20px);
+    @include font-dpr(20px);
     color: #999999;
 }
 
@@ -1451,51 +1455,47 @@
 
 /*.ui-my-shop{position: relative;z-index: 1;}*/
 
-.ui-my-shop .ui-hd-img {
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-}
-
-.ui-my-shop .ui-blur {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.ui-my-shop .ui-user-head {
-    margin-top: pxtorem(-55px);
-    position: relative;
-    z-index: 2;
-}
-
-.ui-my-shop .ui-user-head h3 {
-    margin: 0;
-}
-
-.ui-my-shop .ui-user-head .icons-heart {
-    font-size: pxtorem(24px);
-    vertical-align: middle;
+.ui-my-shop {
+    .ui-hd-img {
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+    }
+    .ui-blur {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .ui-user-head {
+        margin-top: pxtorem(-55px);
+        position: relative;
+        z-index: 2;
+        h3 {
+            margin: 0;
+        }
+        .icons-heart {
+            @include font-dpr(24px);
+            vertical-align: middle;
+        }
+    }
 }
 
 .ui-thing-info {
     padding: pxtorem(10px);
     color: #999999;
-    font-size: pxtorem(16px);
-}
-
-.ui-thing-info .ui-map {
-    margin-bottom: pxtorem(20px);
-}
-
-.ui-thing-info .ui-photo {
-    background-color: #CCCCCC;
-    min-width: pxtorem(300px);
-    min-height: pxtorem(200px);
-    margin-top: pxtorem(35px);
-    margin-left: pxtorem(15px);
-    border: pxtorem(2px) solid #fff;
-    box-shadow: pxtorem(-3px) pxtorem(-3px) 0 #CCCCCC, pxtorem(-5px) pxtorem(-5px) 0 #fff, pxtorem(-8px) pxtorem(-8px) 0 #CCCCCC, pxtorem(-10px) pxtorem(-10px) 0 #fff, pxtorem(-13px) pxtorem(-13px) 0 #CCCCCC, pxtorem(-15px) pxtorem(-15px) 0 #fff
+    @include font-dpr(16px);
+    .ui-map {
+        margin-bottom: pxtorem(20px);
+    }
+    .ui-photo {
+        background-color: #CCCCCC;
+        min-width: pxtorem(300px);
+        min-height: pxtorem(200px);
+        margin-top: pxtorem(35px);
+        margin-left: pxtorem(15px);
+        border: pxtorem(2px) solid #fff;
+        box-shadow: pxtorem(-3px) pxtorem(-3px) 0 #CCCCCC, pxtorem(-5px) pxtorem(-5px) 0 #fff, pxtorem(-8px) pxtorem(-8px) 0 #CCCCCC, pxtorem(-10px) pxtorem(-10px) 0 #fff, pxtorem(-13px) pxtorem(-13px) 0 #CCCCCC, pxtorem(-15px) pxtorem(-15px) 0 #fff
+    }
 }
 
 
@@ -1513,6 +1513,7 @@
         bottom: 0;
         left: 0;
         right: 0;
+        display:-webkit-box;
         display: flex;
         a {
             flex: 1;
@@ -1521,15 +1522,15 @@
         [class^="icons-"] {
             display: inline-block;
             .fa {
-                font-size: pxtorem(35px);
+                @include font-dpr(35px);
                 vertical-align: sub;
                 color: #1F927F;
             }
         }
         .btn {
-            font-size: pxtorem(16px);
+            @include font-dpr(16px);
             .fa {
-                font-size: pxtorem(32px);
+                @include font-dpr(32px);
                 vertical-align: sub;
                 color: #fff;
             }
@@ -1579,7 +1580,7 @@
 }
 
 .ui-cont-main h4 i {
-    font-size: pxtorem(24px);
+    @include font-dpr(24px);
     margin: 0 pxtorem(8px);
     color: #CCCCCC
 }
@@ -1596,14 +1597,14 @@
 
 .ui-cont-email {
     padding-top: pxtorem(40px);
-}
-
-.ui-cont-email i {
-    font-size: pxtorem(70px);
-}
-
-.ui-cont-email a {
-    font-size: pxtorem(16px);
+    i {
+        @include font-dpr(70px);
+        color: #1F927F;
+    }
+    a {
+        @include font-dpr(16px);
+        color: #1F927F;
+    }
 }
 
 
@@ -1626,7 +1627,7 @@
     padding-bottom: pxtorem(15px);
     margin-bottom: pxtorem(15px);
     margin-top: 0;
-    font-size: pxtorem(16px);
+    @include font-dpr(16px);
     text-align: center;
     color: #666666;
 }
@@ -1779,7 +1780,7 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    font-size: pxtorem(16px);
+    @include font-dpr(16px);
     color: #fff;
     font-weight: bold;
 }
@@ -1810,7 +1811,7 @@
 }
 
 .ui-tabs-pane .fa {
-    font-size: pxtorem(20px);
+    @include font-dpr(20px);
 }
 
 .ui-tabs-pane .ui-item-image .item-heart .active {
@@ -1975,12 +1976,12 @@
 .ui-user-navbar-nav li .fa {
     display: block;
     text-align: center;
-    font-size: pxtorem(26px);
+    @include font-dpr(26px);
     margin-bottom: pxtorem(2px);
 }
 
 .ui-user-navbar-nav li {
-    font-size: pxtorem(16px);
+    @include font-dpr(16px);
     position: relative;
     padding-bottom: pxtorem(8px);
     border-bottom: 1px solid #DDDDDD;
@@ -2050,21 +2051,21 @@
 
 .ui-order-bd h3 {
     margin: 0 0 pxtorem(7px);
-    font-size: pxtorem(16px);
+    @include font-dpr(16px);
     color: #666666;
     line-height: pxtorem(22px);
 }
 
 .ui-order-bd .ui-price {
     color: #1F927F;
-    font-size: pxtorem(18px);
+    @include font-dpr(18px);
     font-weight: bold;
     padding-bottom: pxtorem(10px);
     margin-bottom: 0;
 }
 
 .ui-order-bd .ui-price span {
-    font-size: pxtorem(13px);
+    @include font-dpr(13px);
     color: #999999;
     font-weight: normal;
 }
@@ -2105,50 +2106,44 @@
 .ui-store-panel {
     background-color: #ffffff;
     margin-bottom: pxtorem(5px);
-}
-
-.ui-store-panel li {
-    border-bottom: 1px solid #DDDDDD;
-}
-
-.ui-store-panel input,
-.ui-store-panel textarea {
-    font-size: pxtorem(14px);
-    padding: pxtorem(15px);
-    border: none;
-    width: 100%;
-}
-
-.ui-store-panel .ui-store-rich {
-    padding: pxtorem(15px);
-    position: relative;
-    z-index: 1;
-}
-
-.ui-store-panel .ui-store-rich a {
-    color: #666666;
-    display: block;
-}
-
-.ui-store-panel .ui-store-rich:after,
-.ui-store-panel .ui-store-rich:before {
-    display: block;
-    content: '';
-    height: 1px;
-    width: pxtorem(15px);
-    background-color: #DDDDDD;
-    position: absolute;
-    right: pxtorem(10px);
-}
-
-.ui-store-panel .ui-store-rich:before {
-    -webkit-transform: rotate(45deg);
-    top: pxtorem(19px);
-}
-
-.ui-store-panel .ui-store-rich:after {
-    -webkit-transform: rotate(-45deg);
-    bottom: pxtorem(19px);
+    li {
+        border-bottom: 1px solid #DDDDDD;
+        overflow: hidden;
+    }
+    input,
+    textarea {
+        @include font-dpr(14px);
+        padding: pxtorem(15px);
+        border: none;
+        width: 100%;
+    }
+    .ui-store-rich {
+        padding: pxtorem(15px);
+        position: relative;
+        z-index: 1;
+    }
+    .ui-store-rich a {
+        color: #666666;
+        display: block;
+    }
+    .ui-store-rich:after,
+    .ui-store-rich:before {
+        display: block;
+        content: '';
+        height: 1px;
+        width: pxtorem(15px);
+        background-color: #DDDDDD;
+        position: absolute;
+        right: pxtorem(10px);
+    }
+    .ui-store-rich:before {
+        -webkit-transform: rotate(45deg);
+        top: pxtorem(19px);
+    }
+    .ui-store-rich:after {
+        -webkit-transform: rotate(-45deg);
+        bottom: pxtorem(19px);
+    }
 }
 
 
@@ -2162,41 +2157,59 @@
 
 .ui-file-img {
     margin-bottom: pxtorem(20px);
-}
-
-.ui-file-img:after {
-    display: block;
-    content: '';
-    clear: both;
-}
-
-.ui-file-img li {
-    margin-left: 2%;
-    border: 1px solid #DDDDDD;
-    background: #ffffff;
-    position: relative;
-    width: 18.39%;
-    float: left;
-    text-align: center;
-    overflow: hidden;
-}
-
-.ui-file-img li:first-child {
-    margin-left: 0;
-}
-
-.ui-file-img li span {
-    height: 100%;
-    min-height: 100%;
-    width: 100%;
-    position: relative;
-    z-index: 10;
-}
-
-.ui-file-img li .fa {
-    padding: pxtorem(10px);
-    font-size: pxtorem(32px);
-    color: #CCCCCC;
+    display: flex;
+    display:-webkit-box;
+    justify-content: center;
+    &:after {
+        display: block;
+        content: '';
+        clear: both;
+    }
+    li {
+        &:first-child {
+            margin-left: 0;
+        }
+        span {
+            height: 100%;
+            min-height: 100%;
+            width: 100%;
+            position: relative;
+            z-index: 10;
+        }
+        .fa {
+            padding: pxtorem(10px);
+            @include font-dpr(32px);
+            color: #CCCCCC;
+        }
+        margin-left: 2%;
+        border: 1px solid #DDDDDD;
+        background: #ffffff;
+        position: relative;
+        height:pxtorem(55px);
+        text-align: center;
+        overflow: hidden;
+        flex-grow: 1;
+        input[type=file] {
+            background-image: url('/images/temp/1s.jpg');
+            background-size: cover;
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 9;
+            opacity: 0;
+        }
+        img.selected {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1;
+        }
+    }
 }
 
 
@@ -2282,7 +2295,7 @@ end user-tabs
 .set-tabs-pane {
     padding-top: pxtorem(15px);
     display: none;
-    &.active{
+    &.active {
         display: block;
     }
 }
@@ -2353,7 +2366,7 @@ end set
 }
 
 .ui-message-info li .fa {
-    font-size: pxtorem(50px);
+    @include font-dpr(50px);
     float: left;
     margin-left: pxtorem(-65px);
     color: #999;
@@ -2361,7 +2374,7 @@ end set
 }
 
 .ui-message-info li h3 {
-    font-size: pxtorem(16px);
+    @include font-dpr(16px);
     color: #666666;
     margin-top: 0;
     margin-bottom: pxtorem(15px);
@@ -2436,7 +2449,7 @@ end set
     color: #999;
     border-radius: pxtorem(10px);
     padding: pxtorem(3px) pxtorem(20px);
-    font-size: pxtorem(12px);
+    @include font-dpr(12px);
 }
 
 
@@ -2459,7 +2472,7 @@ end message
 }
 
 .ui-goods .ui-title-detail {
-    font-size: pxtorem(18px);
+    @include font-dpr(18px);
     padding: 0 pxtorem(10px);
     margin: 0;
     color: #666666;
@@ -2475,7 +2488,7 @@ end message
 
 .ui-goods .ui-price span {
     color: #1F927F;
-    font-size: pxtorem(16px);
+    @include font-dpr(16px);
     font-weight: bold;
 }
 
@@ -2576,14 +2589,14 @@ end message
 }
 
 .ui-roll-meta li h3 {
-    font-size: pxtorem(14px);
+    @include font-dpr(14px);
     font-weight: normal;
     margin: 0;
     color: #999999;
 }
 
 .ui-roll-meta li p {
-    font-size: pxtorem(12px);
+    @include font-dpr(12px);
     margin: 0;
     color: #999999;
 }
@@ -2631,7 +2644,7 @@ end message
 }
 
 .ui-eval-detail li h3 {
-    font-size: pxtorem(14px);
+    @include font-dpr(14px);
     font-weight: normal;
     margin: 0;
     color: #999999;
@@ -2639,7 +2652,7 @@ end message
 }
 
 .ui-eval-detail li p {
-    font-size: pxtorem(12px);
+    @include font-dpr(12px);
     margin: 0;
     color: #666666;
 }
@@ -2670,7 +2683,7 @@ end message
 .ui-brand h4 {
     padding: pxtorem(10px);
     margin: 0;
-    font-size: pxtorem(18px);
+    @include font-dpr(18px);
 }
 
 .ui-brand h4 a {
@@ -2680,13 +2693,13 @@ end message
 
 .ui-brand h4 .fa {
     color: #999999;
-    font-size: pxtorem(20px);
+    @include font-dpr(20px);
 }
 
 .ui-detail-panel {
     padding: pxtorem(10px);
     background-color: #ffffff;
-    font-size: pxtorem(14px);
+    @include font-dpr(14px);
     color: #666666;
 }
 
@@ -2734,7 +2747,7 @@ end message
 }
 
 .ui-com-goods p {
-    font-size: pxtorem(14px);
+    @include font-dpr(14px);
     margin-bottom: 0;
     line-height: pxtorem(20px);
     color: #666;
@@ -2799,7 +2812,7 @@ end message
 }
 
 .item-title h3 {
-    font-size: pxtorem(16px);
+    @include font-dpr(16px);
     margin: 0;
 }
 
@@ -2809,6 +2822,65 @@ end message
 
 .page-contribute .ui-container .ui-store-panel {
     margin-top: 0;
+}
+
+
+/*
+ *page-messages
+ *=============================================================================
+ */
+
+.page-messages {
+    .ui-tabs-content {
+        position: relative;
+        .ui-tabs-pane {
+            position: relative;
+            display: none;
+            &.active {
+                display: block;
+            }
+        }
+    }
+}
+
+
+/*
+ *page-publish
+ *=============================================================================
+ */
+
+.page-publish {
+    .ui-container {
+        position: static;
+    }
+    .ui-tabs-content {
+        position: relative;
+        .ui-tabs-pane {
+            position: relative;
+            display: none;
+            &.active {
+                display: block;
+            }
+        }
+    }
+    .ui-text {
+        padding: pxtorem(10px);
+        @include font-dpr(12px);
+    }
+    .btn-block{
+        width: auto;
+    }
+}
+
+
+/*
+ *page-setting
+ *=============================================================================
+ */
+.page-setting{
+    .ui-btn{
+        margin-top: pxtorem(10px);
+    }
 }
 
 .slideAnimated {

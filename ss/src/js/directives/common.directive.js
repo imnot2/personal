@@ -42,7 +42,9 @@ directives.directive('touser', ['$state', 'user', function($state, user) {
         restrict: 'AE',
         link: function(scope, element, attrs) {
             var cur = $stateParams.cur;
-            var params = $stateParams.params || {};
+            var params = $stateParams.params || '';
+            var args = [];
+            args.push(cur);
             touch.on(element, 'tap', function() {
                 if (scope.userForm.$dirty) {
                     user.login(scope.user.mobile, scope.user.password, function(userinfo) {
@@ -51,7 +53,10 @@ directives.directive('touser', ['$state', 'user', function($state, user) {
                                 identity: userinfo.identity
                             });
                         }
-                        $state.go(cur, JSON.parse(params));
+                        if (params) {
+                            args.push(JSON.parse(params));
+                        }
+                        $state.go.apply($state, args);
                     });
                 }
             })
@@ -148,7 +153,7 @@ directives.directive('touser', ['$state', 'user', function($state, user) {
             })
         }
     }
-}]).directive('countdown', function() {
+}]).directive('countdown', ['storeDataService', function(storeDataService) {
     var s = 1000;
     var m = s * 60;
     var h = m * 60;
@@ -176,16 +181,22 @@ directives.directive('touser', ['$state', 'user', function($state, user) {
     }
     return {
         restrict: 'AE',
-        template: '<span></span>',
-        replace: true,
+        scope: {
+            id: "@"
+        },
         link: function(scope, element, attrs) {
+            var o = storeDataService.data.countdown;
+            if (o[scope.id]) {
+                clearInterval(o[scope.id])
+            }
             $(element).html(parseHtml(attrs.timestamp));
-            setInterval(function() {
+            o[scope.id] = setInterval(function() {
+                console.log($(element).index());
                 $(element).html(parseHtml(attrs.timestamp));
             }, m)
         }
     }
-}).directive('modifyaddress', ['addressService', function(addressService) {
+}]).directive('modifyaddress', ['addressService', function(addressService) {
     return {
         restrict: 'AE',
         link: function(scope, element, attrs) {
@@ -276,6 +287,76 @@ directives.directive('touser', ['$state', 'user', function($state, user) {
         link: function(scope, element, attrs) {
             touch.on(element, 'tap', function() {
                 $state.go('contribute');
+            })
+        }
+    }
+}]).directive('previw', ['$state', function($state) {
+    return {
+        restrict: 'AE',
+        link: function(scope, element, attrs) {
+            touch.on(element, 'tap', function() {
+                $state.go('previw');
+            })
+        }
+    }
+}]).directive('publish', ['$state', function($state) {
+    return {
+        restrict: 'AE',
+        link: function(scope, element, attrs) {
+            touch.on(element, 'tap', function() {
+                $state.go('publish');
+            })
+        }
+    }
+}]).directive('messages', ['$state', function($state) {
+    return {
+        restrict: 'AE',
+        link: function(scope, element, attrs) {
+            touch.on(element, 'tap', function() {
+                $state.go('messages');
+            })
+        }
+    }
+}]).directive('uploadimg', ['$state', function($state) {
+    return {
+        restrict: 'AE',
+        link: function(scope, element, attrs) {
+            function preview(file, img) {
+                var fileReader = new FileReader();
+                fileReader.onload = function(e) {
+                    img.src = e.target.result;
+                }
+                fileReader.readAsDataURL(file);
+            }
+
+            $(element).on('change', function(e) {
+                var target = e.currentTarget;
+                var file = target.files[0];
+                var fileSize;
+                console.log(file);
+                if (file) {
+                    fileSize = 0;
+                    if (file.size > 1024 * 1024) {
+                        fileSize = (Math.round(file.size * 100 / (1024 * 1024)) / 100).toString() + 'MB';
+                    } else {
+                        fileSize = (Math.round(file.size * 100 / 1024) / 100).toString() + 'KB';
+                    }
+                    preview(file, target.nextElementSibling);
+                }
+            })
+        }
+    }
+}]).directive('savestore', ['$state', function($state) {
+    return {
+        restrict: 'AE',
+        scope: {
+            savestore: '&'
+        },
+        link: function(scope, element, attrs) {
+            console.log(scope);
+            touch.on(element, 'tap', function(e) {
+                scope.savestore();
+                //scope.$parent.savesetting();
             })
         }
     }

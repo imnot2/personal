@@ -13,15 +13,15 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         dirs: {
-            CNDurl: "",
+            root: './',
             src: {
                 root: 'src',
                 sass: '<%= dirs.src.root %>/sass',
                 js: '<%= dirs.src.root %>/js',
-                lib: '<%= dirs.src.root %>/js/vendor/bower_components',
+                lib: '<%= dirs.root %>/vendor',
                 imgs: '<%= dirs.src.root %>/images',
                 font: '<%= dirs.src.root %>/fonts',
-                html: '<%= dirs.src.root %>/html',
+                tpl: '<%= dirs.src.root %>/tpls',
                 products: '<%= dirs.src.root %>/products'
             },
             build: {
@@ -30,7 +30,7 @@ module.exports = function(grunt) {
                 imgs: '<%= dirs.build.root %>/images',
                 js: '<%= dirs.build.root %>/js',
                 font: '<%= dirs.build.root %>/fonts',
-                html: '<%= dirs.build.root %>/html',
+                tpl: '<%= dirs.build.root %>/tpls',
                 products: '<%= dirs.build.root %>/products'
             },
             dest: {
@@ -39,7 +39,8 @@ module.exports = function(grunt) {
                 imgs: '<%= dirs.dest.root %>/images',
                 js: '<%= dirs.dest.root %>/js',
                 font: '<%= dirs.dest.root %>/fonts',
-                html: '<%= dirs.dest.root %>/html'
+                tpl: '<%= dirs.dest.root %>/tpls',
+                products: '<%= dirs.dest.root %>/products'
             }
         },
 
@@ -47,7 +48,7 @@ module.exports = function(grunt) {
             build: {
                 options: {
                     sassDir: '<%= dirs.src.sass %>',
-                    specify: ['<%= dirs.src.sass %>/pages/*.scss', '<%= dirs.src.sass %>/srccss/*.scss'],
+                    specify: ['<%= dirs.src.sass %>/**/*.scss'],
                     cssDir: '<%= dirs.build.css %>',
                     imagesDir: "<%= dirs.src.imgs %>",
                     httpPath: "<%= dirs.CDNurl %>",
@@ -63,7 +64,7 @@ module.exports = function(grunt) {
             //合并css
             build: {
                 files: {
-                    '<%= dirs.build.css %>/app.css': ['<%= dirs.build.css %>/pages/*.css']
+                    '<%= dirs.build.css %>/app.css': ['<%= dirs.build.css %>/**/*.css','<%= dirs.src.lib %>/animate.css/animate.css']
                 }
             },
             //压缩css
@@ -72,7 +73,7 @@ module.exports = function(grunt) {
                 cwd: '<%= dirs.build.css %>',
                 src: ['**/*.css', '!**/*-min.css'],
                 dest: '<%= dirs.dest.css %>',
-                ext: '.min.css'
+                ext: '.css'
             }
         },
         imagemin: {
@@ -89,52 +90,55 @@ module.exports = function(grunt) {
             }
         },
         copy: {
-            toDestImgs: {
+            build: {
                 files: [{
                     expand: true,
-                    cwd: '<%= dirs.build.imgs %>',
-                    src: ['**/*.{png,jpg,gif}'],
-                    dest: '<%= dirs.dest.imgs %>'
-                }]
-            },
-            toBuildfont: {
-                files: [{
+                    cwd: '<%= dirs.src.root %>',
+                    src: ['index.html'],
+                    dest: '<%= dirs.build.root %>'
+                }, {
                     expand: true,
                     cwd: '<%= dirs.src.font %>',
                     src: ['*.{eot,svg,ttf,woff}'],
                     dest: '<%= dirs.build.font %>'
-                }]
-            },
-            toDestfont: {
-                files: [{
+                }, {
                     expand: true,
-                    cwd: '<%= dirs.src.font %>',
-                    src: ['*.{eot,svg,ttf,woff}'],
-                    dest: '<%= dirs.dest.font %>'
-                }]
-            },
-            toBuildHtml: {
-                files: [{
-                    expand: true,
-                    cwd: '<%= dirs.src.html %>',
+                    cwd: '<%= dirs.src.tpl %>',
                     src: ['*.html', '**/*.html'],
-                    dest: '<%= dirs.build.html %>'
-                }]
-            },
-            toDestHtml: {
-                files: [{
-                    expand: true,
-                    cwd: '<%= dirs.src.html %>',
-                    src: ['*.html', '**/*.html'],
-                    dest: '<%= dirs.dest.html %>'
-                }]
-            },
-            toBuildProduts: {
-                files: [{
+                    dest: '<%= dirs.build.tpl %>'
+                }, {
                     expand: true,
                     cwd: '<%= dirs.src.products %>',
                     src: ['*.json'],
                     dest: '<%= dirs.build.products %>'
+                }]
+            },
+            dest: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= dirs.src.root %>',
+                    src: ['index.html'],
+                    dest: '<%= dirs.dest.root %>'
+                }, {
+                    expand: true,
+                    cwd: '<%= dirs.build.imgs %>',
+                    src: ['**/*.{png,jpg,gif}'],
+                    dest: '<%= dirs.dest.imgs %>'
+                }, {
+                    expand: true,
+                    cwd: '<%= dirs.src.font %>',
+                    src: ['*.{eot,svg,ttf,woff}'],
+                    dest: '<%= dirs.dest.font %>'
+                }, {
+                    expand: true,
+                    cwd: '<%= dirs.src.tpl %>',
+                    src: ['*.html', '**/*.html'],
+                    dest: '<%= dirs.dest.tpl %>'
+                }, {
+                    expand: true,
+                    cwd: '<%= dirs.src.products %>',
+                    src: ['*.json'],
+                    dest: '<%= dirs.dest.products %>'
                 }]
             }
         },
@@ -147,21 +151,21 @@ module.exports = function(grunt) {
             build: {
                 files: {
                     '<%= dirs.build.js %>/app.js': [
-                        '<%= dirs.src.js %>/module.prefix', 
-                        '<%= dirs.src.js %>/app.js', 
-                        '<%= dirs.src.js %>/routers/*.js', 
-                        '<%= dirs.src.js %>/controllers/**/*.js', 
-                        '<%= dirs.src.js %>/directives/**/*.js', 
-                        '<%= dirs.src.js %>/filters/**/*.js', 
-                        '<%= dirs.src.js %>/services/**/*.js', 
+                        '<%= dirs.src.js %>/module.prefix',
+                        '<%= dirs.src.js %>/app.js',
+                        '<%= dirs.src.js %>/routers/*.js',
+                        '<%= dirs.src.js %>/controllers/**/*.js',
+                        '<%= dirs.src.js %>/directives/**/*.js',
+                        '<%= dirs.src.js %>/filters/**/*.js',
+                        '<%= dirs.src.js %>/services/**/*.js',
                         '<%= dirs.src.js %>/module.suffix'
                     ],
-                    '<%= dirs.build.js %>/vendor/lib.js': [     
-                        '<%= dirs.src.lib %>/angular/angular.js', 
-                        '<%= dirs.src.lib %>/angular-ui-router/release/angular-ui-router.js', 
-                        '<%= dirs.src.lib %>/jquery/dist/jquery.js', 
-                        '<%= dirs.src.lib %>/jquery.cookie/jquery.cookie.js', 
-                        '<%= dirs.src.lib %>/touchjs/dist/touch-0.2.14.js'
+                    '<%= dirs.build.js %>/vendor/lib.js': [
+                        '<%= dirs.src.lib %>/angular/angular.js',
+                        '<%= dirs.src.lib %>/angular-ui-router/release/angular-ui-router.js',
+                        '<%= dirs.src.lib %>/jquery/dist/jquery.js',
+                        '<%= dirs.src.lib %>/jquery.cookie/jquery.cookie.js',
+                        '<%= dirs.src.lib %>/touchjs/touch.js'
                     ]
                 }
             },
@@ -181,9 +185,11 @@ module.exports = function(grunt) {
             //     }]
             // },
             dest: {
-                files: {
-                    '<%= dirs.dest.js %>/app.min.js': ['<%= dirs.build.js %>/app.js']
-                }
+                files: [{
+                    '<%= dirs.dest.js %>/app.js': ['<%= dirs.build.js %>/app.js']
+                }, {
+                    '<%= dirs.dest.js %>/vendor/lib.js': ['<%= dirs.build.js %>/vendor/lib.js']
+                }]
             }
         },
         // replace: {
@@ -229,7 +235,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-string-replace');
     grunt.loadNpmTasks('grunt-contrib-concat');
 
-    grunt.registerTask('dev', ['clean', 'compass',  'imagemin', 'concat:build', 'copy:toBuildfont', 'copy:toBuildHtml', 'copy:toBuildProduts']);
-    grunt.registerTask('dest', ['dev',  'uglify:dest', 'copy:toDestImgs', 'copy:toDestfont', 'copy:toDestHtml']);
+    grunt.registerTask('dev', ['clean', 'compass', 'imagemin', 'concat:build', 'copy:build']);
+    grunt.registerTask('dest', ['dev', 'uglify:dest', 'cssmin:dest', 'copy:dest']);
     grunt.registerTask('default', ['dest']);
 }

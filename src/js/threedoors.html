@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+    var total = 10000000;
+    var doors = ['sheep', 'sheep', 'car'];
+    var selected;
+    var count = 0;
+    var open = 0;
+    for (var i = 0; i < total; i++) {
+
+        //把门乱序。
+        doors.sort(function() {
+            return Math.random() > 0.5 ? -1 : 1;
+        });
+
+        //随机选择一扇门。
+        selected = parseInt(Math.random() * 3);
+
+        //主持人打开的那扇绵羊门
+        open = findOtherSheep(selected, doors);
+
+        //如果自己选择的门跟主持人选择的人都不是汽车。那剩下的门里肯定是汽车了。
+        if (doors[selected] !== 'car' && doors[open] !== 'car') {
+            count++;
+        }
+    }
+    console.log(count / total);
+
+    function findOtherSheep(selected, doors) {
+        for (var i = 0; i < doors.length; i++) {
+            if (i !== selected && doors[i] === 'sheep') {
+                return i;
+            }
+        }
+    }
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

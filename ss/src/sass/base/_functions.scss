@@ -3,5 +3,5 @@
 @import "base/variables";
 
 @function pxtorem($px) {
-    @return $px / $browser-default-font-size * 1rem;
+    @return $px / 32px * 1rem;
 }

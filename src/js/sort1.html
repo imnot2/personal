@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+    var arr = new Array(100);
+    for(var i = 0; i < arr.length; i++){
+        arr[i] = i;
+    }
+    arr = arr.sort(function(){
+        return Math.random() > 0.5 ? 1 :1; 
+    })
+    //var arr = [9, 8, 7, 6, 5, 4, 3, 2, 1];
+    console.log(arr);
+    var temp;
+    for (var i = 1; i < arr.length; i++) {
+        var sentry = arr[i];
+        for (var n = 0; n < i; n++) {
+            if (sentry < arr[n]) {
+                temp = arr[n];
+                for (var j = i; j >n; j--) {
+                    arr[j] = arr[j - 1];
+                }
+                arr[n] = sentry;
+                break;
+            }
+        }
+    }
+    console.log(arr);
+    </script>
+</body>
+
+</html>

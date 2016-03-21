@@ -373,6 +373,120 @@
                 des: '商家信息',
                 tips: '{products:500,likes:500,wellScale:90%}'
             }]
+        }, {
+            title: '添加/修改地址',
+            http: 'post',
+            options: [{
+                name: 'userName',
+                des: '用户名字',
+                tips: ''
+            }, {
+                name: 'mobile',
+                des: '手机号码',
+                tips: ''
+            }, {
+                name: 'postcode',
+                des: '邮编',
+                tips: ''
+            }, {
+                name: 'city',
+                des: '城市',
+                tips: ''
+            }, {
+                name: 'detail',
+                des: '具体地址',
+                tips: ''
+            }, {
+                name: 'isDefault',
+                des: '是否设置默认地址',
+                tips: ''
+            }],
+            result: [{
+                name: 'status',
+                des: '状态码',
+                tips: '成功返回1，失败返回0'
+            }, {
+                name: 'msg',
+                des: '接口信息',
+                tips: ''
+            }]
+        }, {
+            title: '删除地址',
+            http: 'post',
+            options: [{
+                name: 'addressId',
+                des: '地址id',
+                tips: ''
+            }],
+            result: [{
+                name: 'status',
+                des: '状态码',
+                tips: '成功返回1，失败返回0'
+            }, {
+                name: 'msg',
+                des: '接口信息',
+                tips: ''
+            }]
+        }, {
+            title: '查看地址详情',
+            http: 'post',
+            options: [{
+                name: 'addressId',
+                des: '地址id',
+                tips: ''
+            }],
+            result: [{
+                name: 'addressDetail',
+                des: '地址详情',
+                tips: '{userName:xxx,mobile:xxx,city:xxx,detail:xxx,postcode:xxx}'
+            }, {
+                name: 'msg',
+                des: '接口信息',
+                tips: ''
+            }]
+        }, {
+            title: '查看地址列表',
+            http: 'post',
+            options: [],
+            result: [{
+                name: 'addressList',
+                des: '地址列表',
+                tips: '[{userName:xxx,mobile:xxx,city:xxx,detail:xxx,postcode:xxx}, ...]'
+            }, {
+                name: 'msg',
+                des: '接口信息',
+                tips: ''
+            }]
+        }, {
+            title: '获取默认收货地址',
+            http: 'post',
+            options: [],
+            result: [{
+                name: 'addressDetail',
+                des: '地址详情',
+                tips: '{userName:xxx,mobile:xxx,city:xxx,detail:xxx,postcode:xxx}'
+            }, {
+                name: 'msg',
+                des: '接口信息',
+                tips: ''
+            }]
+        }, {
+            title: '支付保证金',
+            http: 'post',
+            options: [{
+                name: 'orderId',
+                des: '订单id',
+                tips: ''
+            }, {
+                name: 'addressId',
+                des: '地址id',
+                tips: ''
+            }],
+            result: [{
+                name: 'msg',
+                des: '接口信息',
+                tips: ''
+            }]
         }]
     }
     var html = template('api-ui', data);
@@ -380,4 +494,4 @@
     </script>
 </body>
 
-</html
+</html>

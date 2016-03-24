@@ -1,3 +1,2 @@
 # personal
-personal project
 

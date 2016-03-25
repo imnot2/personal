@@ -457,7 +457,7 @@ body {
  */
 
 .ui-btn-line {
-    display:-webkit-box;
+    display: -webkit-box;
     display: -webkit-flex;
     display: flex;
     justify-content: center;
@@ -1513,7 +1513,7 @@ body {
         bottom: 0;
         left: 0;
         right: 0;
-        display:-webkit-box;
+        display: -webkit-box;
         display: flex;
         a {
             flex: 1;
@@ -1748,132 +1748,112 @@ body {
  * =========================================================================================================
  */
 
-.ui-tabs-pane article {
-    margin-bottom: pxtorem(20px);
-}
-
-.ui-tabs-pane .ui-item-image {
-    position: relative;
-    img{
-        width: 100%;
+.ui-tabs-pane {
+    article {
+        margin-bottom: pxtorem(20px);
     }
-}
-
-.ui-tabs-pane .item-count {
-    position: absolute;
-    top: pxtorem(10px);
-    right: pxtorem(10px);
-}
-
-.ui-tabs-pane .item-count.default i {
-    color: #666666
-}
-
-.ui-tabs-pane .item-title {
-    background-color: rgba(0, 0, 0, .4);
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    padding: pxtorem(10px);
-}
-
-.ui-tabs-pane .item-title h3 {
-    margin: 0 30% 0 0;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    @include font-dpr(16px);
-    color: #fff;
-    font-weight: bold;
-}
-
-.ui-tabs-pane .item-none {
-    background: none;
-}
-
-.ui-tabs-pane .item-none h3 {
-    color: #B0B0B0
-}
-
-.ui-tabs-pane .item-price {
-    position: absolute;
-    right: pxtorem(10px);
-    bottom: pxtorem(8px);
-}
-
-.ui-tabs-pane .my-price {
-    color: #F39F4A;
-}
-
-.ui-tabs-pane .ui-item-image .item-heart {
-    position: absolute;
-    right: pxtorem(10px);
-    bottom: pxtorem(8px);
-    color: #ffffff;
-}
-
-.ui-tabs-pane .fa {
-    @include font-dpr(20px);
-}
-
-.ui-tabs-pane .ui-item-image .item-heart .active {
-    color: #FFA64D;
-}
-
-.ui-tabs-pane .item-hd {
-    background-color: #fff;
-    border-bottom: 1px solid #CCCCCC;
-    padding: pxtorem(10px);
-}
-
-.ui-tabs-pane .item-hd:after {
-    clear: both;
-    display: table;
-    content: ''
-}
-
-.ui-tabs-pane .item-hd p {
-    margin-bottom: 0;
-}
-
-.ui-tabs-pane .item-head {
-    float: left;
-    color: #666666;
-}
-
-.ui-tabs-pane .item-head img {
-    width: pxtorem(30px);
-    height: pxtorem(30px);
-    border-radius: 100%;
-    margin-right: pxtorem(5px);
-    vertical-align: middle;
-}
-
-.ui-tabs-pane .item-head .fa {
-    color: #999;
-    margin-left: pxtorem(5px);
-    vertical-align: middle;
-}
-
-.ui-tabs-pane .item-info {
-    float: right;
-    margin-top: pxtorem(3px);
-}
-
-.ui-tabs-pane .item-info [class^="item-"],
-.ui-tabs-pane .item-info [class*=" item-"] {
-    color: #9A9A9A;
-    margin-left: pxtorem(8px);
-}
-
-.ui-tabs-pane .item-info .fa {
-    margin-right: pxtorem(5px);
-}
-
-.ui-tabs-pane .item-info [class^="item-"] .active,
-.ui-tabs-pane .item-info [class*=" item-"] .active {
-    color: #FFA64D;
+    .ui-item-image {
+        position: relative;
+        img {
+            width: 100%;
+        }
+    }
+    .item-count {
+        position: absolute;
+        top: pxtorem(10px);
+        right: pxtorem(10px);
+    }
+    .item-count.default i {
+        color: #666666
+    }
+    .item-title {
+        background-color: rgba(0, 0, 0, .4);
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        padding: pxtorem(10px);
+    }
+    .item-title h3 {
+        margin: 0 30% 0 0;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        @include font-dpr(16px);
+        color: #fff;
+        font-weight: bold;
+    }
+    .item-none {
+        background: none;
+    }
+    .item-none h3 {
+        color: #B0B0B0
+    }
+    .item-price {
+        position: absolute;
+        right: pxtorem(10px);
+        bottom: pxtorem(8px);
+    }
+    .my-price {
+        color: #F39F4A;
+    }
+    .ui-item-image .item-heart {
+        position: absolute;
+        right: pxtorem(10px);
+        bottom: pxtorem(8px);
+        color: #ffffff;
+    }
+    .fa {
+        @include font-dpr(20px);
+    }
+    .ui-item-image .item-heart .active {
+        color: #FFA64D;
+    }
+    .item-hd {
+        background-color: #fff;
+        border-bottom: 1px solid #CCCCCC;
+        padding: pxtorem(10px);
+    }
+    .item-hd:after {
+        clear: both;
+        display: table;
+        content: ''
+    }
+    .item-hd p {
+        margin-bottom: 0;
+    }
+    .item-head {
+        float: left;
+        color: #666666;
+    }
+    .item-head img {
+        width: pxtorem(30px);
+        height: pxtorem(30px);
+        border-radius: 100%;
+        margin-right: pxtorem(5px);
+        vertical-align: middle;
+    }
+    .item-head .fa {
+        color: #999;
+        margin-left: pxtorem(5px);
+        vertical-align: middle;
+    }
+    .item-info {
+        float: right;
+        margin-top: pxtorem(3px);
+    }
+    .item-info [class^="item-"],
+    .item-info [class*=" item-"] {
+        color: #9A9A9A;
+        margin-left: pxtorem(8px);
+    }
+    .item-info .fa {
+        margin-right: pxtorem(5px);
+    }
+    .item-info [class^="item-"] .active,
+    .item-info [class*=" item-"] .active {
+        color: #FFA64D;
+    }
 }
 
 
@@ -2161,7 +2141,7 @@ body {
 .ui-file-img {
     margin-bottom: pxtorem(20px);
     display: flex;
-    display:-webkit-box;
+    display: -webkit-box;
     justify-content: center;
     &:after {
         display: block;
@@ -2870,7 +2850,7 @@ end message
         padding: pxtorem(10px);
         @include font-dpr(12px);
     }
-    .btn-block{
+    .btn-block {
         width: auto;
     }
 }
@@ -2880,8 +2860,9 @@ end message
  *page-setting
  *=============================================================================
  */
-.page-setting{
-    .ui-btn{
+
+.page-setting {
+    .ui-btn {
         margin-top: pxtorem(10px);
     }
 }

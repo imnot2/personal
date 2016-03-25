@@ -1754,6 +1754,9 @@ body {
 
 .ui-tabs-pane .ui-item-image {
     position: relative;
+    img{
+        width: 100%;
+    }
 }
 
 .ui-tabs-pane .item-count {

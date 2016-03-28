@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>test ngModuleController 创建相互通讯的(嵌套的)指令</title>
+    <script src="http://cdn.bootcss.com/angular.js/1.4.7/angular.js"></script>
+</head>
+<body>
+    <div nav>
+        <ul>
+            <li item ng-controller="itemCtl">item</li>
+        </ul>
+    </div>
+    <script>
+        var app = angular.module('app',[]);
+        app.controller('itemCtl',['$scope',function($scope){
+            $scope.add2 = function(){
+                alert(2);
+            }
+        }])
+        app.directive('nav',function(){
+            return {
+                restrict:'AE',
+                controller:function($scope){
+                    //注意这里是this
+                    this.add = function(){
+                        alert(1);
+                    }
+                }
+            }
+        });
+        app.directive('item',function(){
+            return {
+                restrict:'AE',
+                require:'^nav',
+                link:function(scope,element,attrs,navCtr){
+                    console.log(element);
+                    console.log(navCtr);
+                    element[0].onclick = function(){
+                        navCtr.add();
+                        scope.add2();
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

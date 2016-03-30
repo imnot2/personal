@@ -64,7 +64,7 @@ module.exports = function(grunt) {
             //合并css
             build: {
                 files: {
-                    '<%= dirs.build.css %>/app.css': ['<%= dirs.build.css %>/srccss/*.css','<%= dirs.src.lib %>/animate.css/animate.css']
+                    '<%= dirs.build.css %>/app.css': ['<%= dirs.build.css %>/srccss/*.css', '<%= dirs.src.lib %>/animate.css/animate.css']
                 }
             },
             //压缩css
@@ -151,14 +151,14 @@ module.exports = function(grunt) {
             build: {
                 files: {
                     '<%= dirs.build.js %>/app.js': [
-                        '<%= dirs.src.js %>/module.prefix',
+                        //'<%= dirs.src.js %>/module.prefix',
                         '<%= dirs.src.js %>/app.js',
                         '<%= dirs.src.js %>/routers/*.js',
                         '<%= dirs.src.js %>/controllers/**/*.js',
                         '<%= dirs.src.js %>/directives/**/*.js',
                         '<%= dirs.src.js %>/filters/**/*.js',
                         '<%= dirs.src.js %>/services/**/*.js',
-                        '<%= dirs.src.js %>/module.suffix'
+                        //'<%= dirs.src.js %>/module.suffix'
                     ],
                     '<%= dirs.build.js %>/vendor/lib.js': [
                         '<%= dirs.src.lib %>/angular/angular.js',
@@ -186,7 +186,7 @@ module.exports = function(grunt) {
             // },
             dest: {
                 files: [{
-                    '<%= dirs.dest.js %>/app.js': ['<%= dirs.build.js %>/app.js']
+                    '<%= dirs.dest.js %>/app.js': ['<%= dirs.root %>/tmp/templates.js', '<%= dirs.build.js %>/app.js']
                 }, {
                     '<%= dirs.dest.js %>/vendor/lib.js': ['<%= dirs.build.js %>/vendor/lib.js']
                 }]
@@ -203,6 +203,22 @@ module.exports = function(grunt) {
         //         }]
         //     }
         // },
+        concattpls: {
+            release: {
+                files: {
+                    '<%= dirs.dest.js %>/app.js': ['<%= dirs.dest.js %>/app.js'],
+                }
+            }
+        },
+        html2js: {
+            options: {
+                // custom options, see below
+            },
+            main: {
+                src: ['<%= dirs.src.tpl %>/**/*.tpl.html'],
+                dest: 'tmp/templates.js'
+            },
+        },
         watch: {
             options: {
                 livereload: true
@@ -218,7 +234,8 @@ module.exports = function(grunt) {
         },
         clean: {
             build: ['<%= dirs.build.root %>'],
-            dest: ['<%= dirs.dest.root %>']
+            dest: ['<%= dirs.dest.root %>'],
+            tmp: ['<%= dirs.root %>/tmp']
         }
     });
     /**
@@ -234,8 +251,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-text-replace');
     grunt.loadNpmTasks('grunt-string-replace');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-html2js');
+    grunt.loadTasks("tasks");
 
     grunt.registerTask('dev', ['clean', 'compass', 'cssmin:build', 'imagemin', 'concat:build', 'copy:build']);
-    grunt.registerTask('dest', ['dev', 'uglify:dest', 'cssmin:dest', 'copy:dest']);
+    grunt.registerTask('dest', ['dev', 'html2js', 'uglify:dest', 'concattpls:release', 'cssmin:dest', 'copy:dest']);
     grunt.registerTask('default', ['dest']);
 }

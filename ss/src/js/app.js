@@ -27,6 +27,10 @@ ssApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $
                 //template: '这里是第一列的内容',
                 //controller: 'Controller',
                 templateUrl: '/tpls/index.tpl.html',
+                // template: function($templateCache) {
+                //     console.log('test 2');
+                //     return $templateCache.get('templates/template1.html'); // returns undefined
+                // },
                 controller: 'indexCtrl'
             },
             // 'nav@index': {
